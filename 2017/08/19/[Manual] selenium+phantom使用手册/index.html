@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Handbook] 使用说明 - 燕燕于飞 | 差池其羽
+          [Manual] selenium+phantom使用手册 - 燕燕于飞 | 差池其羽
         
     </title>
 
-    <link rel="canonical" href="http://liangzhenghua.github.io/2017/08/09/handbook/">
+    <link rel="canonical" href="http://liangzhenghua.github.io/2017/08/19/[Manual] selenium+phantom使用手册/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/music1.jpg')
+            background-image: url('/img/python.jpg')
             /*post*/
         
     }
@@ -86,16 +86,18 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
                             
-                              <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                              <a class="tag" href="/tags/#python" title="python">python</a>
+                            
+                              <a class="tag" href="/tags/#selenium" title="selenium">selenium</a>
                             
                         </div>
-                        <h1>[Handbook] 使用说明</h1>
-                        <h2 class="subheading">这是一篇关于博客网站的使用说明，密码为2013050388</h2>
+                        <h1>[Manual] selenium+phantom使用手册</h1>
+                        <h2 class="subheading">这是一篇关于selenium和phantom在爬虫中的基础性文档</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-09
+                            2017-08-19
                         </span>
                     </div>
                 
@@ -219,45 +221,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>折腾博客的UI设计是一种无穷无尽而又乐此不疲的折磨，你需要了解一点前端的东西比如CSS，html，JavaScript等等，这些都可以直接学会。但对于美这个东西，每个人看法不一样，也没有标准答案，我只能选择一种形式固定下来不再折腾，更多的应该关注内容的生产。</p>
-<p>像其他搞前端的程序猿，把博客弄成花里花俏的二次元空间，真的是辣眼睛。</p>
-<p>既然这是一篇严肃的博客的使用说明，那么我们应该步入正题。</p>
-<h1 id="md文件"><a href="#md文件" class="headerlink" title="md文件"></a>md文件</h1><p>_posts文件夹里面的每份md文件都可以渲染生成一篇文章，所以每次往_posts文件夹丢一个md文件就可以了，不必在git bash上新建md文件。</p>
-<h2 id="yaml表头"><a href="#yaml表头" class="headerlink" title="yaml表头"></a>yaml表头</h2><p>常用的yaml表头如下，它生成和控制了文章的特征信息。</p>
-<blockquote>
-<p>layout: post<br>title: [Handbook] 使用说明<br>subtitle: “这是一篇关于博客网站的使用说明，密码为2013050388”<br>date: 2017-08-09<br>header-img: “/img/music1.jpg”<br>catalog: true<br>categories: blog<br>tags:</p>
-<ul>
-<li>Hexo</li>
-<li>Blog<br>donate: true<br>password: 123456</li>
-</ul>
-</blockquote>
-<p>注意冒号后面必须留有空格，<code>header-img</code>控制了文章使用哪一张图片封面，<code>donate</code>控制了文末是否出现打赏图标，<code>password</code>控制文章是否需要访问权限 ，默认为false文章可以公开 。<code>catalog</code>设为false文章侧边栏不会出现目录区域。</p>
-<h2 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h2><p>markdown是可以混杂html标记语言和markdown语法的，目前我在markdown文件里面混杂html只用于插入音乐和视频。markdown使用指南推荐使用<a href="http://blog.leanote.com/post/freewalk/Markdown-%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C#fn:1" target="_blank" rel="external">Markdown-语法手册</a>。还有一份<a href="http://einverne.github.io/markdown-style-guide/zh.html" target="_blank" rel="external">Markdown 书写风格指南</a><br>如果想插入音乐和视频链接，可以参考这一篇<a href="http://chant00.com/2017/06/06/%E5%9C%A8hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%EF%BC%8C%E9%9F%B3%E4%B9%90%EF%BC%8C%E8%A7%86%E5%B1%8F%EF%BC%8C%E5%85%AC%E5%BC%8F/" target="_blank" rel="external">在hexo博客中插入图片，音乐，视频，公式</a></p>
-<h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><blockquote>
-<p>hexo g</p>
-</blockquote>
-<p>hexo generate的缩写，渲染所有文件，生成所需要的网页文件</p>
-<blockquote>
-<p>hexo s</p>
-</blockquote>
-<p>hexo server的缩写，部署到本机上，可以通过本机浏览器预览</p>
-<blockquote>
-<p>hexo d</p>
-</blockquote>
-<p>hexo deploy的缩写，部署到github上，正式发布</p>
-<h1 id="config文件配置"><a href="#config文件配置" class="headerlink" title="_config文件配置"></a>_config文件配置</h1><p>根目录下的_config文件是整个博客网站的配置文件，至关重要。还没探明的字段如下：</p>
-<blockquote>
-<p>description:<br>keyword:<br>anchorjs:<br>archive_type:<br>show_count:<br>skip_render:<br>titlecase: </p>
-</blockquote>
-<h1 id="七牛"><a href="#七牛" class="headerlink" title="七牛"></a>七牛</h1><p>考虑到图片和视频的大小，以后维护起来会很麻烦，提倡（必须的意思）文章内部使用外链，文件可以储存到七牛上。七牛是看到有几个人推荐的云存储服务，目前还比较怀疑。</p>
-<h1 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h1><p>博客评论采用国外的disqus，如果你在中国大陆，可能连评论框都加载不出来。为什么不用国内的网易云跟帖之类的呢，大概是我们应该提倡科学上网。介绍大家使用赛风软件( <a href="https://psiphon.ca/zh/download.html" target="_blank" rel="external">https://psiphon.ca/zh/download.html</a> )，我很满足墙内的世界，对年轻人中流行的VPN和翻墙软件（比如蓝灯）知之甚少，如果你有好的翻墙软件，请不要吝啬在评论区留下你的精华帖。</p>
-<h1 id="BUG"><a href="#BUG" class="headerlink" title="BUG"></a>BUG</h1><p><strong>在网页外链之后另起一行画分割线会出现链接变成标题:</strong></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[猛击此处]</span>(<span class="attribute">https</span>:<span class="comment">//baidu.com/)</span></div><div class="line">-----</div></pre></td></tr></table></figure>
-<p>效果如下：</p>
-<h2 id="猛击此处"><a href="#猛击此处" class="headerlink" title="猛击此处"></a><a href="https://baidu.com/" target="_blank" rel="external">猛击此处</a></h2><p>解决办法是空多一行。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="string">猛击此处</span>](<span class="link">https://baidu.com/</span>)</div><div class="line"></div><div class="line"></div><div class="line">-----</div></pre></td></tr></table></figure></p>
-<p><strong>bash窗口显示<code>hexo command not found</code></strong></p>
-<p>因为修改了系统的path环境变量，找不到hexo的路径。可以重新添加<code>C:\Users\Administrator\AppData\Roaming\npm\node_modules\hexo\bin</code>到环境变量path中，为了保险一点，建议在系统变量中的path中添加。然后需要关闭Git Bash窗口，重新打开即可。记住，一定要关闭，并重新打开命令窗口，否则配置不会生效。</p>
-<h2 id="【To-be-continued】"><a href="#【To-be-continued】" class="headerlink" title="【To be continued】"></a><strong>【To be continued】</strong></h2>
+                <p>在阅读本文之前，你可能对以下资源贴有兴趣：<br><a href="http://selenium-python.readthedocs.io/index.html" target="_blank" rel="external">Selenium with Python官方文档</a><br><a href="http://cuiqingcai.com/2599.html" target="_blank" rel="external">Python爬虫利器五之Selenium的用法</a><br><a href="http://blog.csdn.net/nhudx061/article/details/43305599" target="_blank" rel="external">用python玩转selenium</a><br><a href="http://www.imooc.com/article/17119?block_id=tuijian_wz" target="_blank" rel="external">selenium和phantomjs爬取动态网页</a></p>
+<hr>
+
 
 
                 <hr>
@@ -265,12 +231,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/08/10/2017年08月10日/" data-toggle="tooltip" data-placement="top" title="2017年08月10日">&larr; Previous Post</a>
+                            <a href="/2017/08/19/[Manual] python调用R之rpy2使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python调用R之rpy2使用手册">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/07/29/2017年07月29日/" data-toggle="tooltip" data-placement="top" title="2017年07月29日">Next Post &rarr;</a>
+                            <a href="/2017/08/17/[爬虫] python3分析《战狼2》豆瓣影评/" data-toggle="tooltip" data-placement="top" title="[爬虫] python3分析《战狼2》豆瓣影评">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -300,7 +266,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#md文件"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">md文件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#yaml表头"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">yaml表头</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#markdown语法"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">markdown语法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#hexo常用命令"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">hexo常用命令</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#config文件配置"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">_config文件配置</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#七牛"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">七牛</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#评论"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">评论</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#BUG"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">BUG</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#猛击此处"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">猛击此处</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#【To-be-continued】"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">【To be continued】</span></a></li></ol></li></ol>
+          <ol class="nav">none</ol>
         
         </div>
       </aside>
@@ -320,9 +286,11 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                          <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
                         
-                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                          <a class="tag" href="/tags/#python" title="python">python</a>
+                        
+                          <a class="tag" href="/tags/#selenium" title="selenium">selenium</a>
                         
                     </div>
                 </section>
@@ -382,16 +350,6 @@
     
 <!-- 控制文章是否需要密码 2017-08-07-->
 
-<script>
-var password = '2013050388';
-	(function(){
-			if (prompt('传送门需要原力才能开启，may the force be with you！','') !== password){
-				alert('不好意思！你可能用的是假原力');
-				history.back();
-			}
-	})();
-</script>
-
 </article>
 
 
@@ -401,8 +359,8 @@ var password = '2013050388';
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "http://liangzhenghua.github.io/2017/08/09/handbook/";
-    var disqus_url = "http://liangzhenghua.github.io/2017/08/09/handbook/";
+    var disqus_identifier = "http://liangzhenghua.github.io/2017/08/19/[Manual] selenium+phantom使用手册/";
+    var disqus_url = "http://liangzhenghua.github.io/2017/08/19/[Manual] selenium+phantom使用手册/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

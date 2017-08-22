@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Handbook] 使用说明 - 燕燕于飞 | 差池其羽
+          [Manual] python调用R之rpy2使用手册 - 燕燕于飞 | 差池其羽
         
     </title>
 
-    <link rel="canonical" href="http://liangzhenghua.github.io/2017/08/09/handbook/">
+    <link rel="canonical" href="http://liangzhenghua.github.io/2017/08/19/[Manual] python调用R之rpy2使用手册/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/music1.jpg')
+            background-image: url('/img/python.jpg')
             /*post*/
         
     }
@@ -86,16 +86,18 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                              <a class="tag" href="/tags/#python" title="python">python</a>
                             
-                              <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                              <a class="tag" href="/tags/#R" title="R">R</a>
+                            
+                              <a class="tag" href="/tags/#rpy2" title="rpy2">rpy2</a>
                             
                         </div>
-                        <h1>[Handbook] 使用说明</h1>
-                        <h2 class="subheading">这是一篇关于博客网站的使用说明，密码为2013050388</h2>
+                        <h1>[Manual] python调用R之rpy2使用手册</h1>
+                        <h2 class="subheading">这是一篇关于python3调用R的若干问题</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-09
+                            2017-08-19
                         </span>
                     </div>
                 
@@ -219,45 +221,49 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>折腾博客的UI设计是一种无穷无尽而又乐此不疲的折磨，你需要了解一点前端的东西比如CSS，html，JavaScript等等，这些都可以直接学会。但对于美这个东西，每个人看法不一样，也没有标准答案，我只能选择一种形式固定下来不再折腾，更多的应该关注内容的生产。</p>
-<p>像其他搞前端的程序猿，把博客弄成花里花俏的二次元空间，真的是辣眼睛。</p>
-<p>既然这是一篇严肃的博客的使用说明，那么我们应该步入正题。</p>
-<h1 id="md文件"><a href="#md文件" class="headerlink" title="md文件"></a>md文件</h1><p>_posts文件夹里面的每份md文件都可以渲染生成一篇文章，所以每次往_posts文件夹丢一个md文件就可以了，不必在git bash上新建md文件。</p>
-<h2 id="yaml表头"><a href="#yaml表头" class="headerlink" title="yaml表头"></a>yaml表头</h2><p>常用的yaml表头如下，它生成和控制了文章的特征信息。</p>
+                <p>如果你是第一次阅读这篇文章，以下扫盲贴可能是你感兴趣的：</p>
+<p><a href="https://old.jacky-sj.com/blog/2014/07/09/rpy2/" target="_blank" rel="external">R与Python的协作：rpy2简介</a><br><a href="http://yulongniu.bionutshell.org/blog/2012/08/21/python-r-rpy2/" target="_blank" rel="external">Python中使用rpy2模块调用R</a><br><a href="http://datartisan.com/article/detail/56.html" target="_blank" rel="external">在数据分析流程中整合Python和R（一）</a><br><a href="http://datartisan.com/article/detail/58.html" target="_blank" rel="external">在数据分析流程中整合 Python 和 R（二）</a><br><a href="http://rpy2.readthedocs.io/en/version_2.8.x/index.html" target="_blank" rel="external">rpy2官方文档</a></p>
+<hr>
+<p>为什么要用python调用R，而不选择R调用python呢？一是我可能会需要和别的系统、接口做I/O操作，python显然比R更有优势；二是window系统下不兼容R调用python的<code>rpython</code>包，也有解决办法但没那么简洁好用。</p>
+<h2 id="pycharm中安装rpy2"><a href="#pycharm中安装rpy2" class="headerlink" title="pycharm中安装rpy2"></a>pycharm中安装rpy2</h2><p>我用的pycharm是PyCharm Community Edition 2017.1.5，利用File-&gt;Settings-&gt;Project Interpreter安装ry2包（这是一种类似RStudio的安装package方式）的时候一直提示：</p>
 <blockquote>
-<p>layout: post<br>title: [Handbook] 使用说明<br>subtitle: “这是一篇关于博客网站的使用说明，密码为2013050388”<br>date: 2017-08-09<br>header-img: “/img/music1.jpg”<br>catalog: true<br>categories: blog<br>tags:</p>
-<ul>
-<li>Hexo</li>
-<li>Blog<br>donate: true<br>password: 123456</li>
-</ul>
+<p>Error: Tried to guess R’s HOME but no command ‘R’ in the PATH.</p>
 </blockquote>
-<p>注意冒号后面必须留有空格，<code>header-img</code>控制了文章使用哪一张图片封面，<code>donate</code>控制了文末是否出现打赏图标，<code>password</code>控制文章是否需要访问权限 ，默认为false文章可以公开 。<code>catalog</code>设为false文章侧边栏不会出现目录区域。</p>
-<h2 id="markdown语法"><a href="#markdown语法" class="headerlink" title="markdown语法"></a>markdown语法</h2><p>markdown是可以混杂html标记语言和markdown语法的，目前我在markdown文件里面混杂html只用于插入音乐和视频。markdown使用指南推荐使用<a href="http://blog.leanote.com/post/freewalk/Markdown-%E8%AF%AD%E6%B3%95%E6%89%8B%E5%86%8C#fn:1" target="_blank" rel="external">Markdown-语法手册</a>。还有一份<a href="http://einverne.github.io/markdown-style-guide/zh.html" target="_blank" rel="external">Markdown 书写风格指南</a><br>如果想插入音乐和视频链接，可以参考这一篇<a href="http://chant00.com/2017/06/06/%E5%9C%A8hexo%E5%8D%9A%E5%AE%A2%E4%B8%AD%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%EF%BC%8C%E9%9F%B3%E4%B9%90%EF%BC%8C%E8%A7%86%E5%B1%8F%EF%BC%8C%E5%85%AC%E5%BC%8F/" target="_blank" rel="external">在hexo博客中插入图片，音乐，视频，公式</a></p>
-<h2 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h2><blockquote>
-<p>hexo g</p>
-</blockquote>
-<p>hexo generate的缩写，渲染所有文件，生成所需要的网页文件</p>
+<p>在环境变量里面添加R的安装文件夹bin，在cmd窗口输入R，是可以得到Rterm窗口的。重新打开pycharm，重新安装仍然报错。后来发现这个包可以通过<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/" target="_blank" rel="external">非官方途径</a>安装，下载一个对应的<code>whl</code>文件，在cmd输入<code>pip install &quot;D:\R-3.2.1\rpy2-2.8.6-cp36-cp36m-win_amd64.whl&quot;</code>（请不要直接复制我的路径），可以顺利安装rpy2包。<strong><em> 注意：一定要记住你的包安装的site-packages路径，直到测试rpy2可以正常使用 </em></strong></p>
+<p>装好之后在pycharm控制台运行测试，它又报错（环境变量你站出来背锅）：</p>
 <blockquote>
-<p>hexo s</p>
+<p>import rpy2.robjects as robjects<br><code>RuntimeError: R_USER not defined.</code></p>
 </blockquote>
-<p>hexo server的缩写，部署到本机上，可以通过本机浏览器预览</p>
-<blockquote>
-<p>hexo d</p>
+<p>这个问题在<a href="https://stackoverflow.com/questions/12698877/how-to-setup-environment-variable-r-user-to-use-rpy2-in-python" target="_blank" rel="external">Stack Overflow</a>已经被解决，需要在系统环境变量中添加R的主目录路径，另外需要设置R_HOME和R_USER的新建环境变量。总的安装步骤可以总结为：</p>
+<p><strong> 下载whl文件，利用wlh文件安装rpy2 </strong><br><strong> 设置系统环境变量path和新建环境变量R_HOME和R_USER </strong></p>
+<h2 id="python中调用R"><a href="#python中调用R" class="headerlink" title="python中调用R"></a>python中调用R</h2><p>有两种思路，一是把需要用到的R语句全部封装到一份或者几份R脚本，利用<code>source(xxx.R)</code>的办法执行R语句。二是把R语句用<code>robjects.xxx</code>逐句逐句包裹好放入python语句中，前者需要把数据从内存导出转换为R语言可以识别的格式，再利用封装的通过测试的R脚本完成剩下的数据分析任务，速度上比较慢，后续分析中出了问题也不容易控制；后者时刻都在python监控之下容错性好，但是代码更加晦涩不容易写。从稳定可控角度考虑，还是应该选择后者，除非数据分析任务十分简单，不易出错。为了更容易使用rpy2，决定封装常用的R函数，使得书写方式更接近R语言语法格式。</p>
+<h3 id="rpy2简介"><a href="#rpy2简介" class="headerlink" title="rpy2简介"></a>rpy2简介</h3><p>你可以用以下方式查看rpy2的版本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> rpy2</div><div class="line">print(rpy2.__version__)</div></pre></td></tr></table></figure>
+<h3 id="R包导入"><a href="#R包导入" class="headerlink" title="R包导入"></a>R包导入</h3><p>导入R包通常是编写R代码的第一部分，rpy2提供了<code>rpy2.robjects.packages.importr()</code>导入R包。</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> rpy2.robjects.packages <span class="keyword">import</span> importr</div><div class="line"><span class="comment"># import R's "base" package</span></div><div class="line">base = importr(<span class="string">'base'</span>)</div><div class="line"></div><div class="line"><span class="comment"># import R's "utils" package</span></div><div class="line">utils = importr(<span class="string">'utils'</span>)</div></pre></td></tr></table></figure>
+<h3 id="单行R代码"><a href="#单行R代码" class="headerlink" title="单行R代码"></a>单行R代码</h3><blockquote>
+<p><code>from rpy2.robjects import r</code>  </p>
 </blockquote>
-<p>hexo deploy的缩写，部署到github上，正式发布</p>
-<h1 id="config文件配置"><a href="#config文件配置" class="headerlink" title="_config文件配置"></a>_config文件配置</h1><p>根目录下的_config文件是整个博客网站的配置文件，至关重要。还没探明的字段如下：</p>
-<blockquote>
-<p>description:<br>keyword:<br>anchorjs:<br>archive_type:<br>show_count:<br>skip_render:<br>titlecase: </p>
-</blockquote>
-<h1 id="七牛"><a href="#七牛" class="headerlink" title="七牛"></a>七牛</h1><p>考虑到图片和视频的大小，以后维护起来会很麻烦，提倡（必须的意思）文章内部使用外链，文件可以储存到七牛上。七牛是看到有几个人推荐的云存储服务，目前还比较怀疑。</p>
-<h1 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h1><p>博客评论采用国外的disqus，如果你在中国大陆，可能连评论框都加载不出来。为什么不用国内的网易云跟帖之类的呢，大概是我们应该提倡科学上网。介绍大家使用赛风软件( <a href="https://psiphon.ca/zh/download.html" target="_blank" rel="external">https://psiphon.ca/zh/download.html</a> )，我很满足墙内的世界，对年轻人中流行的VPN和翻墙软件（比如蓝灯）知之甚少，如果你有好的翻墙软件，请不要吝啬在评论区留下你的精华帖。</p>
-<h1 id="BUG"><a href="#BUG" class="headerlink" title="BUG"></a>BUG</h1><p><strong>在网页外链之后另起一行画分割线会出现链接变成标题:</strong></p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-attr">[猛击此处]</span>(<span class="attribute">https</span>:<span class="comment">//baidu.com/)</span></div><div class="line">-----</div></pre></td></tr></table></figure>
-<p>效果如下：</p>
-<h2 id="猛击此处"><a href="#猛击此处" class="headerlink" title="猛击此处"></a><a href="https://baidu.com/" target="_blank" rel="external">猛击此处</a></h2><p>解决办法是空多一行。<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[<span class="string">猛击此处</span>](<span class="link">https://baidu.com/</span>)</div><div class="line"></div><div class="line"></div><div class="line">-----</div></pre></td></tr></table></figure></p>
-<p><strong>bash窗口显示<code>hexo command not found</code></strong></p>
-<p>因为修改了系统的path环境变量，找不到hexo的路径。可以重新添加<code>C:\Users\Administrator\AppData\Roaming\npm\node_modules\hexo\bin</code>到环境变量path中，为了保险一点，建议在系统变量中的path中添加。然后需要关闭Git Bash窗口，重新打开即可。记住，一定要关闭，并重新打开命令窗口，否则配置不会生效。</p>
-<h2 id="【To-be-continued】"><a href="#【To-be-continued】" class="headerlink" title="【To be continued】"></a><strong>【To be continued】</strong></h2>
+<p>在上述命令下，有三种方式可以选择：</p>
+<ol>
+<li><p>使用<code>r.obj</code>，比如 <code>r.c(1, 3)</code>。<br>这种方法虽然方便，但是对于名称中有“点号”的函数会出问题，比如 <code>data.frame</code>或者 <code>read.csv</code>等。</p>
+</li>
+<li><p>使用<code>r[&#39;obj&#39;]</code>，比如 <code>r[&#39;c&#39;](1, 3)</code>。<br>这种方法几乎可以调用任何R的函数，而且写法与原始调用很相似，无非是<code>r[&#39;func&#39;](value1, para2 = value2)</code>。<br>如果一个R函数中的变量名是有“点号”的，不能直接赋值，需要构建一个字典形式，比如 <code>r[&#39;func&#39;](value1, para2 = value, **{para.3: value3})</code>。</p>
+</li>
+<li><p><strong>使用<code>r(&#39;obj&#39;)</code>，比如<code>r(&#39;c(1, 3)&#39;)</code></strong>。<br>这种方法从某种程度上讲是万能的，因为总是可以将任意长度的R代码写成一个Python字符串，之后通过<code>r(&#39;Rcode&#39;)</code>调用执行。由于对R语言的有一定掌握，我认为这一种表达方式更适合已有的R风格。</p>
+</li>
+</ol>
+<h3 id="多行R代码"><a href="#多行R代码" class="headerlink" title="多行R代码"></a>多行R代码</h3><p>更多时候我们需要执行一整段复杂R代码，将每一行R代码嵌入python脚本中非常麻烦，我们往往只需要R中最后的一小部分结果。可以利用python中的<code>&#39;&#39;&#39;</code>封装R语句脚本，传入robjects.r( )函数中。</p>
+<h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">robjects.r(<span class="string">'''</span></div><div class="line"><span class="string">        # create a function `f`</span></div><div class="line"><span class="string">        f &lt;- function(r, verbose=FALSE) &#123;</span></div><div class="line"><span class="string">            if (verbose) &#123;</span></div><div class="line"><span class="string">                cat("I am calling f().\n")</span></div><div class="line"><span class="string">            &#125;</span></div><div class="line"><span class="string">            2 * pi * r</span></div><div class="line"><span class="string">        &#125;</span></div><div class="line"><span class="string">        # call the function `f` with argument value 3</span></div><div class="line"><span class="string">        f(3)</span></div><div class="line"><span class="string">        '''</span>)</div></pre></td></tr></table></figure>
+<h3 id="在rpy2中创建R向量"><a href="#在rpy2中创建R向量" class="headerlink" title="在rpy2中创建R向量"></a>在rpy2中创建R向量</h3><p>创建向量，可以使用<code>rpy2.robjects.vectors</code>中提供的一系列函数，将一个Python的元组、列表或者字符串转换为R的向量。其中包括 <code>StrVector()</code>、<code>IntVector()</code>、<code>FloatVector()</code>、<code>FactorVector()</code>和<code>BoolVector()</code>，分别提供了转换字符、整数、浮点、因子和布尔向量。</p>
+<p>创建列表，可以使用<code>ListVector()</code>将Python的字典转换为R的列表。</p>
+<p>创建矩阵和数据框（<code>data.frame</code>）建议直接使用R函数<code>matrix()</code>和<code>data.frame()</code>。尽管如此，rpy2提供了<code>DataFram()</code>将Python的字典转换成R的数据框（列顺序可能与输入不一致，Python字典特性造成），注意会把字符串自动转换成因子。</p>
+<p>以上这些构建的R对象，有一系列的属性和方法，比如names，可以访问和赋值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">res = robjects.StrVector([<span class="string">'abc'</span>, <span class="string">'def'</span>])</div><div class="line">print(res.r_repr())</div><div class="line"></div><div class="line">res = robjects.IntVector([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</div><div class="line">print(res.r_repr())</div><div class="line"></div><div class="line">res = robjects.FloatVector([<span class="number">1.1</span>, <span class="number">2.2</span>, <span class="number">3.3</span>])</div><div class="line">print(res.r_repr())</div></pre></td></tr></table></figure>
+<p>R中的矩阵只是含有维度属性的向量（vectors），可以用以下方式生成：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">robjects.r(<span class="string">'v=c(1.1, 2.2, 3.3, 4.4, 5.5, 6.6)'</span>) <span class="comment">#在R空间中生成向量v</span></div><div class="line">m = robjects.r(<span class="string">'matrix(v, nrow = 2)'</span>) <span class="comment">#在R空间中生成matrix，并返回给python中的对象m</span></div><div class="line">print(m)</div></pre></td></tr></table></figure>
+<h3 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+
 
 
                 <hr>
@@ -265,12 +271,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/08/10/2017年08月10日/" data-toggle="tooltip" data-placement="top" title="2017年08月10日">&larr; Previous Post</a>
+                            <a href="/2017/08/19/[Manual] R语言wordcloud2包使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] R语言wordcloud2包使用手册">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/07/29/2017年07月29日/" data-toggle="tooltip" data-placement="top" title="2017年07月29日">Next Post &rarr;</a>
+                            <a href="/2017/08/19/[Manual] selenium+phantom使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] selenium+phantom使用手册">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -300,7 +306,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#md文件"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">md文件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#yaml表头"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">yaml表头</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#markdown语法"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">markdown语法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#hexo常用命令"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">hexo常用命令</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#config文件配置"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">_config文件配置</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#七牛"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">七牛</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#评论"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">评论</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#BUG"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">BUG</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#猛击此处"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">猛击此处</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#【To-be-continued】"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">【To be continued】</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#pycharm中安装rpy2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">pycharm中安装rpy2</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#python中调用R"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">python中调用R</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rpy2简介"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">rpy2简介</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#R包导入"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">R包导入</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Example"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">Example</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#单行R代码"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">单行R代码</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#多行R代码"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">多行R代码</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Example-1"><span class="toc-nav-number">2.4.1.</span> <span class="toc-nav-text">Example</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#在rpy2中创建R向量"><span class="toc-nav-number">2.5.</span> <span class="toc-nav-text">在rpy2中创建R向量</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#绘图"><span class="toc-nav-number">2.6.</span> <span class="toc-nav-text">绘图</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -320,9 +326,11 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#Hexo" title="Hexo">Hexo</a>
+                          <a class="tag" href="/tags/#python" title="python">python</a>
                         
-                          <a class="tag" href="/tags/#Blog" title="Blog">Blog</a>
+                          <a class="tag" href="/tags/#R" title="R">R</a>
+                        
+                          <a class="tag" href="/tags/#rpy2" title="rpy2">rpy2</a>
                         
                     </div>
                 </section>
@@ -382,16 +390,6 @@
     
 <!-- 控制文章是否需要密码 2017-08-07-->
 
-<script>
-var password = '2013050388';
-	(function(){
-			if (prompt('传送门需要原力才能开启，may the force be with you！','') !== password){
-				alert('不好意思！你可能用的是假原力');
-				history.back();
-			}
-	})();
-</script>
-
 </article>
 
 
@@ -401,8 +399,8 @@ var password = '2013050388';
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "http://liangzhenghua.github.io/2017/08/09/handbook/";
-    var disqus_url = "http://liangzhenghua.github.io/2017/08/09/handbook/";
+    var disqus_identifier = "http://liangzhenghua.github.io/2017/08/19/[Manual] python调用R之rpy2使用手册/";
+    var disqus_url = "http://liangzhenghua.github.io/2017/08/19/[Manual] python调用R之rpy2使用手册/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
