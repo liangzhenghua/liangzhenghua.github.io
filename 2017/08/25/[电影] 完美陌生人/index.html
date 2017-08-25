@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [爬虫] 审查元素技巧 - 燕燕于飞 | 差池其羽
+          [电影] 完美陌生人 - 燕燕于飞 | 差池其羽
         
     </title>
 
-    <link rel="canonical" href="http://liangzhenghua.github.io/2017/08/14/[爬虫] 审查元素技巧/">
+    <link rel="canonical" href="http://liangzhenghua.github.io/2017/08/25/[电影] 完美陌生人/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/music1.jpg')
+            background-image: url('/img/movie.jpg')
             /*post*/
         
     }
@@ -86,16 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
-                            
-                              <a class="tag" href="/tags/#审查元素" title="审查元素">审查元素</a>
+                              <a class="tag" href="/tags/#电影" title="电影">电影</a>
                             
                         </div>
-                        <h1>[爬虫] 审查元素技巧</h1>
-                        <h2 class="subheading">这是一篇关于爬虫的基础知识</h2>
+                        <h1>[电影] 完美陌生人</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-14
+                            2017-08-25
                         </span>
                     </div>
                 
@@ -219,13 +217,18 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>审查元素是前端里面经常使用的工具，观察、调试、修改网页布局、文字和视频等等都可以在审查元素里面找到，了解一些审查元素的知识对高级一点的动态网页和视频网站相关的爬虫很有帮助。知乎上有个扫盲贴<a href="https://www.zhihu.com/question/34682699" target="_blank" rel="external">《Chrome 的审查元素功能有哪些奇技淫巧？》</a>。</p>
-<p>用google浏览器Chrome浏览网页的时候，右键－&gt;审查元素，如果你想知道入门的教程，请看这篇文章<a href="https://vxhly.github.io/2016/08/05/debug-for-chrome-browser/" target="_blank" rel="external">《关于 Chrome 浏览器的调试方法》</a> </p>
-<p>利用审查元素的功能，最简单的应用就是修改本地的网页做成“钓鱼网页”，下面总结一下审查元素的应用。</p>
-<h2 id="音悦台视频下载"><a href="#音悦台视频下载" class="headerlink" title="音悦台视频下载"></a>音悦台视频下载</h2><p>我们平常看到的网页就是各种标签部件和文字、超链接、媒体文件糅合在一起的界面，视频嵌在网页里面通常是以video标签形式存在的，它必然是存储在网络上某一台主机上。所以我们可以找出这个视频的URL地址，发送请求，使得可以访问（下载）这个视频。音悦台的MV很多，而且是属于比较简单提取视频地址的网站了。正常情况下，音悦台的视频是不能下载的，我们不能在播放界面另存这个视频，它的界面是这样的：<br><img src="http://orobrju86.bkt.clouddn.com/2017-08-17/yinyuetai.PNG" alt=""><br>当我们在播放MV之后打开审查元素-&gt;Network，你可以按条件选择All，按Type或者Size排列，目的是识别出我们想要的视频文件（MP4或者flv格式等等）<br><img src="http://orobrju86.bkt.clouddn.com/2017-08-17/network1.PNG" alt=""><br>在找到视频文件之后，我们需要分析网页发送什么请求到什么地方，才会从其他地方运送视频文件到本地电脑的内存中，这些信息可以在Headers里面查找，字段有些多，但我们直接使用Request URL，在新的浏览器标签页复制粘贴这个URL，就可以直接打开一个视频文件，还可以提供下载。<br><img src="http://orobrju86.bkt.clouddn.com/2017-08-17/network2.PNG" alt=""> <img src="http://orobrju86.bkt.clouddn.com/2017-08-17/network3.PNG" alt=""><br>仔细分析这个URL网址，可以发现删去<em><code>.flv</code></em>后面的部分也没有影响，所以我们可以直接访问<a href="http://221.228.226.10/12/w/d/a/g/wdagwvjlugriytniplojxjwacfqweo/hc.yinyuetai.com/6CB7012B907E85F98235AD242B537BC2.flv" target="_blank" rel="external">这里</a><br>有趣的是，我修改了<code>6CB7012B907E85F98235AD242B537BC2.flv</code>的文件名，访问仍然是正常的，起初我以为文件名是按十六进制命名的，然而修改或者删除文件名里面的内容，只要文件还是flv格式一切都很正常，以后有时间可以研究音悦台的文件命名方式。</p>
-<h2 id="新浪微博音乐下载"><a href="#新浪微博音乐下载" class="headerlink" title="新浪微博音乐下载"></a>新浪微博音乐下载</h2><p>现在各家音乐播放器的版权之争很激烈，我还是喜欢网易云音乐多一点，然而由于版权的原因很多时候网易云音乐也不能让人满意。新浪微博的左下方的音乐插件的版权资源还是很丰富的，很遗憾新浪微博的音乐文件是不能直接下载的。我们需要一点技巧。<br><img src="http://orobrju86.bkt.clouddn.com/2017-08-17/network4.PNG" alt=""><br>点击播放目标音频文件之后，在Network里面点击Media选项卡，找到当前网页下的媒体文件，看到文件的后缀名带有<code>.MP3</code>就知道这是我们要找的东西。<br><img src="http://orobrju86.bkt.clouddn.com/2017-08-17/network5.PNG" alt=""><br>我们点击这个media文件观察Request URL：<a href="http://musician.sina.com.cn/wpp_128/100077687.mp3?ssig=JWuw1Q1Lam&amp;ip=1502904887,180.149.135.16&amp;Expires=1502906087&amp;KID=sae,yjy5kojz0j&amp;format=.mp3" target="_blank" rel="external">这里</a>，在浏览器复制粘贴这个地址之后，它会重新指向一个新的地址，<a href="http://musician.sina.com.cn/wpp_128/100077687.mp3" target="_blank" rel="external">http://musician.sina.com.cn/wpp_128/100077687.mp3</a>，文件名不变。<br>通过这种办法，我们就可以下载这一首《我在人民广场吃炸鸡了》。</p>
-<p>缺点：音频文件没有歌名，没有歌词。这大概是反爬虫的一种策略吧，把文件名去掉让别人不能完美盗取文件资源，但只要敢想，就没什么是做不了的。:)</p>
-<p>备注： 上面的重定向链接已经失效，似乎音乐链接地址中的<code>ssig=JWuw1Q1Lam</code>部分会发生动态变化而失效，歌曲来自不同版权播放器的Request URL域名也不同，比如对朴树的《生如夏花》重复Network下的操作得到的<a href="http://freetyst.vip.migu.cn/public/ringmaker01/10%E6%9C%8831%E6%97%A5%E4%B8%AD%E6%96%87%E5%BB%B6%E6%9C%9F/%E6%96%87%E4%BB%B6/%E5%85%A8%E5%A5%97%E6%A0%BC%E5%BC%8F/9000%E9%A6%96/%E5%85%A8%E6%9B%B2%E8%AF%95%E5%90%AC/Mp3_64_22_16/%E7%94%9F%E5%A6%82%E5%A4%8F%E8%8A%B1-%E6%9C%B4%E6%A0%91.mp3?channelid=08&amp;msisdn=5d126e0f-1f96-4030-8634-f5e506fda35f" target="_blank" rel="external">[链接]</a>仍然可以用，新浪微博很可能是集中调用各家播放器音乐库的API，有些播放器可能比较欠抽，API返回的链接常常飘忽不定，故意让人找不到踪迹。</p>
+                <p>前天把豆瓣上【完美陌生人】的评论用爬虫爬下来，一共3000+条，评论的词云是这个样子的：</p>
+<p><img src="http://orobrju86.bkt.clouddn.com/2017-08-22/perfect.png" alt=""></p>
+<p>然后去看【完美陌生人】，看完之后发现和豆瓣评论不对应，好家伙，原来有两个【完美陌生人】！</p>
+<p>李逵李鬼，傻傻分不清楚，所幸我看的是2016年的高评分电影，没有平白浪费两个小时。</p>
+<p>抓了6万+条评论，正确的评论词云是这个样子的：<br><img src="http://orobrju86.bkt.clouddn.com/2017-08-22/perfect2.png" alt=""></p>
+<p>电影大概是说三对夫妻在月食当晚一起吃饭，然后作死玩真心话大冒险，最后妻离子散家破人亡的悲惨故事。故事属于那种看了开头就可以知道结尾的类型，但有几个地方确实是超乎意料。结尾的平行时空类似彗星来临的那一夜，点明了晚饭上如果不玩游戏各位人物的结局，大家平静地吃饭赏月，挥手道别，一如既往。男主人在电话里对他女儿的那一番教科书式的回答，原来在微博上已经看过了，再代入影片中还是觉得很完美的回答，都说女儿是父亲前世的情人我觉得很对啊。</p>
+<p>电影的情节其实是很荒诞的，且不说成年人之间还玩分享秘密的游戏，三对夫妻一顿饭能那么凑巧收到那么多有分量的、爆炸性的消息，出轨、出轨、出轨、同性恋、隆胸、心理治疗、婆媳关系、性生活全部被摆上台面，晚饭吃的越多，剧情越爆炸。</p>
+<p>这部电影似乎在说，要尊重彼此之间的隐私，人与人之间的关系应该保持适当距离，距离产生美，生活仍然可以继续。</p>
+<p>wtf你们在想些什么? 豆瓣上评论的点很集中还是过于肤浅了吧，全部信息混为一谈。千万别扛着尊重个人隐私的大旗为自己辩护，如果把影片里面的爆炸性信息粗糙分为两类：出轨和非出轨。在影片里面，最有杀伤力的矛盾是在出轨这个点上，同性恋、隆胸这些分享出来大家只是表示震惊，尴尬。而出轨这种既定事实，就算不在月食这一晚暴露，也总有一天会暴露，这才是让人物之间撕逼的点。如果不存在出轨这个事情，那么三对夫妻即便玩分享手机秘密的游戏，也不至于这般结局。</p>
+<p>我想表达的是，非出轨那部分才是隐私，它会令你尴尬但不会给别人带来伤害，因为隆胸和同性恋没有伤害到别人，所以不会有人会针对这事做文章。而出轨属于原则性问题，它是婚姻里面的底线，它会伤害别人，它会伤的很深。我想，我们隐瞒的东西都是不好的，所以不想别人知道。不妨将之分为两类：一个是你原生的恶；一个是你做的恶。原生的恶是天生固有的，是你没有办法改变的，比如身体缺陷、家庭背景、财务状况等等；后来做的恶是人为的，故意的，比如偷情、诋毁陷害等等。比如得了性病不想别人知道，这个身体疾病是原生的恶；如果偷情而得了性病，这里面有两样东西不想被别人知道，偷情和性病，一个是身体缺陷，一个是触犯他人利益。这种思考和表达很粗糙，比如暗恋这种东西是好的还是不好（恶）的，为什么不想别人知道，是人为的还是固有的？</p>
+<p>从影片来说，我认为它把很多东西混淆在一起，包装成隐私，引起观众对于窥探别人手机隐私的恐慌，以及对于保护自己手机的名正言顺。谋杀不属于隐私，而很多东西又等同于谋杀，比如“浪费别人时间等于谋财害命”——鲁迅。</p>
+<p>自己要洁身自好不要惹事，别人惹事了TM先一巴掌扇过去，说什么你瞒我瞒和考验人性、妥协之前请先一码事归一码事。</p>
 
 
 
@@ -233,13 +236,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/08/17/[爬虫] python3分析《战狼2》豆瓣影评/" data-toggle="tooltip" data-placement="top" title="[爬虫] python3分析《战狼2》豆瓣影评">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/08/14/[日常] 2017年08月14日/" data-toggle="tooltip" data-placement="top" title="2017年8月14日">Next Post &rarr;</a>
+                            <a href="/2017/08/22/[R语言] R语言中的科学计算/" data-toggle="tooltip" data-placement="top" title="[R语言] R语言中的科学计算">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -278,9 +277,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
-                        
-                          <a class="tag" href="/tags/#审查元素" title="审查元素">审查元素</a>
+                          <a class="tag" href="/tags/#电影" title="电影">电影</a>
                         
                     </div>
                 </section>
@@ -349,8 +346,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "http://liangzhenghua.github.io/2017/08/14/[爬虫] 审查元素技巧/";
-    var disqus_url = "http://liangzhenghua.github.io/2017/08/14/[爬虫] 审查元素技巧/";
+    var disqus_identifier = "http://liangzhenghua.github.io/2017/08/25/[电影] 完美陌生人/";
+    var disqus_url = "http://liangzhenghua.github.io/2017/08/25/[电影] 完美陌生人/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
