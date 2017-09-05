@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          2017年08月28日 - 燕燕于飞 | 差池其羽
+          [Manual] python3中selenium+phantom使用手册 - 燕燕于飞 | 差池其羽
         
     </title>
 
-    <link rel="canonical" href="http://liangzhenghua.github.io/2017/08/28/[日常] 2017年08月28日/">
+    <link rel="canonical" href="http://liangzhenghua.github.io/2017/08/19/[Manual] python3中selenium+phantom使用手册 - 副本/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/redtulip.jpg')
+            background-image: url('/img/python.jpg')
             /*post*/
         
     }
@@ -86,14 +86,18 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#澳洲" title="澳洲">澳洲</a>
+                              <a class="tag" href="/tags/#selenium" title="selenium">selenium</a>
+                            
+                              <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
+                            
+                              <a class="tag" href="/tags/#python" title="python">python</a>
                             
                         </div>
-                        <h1>2017年08月28日</h1>
-                        <h2 class="subheading">这是一篇跟七夕无关的日常</h2>
+                        <h1>[Manual] python3中selenium+phantom使用手册</h1>
+                        <h2 class="subheading">这是一篇关于selenium和phantom在爬虫中的基础性文档</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-28
+                            2017-08-19
                         </span>
                     </div>
                 
@@ -217,13 +221,34 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>8月26日是最后一天，做了很多重要的事，去邮局寄了明信片，装好行李至恰好三十公斤，开始盛大的湖边派对。生日派对是这边最重要的聚会了，他们可以借这个机会约上所有朋友，来一场集体狂欢。湖边有成群的海鸥，形只影单的黑天鹅，和有着婴儿声线的乌鸦，和湖边的水草完美配合了这一天短暂的黄昏。澳洲这个最大的省份给我留下最深刻的地方，不是它的城市和矿洞，荒漠和大海，而是超市里收银员的“Have a nice day! my love”，动物园里穿着短裤附带抗冻体质的小学生画的素描作业，屋前屋后粉白鲜艳的菊花，教会学校里表演台下一群小学生欢呼的”Aussie! Aussie! Aussie!“，餐台上说起一单抢劫案说到的”beat the shit out of him“神翻译，会给我热情的拥抱但也会做很难吃的夹生饭的老夫妇，和姑丈在大浪滔天的浮桥上撒网捞蟹捞起的一堆海草和窝在车里吃的那只炸鸡，找酒吧的路上看到的月光，集市里唱着轻快明亮青春歌的两姐弟，还有扮鬼扮马的玩具展。</p>
-<p>时间过得很快，当我回到广州，竟然恍惚了一会，适应不过来这边的高高的楼房，拥挤的地铁，闷热的雨后，直到回来吃了晚饭，我的中国胃，灵敏的中国胃，才把我拉回到一座熟悉的城市。</p>
-<p>刚到perth的时候，auntie lechun问我有没有计划去东部，毕竟以后没有这样的假期了，我说不了，一个人去那么远拍个照吃个饭太浪费钱了，auntie说那就不要广度游，来一个深度游。结果一个月我连一个省都没有游完，毕竟这个省太大了。我也知道以后没有这样的假期，也知道四五月份来的时候正是最好的秋天，我只是刚好算着时间不让八月份像别人一样烂在家成为一滩废人，刚好算着时间结束过去的十二个月。做个游客很容易，像当地人一样生活就很有挑战性了。送孩子上下学，去医院，去法院，去电影院看没有字幕的spyder man，看高中生的篮球循环赛还要帮忙计分，每个周末去超市买足一个星期的食物算好不准超过一百刀，在狗狗公园享受遛狗时光，还在海边的公寓里玩UNO和那个不知道叫什么的积木游戏，还去打了一次保龄球遇到残疾人团体，他们根本没有意识到自己是残疾的，很乐观。你看，我需要另外的一个月的时间，来说这一个月的故事。</p>
-<p>过去一年我就像老了两百岁。</p>
-<p>去年这个时候我辞掉了实习，这个时候D老板还在刷数学，后来的事情就开始不受控制了，每到毕业时候都会有很多变数和集体情绪的爆发。宿舍里的人都知道我很容易醒，那些睡不着的夜晚，起来绕着走廊一圈圈地走，想着自己有那么多时间可以浪费，想以前，想以后。在这个一无所有的年龄，我已经比很多人好了，有些人已经开始领工资自给自足，开始感受各方面的压力。我当然知道生活有多艰难，我也是从最底层的农村出来的，了解从农村到乡镇再到城市的不容易，经历着一次次身份角色的变换。两次和Auntie在弄园艺的时候，她都问我还有“官瘾”吗，这真的是一个好问题，这么多年都一直念念不忘。是的，我还有一点点“官瘾”。所以H先生说起我打官腔的时候，在中大听到家国情怀的时候，我都停顿了几秒。这就是我觉得自己大学很失败的原因，一直抑郁不得志的样子。并非是说要做耀眼的公众人，而是想要让自己成为一个有影响力的人，可以改变别人，一起做点事情。我的思维还停在上个世纪，跟不上大家的步伐，可能是这个原因我跟老一辈们反而能讲的更多一点，我也同意闵伟说的在国内读研更好一点。我觉得大家之间应该是革命友谊，可是后来发现彼此间只是点赞之交。我也理解不了那种谈恋爱跟换衣服一样快的观念，也理解不了复习周不去领奖去泡馆的做法，习惯了根据几个样本做一个地域黑，习惯了自己闷头蛮干一条路走到黑。Auntie那个问题之上的问题，几年间我已经失去了很多能力，环境条件也有了很大改变，已经不适宜了，尽管如此，我还是很喜欢根正苗红的央财啊。我也不喜欢金融，我也不喜欢读书，只是以前的年代不都是做一行爱一行吗，哪里像现在条件好了，可以去做自己兴趣的工作。我也不是任性的人，也不喜欢赌博不喜欢游戏，在赌场里面只顾吃自助管他外面金碧辉煌。正是如此，喜欢什么做什么对我来说也不是很重要，你交一样东西给我，我就做好它就是了，喜不喜欢那么重要吗。</p>
-<p>一路上见了许许多多的人，习惯用自己的经验去判断他们的家庭背景、成长环境，并不是用有色眼镜去看人，而是为了找到一种方式和他们相处。到最后发现讲情怀讲感情的人要么足够强大要么足够幼稚，还是讲物质比较接地气一点，永远不会过时。那种“别人比你有钱，本质上就是某些地方比你有本事”、“你绩点比人低安慰不了她”、“清华出来这边读个女博士最后靠在电站工作的老公找到的工作”的无解质问，总会让人怀疑人生，喘不过气。这些例子就发生在身边，那种宣扬读书无用论正是读书人自己，太过乖巧只会读书只会工作只会供房是让人痛心的。当我姐问我毕业想找什么工作的时候，我说找个月薪两万的就可以了把她气得“谁会给一个毕业生月薪两万”，当时内心OS：也不会过分啊，两万一年就二十四万，十年还买不下一套房呢，你不就是这个收入吗，还在广州有两套房。而今觉得学历再高，也不能重现她的结果，我就像她单位的实习生一样的单薄无力。</p>
-<p>毕竟我只是农村来的小孩子，老岳父都还没见过。</p>
+                <p>在阅读本文之前，你可能对以下资源贴有兴趣：<br><a href="http://selenium-python.readthedocs.io/index.html" target="_blank" rel="external">Selenium with Python官方文档</a><br><a href="http://cuiqingcai.com/2599.html" target="_blank" rel="external">Python爬虫利器五之Selenium的用法</a><br><a href="http://blog.csdn.net/nhudx061/article/details/43305599" target="_blank" rel="external">用python玩转selenium</a><br><a href="http://www.imooc.com/article/17119?block_id=tuijian_wz" target="_blank" rel="external">selenium和phantomjs爬取动态网页</a></p>
+<hr>
+<h1 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h1><h2 id="页面交互"><a href="#页面交互" class="headerlink" title="页面交互"></a>页面交互</h2><p>仅仅打开一个网页对我们来说是没有什么价值的，我们使用selenium的目的在于和网页进行交互，做一些真实用户会做的操作，比如点击确定，和输入账号密码登陆。</p>
+<h3 id="文本框"><a href="#文本框" class="headerlink" title="文本框"></a>文本框</h3><p>比如，给定一段html代码如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"passwd"</span> <span class="attr">id</span>=<span class="string">"passwd-id"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>这段代码块要求我们提交密码，要做两件事情，第一，定位到这一个页面元素（密码文本框），第二，对这个元素输入密码内容。我们可以这样获取它：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">element = driver.find_element_by_id(<span class="string">"passwd-id"</span>)</div><div class="line">element = driver.find_element_by_name(<span class="string">"passwd"</span>)</div><div class="line">element = driver.find_elements_by_tag_name(<span class="string">"input"</span>)</div><div class="line">element = driver.find_element_by_xpath(<span class="string">"//input[@id='passwd-id']"</span>)</div></pre></td></tr></table></figure></p>
+<p>如果有多个元素匹配了 xpath，它只会返回第一个匹配的元素。如果没有找到，那么会抛出 <code>NoSuchElementException</code>的异常。<br>当你得到了这个元素，你可以向它提交文本内容：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.send_keys(<span class="string">"some text"</span>)</div></pre></td></tr></table></figure></p>
+<p>又或者模拟点击某个按键。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.send_keys(<span class="string">"and some"</span>, Keys.ARROW_DOWN)</div></pre></td></tr></table></figure></p>
+<p>你可以对任何获取到到元素使用 send_keys 方法，就像你在 GMail 里面点击发送键一样。不过这样会导致的结果就是输入的文本不会自动清除。所以输入的文本都会在原来的基础上继续输入。你可以用下面的方法来清除输入文本的内容。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.clear()</div></pre></td></tr></table></figure></p>
+<h3 id="选择框"><a href="#选择框" class="headerlink" title="选择框"></a>选择框</h3><p>WebDriver提供了一个Select类，可以很好处理选择框的交互问题。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> Select</div><div class="line">select = Select(driver.find_element_by_name(<span class="string">'name'</span>))</div><div class="line">select.select_by_index(index)</div><div class="line">select.select_by_visible_text(<span class="string">"text"</span>)</div><div class="line">select.select_by_value(value)</div></pre></td></tr></table></figure>
+<p>WebDriver也提供了取消选项的方法，下面举例取消全部选项;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select = Select(driver.find_element_by_id(<span class="string">'id'</span>))</div><div class="line">select.deselect_all()</div></pre></td></tr></table></figure>
+<p>WebDriver也提供了返回全部选项内容的办法，下面举例得到全部选项：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select = Select(driver.find_element_by_xpath(<span class="string">"xpath"</span>))</div><div class="line">all_selected_options = select.all_selected_options</div><div class="line">options = select.options    <span class="comment">#得到全部选项</span></div></pre></td></tr></table></figure>
+<h2 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a>提交表单</h2><p>当我们把表单填好，下一步就是点击确定（submit）,提交表单内容。<br>方法一，找到<code>Submit</code>按钮，并调用<code>Click()</code>方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Assume the button has the ID "submit" :)</span></div><div class="line">driver.find_element_by_id(<span class="string">"submit"</span>).click()</div></pre></td></tr></table></figure>
+<p>方法二，WebDriver 中每个元素都有<code>Submit</code>的方法可以调用，这表明可以单独提交某个元素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.submit()</div></pre></td></tr></table></figure>
+<p>WebDriver 会在表单中寻找它所在的表单，如果发现这个元素并没有被表单所包围，那么程序会抛出<code>NoSuchElementException</code> 的异常。</p>
+<h2 id="元素拖曳"><a href="#元素拖曳" class="headerlink" title="元素拖曳"></a>元素拖曳</h2><p>要完成元素的拖拽，首先你需要指定被拖动的元素和拖动目标元素，然后利用 ActionChains 类来实现。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">element = driver.find_element_by_name(<span class="string">"source"</span>)</div><div class="line">target = driver.find_element_by_name(<span class="string">"target"</span>)</div><div class="line"></div><div class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> ActionChains</div><div class="line">action_chains = ActionChains(driver)</div><div class="line">action_chains.drag_and_drop(element, target).perform()</div></pre></td></tr></table></figure></p>
+<h2 id="浏览窗口切换"><a href="#浏览窗口切换" class="headerlink" title="浏览窗口切换"></a>浏览窗口切换</h2><h2 id="弹窗处理"><a href="#弹窗处理" class="headerlink" title="弹窗处理"></a>弹窗处理</h2><h2 id="浏览历史"><a href="#浏览历史" class="headerlink" title="浏览历史"></a>浏览历史</h2><h2 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h2><h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h1><h2 id="如何滚动窗口到页面底部？"><a href="#如何滚动窗口到页面底部？" class="headerlink" title="如何滚动窗口到页面底部？"></a>如何滚动窗口到页面底部？</h2><p>你可以使用<code>execute_script</code>方法执行页面上的javascript 脚本，所以你可以滚动到页面底部或者到任意位置。</p>
+<p>以下是一个滚动到页面底部的例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">driver.execute_script(<span class="string">"window.scrollTo(0, document.body.scrollHeight);"</span>)</div></pre></td></tr></table></figure>
+<p>DOM中的window对象有一个scrollTo 方法，scrollHeight是所有元素的共同属性，document.body.scrollHeight给出了整个页面的高度值。</p>
+<h2 id="如何对当前窗口截图"><a href="#如何对当前窗口截图" class="headerlink" title="如何对当前窗口截图"></a>如何对当前窗口截图</h2><p>使用webdriver提供的save_screenshot 方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"></div><div class="line">driver = webdriver.Firefox()</div><div class="line">driver.get(<span class="string">'http://www.python.org/'</span>)</div><div class="line">driver.save_screenshot(<span class="string">'screenshot.png'</span>)</div><div class="line">driver.quit()</div></pre></td></tr></table></figure>
+<h2 id="如何上传文件"><a href="#如何上传文件" class="headerlink" title="如何上传文件"></a>如何上传文件</h2><p>选择<code>&lt;input type=&quot;file&quot;&gt;</code>元素，然后在<code>send_keys()</code>中输入文件所在路径。</p>
 
 
 
@@ -232,12 +257,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/08/30/[Manual] Rcpp使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] Rcpp使用手册">&larr; Previous Post</a>
+                            <a href="/2017/08/22/[R语言] R语言中的科学计算/" data-toggle="tooltip" data-placement="top" title="[R语言] R语言中的科学计算">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/08/25/[电影] 完美陌生人/" data-toggle="tooltip" data-placement="top" title="[电影] 完美陌生人">Next Post &rarr;</a>
+                            <a href="/2017/08/19/[Manual] python调用R之rpy2使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python调用R之rpy2使用手册">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -262,6 +287,17 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#导航"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">导航</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#页面交互"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">页面交互</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#文本框"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">文本框</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#选择框"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">选择框</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#提交表单"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">提交表单</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#元素拖曳"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">元素拖曳</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#浏览窗口切换"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">浏览窗口切换</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#弹窗处理"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">弹窗处理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#浏览历史"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">浏览历史</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Cookies"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">Cookies</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Q-amp-A"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Q & A</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何滚动窗口到页面底部？"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">如何滚动窗口到页面底部？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何对当前窗口截图"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">如何对当前窗口截图</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何上传文件"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">如何上传文件</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
 
             <!-- Sidebar Container -->
             <div class="
@@ -276,7 +312,11 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#澳洲" title="澳洲">澳洲</a>
+                          <a class="tag" href="/tags/#selenium" title="selenium">selenium</a>
+                        
+                          <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
+                        
+                          <a class="tag" href="/tags/#python" title="python">python</a>
                         
                     </div>
                 </section>
@@ -345,8 +385,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "http://liangzhenghua.github.io/2017/08/28/[日常] 2017年08月28日/";
-    var disqus_url = "http://liangzhenghua.github.io/2017/08/28/[日常] 2017年08月28日/";
+    var disqus_identifier = "http://liangzhenghua.github.io/2017/08/19/[Manual] python3中selenium+phantom使用手册 - 副本/";
+    var disqus_url = "http://liangzhenghua.github.io/2017/08/19/[Manual] python3中selenium+phantom使用手册 - 副本/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
