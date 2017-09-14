@@ -336,6 +336,16 @@
     
 <!-- 控制文章是否需要密码 2017-08-07-->
 
+<script>
+var password = '123';
+	(function(){
+			if (prompt('传送门需要原力才能开启，may the force be with you！','') !== password){
+				alert('不好意思！你可能用的是假原力');
+				history.back();
+			}
+	})();
+</script>
+
 </article>
 
 
