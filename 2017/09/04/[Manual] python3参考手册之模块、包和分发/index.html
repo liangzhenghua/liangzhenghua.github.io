@@ -151,14 +151,14 @@
 
                         
                         <li>
-                            <a href="/pics/">Pics</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/pics/">Pics</a>
                         </li>
                         
                     
@@ -346,6 +346,8 @@
 <! -- 添加捐赠图标-->
 
     
+<!-- 控制文章是否加载公式 -->
+
 <!-- 控制文章是否需要密码 2017-08-07-->
 
 </article>
@@ -605,7 +607,9 @@
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-
+&lt;% if (page.mathjax){ %&gt;
+&lt;%- partial('mathjax') %&gt;
+&lt;% } %&gt;
 
 
 

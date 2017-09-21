@@ -86,11 +86,11 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#python" title="python">python</a>
+                            
                               <a class="tag" href="/tags/#selenium" title="selenium">selenium</a>
                             
                               <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
-                            
-                              <a class="tag" href="/tags/#python" title="python">python</a>
                             
                         </div>
                         <h1>[Manual] python3中selenium+phantom使用手册</h1>
@@ -155,14 +155,14 @@
 
                         
                         <li>
-                            <a href="/pics/">Pics</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/pics/">Pics</a>
                         </li>
                         
                     
@@ -257,7 +257,7 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/08/19/[Manual] R语言wordcloud2包使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] R语言wordcloud2包使用手册">&larr; Previous Post</a>
+                            <a href="/2017/08/19/[Manual] python调用R之rpy2使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python调用R之rpy2使用手册">&larr; Previous Post</a>
                         </li>
                     
                     
@@ -312,11 +312,11 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#python" title="python">python</a>
+                        
                           <a class="tag" href="/tags/#selenium" title="selenium">selenium</a>
                         
                           <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
-                        
-                          <a class="tag" href="/tags/#python" title="python">python</a>
                         
                     </div>
                 </section>
@@ -374,6 +374,8 @@
 <! -- 添加捐赠图标-->
 
     
+<!-- 控制文章是否加载公式 -->
+
 <!-- 控制文章是否需要密码 2017-08-07-->
 
 </article>
@@ -633,7 +635,9 @@
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
 
-
+&lt;% if (page.mathjax){ %&gt;
+&lt;%- partial('mathjax') %&gt;
+&lt;% } %&gt;
 
 
 
