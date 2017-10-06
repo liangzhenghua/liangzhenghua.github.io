@@ -137,13 +137,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -151,7 +144,7 @@
 
                         
                         <li>
-                            <a href="/pics/">Pics</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -159,6 +152,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/pics/">Pics</a>
                         </li>
                         
                     
@@ -222,8 +222,8 @@
 </blockquote>
 <p>假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。</p>
 <p>做三个回归如下：</p>
-<p>时期1970-1981：$Y_t=\lambda _1+\lambda_2 X<em>t+\mu</em>{t1} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为$n_1-k$</p>
-<p>时期1982-1995：$Y_t=\gamma  _1+\gamma_2X_t+\mu_t$，观测数为$n_2$，残差平方和为$RSS_2$，自由度为$n_2-k$</p>
+<p>时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为$n_1-k$</p>
+<p>时期1982-1995：$Y_t=\gamma  _1+\gamma_2X_t+\mu_{2t}$，观测数为$n_2$，残差平方和为$RSS_2$，自由度为$n_2-k$</p>
 <p>时期1970-1995：$Y_t=\alpha  _1+\alpha_2X_t+\mu_t$，观测数为$n_1+n_2$，残差平方和为$RSS_3$，自由度为$n_1+n_2-k$</p>
 <p>邹至庄检验机制如下：</p>
 <p><strong>假定</strong>：</p>
@@ -232,14 +232,14 @@
 <li>两个子时期的误差项是独立分布的</li>
 </ul>
 <p>记$RSS_3$为约束残差平方和$RSS_R$，因为这一条回归方程里面施加了约束 $\lambda_1=\gamma_1 $,  和约束$\lambda_2=\gamma_2$</p>
-<p>记$RSS_U=RSS_1+RSS_2$为无约束残差平方和， $df=n_1+n_2-2k$</p>
-<p>若不存在结构变动，有约束和无约束情况下，单位自由度下的残差平方和应该没什么不同。$RSS<em>R$ 相比 $RSS</em>{U}$ 多了 $k$个 自由度，所以可以构造：</p>
-<p>$$<br>F=\frac{(RSS_R-RSS_U)/k}{RSS_U/(n_1+n_2-2k)}\sim F(k,n_1+n_2-2k)<br>$$</p>
-<p>如果F值过大，则拒绝原假设（不存在结构变动）。</p>
+<p>记$RSS_{UR}=RSS_1+RSS_2$为无约束残差平方和， $df=n_1+n_2-2k$</p>
+<p>若不存在结构变动，有约束和无约束情况下，单位自由度下的残差平方和应该没什么不同。$RSS_R$ 相比 $RSS_{UR}$ 多了 $k$个 自由度，所以可以构造：</p>
+<script type="math/tex; mode=display">
+F=\frac{(RSS_R-RSS_{UR})/k}{RSS_{UR}/(n_1+n_2-2k)}\sim F(k,n_1+n_2-2k)</script><p>如果F值过大，则拒绝原假设（不存在结构变动）。</p>
 <p><strong>假定的检验</strong></p>
 <p>记$\widehat{\sigma}_1^2=\frac{RSS_1}{n_1-k}$，$\widehat{\sigma}_2^2=\frac{RSS_2}{n_2-k}$<br>可以证明，若两个子总体的方差相同$\sigma_1^2=\sigma_2^2$，则</p>
-<p>$$<br>\frac{\widehat{\sigma}_1^2/\sigma_1^2}{\widehat{\sigma}_2^2/\sigma_2^2}\sim F(n_1-k,n_2-k)<br>$$</p>
-<p>一般习惯将较大的估计方差放在分子中，这样计算的F值就不会小于1。</p>
+<script type="math/tex; mode=display">
+\frac{\widehat{\sigma}_1^2/\sigma_1^2}{\widehat{\sigma}_2^2/\sigma_2^2}\sim F(n_1-k,n_2-k)</script><p>一般习惯将较大的估计方差放在分子中，这样计算的F值就不会小于1。</p>
 <p><strong><code>警告</code></strong></p>
 <ul>
 <li>同方差假定（也有方法可以修正异方差）</li>
@@ -259,7 +259,7 @@
                     
                     
                         <li class="next">
-                            <a href="/2017/09/27/[Bayesian] 充分统计量/" data-toggle="tooltip" data-placement="top" title="[Bayesian] 充分统计量">Next Post &rarr;</a>
+                            <a href="/2017/09/26/[Manual] python3之pandas使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python3之pandas使用手册">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -386,7 +386,8 @@
     });
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
 </script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->

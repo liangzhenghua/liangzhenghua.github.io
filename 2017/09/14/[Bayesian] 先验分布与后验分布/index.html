@@ -137,13 +137,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -151,7 +144,7 @@
 
                         
                         <li>
-                            <a href="/pics/">Pics</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -159,6 +152,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/pics/">Pics</a>
                         </li>
                         
                     
@@ -223,19 +223,19 @@
 <li>先验信息：抽样之前对统计问题的一些信息</li>
 </ul>
 <p>经典统计基于上述前两种信息进行统计推断，贝叶斯统计基于上述三种信息进行统计推断。贝叶斯统计最基本的观点：<strong>任一个未知量$\theta$ 都可以看做一个随机变量，应该用一个概率分布去描述对$\theta$ 的未知状况</strong>，这个分布叫<strong>先验分布</strong>。</p>
-<h1 id="似然函数"><a href="#似然函数" class="headerlink" title="似然函数"></a>似然函数</h1><p>$$<br>p(\mathbf{x}|{\theta}’)=\prod_{i=1}^{n}p(x_i|{\theta}’)<br>$$</p>
-<p>由于$\theta ‘$是设想出来的随机变量，它是从先验分布$\pi (\theta’)$中抽取出来的，故可以利用$\pi (\theta’)$得到样本$\mathbf{x}$和参数$\pi (\theta)$的联合分布：</p>
-<p>$$<br>h(\mathbf{x},\theta)=p(\mathbf{x}|\theta)\pi (\theta)<br>$$</p>
-<p>现在的问题是根据样本$\mathbf{x}$对$\theta$的分布进行推断，为此需要将$h(\mathbf{x},\theta)$做如下分解：</p>
-<p>$$<br>h(\mathbf{x},\theta)=\pi(\theta|\mathbf{x})m(\mathbf{x})<br>$$</p>
-<p>其中$m(\mathbf{x})$是$\mathbf{x}$的边缘密度函数：</p>
+<h1 id="似然函数"><a href="#似然函数" class="headerlink" title="似然函数"></a>似然函数</h1><script type="math/tex; mode=display">
+p(\mathbf{x}|{\theta}')=\prod_{i=1}^{n}p(x_i|{\theta}')</script><p>由于$\theta ‘$是设想出来的随机变量，它是从先验分布$\pi (\theta’)$中抽取出来的，故可以利用$\pi (\theta’)$得到样本$\mathbf{x}$和参数$\pi (\theta)$的联合分布：</p>
+<script type="math/tex; mode=display">
+h(\mathbf{x},\theta)=p(\mathbf{x}|\theta)\pi (\theta)</script><p>现在的问题是根据样本$\mathbf{x}$对$\theta$的分布进行推断，为此需要将$h(\mathbf{x},\theta)$做如下分解：</p>
+<script type="math/tex; mode=display">
+h(\mathbf{x},\theta)=\pi(\theta|\mathbf{x})m(\mathbf{x})</script><p>其中$m(\mathbf{x})$是$\mathbf{x}$的边缘密度函数：</p>
 <p>$m(\mathbf{x})=\int_{\Theta}h(\mathbf{x},\theta)d\theta $</p>
 <p>$                    =\int_{\Theta}h(\mathbf{x}|\theta)\pi(\theta)d\theta $</p>
 <p>所以贝叶斯公式的密度函数形式为：</p>
-<p>$$<br>\pi(\theta|\mathbf{x})=\frac{h(\mathbf{x},\theta)}{m(\mathbf{x})}=\frac{p(\mathbf{x}|\theta)\pi(\theta)}{\int_\Theta p(\mathbf{x}|\theta)\pi(\theta)d\theta}<br>$$</p>
-<p>离散形式下可以把积分符号替换为连加符号，这里的得到的后验分布也是一个概率分布列：</p>
-<p>$$<br>\pi(\mathbf{\theta _i|\mathbf{x}})=\frac{p(\mathbf{x}|\theta_i)\pi(\theta_i)}{\sum p(\mathbf{x}|\theta_i) \pi(\theta_i)}<br>$$</p>
-<h1 id="共轭先验分布"><a href="#共轭先验分布" class="headerlink" title="共轭先验分布"></a>共轭先验分布</h1><p><em>定义</em>：设$\theta$是总体分布中的参数（也可以是参数向量），$\pi(\theta)$是$\theta$的先验密度函数，假如由抽样信息得到的后验密度函数与$\pi(\theta)$具有相同的函数形式，则称$\pi(\theta)$是$\theta$的<strong>共轭先验分布</strong>，它是对某一分布族的参数而言的。</p>
+<script type="math/tex; mode=display">
+\pi(\theta|\mathbf{x})=\frac{h(\mathbf{x},\theta)}{m(\mathbf{x})}=\frac{p(\mathbf{x}|\theta)\pi(\theta)}{\int_\Theta p(\mathbf{x}|\theta)\pi(\theta)d\theta}</script><p>离散形式下可以把积分符号替换为连加符号，这里的得到的后验分布也是一个概率分布列：</p>
+<script type="math/tex; mode=display">
+\pi(\mathbf{\theta _i|\mathbf{x}})=\frac{p(\mathbf{x}|\theta_i)\pi(\theta_i)}{\sum p(\mathbf{x}|\theta_i) \pi(\theta_i)}</script><h1 id="共轭先验分布"><a href="#共轭先验分布" class="headerlink" title="共轭先验分布"></a>共轭先验分布</h1><p><em>定义</em>：设$\theta$是总体分布中的参数（也可以是参数向量），$\pi(\theta)$是$\theta$的先验密度函数，假如由抽样信息得到的后验密度函数与$\pi(\theta)$具有相同的函数形式，则称$\pi(\theta)$是$\theta$的<strong>共轭先验分布</strong>，它是对某一分布族的参数而言的。</p>
 <ul>
 <li>正态均值（方差已知）的共轭先验分布是正态分布</li>
 <li>二项分布的成功概率$\theta$的共轭先验分布是贝塔分布</li>
@@ -398,7 +398,8 @@
     });
 </script>
 
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
 </script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
