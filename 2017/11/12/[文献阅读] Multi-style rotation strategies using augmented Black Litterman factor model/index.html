@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Bayesian] 充分统计量 - 南有嘉鱼 | 南有樛木
+          [文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="http://liangzhenghua.github.io/2017/09/27/[Bayesian] 充分统计量/">
+    <link rel="canonical" href="http://liangzhenghua.github.io/2017/11/12/[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/blackboard.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
+                              <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
                             
                         </div>
-                        <h1>[Bayesian] 充分统计量</h1>
-                        <h2 class="subheading">这是一篇关于充分统计量的回顾</h2>
+                        <h1>[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-09-27
+                            2017-11-12
                         </span>
                     </div>
                 
@@ -217,17 +217,39 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p><strong>充分统计量</strong>：设$\mathbf{x}=(x_1,x_2,…,x_n)$是来自分布$F(x|\theta)$的一个样本，$T=T(X)$是统计量，假如在给定$T(X)=t$的条件下，$\mathbf{x}$的条件分布与$\theta$无关的话，则称该统计量为充分统计量。</p>
-</blockquote>
-<hr>
+                <p>对Black Litterman模型一无所知的可以参考<a href="https://wenku.baidu.com/view/4eb04c1cfc4ffe473368abda.html?mark_pay_doc=0&amp;mark_rec_page=1&amp;mark_rec_position=3&amp;clear_uda_param=1" target="_blank" rel="external">这篇文档</a></p>
+<p>文章作者是Ginanjar Dewandaru、Rumi Masih、Obiyathulla Ismath Bacha和A. Mansur. M. Masih，多风格轮动策略采用了3种风格：</p>
+<ul>
+<li>momentum</li>
+<li>value</li>
+<li>quality</li>
+</ul>
+<p>看了一会发现出现很多Islamic相关的宗教词汇，我还以为这篇文章是要宣扬伊斯兰教义。查找了<strong><a href="http://www.financepractitioner.com/capital-markets-checklists/islamic-equity-funds" target="_blank" rel="external">Islamic equities</a></strong>的意思：</p>
 <blockquote>
-<p><strong>因子分解定理</strong>：充分统计量的充要条件是存在一个函数$g(t,\theta)$和一个样本函数$h(x)$，使得对任一样本$\mathbf{x}$和任意$\theta$有$p(\mathbf{x}|\theta)=g(T(\mathbf{x}),\theta)h(\mathbf{x})$</p>
+<p>Islamic equity funds (IEFs) are similar to traditional equity funds in that investors pool their funds to invest in shares. However, the main difference between IEFs and standard equity funds is that investors in IEFs earn halal profits in strict conformity with the precepts of Islamic shariah.</p>
 </blockquote>
-<hr>
+<p>原来穆斯林进入股票市场也要遵守教义，结合宗教和量化的研究还算是比较清新脱俗。文章中研究美国市场上DowJones Islamic index的股票，将1996-2000的数据设为训练集，将2001-2012年的数据设为测试集。</p>
 <blockquote>
-<p><strong>充分统计量的贝叶斯定义</strong>：对某先验分布族中任一先验分布$\pi(\theta)$，有$\pi(\textbf{x}|T(x))=\pi(\theta|\textbf{x})$，即用样本分布$p(x|\theta)$算的后验分布与统计量$T(x)$算的后验分布是相同的。</p>
+<p>“马可威茨模型为人垢病的是构建的投资组合难以理解、过于集中、对输入的参数过于敏感、以及估计误差被放大。这些原因导致金融从业人员不愿使用马可威茨模型。Black-Litterman模型利用概率统计方法，将投资者对大类资产的观点与市场均衡回报相结合，产生新的预期回报。该模型可以在市场基准的基础上，由投资者对某些大类资产提出倾向性意见，然后，模型会根据投资者的倾向性意见，输出对该大类资产的配置建议。新的资产配置具有符合直觉的组合及可以理解的权重配置。Black-Litterman模型自提出来后，已逐渐被华尔街主流所接受，现已成为高盛公司资产管理部门在资产配置上的主要工具。”</p>
 </blockquote>
+<h1 id="经典马可威茨模型"><a href="#经典马可威茨模型" class="headerlink" title="经典马可威茨模型"></a>经典马可威茨模型</h1><p>1952年3月，马可威茨发表一篇名为名为《投资组合选择》的文章，这篇文章提出的投资组合理论被认为是现代投资组合的开端，是现代投资组合理论的起源。投资者在投资过程中，往往会比较关心资产的收益和风险情况，马可威茨在《投资组合选择》中首次提出用期望收益率、方差分别计算资产的投资收益和方差，并指出投资者可以在不确定的条件下建立风险收益的有效边界，依据自身的投资偏好在风险收益有效边界上进行组合的选择。该模型具体形式是假定透支着是风险厌恶型，总是在风险一定的条件下追求收益最大化或者在收益一定的条件下使组合风险最小。具体模型可用公式表示为：</p>
+<p>1）一定收益水平下，风险最小：</p>
+<script type="math/tex; mode=display">min \ W'\Sigma W</script><script type="math/tex; mode=display">\left\{\begin{matrix}
+s.t.\ W'\overline{R}=R_p \\ 
+\sum_{i=1}^n W_i=1
+\end{matrix}\right.</script><p>2)一定风险水平下，收益最大：</p>
+<script type="math/tex; mode=display">max \  W'\overline{R}</script><script type="math/tex; mode=display">\left\{\begin{matrix}
+s.t. \ W'\Sigma W=\sigma_p^2 \\ 
+\sum_{i=1}^n W_i=1
+\end{matrix}\right.</script><ul>
+<li>n:投资组合中资产的数目</li>
+<li>W：组合中各资产权重的列向量</li>
+<li>$\Sigma$:收益率的方差协方差矩阵</li>
+<li>$\overline{R}$:资产的预期收益率向量</li>
+<li>$\sigma_p^2$:资产组合的方差</li>
+</ul>
+<p>传统均值方差模型主要利用情景分析法和历史数据分析法进行参数估计，这两种方法都在不同程度上造成参数估计出现偏差，而均值方差模型本身对参数变化十分敏感，参数细微的变化都会使得各资产配置的比例发生较大的变化，对预期收益率高或者和其他资产负相关的资产错误地配置过高比例，由于这方面的原因使得均值方差模型的推广应用手动了很大的限制。越来越多的投资者放弃单纯使用均值方差模型进行资产配置，开始在此基础上探索新的资产配置方法。</p>
+<h1 id="Black-Litterman模型的基本思想"><a href="#Black-Litterman模型的基本思想" class="headerlink" title="Black Litterman模型的基本思想"></a>Black Litterman模型的基本思想</h1><p>Black Litterman模型是居于马可威茨模型、CAPM模型以及贝叶斯模型所做的改进，它将投资者对资产的观点收益以及观点的信心水平、观点误差融入到模型中。</p>
 
 
 
@@ -235,13 +257,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/09/27/[金融] 金融衍生品基础/" data-toggle="tooltip" data-placement="top" title="[金融] 金融衍生品基础">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/09/26/[Manual] python3之pandas使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python3之pandas使用手册">Next Post &rarr;</a>
+                            <a href="/2017/11/11/[R语言] RStudio美化/" data-toggle="tooltip" data-placement="top" title="[R语言] RStudio美化">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -280,7 +298,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
+                          <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
                         
                     </div>
                 </section>
@@ -383,8 +401,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "http://liangzhenghua.github.io/2017/09/27/[Bayesian] 充分统计量/";
-    var disqus_url = "http://liangzhenghua.github.io/2017/09/27/[Bayesian] 充分统计量/";
+    var disqus_identifier = "http://liangzhenghua.github.io/2017/11/12/[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model/";
+    var disqus_url = "http://liangzhenghua.github.io/2017/11/12/[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
