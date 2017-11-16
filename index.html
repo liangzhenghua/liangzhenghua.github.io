@@ -216,6 +216,96 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/16/[Manual] Rcpp使用手册2/">
+        <h2 class="post-title">
+            [Manual] Rcpp使用手册2
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于RcppArmadillo的基础性技术文档
+        </h3>
+        <div class="post-content-preview">
+            如果你是第一次阅读这篇文章，以下资源贴可能是你感兴趣的：
+RcppArmadillo简明手册Rcpp相关知识整理RcppArmadillo官方文档Armadillo C++ linear algebra library 学习笔记（4）——矩阵的运算Armadillo矩阵库的使用（二）之API接口
+
+.cpp文件的储存位置当我们在Rstudio中新建C++文件时，它会直接新建一个文档，方便我们......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-16
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Rcpp" title="Rcpp">Rcpp</a>
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
+        <h2 class="post-title">
+            [R语言] 一种特殊的lasso求解
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于提高计算速度的技术文档
+        </h3>
+        <div class="post-content-preview">
+            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-16
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/15/[R语言] apply函数/">
+        <h2 class="post-title">
+            [R语言] apply函数
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于R语言科学计算的技术文档
+        </h3>
+        <div class="post-content-preview">
+            最近在使用apply函数，想要往函数FUN里面输入多个参数再调用apply，下面是实验的结果：
+apply1234567ryan=function(x,y,msg) &#123;  return(paste0(x,y,msg))&#125;ryan(5,6,"-hello")apply(matrix(1:6,ncol = 1), 1, ryan,y=1:8,msg=c("-GOOD MORI......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-15
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/13/[日常] 2017年11月13日/">
         <h2 class="post-title">
             2017年11月13日
@@ -321,43 +411,6 @@ quality
 
 <div class="post-preview">
 
-    <a href="/2017/11/09/[计量] 异方差性/">
-        <h2 class="post-title">
-            [计量] 异方差性
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于异方差性的介绍
-        </h3>
-        <div class="post-content-preview">
-            定义
-同方差意为方差具有相同的分布，或者说相同的方差。
-
-$E(u_i^2)=\sigma^2,i=1,2,…,n$
-不管变量$X_i$取什么值，$Y_i$的条件方差都保持不变。
-
-异方差表明$Y_i$的方差不再保持不变，会随着$X_i$的变化而变化,符号上记为：
-
-$E(u_i^2)=\sigma_i^2,i=1,2,…,n$
-OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/09/[Statistics] 点估计/">
         <h2 class="post-title">
             [Statistics] 点估计
@@ -420,6 +473,43 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
 
 <div class="post-preview">
 
+    <a href="/2017/11/09/[计量] 异方差性/">
+        <h2 class="post-title">
+            [计量] 异方差性
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于异方差性的介绍
+        </h3>
+        <div class="post-content-preview">
+            定义
+同方差意为方差具有相同的分布，或者说相同的方差。
+
+$E(u_i^2)=\sigma^2,i=1,2,…,n$
+不管变量$X_i$取什么值，$Y_i$的条件方差都保持不变。
+
+异方差表明$Y_i$的方差不再保持不变，会随着$X_i$的变化而变化,符号上记为：
+
+$E(u_i^2)=\sigma_i^2,i=1,2,…,n$
+OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/10/15/[计量] 多重共线性/">
         <h2 class="post-title">
             [计量] 多重共线性
@@ -436,95 +526,6 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
             2017-10-15
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/10/15/[计量] 分位数回归/">
-        <h2 class="post-title">
-            [计量] 分位数回归
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于分位数回归的介绍
-        </h3>
-        <div class="post-content-preview">
-            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-10-15
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/10/06/[日常] 2017年10月6日/">
-        <h2 class="post-title">
-            2017年10月6日
-        </h2>
-        <h3 class="post-subtitle">
-            国庆&中秋
-        </h3>
-        <div class="post-content-preview">
-            草原上的月亮大的令人惊讶，还是黄昏的时候，有一种白玉的感觉。广州还是可以吃冰淇淋的夏天，而草原上已经冷的要猫着身子，中秋这天镇上到处是烤羊的味道。中秋的晚饭在大滩镇高速出口右边的欣欣茹*农家乐里面吃的，因为是节日所以比较用心记住，平日里怎么会留意这种小地方。老板是个老实人，跟我们说羊肉要现宰的才好吃，给我们烤了一个烤前腿，味道不膻，可能因为是绵羊的原因。连续吃了几顿羊肉，我感觉已经很腻受不了......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-10-06
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#日常" title="日常">日常</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/27/[计量] 邹至庄检验/">
-        <h2 class="post-title">
-            [计量] 邹至庄检验
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于邹至庄检验的简单回顾
-        </h3>
-        <div class="post-content-preview">
-            
-邹至庄检验用于检验回归模型的结构或参数稳定性
-
-假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。
-做三个回归如下：
-时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-09-27
         </p>
         <div class="tags">
             
@@ -576,9 +577,11 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
             
         
             
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
+            
         
             
-            <a href="/tags/#R" title="R" rel="5">R</a>
+            <a href="/tags/#R" title="R" rel="8">R</a>
             
         
             
@@ -610,9 +613,9 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
             
         
             
-            <a href="/tags/#澳洲" title="澳洲" rel="3">澳洲</a>
-            
         
+            
+            <a href="/tags/#澳洲" title="澳洲" rel="3">澳洲</a>
             
         
             
@@ -622,9 +625,9 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
             
         
             
-            <a href="/tags/#计量" title="计量" rel="6">计量</a>
-            
         
+            
+            <a href="/tags/#计量" title="计量" rel="6">计量</a>
             
         
             
@@ -743,23 +746,23 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
     <ul>
       
         <li>
+          <a href="/2017/11/16/[Manual] Rcpp使用手册2/">[Manual] Rcpp使用手册2</a>
+        </li>
+      
+        <li>
+          <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">[R语言] 一种特殊的lasso求解</a>
+        </li>
+      
+        <li>
+          <a href="/2017/11/15/[R语言] apply函数/">[R语言] apply函数</a>
+        </li>
+      
+        <li>
           <a href="/2017/11/13/[日常] 2017年11月13日/">2017年11月13日</a>
         </li>
       
         <li>
           <a href="/2017/11/12/[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model/">[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model</a>
-        </li>
-      
-        <li>
-          <a href="/2017/11/11/[R语言] RStudio美化/">[R语言] RStudio美化</a>
-        </li>
-      
-        <li>
-          <a href="/2017/11/09/[计量] 异方差性/">[计量] 异方差性</a>
-        </li>
-      
-        <li>
-          <a href="/2017/11/09/[Statistics] 点估计/">[Statistics] 点估计</a>
         </li>
       
     </ul>

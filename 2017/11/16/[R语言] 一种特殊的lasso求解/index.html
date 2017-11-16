@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          [R语言] 一种特殊的lasso求解 - 南有嘉鱼 | 南有樛木
+        
+    </title>
+
+    <link rel="canonical" href="http://liangzhenghua.github.io/2017/11/16/[R语言] 一种特殊的lasso求解/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/R.jpg')
+            /*post*/
+        
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#R" title="R">R</a>
+                            
+                        </div>
+                        <h1>[R语言] 一种特殊的lasso求解</h1>
+                        <h2 class="subheading">这是一篇关于提高计算速度的技术文档</h2>
+                        <span class="meta">
+                            Posted by Leung ZhengHua on
+                            2017-11-16
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">三刃木正久化十</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/pics/">Pics</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                </ul>
+            </div>
+
+
+
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Matlab:R的速度比例是约为1:2:10。想要对比这三者的想法起源于统计计算的老师布置的作业，参考一份Matlab脚本先写了一份R的函数，测试之后发现速度贼慢，然后翻开Dirk Eddelbuettel的无缝整合一书，找到一套办法。</p>
+<h1 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h1><p>在lasso问题中：</p>
+<script type="math/tex; mode=display">\begin{matrix}
+min ||(y-\mathbf{x}\beta)||^2+\lambda ||\beta||\\ 
+s.t. \ \beta_i\geq  0 
+\end{matrix}</script><p>在上面的约束下，可以化简目标函数为：</p>
+<script type="math/tex; mode=display">
+\begin{array}{ll}
+f_0 &=(y-x\beta)'(y-x\beta)+\lambda 1'\beta \\
+
+&=y'y-y'x\beta-\beta'x'y+\beta'x'x\beta+\lambda1'\beta \\
+
+&=y'y-2y'x\beta+\beta x'x \beta+\lambda1'\beta \\
+&=y'y+\beta x'x \beta+(\lambda1'-2y'x)\beta
+\end{array}</script><p>从上式可以看到，$y’y$是一个给定的常数，有人写了一篇文章，证明了这个目标函数的优化可以通过下面的方法完成：</p>
+<p>记$b=(\lambda1’-2y’x)$，$a=[x’x]_{+}\beta$，$c=[x’x]_{-}\beta$，其中$[x’x]_{+}$表示矩阵正部，矩阵中的负数设为0；$[x’x]_{-}$表示矩阵负部，矩阵中的正数设为0，仅保留负数的绝对值。这个方法核心的关键就是解方程$ax^2+bx-c=0$，得到对称轴右边的解乘以原来的$\beta$就作为新的$\beta$估计值。具体步骤为：</p>
+<ul>
+<li>令$\beta_0=1$，得到$f_0$</li>
+<li>将$\beta_0=1$代入$a=[x’x]_{+}\beta$和$c=[x’x]_{-}\beta$，</li>
+<li>利用点乘计算新解$\beta_1=\frac{-b+\sqrt{b^2+4ac}}{2a}\beta_0$</li>
+<li>将$\beta_1$代入目标函数得到$f_1$</li>
+<li>比较$f_1$和$f_0$，若$abs(f_1-f_0)&lt;eps$则停止迭代；否则，令$f_0=f_1$，重复3、4步</li>
+</ul>
+<p>那么我们现在来比较不同方法的代码吧：</p>
+<h1 id="Matlab"><a href="#Matlab" class="headerlink" title="Matlab"></a>Matlab</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">%% This code is used to solve the following constrained optimization problem</span></div><div class="line"><span class="comment">% \| Y - X* theta\|^2 + lambda sum_k theta_k, s.t. theta_k &gt;=0</span></div><div class="line"><span class="comment">%% Input</span></div><div class="line"><span class="comment">% x,y -- data</span></div><div class="line"><span class="comment">% lam -- lambda</span></div><div class="line"><span class="comment">% ep -- error for critia to break the iteration</span></div><div class="line"><span class="comment">%% Code</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">[output,k]</span> = <span class="title">multi_update</span><span class="params">(x,y,lam_1,lam_2,ep)</span></span></div><div class="line">  [n,p] = <span class="built_in">size</span>(x);</div><div class="line">   A     = <span class="number">2</span>*(x'*x+lam_2*<span class="built_in">eye</span>(p));</div><div class="line">   b     = lam_1*<span class="built_in">ones</span>(p,<span class="number">1</span>)<span class="number">-2</span>*x'*y;</div><div class="line">   </div><div class="line">   theta0 = <span class="built_in">ones</span>(p,<span class="number">1</span>); <span class="comment">% initial value for theta</span></div><div class="line">   </div><div class="line">   </div><div class="line">   f0    = <span class="number">1</span>/<span class="number">2</span>*theta0'*A*theta0+b'*theta0+y'*y;  <span class="comment">% initial  objective value</span></div><div class="line">   </div><div class="line">   Ap    = (<span class="built_in">abs</span>(A)+A)/<span class="number">2</span>;  <span class="comment">% positive part of A</span></div><div class="line">   An    = (<span class="built_in">abs</span>(A)-A)/<span class="number">2</span>;  <span class="comment">% negative part of A</span></div><div class="line">   </div><div class="line">   <span class="comment">%% one step update</span></div><div class="line">   aa    = Ap*theta0;</div><div class="line">   cc    = An*theta0;</div><div class="line">    <span class="comment">% aa(abs(aa)&lt;ep) = ep;  % why???</span></div><div class="line">   </div><div class="line">   theta = (-b+<span class="built_in">sqrt</span>(b.*b+<span class="number">4</span>*aa.*cc))./(<span class="number">2</span>*aa).*theta0; <span class="comment">% update of the solution</span></div><div class="line">   theta(<span class="built_in">isnan</span>(theta)) = <span class="number">0</span>; <span class="comment">% when aa =0 ,theta should be 0, not NaN</span></div><div class="line">   f1    = <span class="number">1</span>/<span class="number">2</span>*theta'*A*theta+b'*theta+y'*y; <span class="comment">% new value of obj after the update of the parameter</span></div><div class="line">   <span class="comment">%% more step undate</span></div><div class="line">   k=<span class="number">1</span>;</div><div class="line">   <span class="keyword">while</span>(f0&gt;ep &amp;&amp; <span class="built_in">abs</span>((f1-f0))&gt;ep) <span class="comment">%收敛准则如果取百分比不超过ep会很快结束</span></div><div class="line">      f0     = f1;</div><div class="line">      theta0 = theta;</div><div class="line">      aa     = Ap*theta0;</div><div class="line">      cc     = An*theta0;</div><div class="line">       <span class="comment">% aa(abs(aa)&lt;ep) = ep; % why??</span></div><div class="line">      theta  = (-b+<span class="built_in">sqrt</span>(b.*b+<span class="number">4</span>*aa.*cc))./(<span class="number">2</span>*aa).*theta0;</div><div class="line">      theta(<span class="built_in">isnan</span>(theta)) = <span class="number">0</span>; <span class="comment">% when aa =0 ,theta should be 0, not NaN</span></div><div class="line">      f1     = <span class="number">1</span>/<span class="number">2</span>*theta'*A*theta+b'*theta+y'*y;</div><div class="line">      k=k+<span class="number">1</span>;</div><div class="line">   <span class="keyword">end</span></div><div class="line">   </div><div class="line">   output  = theta;     </div><div class="line">   k=k;</div></pre></td></tr></table></figure>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">Update&lt;-<span class="keyword">function</span>(x,y,lamb,bound)&#123;</div><div class="line">  n &lt;- dim(x)[<span class="number">1</span>];p &lt;- dim(x)[<span class="number">2</span>]</div><div class="line">  A = t(x)%*%x+diag(p)</div><div class="line">    v &lt;- matrix(rep(<span class="number">1</span>,p),p)</div><div class="line">    lam=<span class="literal">NULL</span></div><div class="line">  lam&lt;- matrix(rep(lamb,p),p)</div><div class="line">    f0 &lt;- ((<span class="number">1</span>/<span class="number">2</span>)*t(v)%*%A%*%v- t(v)%*%t(x)%*%y</div><div class="line">             +(<span class="number">1</span>/<span class="number">2</span>)*t(y)%*%y + t(lam)%*%v)</div><div class="line">    </div><div class="line">    aa = (abs(A)+A)/<span class="number">2</span></div><div class="line">    cc = (abs(A)-A)/<span class="number">2</span></div><div class="line">    a=aa %*% v</div><div class="line">    c=cc %*% v</div><div class="line">    b = lam - t(x)%*%y</div><div class="line">    v = (-b + sqrt(b^<span class="number">2</span> +<span class="number">4</span>*a*c))/(<span class="number">2</span>*a)*v</div><div class="line">    f1 &lt;- ((<span class="number">1</span>/<span class="number">2</span>)*t(v)%*%A%*%v- t(v)%*%t(x)%*%y</div><div class="line">             +(<span class="number">1</span>/<span class="number">2</span>)*t(y)%*%y + t(lam)%*%v)</div><div class="line">    k = <span class="number">1</span></div><div class="line">  <span class="keyword">while</span>(abs(f0-f1)&gt;bound)&#123;</div><div class="line">    f0 &lt;- f1</div><div class="line">    </div><div class="line">    a=aa %*% v</div><div class="line">    c=cc %*% v</div><div class="line">    v = (-b + sqrt(b^<span class="number">2</span> +<span class="number">4</span>*a*c))/(<span class="number">2</span>*a)*v</div><div class="line">    f1 &lt;- ((<span class="number">1</span>/<span class="number">2</span>)*t(v)%*%A%*%v- t(v)%*%t(x)%*%y</div><div class="line">             +(<span class="number">1</span>/<span class="number">2</span>)*t(y)%*%y + t(lam)%*%v)</div><div class="line">    </div><div class="line">    k=k+<span class="number">1</span></div><div class="line">    f0-f1</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  v[v &lt;=<span class="number">1e-2</span>] = <span class="number">0</span></div><div class="line">  <span class="keyword">return</span>(list(beta = v,k = k))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Rcpp"><a href="#Rcpp" class="headerlink" title="Rcpp"></a>Rcpp</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// [[Rcpp::depends(RcppArmadillo)]]</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;RcppArmadillo.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Rcpp.h&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> Rcpp;</div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> arma;</div><div class="line"></div><div class="line"><span class="comment">// [[Rcpp::export]]</span></div><div class="line"><span class="function">List <span class="title">timesTwo</span><span class="params">(mat x,mat y,<span class="keyword">double</span> lamb,<span class="keyword">double</span> bound)</span> </span>&#123;</div><div class="line"></div><div class="line">  <span class="keyword">int</span> p=x.n_cols;</div><div class="line">  <span class="function">mat <span class="title">A</span><span class="params">(p,p)</span></span>;</div><div class="line">  <span class="comment">//NumericMatrix A=t(x)%*%x+diag(p);</span></div><div class="line">  A=x.t()*x+lamb * eye&lt;mat&gt;(p,p); <span class="comment">//mat A(p,n)=0; wrong! set lamb to keep identical with matlab</span></div><div class="line">  <span class="comment">// v &lt;- matrix(rep(1,p),p)</span></div><div class="line">  mat  v = ones&lt;mat&gt;(p,<span class="number">1</span>);</div><div class="line">  <span class="comment">// lam&lt;- matrix(rep(lamb,p),p)</span></div><div class="line">  mat lam=lamb * ones&lt;mat&gt;(p,<span class="number">1</span>);</div><div class="line">  <span class="comment">//   f0 &lt;- ((1/2)*t(v)%*%A%*%v- t(v)%*%t(x)%*%y</span></div><div class="line">  <span class="comment">//            +(1/2)*t(y)%*%y + t(lam)%*%v)</span></div><div class="line">  <span class="comment">// mat f0=((1/2)*v.t()*A*v-v.t()*x.t()*y+1/2*y.t()*y+lam.t()*v);</span></div><div class="line">  mat f0=((<span class="number">1</span>/<span class="number">2</span>)*v.t()*A*v-v.t()*x.t()*y+lam.t()*v);</div><div class="line">  <span class="comment">//   aa = (abs(A)+A)/2</span></div><div class="line">  mat aa=(<span class="built_in">abs</span>(A)+A)/<span class="number">2</span>;</div><div class="line">  <span class="comment">//   cc = (abs(A)-A)/2</span></div><div class="line">  mat cc=(<span class="built_in">abs</span>(A)-A)/<span class="number">2</span>;</div><div class="line">  <span class="comment">//   a=aa %*% v</span></div><div class="line">  mat a=aa*v;</div><div class="line">  <span class="comment">//   c=cc %*% v</span></div><div class="line">  mat c=cc*v;</div><div class="line">  <span class="comment">//   b = lam - t(x)%*%y</span></div><div class="line">  mat b=lam-x.t()*y;</div><div class="line">  <span class="comment">//   v = (-b + sqrt(b^2 +4*a*c))/(2*a)*v</span></div><div class="line"> <span class="comment">// v.print("before");</span></div><div class="line">  v=(-b+<span class="built_in">sqrt</span>(b%b+<span class="number">4</span>*a%c))/(<span class="number">2</span>*a)%v;</div><div class="line">  <span class="comment">//v.print("after");</span></div><div class="line">  <span class="comment">//   f1 &lt;- ((1/2)*t(v)%*%A%*%v- t(v)%*%t(x)%*%y</span></div><div class="line">  <span class="comment">//            +(1/2)*t(y)%*%y + t(lam)%*%v)</span></div><div class="line">  <span class="comment">// mat f1 =((1/2)*v.t()*A*v-v.t()*x.t()*y+1/2*y.t()*y+lam.t()*v);</span></div><div class="line">  mat f1 =((<span class="number">1</span>/<span class="number">2</span>)*v.t()*A*v-v.t()*x.t()*y+lam.t()*v);</div><div class="line">  <span class="comment">//   k = 1</span></div><div class="line">  <span class="keyword">int</span> k=<span class="number">1</span>;</div><div class="line">  <span class="comment">// while(abs(f0-f1)&gt;bound)&#123;</span></div><div class="line">  <span class="comment">//   f0 &lt;- f1</span></div><div class="line">  <span class="comment">//   </span></div><div class="line">  <span class="comment">//   a=aa %*% v</span></div><div class="line">  <span class="comment">//   c=cc %*% v</span></div><div class="line">  <span class="comment">//   v = (-b + sqrt(b^2 +4*a*c))/(2*a)*v</span></div><div class="line">  <span class="comment">//   f1 &lt;- ((1/2)*t(v)%*%A%*%v- t(v)%*%t(x)%*%y</span></div><div class="line">  <span class="comment">//            +(1/2)*t(y)%*%y + t(lam)%*%v)</span></div><div class="line">  <span class="comment">//   </span></div><div class="line">  <span class="comment">//   k=k+1</span></div><div class="line">  <span class="comment">//   f0-f1</span></div><div class="line">  <span class="comment">// &#125;</span></div><div class="line">  <span class="comment">// </span></div><div class="line"></div><div class="line">  <span class="keyword">while</span>(<span class="built_in">fabs</span>(f0(<span class="number">0</span>,<span class="number">0</span>)-f1(<span class="number">0</span>,<span class="number">0</span>))&gt;bound) &#123;</div><div class="line">    f0(<span class="number">0</span>,<span class="number">0</span>)=f1(<span class="number">0</span>,<span class="number">0</span>);</div><div class="line">    a=aa*v;</div><div class="line">    c=cc*v;</div><div class="line">    <span class="comment">//(a/10000).print("a"); // must double "</span></div><div class="line">    <span class="comment">//(b/10000).print("b");</span></div><div class="line">    <span class="comment">//(c/10000).print("c");</span></div><div class="line">    v=(-b+<span class="built_in">sqrt</span>(b%b+<span class="number">4</span>*a%c))/(<span class="number">2</span>*a)%v;</div><div class="line">    <span class="comment">// f1=((1/2)*v.t()*A*v-v.t()*x.t()*y+1/2*y.t()*y+lam.t()*v);</span></div><div class="line">    f1=((<span class="number">1</span>/<span class="number">2</span>)*v.t()*A*v-v.t()*x.t()*y+lam.t()*v);</div><div class="line">    k=k+<span class="number">1</span>;</div><div class="line">    <span class="comment">//printf("%g\n",fabs(f0(0,0)-f1(0,0))); //abs() return int type</span></div><div class="line">  &#125;</div><div class="line">  <span class="comment">// v[v &lt;=1e-2] = 0</span></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;p;i++) &#123;<span class="keyword">if</span>(v[i]&lt;<span class="number">0.001</span>)&#123;v[i]=<span class="number">0</span>;&#125;&#125;</div><div class="line">  </div><div class="line">  <span class="comment">//return(list(beta = v,k = k))</span></div><div class="line">  <span class="keyword">return</span> List::create(_[<span class="string">"beta"</span>]=v,_[<span class="string">"k"</span>]=k);</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>数据来自于标普500和48个权重股的收益率数据，样本容量129（条观测），while循环迭代次数280+万次，耗时：R 700秒，Matlab 140秒，Rcpp 70秒。</p>
+<blockquote>
+<p>生活就像海洋，只有意志坚定的人才能到达彼岸</p>
+</blockquote>
+
+
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/11/16/[Manual] Rcpp使用手册2/" data-toggle="tooltip" data-placement="top" title="[Manual] Rcpp使用手册2">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/11/15/[R语言] apply函数/" data-toggle="tooltip" data-placement="top" title="[R语言] apply函数">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#问题引入"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">问题引入</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Matlab"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Matlab</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#R"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">R</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Rcpp"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">Rcpp</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#R" title="R">R</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://feng.li" target="_blank">李丰</a></li>
+                    
+                        <li><a href="https://blog.youxu.info/" target="_blank">徐宥</a></li>
+                    
+                        <li><a href="http://blog.sina.com.cn/u/3561429942" target="_blank">李安琪</a></li>
+                    
+                        <li><a href="https://yihui.name/" target="_blank">谢益辉</a></li>
+                    
+                        <li><a href="http://www.cnfeat.com/" target="_blank">陈素封</a></li>
+                    
+                        <li><a href="http://www.kuangnanfang.com/" target="_blank">方匡南</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+<!-- 控制文章是否需要捐赠 -->
+    
+    	<! -- 添加捐赠图标-->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           &uarr;<br>
+		   无以生计，卖文苟延
+        </span>
+        <br>
+      </div>
+	<div id="donate_guide" class="donate_bar center hidden" >
+		<!-- ֧支付宝打赏-->
+		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
+		<!-- 微信打赏 -->
+		<img src="/css/img/weixin.jpg" alt="微信打赏">
+    </div>
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
+</div>
+<! -- 添加捐赠图标-->
+
+    
+<!-- 控制文章是否加载公式 -->
+
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
+</script>
+
+<!-- 控制文章是否需要密码 2017-08-07-->
+
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "liangzhenghua";
+    var disqus_identifier = "http://liangzhenghua.github.io/2017/11/16/[R语言] 一种特殊的lasso求解/";
+    var disqus_url = "http://liangzhenghua.github.io/2017/11/16/[R语言] 一种特殊的lasso求解/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<!-- 修改文章章节标题前面的符号 icon: 'ℬ'  -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                    <li>
+                        <a href="/feed.xml">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/liangzhenghua">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/liang-zheng-hua">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/u/2161168802">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://www.facebook.com/liangzhenghua">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/liangzhenghua">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/政华-梁-b50b79125/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Leung ZhengHua 2017 
+                    <br>
+                    I love <a href="http://cos.name/">statistics</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    study at <a href="http://sam.cufe.edu.cn/">CUFE</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+					<span id="busuanzi_container_site_uv">
+                       你是第<span id="busuanzi_value_site_uv"></span>个不打招呼就跑进来的
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://liangzhenghua.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'e30fab4462a11afb967103745531c6b4';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+<!-- website count lzh -->
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://liangzhenghua.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

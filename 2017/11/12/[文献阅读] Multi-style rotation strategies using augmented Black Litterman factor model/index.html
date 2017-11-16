@@ -249,7 +249,21 @@ s.t. \ W'\Sigma W=\sigma_p^2 \\
 <li>$\sigma_p^2$:资产组合的方差</li>
 </ul>
 <p>传统均值方差模型主要利用情景分析法和历史数据分析法进行参数估计，这两种方法都在不同程度上造成参数估计出现偏差，而均值方差模型本身对参数变化十分敏感，参数细微的变化都会使得各资产配置的比例发生较大的变化，对预期收益率高或者和其他资产负相关的资产错误地配置过高比例，由于这方面的原因使得均值方差模型的推广应用手动了很大的限制。越来越多的投资者放弃单纯使用均值方差模型进行资产配置，开始在此基础上探索新的资产配置方法。</p>
-<h1 id="Black-Litterman模型的基本思想"><a href="#Black-Litterman模型的基本思想" class="headerlink" title="Black Litterman模型的基本思想"></a>Black Litterman模型的基本思想</h1><p>Black Litterman模型是居于马可威茨模型、CAPM模型以及贝叶斯模型所做的改进，它将投资者对资产的观点收益以及观点的信心水平、观点误差融入到模型中。</p>
+<h1 id="Black-Litterman模型的基本思想"><a href="#Black-Litterman模型的基本思想" class="headerlink" title="Black Litterman模型的基本思想"></a>Black Litterman模型的基本思想</h1><p>Black Litterman模型是基于马可威茨模型、CAPM模型以及贝叶斯模型所做的改进，它将投资者对资产的观点收益以及观点的信心水平、观点误差融入到模型中。该模型直观表示就是期望收益率是市场均衡收益率和投资者主观收益率的复杂加权平均。如果市场是有效的，市场均衡收益就是市场收益，它可以由历史数据获得。而投资者的主观预期可能有不同的来源，机构投资者可能来自对基本面的判断，而个人投资者可能倾向于报纸、网络等。</p>
+<p>什么是期望收益率$E(R)$？根据历史数据的收益率去估计资产的期望收益率是可靠的吗，甚至这个期望收益率是时变的，那么用样本均值去估计它可能只是没有办法的办法；每个投资者心里面对资产也有一个期望收益率，这个主观的收益率也可以度量资产目前价格是否偏离真实价值。下面引入BL（Black Litterman）模型：</p>
+<p>假设：</p>
+<script type="math/tex; mode=display">\prod=E(R)+\epsilon_1,\ \epsilon_1 \sim N(0,\tau\Sigma)</script><script type="math/tex; mode=display">Q=PE(R)+\epsilon_2,\ \epsilon_2\sim N(0,\Omega)</script><p>其中$E(R)$表示n个资产的期望收益率列向量。$\prod$表示市场均衡收益，是我们观察到的各资产的收益率，而$Q$表示投资者观点的收益，$P$的每一行表示一个投资者的观点，一个观点可以看做一条权重，也可以看做一种策略，不同的投资者观点不一样，策略也不一样，收益$Q$也不一样。如果我们把两部分式子拼凑在一起去估计，可以得到回归方程的形式：</p>
+<script type="math/tex; mode=display">Y=XE(R)+\epsilon</script><p>其中，$Y\begin{bmatrix} \prod\\ Q \end{bmatrix}$，$X=\begin{bmatrix} I_n\\ P \end{bmatrix}$，$Z=\begin{bmatrix} \tau\Sigma \ 0 \\ 0\ \Omega \end{bmatrix}$，$\epsilon\sim N(0,Z)$。在回归方程两边左乘$Z^{-1/2}$，以保证残差项独立（非对角线元素应该为0），可以得到回归方程的OLS估计为：</p>
+<script type="math/tex; mode=display">\hat{E(R)}=(X'Z^{-1}X)^{-1}X'Z^{-1}Y</script><p>将$Y,X,Z$展开可以得到</p>
+<script type="math/tex; mode=display">E(R)=[(\tau\Sigma)^{-1}+P'\Omega^{-1}P]^{-1}[(\tau\Sigma)^{-1}\prod+P'\Omega^{-1}Q]</script><ul>
+<li>$E(R)$ ：新构造的期望收益率列向量（后验收益）</li>
+<li>$\tau$ : 标量</li>
+<li>$\Sigma$ : 资产的超额收益协方差矩阵</li>
+<li>$\prod$ : 市场隐含均衡收益率向量（先验收益）</li>
+<li>$P$ : 投资者观点矩阵</li>
+<li>$Q$ : 观点收益向量</li>
+<li>$\Omega$: 观点误差的协方差矩阵，对角阵</li>
+</ul>
 
 
 

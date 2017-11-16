@@ -220,8 +220,21 @@
                 post-container">
 
                 <p>如果你是第一次阅读本文，你可能会对以下资源贴感兴趣：</p>
-<p><a href="http://blog.fens.me/r-mathematics/" target="_blank" rel="external">R语言中的数学计算</a><br><a href="http://adv-r.had.co.nz/Rcpp.html" target="_blank" rel="external">Advanced R: RCPP</a><br><a href="https://cosx.org/2016/07/r-symbol-calculate" target="_blank" rel="external">R 语言做符号计算</a><br><a href="http://www.bjt.name/2013/06/open-blas-r" target="_blank" rel="external">用 OpenBLAS 加速 R 的矩阵运算</a></p>
+<p><a href="http://blog.fens.me/r-mathematics/" target="_blank" rel="external">R语言中的数学计算</a><br><a href="http://adv-r.had.co.nz/Rcpp.html" target="_blank" rel="external">Advanced R: RCPP</a><br><a href="https://cosx.org/2016/07/r-symbol-calculate" target="_blank" rel="external">R 语言做符号计算</a><br><a href="http://www.bjt.name/2013/06/open-blas-r" target="_blank" rel="external">用 OpenBLAS 加速 R 的矩阵运算</a><br><a href="http://m.blog.csdn.net/iamsuperman2/article/details/73143393" target="_blank" rel="external">RcppArmadillo简明手册</a><br><a href="http://blog.csdn.net/iamsuperman2/article/details/73251928" target="_blank" rel="external"> Rcpp相关知识整理</a></p>
 <hr>
+<p>一般我们在RStudio新建一个C++ file时就可以建立自己的函数了，常见的输入参数类型有：</p>
+<ul>
+<li>向量： NumericVector IntegerVector CharaterVector LogicalVector</li>
+<li>标量： double int String bool</li>
+<li>矩阵： NumericMatrix IntegerMatrix CharaterMatrix LogicalMatrix</li>
+<li>列表： List</li>
+<li>缺失值： <int na_integer=""> <string na_string=""> <bool na_logical=""> <double na_real=""></double></bool></string></int></li>
+</ul>
+<p><strong>Mention</strong>:</p>
+<ul>
+<li>在c++中使用( )而不是[ ]进行子集选取</li>
+<li>使用.nrow()和.ncol()方法计算矩阵维度；使用.size()方法计算向量维度</li>
+</ul>
 
 
 
@@ -235,7 +248,7 @@
                     
                     
                         <li class="next">
-                            <a href="/2017/08/19/[Manual] R语言wordcloud2包使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] R语言wordcloud2包使用手册">Next Post &rarr;</a>
+                            <a href="/2017/08/19/[Manual] python调用R之rpy2使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python调用R之rpy2使用手册">Next Post &rarr;</a>
                         </li>
                     
                 </ul>

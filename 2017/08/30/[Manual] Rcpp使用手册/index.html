@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/python.jpg')
+            background-image: url('/img/R.jpg')
             /*post*/
         
     }
@@ -92,7 +92,7 @@
                             
                         </div>
                         <h1>[Manual] Rcpp使用手册</h1>
-                        <h2 class="subheading">这是一篇关于Rcppd的基础性技术文档</h2>
+                        <h2 class="subheading">这是一篇关于Rcpp的基础性技术文档</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
                             2017-08-30
@@ -220,7 +220,7 @@
                 post-container">
 
                 <p>如果你是第一次阅读这篇文章，以下资源贴可能是你感兴趣的：</p>
-<p><a href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank" rel="external">Rtools下载安装</a><br><a href="http://dirk.eddelbuettel.com/code/rcpp.html" target="_blank" rel="external">Dirk Eddelbuettel大神的神坛</a><br><a href="http://dirk.eddelbuettel.com/code/rcpp/Rcpp-introduction.pdf" target="_blank" rel="external">Rcpp-introduction</a><br><a href="http://adv-r.had.co.nz/Rcpp.html" target="_blank" rel="external">高级R语言编程指南Rcpp章节</a></p>
+<p><a href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank" rel="external">Rtools下载安装</a><br><a href="http://www.rcpp.org/" target="_blank" rel="external">Rcpp官网</a><br><a href="http://dirk.eddelbuettel.com/code/rcpp.html" target="_blank" rel="external">Dirk Eddelbuettel大神的神坛</a><br><a href="http://dirk.eddelbuettel.com/code/rcpp/Rcpp-introduction.pdf" target="_blank" rel="external">Rcpp-introduction</a><br><a href="http://adv-r.had.co.nz/Rcpp.html" target="_blank" rel="external">高级R语言编程指南Rcpp章节</a><br><a href="https://cran.rstudio.com/web/packages/Rcpp/vignettes/Rcpp-quickref.pdf" target="_blank" rel="external">Rcpp Quick Reference Guide</a><br><a href=""></a></p>
 <hr>
 <h1 id="Rcpp简介"><a href="#Rcpp简介" class="headerlink" title="Rcpp简介"></a>Rcpp简介</h1><h2 id="示例一-斐波那契数列"><a href="#示例一-斐波那契数列" class="headerlink" title="示例一 斐波那契数列"></a>示例一 斐波那契数列</h2><h3 id="R解决方案之一"><a href="#R解决方案之一" class="headerlink" title="R解决方案之一"></a>R解决方案之一</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fibR=<span class="keyword">function</span>(n) &#123;</div><div class="line">  <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span>(<span class="number">0</span>)</div><div class="line">  <span class="keyword">if</span>(n==<span class="number">1</span>) <span class="keyword">return</span>(<span class="number">1</span>)</div><div class="line">  <span class="keyword">return</span>(fibR(n-<span class="number">1</span>)+fibR(n-<span class="number">2</span>))</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="C-解决方案之一"><a href="#C-解决方案之一" class="headerlink" title="C++解决方案之一"></a>C++解决方案之一</h3><p>装好Rtools最好重启一下RStudio，运行以下例子，如果编译成功，没有报错那就可以放心使用了。</p>
