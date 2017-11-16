@@ -137,14 +137,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -219,11 +219,13 @@
 
                 <p>最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Matlab:R的速度比例是约为1:2:10。想要对比这三者的想法起源于统计计算的老师布置的作业，参考一份Matlab脚本先写了一份R的函数，测试之后发现速度贼慢，然后翻开Dirk Eddelbuettel的无缝整合一书，找到一套办法。</p>
 <h1 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h1><p>在lasso问题中：</p>
-<script type="math/tex; mode=display">\begin{matrix}
+<script type="math/tex; mode=display">\begin{equation}
+\begin{matrix}
 min ||(y-\mathbf{x}\beta)||^2+\lambda ||\beta||\\ 
 s.t. \ \beta_i\geq  0 
-\end{matrix}</script><p>在上面的约束下，可以化简目标函数为：</p>
-<script type="math/tex; mode=display">
+\end{matrix}
+\end{equation}</script><p>在上面的约束下，可以化简目标函数为：</p>
+<script type="math/tex; mode=display">\begin{equation}
 \begin{array}{ll}
 f_0 &=(y-x\beta)'(y-x\beta)+\lambda 1'\beta \\
 
@@ -231,7 +233,8 @@ f_0 &=(y-x\beta)'(y-x\beta)+\lambda 1'\beta \\
 
 &=y'y-2y'x\beta+\beta x'x \beta+\lambda1'\beta \\
 &=y'y+\beta x'x \beta+(\lambda1'-2y'x)\beta
-\end{array}</script><p>从上式可以看到，$y’y$是一个给定的常数，有人写了一篇文章，证明了这个目标函数的优化可以通过下面的方法完成：</p>
+\end{array} 
+\end{equation}</script><p>从上式可以看到，$y’y$是一个给定的常数，有人写了一篇文章，证明了这个目标函数的优化可以通过下面的方法完成：</p>
 <p>记$b=(\lambda1’-2y’x)$，$a=[x’x]_{+}\beta$，$c=[x’x]_{-}\beta$，其中$[x’x]_{+}$表示矩阵正部，矩阵中的负数设为0；$[x’x]_{-}$表示矩阵负部，矩阵中的正数设为0，仅保留负数的绝对值。这个方法核心的关键就是解方程$ax^2+bx-c=0$，得到对称轴右边的解乘以原来的$\beta$就作为新的$\beta$估计值。具体步骤为：</p>
 <ul>
 <li>令$\beta_0=1$，得到$f_0$</li>
@@ -255,13 +258,9 @@ f_0 &=(y-x\beta)'(y-x\beta)+\lambda 1'\beta \\
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/16/[Manual] Rcpp使用手册2/" data-toggle="tooltip" data-placement="top" title="[Manual] Rcpp使用手册2">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/15/[R语言] apply函数/" data-toggle="tooltip" data-placement="top" title="[R语言] apply函数">Next Post &rarr;</a>
+                            <a href="/2017/11/16/[Manual] Rcpp使用手册2/" data-toggle="tooltip" data-placement="top" title="[Manual] Rcpp使用手册2">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -397,6 +396,12 @@ f_0 &=(y-x\beta)'(y-x\beta)+\lambda 1'\beta \\
             all[i].SourceElement().parentNode.className += ' has-jax';
         }
     });
+</script>
+<!-- script below is in order to number the equationNumbers 2017-11-17 -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
 </script>
 
 <!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
