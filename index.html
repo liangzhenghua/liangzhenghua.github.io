@@ -129,13 +129,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -143,7 +136,7 @@
 
                         
                         <li>
-                            <a href="/pics/">Pics</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -151,6 +144,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/pics/">Pics</a>
                         </li>
                         
                     
@@ -216,21 +216,26 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
+    <a href="/2017/11/18/[R语言] 利用R合成卡农和最炫民族风/">
         <h2 class="post-title">
-            [R语言] 一种特殊的lasso求解
+            [R语言] 利用R合成卡农和最炫民族风
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于提高计算速度的技术文档
+            这是一次严肃的电子音乐实验
         </h3>
         <div class="post-content-preview">
-            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
+            程序代码参考网上的MATLAB代码，由于流传已久，找不到原作者，仅引出两篇相对整洁的资源帖
+另外，可以上github搜matlab的钢琴gui程序。
+我想在R里面自动播放音乐，那么在等运行结果的时候就可以听到提示音
+然而调出来的是MediaPlayer，我不是很想看到一个新的窗口出现
+我想隐式在后台自动响起
+还有，R调用MediaPlayer的时候会一直等待MediaPlayer进程的结束才......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-11-16
+            2017-11-18
         </p>
         <div class="tags">
             
@@ -266,6 +271,34 @@ RcppArmadillo简明手册Rcpp相关知识整理RcppArmadillo官方文档Armadill
         <div class="tags">
             
               <a href="/tags/#Rcpp" title="Rcpp">Rcpp</a>
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
+        <h2 class="post-title">
+            [R语言] 一种特殊的lasso求解
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于提高计算速度的技术文档
+        </h3>
+        <div class="post-content-preview">
+            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-16
+        </p>
+        <div class="tags">
             
               <a href="/tags/#R" title="R">R</a>
             
@@ -411,6 +444,40 @@ quality
 
 <div class="post-preview">
 
+    <a href="/2017/11/09/[Statistics] 点估计/">
+        <h2 class="post-title">
+            [Statistics] 点估计
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于点估计的重要提醒
+        </h3>
+        <div class="post-content-preview">
+            
+分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
+
+
+$\Theta$是$R^k$上的开矩形
+$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
+支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#统计" title="统计">统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/09/[计量] 异方差性/">
         <h2 class="post-title">
             [计量] 异方差性
@@ -474,68 +541,6 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/09/[Statistics] 点估计/">
-        <h2 class="post-title">
-            [Statistics] 点估计
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于点估计的重要提醒
-        </h3>
-        <div class="post-content-preview">
-            
-分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
-
-
-$\Theta$是$R^k$上的开矩形
-$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
-支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#统计" title="统计">统计</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/10/15/[计量] 分位数回归/">
-        <h2 class="post-title">
-            [计量] 分位数回归
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于分位数回归的介绍
-        </h3>
-        <div class="post-content-preview">
-            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-10-15
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -580,19 +585,19 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
             
         
             
-            <a href="/tags/#R" title="R" rel="8">R</a>
+            <a href="/tags/#R" title="R" rel="9">R</a>
             
         
+            
+        
+            
+            <a href="/tags/#python" title="python" rel="6">python</a>
             
         
             
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
-            
-        
-            
-            <a href="/tags/#python" title="python" rel="6">python</a>
             
         
             
@@ -745,11 +750,15 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
     <ul>
       
         <li>
-          <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">[R语言] 一种特殊的lasso求解</a>
+          <a href="/2017/11/18/[R语言] 利用R合成卡农和最炫民族风/">[R语言] 利用R合成卡农和最炫民族风</a>
         </li>
       
         <li>
           <a href="/2017/11/16/[Manual] Rcpp使用手册2/">[Manual] Rcpp使用手册2</a>
+        </li>
+      
+        <li>
+          <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">[R语言] 一种特殊的lasso求解</a>
         </li>
       
         <li>
@@ -758,10 +767,6 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
       
         <li>
           <a href="/2017/11/13/[日常] 2017年11月13日/">2017年11月13日</a>
-        </li>
-      
-        <li>
-          <a href="/2017/11/12/[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model/">[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model</a>
         </li>
       
     </ul>
