@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [R语言] apply函数 - 南有嘉鱼 | 南有樛木
+          2017年11月22日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="http://liangzhenghua.github.io/2017/11/15/[R语言] apply函数/">
+    <link rel="canonical" href="http://liangzhenghua.github.io/2017/11/22/[日常] 2017年11月22日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/R.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#R" title="R">R</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[R语言] apply函数</h1>
-                        <h2 class="subheading">这是一篇关于R语言科学计算的技术文档</h2>
+                        <h1>2017年11月22日</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-11-15
+                            2017-11-22
                         </span>
                     </div>
                 
@@ -217,15 +217,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>最近在使用<code>apply</code>函数，想要往函数FUN里面输入多个参数再调用apply，下面是实验的结果：</p>
-<h1 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ryan=<span class="keyword">function</span>(x,y,msg) &#123;</div><div class="line">  <span class="keyword">return</span>(paste0(x,y,msg))</div><div class="line">&#125;</div><div class="line"></div><div class="line">ryan(<span class="number">5</span>,<span class="number">6</span>,<span class="string">"-hello"</span>)</div><div class="line"></div><div class="line">apply(matrix(<span class="number">1</span>:<span class="number">6</span>,ncol = <span class="number">1</span>), <span class="number">1</span>, ryan,y=<span class="number">1</span>:<span class="number">8</span>,msg=c(<span class="string">"-GOOD MORING"</span>,<span class="string">'-GOOD AFTERNOON'</span>,<span class="string">'-GOOD NIGHT'</span>))</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">     [,1]                [,2]                [,3]                [,4]                [,5]               </div><div class="line">[1,] "11-GOOD MORING"    "21-GOOD MORING"    "31-GOOD MORING"    "41-GOOD MORING"    "51-GOOD MORING"   </div><div class="line">[2,] "12-GOOD AFTERNOON" "22-GOOD AFTERNOON" "32-GOOD AFTERNOON" "42-GOOD AFTERNOON" "52-GOOD AFTERNOON"</div><div class="line">[3,] "13-GOOD NIGHT"     "23-GOOD NIGHT"     "33-GOOD NIGHT"     "43-GOOD NIGHT"     "53-GOOD NIGHT"    </div><div class="line">[4,] "14-GOOD MORING"    "24-GOOD MORING"    "34-GOOD MORING"    "44-GOOD MORING"    "54-GOOD MORING"   </div><div class="line">[5,] "15-GOOD AFTERNOON" "25-GOOD AFTERNOON" "35-GOOD AFTERNOON" "45-GOOD AFTERNOON" "55-GOOD AFTERNOON"</div><div class="line">[6,] "16-GOOD NIGHT"     "26-GOOD NIGHT"     "36-GOOD NIGHT"     "46-GOOD NIGHT"     "56-GOOD NIGHT"    </div><div class="line">[7,] "17-GOOD MORING"    "27-GOOD MORING"    "37-GOOD MORING"    "47-GOOD MORING"    "57-GOOD MORING"   </div><div class="line">[8,] "18-GOOD AFTERNOON" "28-GOOD AFTERNOON" "38-GOOD AFTERNOON" "48-GOOD AFTERNOON" "58-GOOD AFTERNOON"</div><div class="line">     [,6]               </div><div class="line">[1,] "61-GOOD MORING"   </div><div class="line">[2,] "62-GOOD AFTERNOON"</div><div class="line">[3,] "63-GOOD NIGHT"    </div><div class="line">[4,] "64-GOOD MORING"   </div><div class="line">[5,] "65-GOOD AFTERNOON"</div><div class="line">[6,] "66-GOOD NIGHT"    </div><div class="line">[7,] "67-GOOD MORING"   </div><div class="line">[8,] "68-GOOD AFTERNOON"</div></pre></td></tr></table></figure>
-<p>可以看到<code>apply</code>把第一个参数识别为x，参数ryan后面，跟着和x长度不同的参数y和msg，可以见到，apply遍历了每组参数下的结果，这正是我们想要的。</p>
-<p>但是当ryan中的参数y是矩阵（或者向量）的时候，apply识别不出y是应该按单个元素输入，还是按整块矩阵输入。</p>
-<p>比如下面这种：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ryan=<span class="keyword">function</span>(x,y,msg) &#123;</div><div class="line">  <span class="keyword">return</span>(paste0(x,sum(y),msg))</div><div class="line">&#125;</div><div class="line"></div><div class="line">ryan(<span class="number">5</span>,<span class="number">6</span>:<span class="number">9</span>,c(<span class="string">"-hello"</span>,<span class="string">', sir'</span>))</div><div class="line"></div><div class="line">apply(matrix(<span class="number">1</span>:<span class="number">6</span>,ncol = <span class="number">1</span>), <span class="number">1</span>, ryan,y=<span class="number">1</span>:<span class="number">8</span>,msg=c(<span class="string">"-GOOD MORING"</span>,<span class="string">'-GOOD AFTERNOON'</span>,<span class="string">'-GOOD NIGHT'</span>))</div></pre></td></tr></table></figure>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[1] "530-hello" "530, sir" </div><div class="line"></div><div class="line">     [,1]                 [,2]                 [,3]                </div><div class="line">[1,] "136-GOOD MORING"    "236-GOOD MORING"    "336-GOOD MORING"   </div><div class="line">[2,] "136-GOOD AFTERNOON" "236-GOOD AFTERNOON" "336-GOOD AFTERNOON"</div><div class="line">[3,] "136-GOOD NIGHT"     "236-GOOD NIGHT"     "336-GOOD NIGHT"    </div><div class="line">     [,4]                 [,5]                 [,6]                </div><div class="line">[1,] "436-GOOD MORING"    "536-GOOD MORING"    "636-GOOD MORING"   </div><div class="line">[2,] "436-GOOD AFTERNOON" "536-GOOD AFTERNOON" "636-GOOD AFTERNOON"</div><div class="line">[3,] "436-GOOD NIGHT"     "536-GOOD NIGHT"     "636-GOOD NIGHT"</div></pre></td></tr></table></figure>
-<p>解决办法可以考虑使用嵌套的apply函数</p>
+                <p>周三一天是没课的，本来我应该去公司呆一天的。因为要用一个KMV模型写企业债违约那两万字，就跟师姐们说了一下明儿不去了。是的，我的师门里女生特别多。</p>
+<p>然而，昨晚失眠了。</p>
+<p>还有，最近在想一个很有趣的问题：洗澡身体难受，不洗澡心里难受。要在北方呆习惯，是要活得粗糙一点的，我还拿捏不准那个度，总不能一上来就把自己吓住吧，慢慢来。饮食习惯是不是会改变人的性格呢，反正我现在很喜欢怼别人啊。程老师给我们上课的时候，拿了一篇她匿名评审的文章给我们课堂上看，问研究的逻辑有没有问题。最后说了啥我也不太记得了，记得最深刻一句话就是，做研究有了自己的观点要尝试去说服别人。平常生活里，观点不一样并不会影响我们交流和共处，毕竟没有共同利益。久而久之，突然想说服别人的时候，发现这是一个挺困难的事情。怎么样不露痕迹地去改变一个人的想法，这才是最Geek的黑科技啊。</p>
+<p>晚上，大数据班的人要找我组队打比赛。噢，都这么大的孩子了还要打比赛，不应该好好撸论文才是正经事吗？可是撸论文太枯燥了，前面的augmented Black Litterman模型还没搞明白，下周又要请金融学院一个牛逼哄哄的老师给我们讲市场有效性的文章了。首先你得证明中国的市场是不是有效的，因子是不是有效的，才能用各种模型啊算法啊去找alpha和beta;不然的话，什么信息都充分体现在价格上面了，你做什么都是徒劳的。</p>
+<p>所以说啊，还是在枯燥的生活里找点有趣的事，转手我就告诉了Edwina。在学校里我很少跟男生打交道啊我突然意识到这个问题很严重啊，在财经类学校想要认识一个好一点的男生实在是太困难了。这里的人给我的感觉和沿海地区很不一样，不好说，可能是文化差异吧，你看，乡下的人想进城，城里的人想进省会，省会的人想进京。</p>
+<p>晚上还有一个，达叔突然找我聊骚。可能是最近在华为的事情比较少？给我看了一下他的住的地方，感觉还不错。我觉得这就是大多应届毕业生的生活状态了，刚毕业，大家都很活的很压抑啊。不管怎么样，一要保持精神状态，二是好好规划，理财的、饮食的、起居的，过的好不好不要紧，要美。</p>
+<blockquote>
+<p>今晚说的有点多了，生活就像海洋，只有意志坚定的人才能到达彼岸。我还差两万字上岸。</p>
+</blockquote>
 
 
 
@@ -233,13 +233,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/" data-toggle="tooltip" data-placement="top" title="[R语言] 一种特殊的lasso求解">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/13/[日常] 2017年11月13日/" data-toggle="tooltip" data-placement="top" title="2017年11月13日">Next Post &rarr;</a>
+                            <a href="/2017/11/21/[日常] 2017年11月21日/" data-toggle="tooltip" data-placement="top" title="2017年11月21日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -264,17 +260,6 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#apply"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">apply</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -289,7 +274,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#R" title="R">R</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -321,32 +306,6 @@
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
 
 <!-- 控制文章是否需要密码 2017-08-07-->
@@ -360,8 +319,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "http://liangzhenghua.github.io/2017/11/15/[R语言] apply函数/";
-    var disqus_url = "http://liangzhenghua.github.io/2017/11/15/[R语言] apply函数/";
+    var disqus_identifier = "http://liangzhenghua.github.io/2017/11/22/[日常] 2017年11月22日/";
+    var disqus_url = "http://liangzhenghua.github.io/2017/11/22/[日常] 2017年11月22日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
