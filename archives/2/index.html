@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://liangzhenghua.github.io/archives/2/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/archives/2/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -143,14 +143,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/pics/">Gallery</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/pics/">Pics</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -244,30 +244,55 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/09/[计量] 异方差性/">
+    <a href="/2017/11/09/[Statistics] 点估计/">
         <h2 class="post-title">
-            [计量] 异方差性
+            [Statistics] 点估计
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于异方差性的介绍
+            这是一篇关于点估计的重要提醒
         </h3>
         <div class="post-content-preview">
-            定义
-同方差意为方差具有相同的分布，或者说相同的方差。
+            
+分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
 
-$E(u_i^2)=\sigma^2,i=1,2,…,n$
-不管变量$X_i$取什么值，$Y_i$的条件方差都保持不变。
 
-异方差表明$Y_i$的方差不再保持不变，会随着$X_i$的变化而变化,符号上记为：
-
-$E(u_i^2)=\sigma_i^2,i=1,2,…,n$
-OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
+$\Theta$是$R^k$上的开矩形
+$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
+支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
             2017-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#统计" title="统计">统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/10/15/[计量] 分位数回归/">
+        <h2 class="post-title">
+            [计量] 分位数回归
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于分位数回归的介绍
+        </h3>
+        <div class="post-content-preview">
+            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-10-15
         </p>
         <div class="tags">
             
@@ -291,34 +316,6 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
         <div class="post-content-preview">
             定义完全共线性：k个变量如果满足以下条件，我们说它存在一个准确的线性关系:$\lambda_1 X_1+\lambda_2 X_2+…+\lambda_k X_k=0$，其中$\lambda_1,\lambda_2,…,\lambda_k$ 为常数，但不同时为0。
 多重共线性：$X$变量之间彼此相关，但又不完全相关，$\lambda_1 X_1+\lambda_2 X_2+…+\lambda......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-10-15
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/10/15/[计量] 分位数回归/">
-        <h2 class="post-title">
-            [计量] 分位数回归
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于分位数回归的介绍
-        </h3>
-        <div class="post-content-preview">
-            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
         </div>
     </a>
     
@@ -366,15 +363,20 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 
 <div class="post-preview">
 
-    <a href="/2017/09/27/[金融] 金融衍生品基础/">
+    <a href="/2017/09/27/[计量] 邹至庄检验/">
         <h2 class="post-title">
-            [金融] 金融衍生品基础
+            [计量] 邹至庄检验
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于金融衍生品的概念总结
+            这是一篇关于邹至庄检验的简单回顾
         </h3>
         <div class="post-content-preview">
-            ...
+            
+邹至庄检验用于检验回归模型的结构或参数稳定性
+
+假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。
+做三个回归如下：
+时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为......
         </div>
     </a>
     
@@ -456,20 +458,15 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 
 <div class="post-preview">
 
-    <a href="/2017/09/27/[计量] 邹至庄检验/">
+    <a href="/2017/09/27/[金融] 金融衍生品基础/">
         <h2 class="post-title">
-            [计量] 邹至庄检验
+            [金融] 金融衍生品基础
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于邹至庄检验的简单回顾
+            这是一篇关于金融衍生品的概念总结
         </h3>
         <div class="post-content-preview">
-            
-邹至庄检验用于检验回归模型的结构或参数稳定性
-
-假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。
-做三个回归如下：
-时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为......
+            ...
         </div>
     </a>
     
@@ -572,13 +569,13 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
             
         
             
+            <a href="/tags/#python" title="python" rel="6">python</a>
+            
+        
+            
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
-            
-        
-            
-            <a href="/tags/#python" title="python" rel="6">python</a>
             
         
             
@@ -608,11 +605,11 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
             
         
             
-        
-            
-        
-            
             <a href="/tags/#计量" title="计量" rel="6">计量</a>
+            
+        
+            
+        
             
         
             
@@ -743,11 +740,11 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
         </li>
       
         <li>
-          <a href="/2017/11/16/[Manual] Rcpp使用手册2/">[Manual] Rcpp使用手册2</a>
+          <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">[R语言] 一种特殊的lasso求解</a>
         </li>
       
         <li>
-          <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">[R语言] 一种特殊的lasso求解</a>
+          <a href="/2017/11/16/[Manual] Rcpp使用手册2/">[Manual] Rcpp使用手册2</a>
         </li>
       
     </ul>
@@ -912,7 +909,7 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://liangzhenghua.github.io/js/jquery.tagcloud.js",function(){
+        async("https://liangzhenghua.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -964,7 +961,7 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
-<img src="http://liangzhenghua.github.io/img/icon_wechat.png" width="0" height="0" />
+<img src="https://liangzhenghua.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>

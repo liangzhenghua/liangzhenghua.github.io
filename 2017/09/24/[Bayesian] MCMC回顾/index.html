@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://liangzhenghua.github.io/2017/09/24/[Bayesian] MCMC回顾/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2017/09/24/[Bayesian] MCMC回顾/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -95,6 +95,10 @@
                             Posted by Leung ZhengHua on
                             2017-09-24
                         </span>
+						<!-- 测试阅读量 -->
+						<br></br>
+                        <span class="meta" id="busuanzi_container_page_pv">本文总点击量<span id="busuanzi_value_page_pv"></span>次
+                        <!-- 测试阅读量 -->
                     </div>
                 
 
@@ -151,14 +155,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/pics/">Gallery</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/pics/">Pics</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -207,6 +211,7 @@
     <!-- Modify by Yu-Hsuan Yen -->
 
 <!-- Post Content -->
+
 <article>
     <div class="container">
         <div class="row">
@@ -218,7 +223,7 @@
                 post-container">
 
                 <p>阅读本文之前，你可能对以下资源帖感兴趣：</p>
-<p><a href="http://blog.csdn.net/baimafujinji/article/details/53946367" target="_blank" rel="external">MCMC中的Metropolis–Hastings算法与吉布斯采样</a><br><a href="http://blog.csdn.net/baimafujinji/article/details/51407703" target="_blank" rel="external"> 蒙特卡洛采样之拒绝采样（Reject Sampling）</a><br><a href="https://cosx.org/2013/01/lda-math-mcmc-and-gibbs-sampling/" target="_blank" rel="external">LDA-math-MCMC 和 Gibbs Sampling</a><br><a href="https://cosx.org/2012/07/mcmc-case-study/" target="_blank" rel="external">MCMC 案例学习</a><br><a href="http://blog.csdn.net/yujunbeta/article/details/21303341" target="_blank" rel="external">R语言与Markov Chain Monte Carlo(MCMC)方法学习笔记(1)</a><br><a href="http://blog.csdn.net/yujunbeta/article/details/23205331" target="_blank" rel="external">R语言与Markov Chain Monte Carlo(MCMC)方法学习笔记(2)</a></p>
+<p><a href="http://blog.csdn.net/baimafujinji/article/details/53946367" target="_blank" rel="external">MCMC中的Metropolis–Hastings算法与吉布斯采样</a><br><a href="http://blog.csdn.net/baimafujinji/article/details/51407703" target="_blank" rel="external"> 蒙特卡洛采样之拒绝采样（Reject Sampling）</a><br><a href="https://cosx.org/2013/01/lda-math-mcmc-and-gibbs-sampling/" target="_blank" rel="external">LDA-math-MCMC 和 Gibbs Sampling</a><br><a href="https://cosx.org/2012/07/mcmc-case-study/" target="_blank" rel="external">MCMC 案例学习</a><br><a href="http://blog.csdn.net/yujunbeta/article/details/21303341" target="_blank" rel="external">R语言与Markov Chain Monte Carlo(MCMC)方法学习笔记(1)</a><br><a href="http://blog.csdn.net/yujunbeta/article/details/23205331" target="_blank" rel="external">R语言与Markov Chain Monte Carlo(MCMC)方法学习笔记(2)</a><br><a href="http://crescentmoon.info/2013/06/29/Gibbs%20Sampling%20for%20the%20UniniTiated-1/#more" target="_blank" rel="external">《Gibbs Sampling for the UniniTiated》阅读笔记</a></p>
 <hr>
 <h1 id="从正态分布说起"><a href="#从正态分布说起" class="headerlink" title="从正态分布说起"></a>从正态分布说起</h1><p>假如我们拿到一组正态分布的数据，对它的均值和方差都没有任何信息时。要想得到感兴趣的$\mu$的分布情况，可以用以下三种方法模拟$\mu$的分布：</p>
 <h2 id="1-计算-mu-的边际后验分布"><a href="#1-计算-mu-的边际后验分布" class="headerlink" title="1 计算$\mu$的边际后验分布"></a>1 计算$\mu$的边际后验分布</h2><p>需要将$(\mu,\sigma ^2)$的联合后验分布中的$\sigma^2$积分积掉。简化之后的结果可以得到$\frac{\mu -\overline{x}}{s/\sqrt{n}}|\mathbf{x}\sim t(n-1)$，这说明我们可以生成t分布的随机数，根据已经计算的样本均值$\overline{x}$和样本标准差$s$，可以逆推回去得到$\mu$值，由此可以模拟得到$\mu$的分布情况。</p>
@@ -252,7 +257,7 @@
                     
                     
                         <li class="next">
-                            <a href="/2017/09/20/[黑科技] 科学上网/" data-toggle="tooltip" data-placement="top" title="[黑科技] 科学上网">Next Post &rarr;</a>
+                            <a href="/2017/09/20/[计量] 计量经济学回顾/" data-toggle="tooltip" data-placement="top" title="[计量] 计量经济学回顾">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -411,8 +416,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "http://liangzhenghua.github.io/2017/09/24/[Bayesian] MCMC回顾/";
-    var disqus_url = "http://liangzhenghua.github.io/2017/09/24/[Bayesian] MCMC回顾/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2017/09/24/[Bayesian] MCMC回顾/";
+    var disqus_url = "https://liangzhenghua.github.io/2017/09/24/[Bayesian] MCMC回顾/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -614,7 +619,7 @@ MathJax.Hub.Config({
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://liangzhenghua.github.io/js/jquery.tagcloud.js",function(){
+        async("https://liangzhenghua.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -666,7 +671,7 @@ MathJax.Hub.Config({
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
-<img src="http://liangzhenghua.github.io/img/icon_wechat.png" width="0" height="0" />
+<img src="https://liangzhenghua.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>

@@ -18,7 +18,7 @@
         
     </title>
 
-    <link rel="canonical" href="http://liangzhenghua.github.io/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -143,14 +143,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/pics/">Gallery</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/pics/">Pics</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -310,6 +310,34 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
+        <h2 class="post-title">
+            [R语言] 一种特殊的lasso求解
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于提高计算速度的技术文档
+        </h3>
+        <div class="post-content-preview">
+            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-16
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/16/[Manual] Rcpp使用手册2/">
         <h2 class="post-title">
             [Manual] Rcpp使用手册2
@@ -332,34 +360,6 @@ RcppArmadillo简明手册Rcpp相关知识整理RcppArmadillo官方文档Armadill
         <div class="tags">
             
               <a href="/tags/#Rcpp" title="Rcpp">Rcpp</a>
-            
-              <a href="/tags/#R" title="R">R</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
-        <h2 class="post-title">
-            [R语言] 一种特殊的lasso求解
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于提高计算速度的技术文档
-        </h3>
-        <div class="post-content-preview">
-            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-16
-        </p>
-        <div class="tags">
             
               <a href="/tags/#R" title="R">R</a>
             
@@ -505,21 +505,24 @@ quality
 
 <div class="post-preview">
 
-    <a href="/2017/11/09/[Statistics] 点估计/">
+    <a href="/2017/11/09/[计量] 异方差性/">
         <h2 class="post-title">
-            [Statistics] 点估计
+            [计量] 异方差性
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于点估计的重要提醒
+            这是一篇关于异方差性的介绍
         </h3>
         <div class="post-content-preview">
-            
-分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
+            定义
+同方差意为方差具有相同的分布，或者说相同的方差。
 
+$E(u_i^2)=\sigma^2,i=1,2,…,n$
+不管变量$X_i$取什么值，$Y_i$的条件方差都保持不变。
 
-$\Theta$是$R^k$上的开矩形
-$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
-支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
+异方差表明$Y_i$的方差不再保持不变，会随着$X_i$的变化而变化,符号上记为：
+
+$E(u_i^2)=\sigma_i^2,i=1,2,…,n$
+OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
         </div>
     </a>
     
@@ -529,7 +532,7 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
         </p>
         <div class="tags">
             
-              <a href="/tags/#统计" title="统计">统计</a>
+              <a href="/tags/#计量" title="计量">计量</a>
             
         </div>
     
@@ -587,13 +590,13 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
             
         
             
+            <a href="/tags/#python" title="python" rel="6">python</a>
+            
+        
+            
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
-            
-        
-            
-            <a href="/tags/#python" title="python" rel="6">python</a>
             
         
             
@@ -623,11 +626,11 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
             
         
             
-        
-            
-        
-            
             <a href="/tags/#计量" title="计量" rel="6">计量</a>
+            
+        
+            
+        
             
         
             
@@ -758,11 +761,11 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
         </li>
       
         <li>
-          <a href="/2017/11/16/[Manual] Rcpp使用手册2/">[Manual] Rcpp使用手册2</a>
+          <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">[R语言] 一种特殊的lasso求解</a>
         </li>
       
         <li>
-          <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">[R语言] 一种特殊的lasso求解</a>
+          <a href="/2017/11/16/[Manual] Rcpp使用手册2/">[Manual] Rcpp使用手册2</a>
         </li>
       
     </ul>
@@ -927,7 +930,7 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://liangzhenghua.github.io/js/jquery.tagcloud.js",function(){
+        async("https://liangzhenghua.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -979,7 +982,7 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
-<img src="http://liangzhenghua.github.io/img/icon_wechat.png" width="0" height="0" />
+<img src="https://liangzhenghua.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>
