@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Manual] python3中selenium+phantom使用手册 - 南有嘉鱼 | 南有樛木
+          [文献阅读] 中国股票市场可预测性的实证研究 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/08/19/[Manual] python3中selenium+phantom使用手册 - 副本/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/python.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,18 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#python" title="python">python</a>
-                            
-                              <a class="tag" href="/tags/#selenium" title="selenium">selenium</a>
-                            
-                              <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
+                              <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
                             
                         </div>
-                        <h1>[Manual] python3中selenium+phantom使用手册</h1>
-                        <h2 class="subheading">这是一篇关于selenium和phantom在爬虫中的基础性文档</h2>
+                        <h1>[文献阅读] 中国股票市场可预测性的实证研究</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-19
+                            2017-11-26
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -226,34 +222,54 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>在阅读本文之前，你可能对以下资源贴有兴趣：<br><a href="http://selenium-python.readthedocs.io/index.html" target="_blank" rel="external">Selenium with Python官方文档</a><br><a href="http://cuiqingcai.com/2599.html" target="_blank" rel="external">Python爬虫利器五之Selenium的用法</a><br><a href="http://blog.csdn.net/nhudx061/article/details/43305599" target="_blank" rel="external">用python玩转selenium</a><br><a href="http://www.imooc.com/article/17119?block_id=tuijian_wz" target="_blank" rel="external">selenium和phantomjs爬取动态网页</a></p>
-<hr>
-<h1 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h1><h2 id="页面交互"><a href="#页面交互" class="headerlink" title="页面交互"></a>页面交互</h2><p>仅仅打开一个网页对我们来说是没有什么价值的，我们使用selenium的目的在于和网页进行交互，做一些真实用户会做的操作，比如点击确定，和输入账号密码登陆。</p>
-<h3 id="文本框"><a href="#文本框" class="headerlink" title="文本框"></a>文本框</h3><p>比如，给定一段html代码如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"passwd"</span> <span class="attr">id</span>=<span class="string">"passwd-id"</span> /&gt;</span></div></pre></td></tr></table></figure>
-<p>这段代码块要求我们提交密码，要做两件事情，第一，定位到这一个页面元素（密码文本框），第二，对这个元素输入密码内容。我们可以这样获取它：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">element = driver.find_element_by_id(<span class="string">"passwd-id"</span>)</div><div class="line">element = driver.find_element_by_name(<span class="string">"passwd"</span>)</div><div class="line">element = driver.find_elements_by_tag_name(<span class="string">"input"</span>)</div><div class="line">element = driver.find_element_by_xpath(<span class="string">"//input[@id='passwd-id']"</span>)</div></pre></td></tr></table></figure></p>
-<p>如果有多个元素匹配了 xpath，它只会返回第一个匹配的元素。如果没有找到，那么会抛出 <code>NoSuchElementException</code>的异常。<br>当你得到了这个元素，你可以向它提交文本内容：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.send_keys(<span class="string">"some text"</span>)</div></pre></td></tr></table></figure></p>
-<p>又或者模拟点击某个按键。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.send_keys(<span class="string">"and some"</span>, Keys.ARROW_DOWN)</div></pre></td></tr></table></figure></p>
-<p>你可以对任何获取到到元素使用 send_keys 方法，就像你在 GMail 里面点击发送键一样。不过这样会导致的结果就是输入的文本不会自动清除。所以输入的文本都会在原来的基础上继续输入。你可以用下面的方法来清除输入文本的内容。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.clear()</div></pre></td></tr></table></figure></p>
-<h3 id="选择框"><a href="#选择框" class="headerlink" title="选择框"></a>选择框</h3><p>WebDriver提供了一个Select类，可以很好处理选择框的交互问题。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> Select</div><div class="line">select = Select(driver.find_element_by_name(<span class="string">'name'</span>))</div><div class="line">select.select_by_index(index)</div><div class="line">select.select_by_visible_text(<span class="string">"text"</span>)</div><div class="line">select.select_by_value(value)</div></pre></td></tr></table></figure>
-<p>WebDriver也提供了取消选项的方法，下面举例取消全部选项;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select = Select(driver.find_element_by_id(<span class="string">'id'</span>))</div><div class="line">select.deselect_all()</div></pre></td></tr></table></figure>
-<p>WebDriver也提供了返回全部选项内容的办法，下面举例得到全部选项：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select = Select(driver.find_element_by_xpath(<span class="string">"xpath"</span>))</div><div class="line">all_selected_options = select.all_selected_options</div><div class="line">options = select.options    <span class="comment">#得到全部选项</span></div></pre></td></tr></table></figure>
-<h2 id="提交表单"><a href="#提交表单" class="headerlink" title="提交表单"></a>提交表单</h2><p>当我们把表单填好，下一步就是点击确定（submit）,提交表单内容。<br>方法一，找到<code>Submit</code>按钮，并调用<code>Click()</code>方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Assume the button has the ID "submit" :)</span></div><div class="line">driver.find_element_by_id(<span class="string">"submit"</span>).click()</div></pre></td></tr></table></figure>
-<p>方法二，WebDriver 中每个元素都有<code>Submit</code>的方法可以调用，这表明可以单独提交某个元素。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.submit()</div></pre></td></tr></table></figure>
-<p>WebDriver 会在表单中寻找它所在的表单，如果发现这个元素并没有被表单所包围，那么程序会抛出<code>NoSuchElementException</code> 的异常。</p>
-<h2 id="元素拖曳"><a href="#元素拖曳" class="headerlink" title="元素拖曳"></a>元素拖曳</h2><p>要完成元素的拖拽，首先你需要指定被拖动的元素和拖动目标元素，然后利用 ActionChains 类来实现。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">element = driver.find_element_by_name(<span class="string">"source"</span>)</div><div class="line">target = driver.find_element_by_name(<span class="string">"target"</span>)</div><div class="line"></div><div class="line"><span class="keyword">from</span> selenium.webdriver <span class="keyword">import</span> ActionChains</div><div class="line">action_chains = ActionChains(driver)</div><div class="line">action_chains.drag_and_drop(element, target).perform()</div></pre></td></tr></table></figure></p>
-<h2 id="浏览窗口切换"><a href="#浏览窗口切换" class="headerlink" title="浏览窗口切换"></a>浏览窗口切换</h2><h2 id="弹窗处理"><a href="#弹窗处理" class="headerlink" title="弹窗处理"></a>弹窗处理</h2><h2 id="浏览历史"><a href="#浏览历史" class="headerlink" title="浏览历史"></a>浏览历史</h2><h2 id="Cookies"><a href="#Cookies" class="headerlink" title="Cookies"></a>Cookies</h2><h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q &amp; A"></a>Q &amp; A</h1><h2 id="如何滚动窗口到页面底部？"><a href="#如何滚动窗口到页面底部？" class="headerlink" title="如何滚动窗口到页面底部？"></a>如何滚动窗口到页面底部？</h2><p>你可以使用<code>execute_script</code>方法执行页面上的javascript 脚本，所以你可以滚动到页面底部或者到任意位置。</p>
-<p>以下是一个滚动到页面底部的例子：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">driver.execute_script(<span class="string">"window.scrollTo(0, document.body.scrollHeight);"</span>)</div></pre></td></tr></table></figure>
-<p>DOM中的window对象有一个scrollTo 方法，scrollHeight是所有元素的共同属性，document.body.scrollHeight给出了整个页面的高度值。</p>
-<h2 id="如何对当前窗口截图"><a href="#如何对当前窗口截图" class="headerlink" title="如何对当前窗口截图"></a>如何对当前窗口截图</h2><p>使用webdriver提供的save_screenshot 方法：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</div><div class="line"></div><div class="line">driver = webdriver.Firefox()</div><div class="line">driver.get(<span class="string">'http://www.python.org/'</span>)</div><div class="line">driver.save_screenshot(<span class="string">'screenshot.png'</span>)</div><div class="line">driver.quit()</div></pre></td></tr></table></figure>
-<h2 id="如何上传文件"><a href="#如何上传文件" class="headerlink" title="如何上传文件"></a>如何上传文件</h2><p>选择<code>&lt;input type=&quot;file&quot;&gt;</code>元素，然后在<code>send_keys()</code>中输入文件所在路径。</p>
+                <p>这篇文章是金融学院的<a href="http://fuweijiang.weebly.com/" target="_blank" rel="external">姜富伟</a>读博期间发的论文，周二就要见真人了，所以我现在要做好功课。</p>
+<p>首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。</p>
+<p>Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没有在样本外预测中优于历史平均收益这一简单预测。但Campbell and Thompson(2008)指出，通过基于金融理论的参数约束，股票收益在样本外也是可预测的。</p>
+<p>意思就是说，用你的数据建立你的模型，再代入你的数据，效果很棒；然而用样本外的数据检验你的模型时，不好意思，我还不如用前几天股票收益率的均值去估计明天的收益率。</p>
+<h1 id="样本内可预测性检验"><a href="#样本内可预测性检验" class="headerlink" title="样本内可预测性检验"></a>样本内可预测性检验</h1><p>姜富伟为了检验各个变量对中国股票收益的可预测性，使用单变量预测性回归分析模型（实际上就是一元回归）：</p>
+<script type="math/tex; mode=display">\begin{equation}
+r_{i,t}=a_i+b_{i,t}x_{j,t-1}+e_{j,t}
+\end{equation}</script><p>其中，$r_{i,t}$是投资组合$i$的收益与无风险利率之差（超额收益率的意思），$x_{j,t}$是潜在预测变量（对某资产$i$我们有一系列的变量$j=1,2,3,…,n$去做回归），$e_{j,t}$是误差项。</p>
+<p>接下来姜富伟用公式（1）中$b_{i,j}$的t统计量判断该变量对收益率$r_{i,t}$是否具有显著预测能力，一元回归我们学统计的都学到烂了。可能是样本数据量偏少，他用bootstrap方法进行统计推断以避免假设检验中的小样本水平扭曲问题（Size Distortion）,这个术语倒是第一次听说。</p>
+<p>因此在样本内的可预测检验问题就转换成对各个一元回归模型的t检验，但在使用一元回归模型之前我们还得生成我们感兴趣的投资组合的$r_{i,t}$和潜在预测变量$X_j$，姜富伟是这么处理得到各投资组合的$r_{i,t}$：</p>
+<ul>
+<li>利用正常的A股公司（没有包括ST或者PT这些表现异常的公司）构造1996年7月-2009年6月的市值加权投资组合，这意味着这个投资组合的每日收益率就是把所有正常A股的每日收益率按市值加权汇总得到的收益率。</li>
+<li>每年6月底，按中国证监会行业分类同样以市值加权的方式构造13个行业（比如农林牧渔业）投资组合</li>
+<li>每年6月底，按股票市值规模大小排序，等分10个相同数量股票的规模投资组合，同样以市值加权的方式组合</li>
+<li>每年6月底，按股票面值市值比大小排序，等分10个相同数量股票的面值市值比投资组合，同样以市值加权的方式组合；但6月底一般还不能拿到中报的公司账面价值，文章采用上一财年末的账面价值</li>
+<li>每年6月底，按股权集中度大小排序，等分10个相同数量的股权集中度投资组合，股权集中度用上一财年末的最大股东持股比例表示（应该是这样）</li>
+</ul>
+<p>此外，姜富伟参考了Welch and Goyal（2008）选取了12个经济变量作为中国股票超额收益的潜在预测变量。</p>
+<ul>
+<li>股利支付率（D/E）</li>
+<li>股利价格比（D/P）</li>
+<li>股息率（D/Y）</li>
+<li>盈余价格比（E/P）</li>
+<li>面值市值比（B/M）</li>
+<li>股票方差（SVR）</li>
+<li>通货膨胀（INF）</li>
+<li>净权益增加（NTIS）</li>
+<li>换手率（TO）</li>
+<li>$M_0$增长率（$M_0G$）</li>
+<li>$M_1$增长率变动量（$M_1G$），为什么用增长率变动量，这个奇怪的二次差分要问问他</li>
+<li>$M_2$增长率（$M_2G$）</li>
+</ul>
+<p>至此我们得到了一份整洁的数据可以代入一元回归模型，得到回归的估计结果。实际上姜富伟用$R^2$表示各方程的可预测性，在这个基础上汇总得到每个行业的平均$R^2$，每个变量的平均$R^2$，汇总得到每个变量对多少个行业有解释能力（有多少条方程是显著的）。文章结果指出，在行业投资组合中，MAN（制造业）、FIN（金融保险业）、PRT（房地差业）行业最容易预测，平均$R^2$大于2%。</p>
+<h1 id="样本外可预测性检验"><a href="#样本外可预测性检验" class="headerlink" title="样本外可预测性检验"></a>样本外可预测性检验</h1><p>相对于样本内预测，样本外预测对于现实世界投资者的史诗投资决策更具有意义。但针对美国市场的实证研究发现，股票收益的样本外可预测性弱且不稳定（Welch and Goyal,2008）。Ludvigson and Ng(2009)等发现主成分预测方法可以在样本外显著预测美国股票和债券市场。</p>
+<h2 id="计量方法"><a href="#计量方法" class="headerlink" title="计量方法"></a>计量方法</h2><p>姜富伟采用扩展估计法（Expanding Estimation）来估计样本外股票超额收益。实际上就是一种滚动估计方法，每次往训练集加入新拿到的数据，更新模型的参数，预测下一期的值，等到下一期的数据能够拿到了，再重复这个过程，我们就这样得到一系列的预测值。</p>
+<p>然而为了和单变量预测性回归模型作对比，他还用了主成分预测方法将所有变量降维至2个变量，再滚动估计收益率序列。在中国股票市场没有可预测性的原假设下，可以用带漂移项的随机游走模型刻画中国股票市场超额收益。因此（为什么）可以选择历史平均收益作为样本外预测基准：$\bar{r}_{i,t+1}=\frac{1}{t}\Sigma_{s=1}^tr_{i,t}$（Welch and Goyal,2008）。如果潜在预测变量包含的信息能预测中国股票市场超额收益，那么使用该变量的单变量预测性回归模型和主成分预测模型应该比历史平均收益有更好的样本外预测能力，因为后者忽略了有用的预测信息。</p>
+<p>Campbell and Thompson(2008)使用了以下统计量来检验$\hat{r}_{i,t+1}$的样本外预测表现：</p>
+<script type="math/tex; mode=display">\begin{equation}
+R_{OS}^2=1-\frac{\sum_{k=1}^{n_2} (r_{i,n_1+k}-\hat{r}_{i,n_1+k})^2}{\sum_{k=1}^{n_2} (r_{i,n_1+k}-\bar{r}_{i,n_1+k})^2}
+\end{equation}</script><p>$n_2$表示样本外推的期数，当$R_{os}^2&gt;0$时，按照均方预测误差（MSPE）标准，$\hat{r}_{i,n_1+k}$预测优于$\bar{r}_{i,n_1+k}$预测。</p>
+<p>在计算得到每个投资组合对每个变量的$R_{OS}^2$之后，我们可以仿照前面按行业平均，按变量平均的方式重新分析一遍。结果表明，换手率（TO）具有很强的预测能力，这是很容易理解的（我还没理解出来），Miller(1997)指出，当存在卖空约束时，投资者的异质信念会导致股票高估。由于中国股票市场发展时间短、不允许卖空和市场主体主要由缺乏投资经验的非理性个人投资者构成，这些因素使得Miller(1997)的理论在中国股票市场尤其适用。</p>
+<h1 id="条件CAPM模型与样本外可预测性分解"><a href="#条件CAPM模型与样本外可预测性分解" class="headerlink" title="条件CAPM模型与样本外可预测性分解"></a>条件CAPM模型与样本外可预测性分解</h1><p>文章使用条件CAPM模型把公式（2）的$R_{OS}^2$分解为属于条件资产定价模型解释的$R_{OS}^2$和有alpha解释的$R_{OS,\alpha}^2$两部分。</p>
+<p>假设投资组合i的<em>超额收益</em>服从如下模型：</p>
+<script type="math/tex; mode=display">
+r_{i,t}=\alpha_i(x_{t-1})+\beta_i'f_t+\epsilon_{i,t}</script><p>其中，$x_{t-1}$是J维滞后预测变量，$f_t$是K维基于投资组合的系统性风险因子，$\beta_i$是K维投资组合beta系数，$\epsilon_{i,t}$是扰动项。</p>
+<p>进一步假设：</p>
+<script type="math/tex; mode=display">
+f_t=\lambda(x_{t-1})+u_t</script><p>好的，这里的画风不一样了，应该是另一个作者负责这部分的，我看不下去了。问清楚了再回来补全后面的分解过程。</p>
 
 
 
@@ -261,13 +277,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/08/19/[Manual] R语言wordcloud2包使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] R语言wordcloud2包使用手册">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/08/17/[爬虫] python3分析《战狼2》豆瓣影评/" data-toggle="tooltip" data-placement="top" title="[爬虫] python3分析《战狼2》豆瓣影评">Next Post &rarr;</a>
+                            <a href="/2017/11/25/[日常] 2017年11月25日/" data-toggle="tooltip" data-placement="top" title="2017年11月25日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -297,7 +309,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#导航"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">导航</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#页面交互"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">页面交互</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#文本框"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">文本框</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#选择框"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">选择框</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#提交表单"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">提交表单</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#元素拖曳"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">元素拖曳</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#浏览窗口切换"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">浏览窗口切换</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#弹窗处理"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">弹窗处理</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#浏览历史"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">浏览历史</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Cookies"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">Cookies</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Q-amp-A"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Q & A</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何滚动窗口到页面底部？"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">如何滚动窗口到页面底部？</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何对当前窗口截图"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">如何对当前窗口截图</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#如何上传文件"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">如何上传文件</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#样本内可预测性检验"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">样本内可预测性检验</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#样本外可预测性检验"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">样本外可预测性检验</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#计量方法"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">计量方法</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#条件CAPM模型与样本外可预测性分解"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">条件CAPM模型与样本外可预测性分解</span></a></li></ol>
         
         </div>
       </aside>
@@ -317,11 +329,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#python" title="python">python</a>
-                        
-                          <a class="tag" href="/tags/#selenium" title="selenium">selenium</a>
-                        
-                          <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
+                          <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
                         
                     </div>
                 </section>
@@ -381,6 +389,44 @@
     
 <!-- 控制文章是否加载公式 -->
 
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- script below is in order to number the equationNumbers 2017-11-17 -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
+</script>
+
 <!-- 控制文章是否需要密码 2017-08-07-->
 
 </article>
@@ -392,8 +438,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/08/19/[Manual] python3中selenium+phantom使用手册 - 副本/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/08/19/[Manual] python3中selenium+phantom使用手册 - 副本/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/";
+    var disqus_url = "https://liangzhenghua.github.io/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
