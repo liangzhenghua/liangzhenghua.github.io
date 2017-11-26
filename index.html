@@ -129,20 +129,6 @@
 
                         
                         <li>
-                            <a href="/pics/">Gallery</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -151,6 +137,20 @@
                         
                         <li>
                             <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/pics/">Gallery</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -216,6 +216,65 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/26/[日常] 2017年11月26日/">
+        <h2 class="post-title">
+            2017年11月26日
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            我说今天这么多人找我，原来今天是周日。
+大概半年前的时候，北方的孤狼给我推荐了个人，让我帮他处理数据，我也没多想，刚好是毕业季那段时间，哇简直要爆炸啊，那个时候天天去实习，晚上回来就想睡觉。师恩隆重，我还是花了几个周末做完了，是一份医学数据，要我做一个模型，然后画一个nomo图，可能大家没听过，这个东西挺有意思的，就是把各个变量用数轴（直的或者弯的）表示，然后连上轴上各个点，可以算一个总得分......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#日常" title="日常">日常</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/26/[Statistics] PCA资源汇总/">
+        <h2 class="post-title">
+            [Statistics] 多元统计资源汇总
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于多元统计的资料汇总
+        </h3>
+        <div class="post-content-preview">
+            多元统计这个东西已经被很多人研究透了，不能重复造轮子啊，所以我就把它们集中到一起吧，讲真，它们可能比教科书还要详细。
+PCA的数学原理
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#多元统计" title="多元统计">多元统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
         <h2 class="post-title">
             [文献阅读] 中国股票市场可预测性的实证研究
@@ -227,6 +286,38 @@
             这篇文章是金融学院的姜富伟读博期间发的论文，周二就要见真人了，所以我现在要做好功课。
 首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。
 Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
+        <h2 class="post-title">
+            [文献阅读] Bayesian adaptive Lasso quantile regression
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            是的，我又来读文献了。
+找了两篇贝叶斯Lasso相关的文章，是一个大佬Rahim Alhamzawi写的，他还贡献了一个R包Brq，对应他论文所用的方法。三位作者分别是Rahim Alhamzawi， Keming Yu and Dries F Benoit， 我发誓我只打一次他们的名字。
+理论分位数回归分位数回归模型可以表示如下：
+
+y_i=\beta_0+x_i'\beta+\epsil......
         </div>
     </a>
     
@@ -428,109 +519,6 @@ RcppArmadillo简明手册Rcpp相关知识整理RcppArmadillo官方文档Armadill
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/15/[R语言] apply函数/">
-        <h2 class="post-title">
-            [R语言] apply函数
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于R语言科学计算的技术文档
-        </h3>
-        <div class="post-content-preview">
-            最近在使用apply函数，想要往函数FUN里面输入多个参数再调用apply，下面是实验的结果：
-apply1234567ryan=function(x,y,msg) &#123;  return(paste0(x,y,msg))&#125;ryan(5,6,"-hello")apply(matrix(1:6,ncol = 1), 1, ryan,y=1:8,msg=c("-GOOD MORI......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-15
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#R" title="R">R</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/13/[日常] 2017年11月13日/">
-        <h2 class="post-title">
-            2017年11月13日
-        </h2>
-        <h3 class="post-subtitle">
-            Recent
-        </h3>
-        <div class="post-content-preview">
-            双十一一毛钱没花出去，去年这个时候和黄彬濠看电影去了
-不去看电影打保龄球攀岩射箭吃猪肚鸡喝早茶，人生还有什么乐趣
-看论文看到要炸裂，我觉着这不是一篇好论文，作者可能是比较喜欢随自己性子
-小破财的图书馆很漂亮很棒，学校把省下的钱都花在图书馆上了
-天气冷爆了
-饭不好吃
-很丧
-
-
-生活就像海洋，只有意志坚定的人才能到达彼岸
-
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-13
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#日常" title="日常">日常</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/12/[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model/">
-        <h2 class="post-title">
-            [文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            对Black Litterman模型一无所知的可以参考这篇文档
-文章作者是Ginanjar Dewandaru、Rumi Masih、Obiyathulla Ismath Bacha和A. Mansur. M. Masih，多风格轮动策略采用了3种风格：
-
-momentum
-value
-quality
-
-看了一会发现出现很多Islamic相关的宗教词汇，我还以为这篇文章是要宣扬伊斯兰教义。查......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-12
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -581,17 +569,13 @@ quality
             
         
             
-            <a href="/tags/#python" title="python" rel="6">python</a>
-            
-        
-            
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
             
         
             
-        
+            <a href="/tags/#python" title="python" rel="6">python</a>
             
         
             
@@ -607,7 +591,9 @@ quality
             
         
             
-            <a href="/tags/#文献阅读" title="文献阅读" rel="2">文献阅读</a>
+        
+            
+            <a href="/tags/#文献阅读" title="文献阅读" rel="3">文献阅读</a>
             
         
             
@@ -615,7 +601,11 @@ quality
             
         
             
-            <a href="/tags/#日常" title="日常" rel="9">日常</a>
+        
+            
+            <a href="/tags/#日常" title="日常" rel="10">日常</a>
+            
+        
             
         
             
@@ -742,23 +732,23 @@ quality
     <ul>
       
         <li>
+          <a href="/2017/11/26/[日常] 2017年11月26日/">2017年11月26日</a>
+        </li>
+      
+        <li>
+          <a href="/2017/11/26/[Statistics] PCA资源汇总/">[Statistics] 多元统计资源汇总</a>
+        </li>
+      
+        <li>
           <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">[文献阅读] 中国股票市场可预测性的实证研究</a>
         </li>
       
         <li>
+          <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">[文献阅读] Bayesian adaptive Lasso quantile regression</a>
+        </li>
+      
+        <li>
           <a href="/2017/11/25/[日常] 2017年11月25日/">2017年11月25日</a>
-        </li>
-      
-        <li>
-          <a href="/2017/11/22/[日常] 2017年11月22日/">2017年11月22日</a>
-        </li>
-      
-        <li>
-          <a href="/2017/11/21/[日常] 2017年11月21日/">2017年11月21日</a>
-        </li>
-      
-        <li>
-          <a href="/2017/11/18/[R语言] 利用R合成卡农和最炫民族风/">[R语言] 利用R合成卡农和最炫民族风</a>
         </li>
       
     </ul>

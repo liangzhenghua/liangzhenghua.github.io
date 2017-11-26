@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [计量] 异方差性 - 南有嘉鱼 | 南有樛木
+          [文献阅读] Bayesian adaptive Lasso quantile regression - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/11/09/[计量] 异方差性/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/economic3.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                              <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
                             
                         </div>
-                        <h1>[计量] 异方差性</h1>
-                        <h2 class="subheading">这是一篇关于异方差性的介绍</h2>
+                        <h1>[文献阅读] Bayesian adaptive Lasso quantile regression</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-11-09
+                            2017-11-26
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,45 +222,31 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><blockquote>
-<p>同方差意为方差具有相同的分布，或者说相同的方差。</p>
-</blockquote>
-<p>$E(u_i^2)=\sigma^2,i=1,2,…,n$</p>
-<p>不管变量$X_i$取什么值，$Y_i$的条件方差都保持不变。</p>
-<blockquote>
-<p>异方差表明$Y_i$的方差不再保持不变，会随着$X_i$的变化而变化,符号上记为：</p>
-</blockquote>
-<p>$E(u_i^2)=\sigma_i^2,i=1,2,…,n$</p>
-<h1 id="OLS估计"><a href="#OLS估计" class="headerlink" title="OLS估计"></a>OLS估计</h1><p>记双变量模型为：$Y_i=\beta_1+\beta_2X_i+u_i$，按照惯常的估计有</p>
-<script type="math/tex; mode=display">\hat{\beta}_2=\frac{cov(X,Y)}{var(X)}=\frac{\sum x_iy_i}{\sum x_i^2}</script><p>现在它的方差是：</p>
-<script type="math/tex; mode=display">var(\hat{\beta}_2)=\frac{\sum x_i^2\sigma_i^2}{(\sum x_i^2)^2}</script><p>当$\sigma_i^2=\sigma^2$时，就回到熟悉的OLS估计量方差表达式了。容易证明，在异方差情况下，$\hat{\beta}_2$仍是线性和无偏的，是一致估计量，即随着样本容量无限增大，$\hat{\beta}_2$收敛于其真值；在正则性条件下还可以证明其为渐近正态分布。</p>
-<h1 id="GLS"><a href="#GLS" class="headerlink" title="GLS"></a>GLS</h1><blockquote>
-<p>将原始变量转换为满足经典模型假设的转换变量，然后对它们使用OLS程序，叫做广义最小二乘法（GLS）。</p>
-</blockquote>
-<p>现在假定不同的方差$\sigma_i^2$已知，对双变量方程两边除以$\sigma_i^2$得：</p>
-<script type="math/tex; mode=display">\frac{Y_i}{\sigma_i}=\beta_1\frac{1}{\sigma_i}+\beta_2\frac{X_i}{\sigma_i}+\frac{u_i}{\sigma_i}</script><p>可以看到转换后的误差项具有同方差，对这样的方程用OLS估计可以得到满意的结果。</p>
-<h2 id="OLS和GLS的区别"><a href="#OLS和GLS的区别" class="headerlink" title="OLS和GLS的区别"></a>OLS和GLS的区别</h2><p>OLS要求我们最小化残差平方和：</p>
-<script type="math/tex; mode=display">\sum u_i^2=\sum (Y_i-\hat{\beta}_1-\hat{\beta}_2X_i)^2</script><p>而在GLS中，要求我们最小化：</p>
-<script type="math/tex; mode=display">\sum (\frac{\hat{u}_i}{\sigma_i})^2=\sum [\frac{Y_i}{\sigma_i}-\hat{\beta_1}\frac{1}{\sigma_i}-\hat{\beta}_2\frac{X_i}{\sigma_i}]^2</script><p>可以看到，GLS相当于利用加权的思想最小化原来OLS模型中的残差平方和，GLS分配给每一条观测的权重与其方差$\sigma_i^2$成反比。所以由此得到的估计量又叫WLS（加权最小二乘）估计量，属于GLS估计中的一种特殊情形。</p>
-<h1 id="异方差侦察"><a href="#异方差侦察" class="headerlink" title="异方差侦察"></a>异方差侦察</h1><h2 id="图解法"><a href="#图解法" class="headerlink" title="图解法"></a>图解法</h2><p>将OLS估计的残差对解释变量和被解释变量描图，观察残差是否和某个变量有某种规律。</p>
-<h2 id="等级相关检验"><a href="#等级相关检验" class="headerlink" title="等级相关检验"></a>等级相关检验</h2><p>在Park检验和Glejser检验中，要观察残差和某个变量$X_i$是否存在函数（可能是非线性关系）关系，会对残差和解释变量$X_i$做各种形式上的变换，然后进行回归，如果回归系数显著，可以认为存在异方差。</p>
-<p>斯皮尔曼等级相关系数记为：</p>
-<script type="math/tex; mode=display">r_s=1-6\frac{\sum  d_i^2}{n(n^2-1)}</script><p>其中$d_i$为第$i$条观测中两个变量的等级（秩）之差，$n$为样本容量。详细步骤如下：<br><code>Step1</code> 对$Y$和$X$做回归，得到残差$\hat{u}_i$<br><code>Step2</code> 将残差绝对值$|\hat{u}_i|$和$X_i$或$\hat{Y_i}$同时计算各自所在数据中的秩（等级），然后计算按上式得到斯皮尔曼等级相关系数。<br><code>Step3</code> 在总体等级相关系数$\rho_s$为0且$n&gt;8$的情况下，样本$r_s$的显著性可以通过$t$检验完成</p>
-<script type="math/tex; mode=display">t=\frac{r_s\sqrt{n-2}}{\sqrt{1-r_s^2}}\sim t(n-2)</script><p>如果计算的$t$值超过$t$分布临界值就接受异方差的假设,如回归模型设计多于1个的$X$变量，则可分别计算$r_s$做统计显著性检验。</p>
-<h2 id="戈德菲尔德-匡特检验"><a href="#戈德菲尔德-匡特检验" class="headerlink" title="戈德菲尔德-匡特检验"></a>戈德菲尔德-匡特检验</h2><p>假设$\sigma_i^2$与$X$有正向关系：$\sigma_i^2=\sigma^2X_i$，则可以对数据分组，比较不同组别的方差是否相同。步骤如下：<br><code>Step1</code> 从最小的$X$值开始，对观测进行排序<br><code>Step2</code> 略去中间的$c$个观测值，其中$c$是预定的，并将其余$n-c$个观测值分为两组，每组$(n-c)/2$个<br><code>Step3</code> 对两组数据各自拟合一个回归，得到残差平方和$RSS_1$和$RSS_2$，这两个残差平方和的自由度都是$(n-c)/2-k$，可以在$u_i$服从正态分布的条件下，构造$F$统计量：</p>
-<script type="math/tex; mode=display">\lambda=\frac{RSS_1/df}{RSS_2/df}\sim F(\frac{n-c}{2}-k,\frac{n-c}{2}-k)</script><p>为了突出或激化小方差组和大方差组之间的差异，选好$c$是很关键的，但没有一个明文规定的$c$可供选择，另外这种检验依赖于$\sigma_i^2$与$X$有正向关系。</p>
-<h2 id="BPG检验"><a href="#BPG检验" class="headerlink" title="BPG检验"></a>BPG检验</h2><p>考虑$k$变量回归模型：</p>
-<script type="math/tex; mode=display">Y_i=\beta_1+\beta_2 X_{2i}+...+\beta_k X_{ki}+u_i</script><p>假定真实的方差满足：</p>
-<script type="math/tex; mode=display">\sigma_i^2=\alpha_1+\alpha_2Z_{2i}+...+\alpha_mZ_{mi}</script><p>其中$Z$是部分或者全部的$X$变量（$m\leq k$），如果$\alpha_2=\alpha_3=…=\alpha_m=0$，则$\sigma_i^2=\alpha_1$，即同方差。所以可以通过将残差和各个变量做回归，通过检验系数的显著性来判断异方差的存在。步骤如下：<br><code>Step1</code> 用OLS估计得到残差$\hat{u}_i$<br><code>Step2</code> 计算$\tilde{\sigma}^2=\sum \hat{u}_i^2/n$，这是$\sigma^2$的极大似然估计<br><code>Step3</code> 构造$p_i=\hat{u}_i^2/\tilde{\sigma}^2$<br><code>Step4</code> 构造回归$p_i=\alpha_1+\alpha_2Z_{2i}+…+\alpha_mZ_{mi}+v_i$，$v_i$是回归的残差项<br><code>Step5</code> 假定$u_i$服从正态分布，那么在同方差的原假设下，回归解释平方和$ESS$满足$\frac{1}{2}ESS\sim\chi ^2_{m-1}\ asy$</p>
-<p>BPG检验实际是一种渐进性或者说大样本检验，容易受干扰项偏离正态性假定的影响。当样本趋于无穷大时，这个检验才是可靠的。</p>
-<h2 id="怀特异方差检验"><a href="#怀特异方差检验" class="headerlink" title="怀特异方差检验"></a>怀特异方差检验</h2><p><code>Step1</code> 用OLS估计$Y_i=\beta_1+\beta_2X_{2i}+\beta_3X_{3i}+u_i$得到残差$\hat{u}_i$<br><code>Step2</code> 对变量$X$的原始回归元、平方项和交叉项做辅助回归</p>
-<script type="math/tex; mode=display">\hat{u}_i^2=\alpha_1+\alpha_2X_{2i}+\alpha_3X_{3i}+\alpha_4X_{2i}^2+\alpha_5X_{3i}^2+\alpha_6X_{2i}X_{3i}+v_i</script><p><code>Step3</code> 辅助回归的$R^2$和样本容量$n$渐近服从$\chi^2(df)$，$df$为辅助回归里面的回归元个数（不含截距项）</p>
-<ul>
-<li>引入模型的回归元和平方项、交叉项会迅速消耗自由度，使得估计结果不可靠</li>
-<li>不引入交叉项，是对纯粹异方差的检验</li>
-<li>引入交叉项既是对异方差的检验，也是对设定偏误的检验</li>
-</ul>
-
+                <p>是的，我又来读文献了。</p>
+<p>找了两篇贝叶斯Lasso相关的文章，是一个大佬Rahim Alhamzawi写的，他还贡献了一个R包Brq，对应他论文所用的方法。三位作者分别是Rahim Alhamzawi， Keming Yu and Dries F Benoit， 我发誓我只打一次他们的名字。</p>
+<h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h1><h2 id="分位数回归"><a href="#分位数回归" class="headerlink" title="分位数回归"></a>分位数回归</h2><p>分位数回归模型可以表示如下：</p>
+<script type="math/tex; mode=display">
+y_i=\beta_0+x_i'\beta+\epsilon_i</script><p>其中$\{(x_i,y_i),i=1,2,…,n\}$表示一组独立的观测，$y_i$是被解释变量，$x_i’=(x_{i1},x_{i2},…,x_{ik}))$表示$k$维的解释变量，$\beta$是$k$维回归系数向量，最重要的是干扰项$\epsilon_i$，分布未知，但其p分位数恰好等于0，所以p分位数回归模型的预测值可以表达为如下形式：</p>
+<script type="math/tex; mode=display">
+Q_{y_i}(p|x_i)=\beta_0+x_i'\beta</script><p>$Q_{y_i}(p|x_i)$表示$y_i$累积分布函数的逆函数。</p>
+<p>模型中参数的估计可以通过使以下目标函数最小来解决：</p>
+<script type="math/tex; mode=display">\begin{equation}
+min_{\beta}\ \ \Sigma_{i=1}^{n}\rho_p(y_i-\beta_0-x_i'\beta)
+\end{equation}</script><p>$\rho_p(u)=\left\{\begin{matrix}<br>pu,\ if \ u \geq0 \\<br>(p-1)u,\ if \ u&lt;0<br>\end{matrix}\right.$，这个函数的意思是，大于0的残差在目标函数中分配的权重正是$p$，而小于0的残差在目标函数分配的权重是$(1-p)$，当然要记得取残差绝对值。可以看到这种约束在估计回归系数应该要采用一些特殊办法。然而如果假设干扰项服从skewed Laplace分布，问题将会大大简化。</p>
+<h2 id="skewed-Laplace分布"><a href="#skewed-Laplace分布" class="headerlink" title="skewed Laplace分布"></a>skewed Laplace分布</h2><p>Koenker and Machado (1999) and Yu and Moyeed (2001)给出了(1)式的最小化问题和极大似然理论之间的关系。(1)式的最小化问题等价于最大化$y_i$的似然函数，假设$y_i$服从skewed Laplace分布，且有$\mu=\beta_0+x_i’\beta,\ \sigma=1$</p>
+<p>我们将具有如下概率密度函数的分布称为skewed Laplace分布：</p>
+<script type="math/tex; mode=display">\begin{equation}
+f(y|\mu,\sigma,p)=\sigma p(1-p)exp\{-\sigma\rho_p(y-\mu)\}
+\end{equation}</script><p>其中$\mu$是位置参数，$\sigma$是尺度参数。skewed Laplace分布还有一个很重要的性质，它可以利用标准正态分布和指数分布的混合分布来表示：</p>
+<script type="math/tex; mode=display">
+W=\theta z+\phi \xi \sqrt{z/\sigma}</script><p>其中$z\sim exp(\sigma),\ \xi \sim N(0,1), \ \theta=\frac{1-2p} {p(1-p)}, \ \phi^2=\frac{2} {p(1-p)}$，我想这里丢开的位置参数$\mu$应该是表示这个分布以y轴为对称轴。</p>
+<h2 id="含Lasso惩罚的分位数回归"><a href="#含Lasso惩罚的分位数回归" class="headerlink" title="含Lasso惩罚的分位数回归"></a>含Lasso惩罚的分位数回归</h2><p>结合式(1)和Lasso惩罚项，我们可以重写目标函数如下：</p>
+<script type="math/tex; mode=display">\begin{equation}
+min_{\beta}\ \ \Sigma_{i=1}^{n}\rho_p(y_i-\beta_0-x_i'\beta)+\lambda ||\beta||_1
+\end{equation}</script><p>$\lambda$是一个非负的正则参数，式(3)的第二项叫做$l_1$范式惩罚，$\lambda$越大，Lasso将会压缩回归系数越来越靠近0.</p>
+<p>好的，我们得到了一个复杂的目标函数，第一项$\rho_p(u)$是一个非对称的对勾函数，第二项是各回归系数的绝对值。</p>
+<p>但Lasso中的求解其实用贝叶斯的观点来看会容易理解很多，所以说，学好贝叶斯，还有什么解决不了的。欢迎参见<a href="http://charleshm.github.io/2016/03/Regularized-Regression/" target="_blank" rel="external">《Regularized Regression: A Bayesian point of view》</a></p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2>
 
 
                 <hr>
@@ -268,12 +254,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/11/11/[R语言] RStudio美化/" data-toggle="tooltip" data-placement="top" title="[R语言] RStudio美化">&larr; Previous Post</a>
+                            <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/" data-toggle="tooltip" data-placement="top" title="[文献阅读] 中国股票市场可预测性的实证研究">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/11/09/[Statistics] 点估计/" data-toggle="tooltip" data-placement="top" title="[Statistics] 点估计">Next Post &rarr;</a>
+                            <a href="/2017/11/25/[日常] 2017年11月25日/" data-toggle="tooltip" data-placement="top" title="2017年11月25日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -303,7 +289,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#定义"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">定义</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#OLS估计"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OLS估计</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#GLS"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">GLS</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#OLS和GLS的区别"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">OLS和GLS的区别</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#异方差侦察"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">异方差侦察</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#图解法"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">图解法</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#等级相关检验"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">等级相关检验</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#戈德菲尔德-匡特检验"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">戈德菲尔德-匡特检验</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#BPG检验"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">BPG检验</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#怀特异方差检验"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">怀特异方差检验</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#理论"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">理论</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#分位数回归"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">分位数回归</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#skewed-Laplace分布"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">skewed Laplace分布</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#含Lasso惩罚的分位数回归"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">含Lasso惩罚的分位数回归</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text"> </span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -323,7 +309,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                          <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
                         
                     </div>
                 </section>
@@ -432,8 +418,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/11/09/[计量] 异方差性/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/11/09/[计量] 异方差性/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/";
+    var disqus_url = "https://liangzhenghua.github.io/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
