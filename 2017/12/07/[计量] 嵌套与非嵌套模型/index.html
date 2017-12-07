@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [R语言] R语言中的科学计算 - 南有嘉鱼 | 南有樛木
+          [计量] 嵌套与非嵌套模型 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/08/22/[R语言] R语言中的科学计算/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2017/12/07/[计量] 嵌套与非嵌套模型/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/R.jpg')
+            background-image: url('/img/economic3.jpg')
             /*post*/
         
     }
@@ -86,16 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#R" title="R">R</a>
-                            
-                              <a class="tag" href="/tags/#科学计算" title="科学计算">科学计算</a>
+                              <a class="tag" href="/tags/#计量" title="计量">计量</a>
                             
                         </div>
-                        <h1>[R语言] R语言中的科学计算</h1>
-                        <h2 class="subheading">这是一篇关于R语言科学计算的技术文档</h2>
+                        <h1>[计量] 嵌套与非嵌套模型</h1>
+                        <h2 class="subheading">这是一篇关于模型设定和诊断检验的梳理</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-22
+                            2017-12-07
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -224,22 +222,62 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>如果你是第一次阅读本文，你可能会对以下资源贴感兴趣：</p>
-<p><a href="http://blog.fens.me/r-mathematics/" target="_blank" rel="external">R语言中的数学计算</a><br><a href="http://adv-r.had.co.nz/Rcpp.html" target="_blank" rel="external">Advanced R: RCPP</a><br><a href="https://cosx.org/2016/07/r-symbol-calculate" target="_blank" rel="external">R 语言做符号计算</a><br><a href="http://www.bjt.name/2013/06/open-blas-r" target="_blank" rel="external">用 OpenBLAS 加速 R 的矩阵运算</a><br><a href="http://m.blog.csdn.net/iamsuperman2/article/details/73143393" target="_blank" rel="external">RcppArmadillo简明手册</a><br><a href="http://blog.csdn.net/iamsuperman2/article/details/73251928" target="_blank" rel="external"> Rcpp相关知识整理</a></p>
-<hr>
-<p>一般我们在RStudio新建一个C++ file时就可以建立自己的函数了，常见的输入参数类型有：</p>
+                <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>在进行设定检验时，区分<strong><em>嵌套(nested)</em></strong>和<strong><em>非嵌套模型</em></strong>(non-nested models)有助于我们继续下面的讨论。</p>
+<p>模型A：$Y_i=\beta_1+\beta_2 X_{2i}+\beta_3 X_{3i}+\beta_4 X_{4i}+\beta_5 X_{5i}+u_i$<br>模型B：$Y_i=\beta_1+\beta_2 X_{2i}+\beta_3 X_{3i}+u_i$</p>
+<p>我们说模型B包含于（被嵌套在）模型A中，也就是模型A更全面，包含更多信息；模型B可以看做是模型A的一种特殊情形。</p>
+<p>现在考虑非嵌套模型，</p>
+<p>模型C：$Y_i=\alpha_1+\alpha_2 X_{2i}+\alpha_3 X_{3i}+u_i$<br>模型D：$Y_i=\beta_1+\beta_2 Z_{2i}+\beta_3 Z_{3i}+v_i$</p>
+<p>其中$X$和$Z$代表不同的变量，我们说模型C和模型D是<strong><em>非嵌套</em></strong>的。</p>
+<p>即使模型中变量一样，不同的函数形式也可能使得两个模型变成非嵌套模型，比如：</p>
+<p>$Y_i=\beta_1+\beta_2 lnZ_{2i}+\beta_3 lnZ_{3i}+w_i$</p>
+<p>模型D和模型E仍然是非嵌套模型，因为不能把其中一个模型作为另一个模型的特殊情形推导出来。</p>
+<h1 id="非嵌套模型的检验"><a href="#非嵌套模型的检验" class="headerlink" title="非嵌套模型的检验"></a>非嵌套模型的检验</h1><p>检验非嵌套假设的方法大概分为两类，给定两个过着多个模型，我们根据某些拟合优度准则选择其一（判别方法），这是我们经常用到的。然而，有一种方法可以考虑其他模型提供的增补信息，，而不是单单对各个模型做个回归，然后根据某个R方选择模型（辨识方法）。</p>
+<h2 id="判别方法（discrimination-approach）"><a href="#判别方法（discrimination-approach）" class="headerlink" title="判别方法（discrimination approach）"></a>判别方法（discrimination approach）</h2><h3 id="R-2"><a href="#R-2" class="headerlink" title="$R^2$"></a>$R^2$</h3><script type="math/tex; mode=display">R^2=\frac{ESS}{TSS}=1-\frac{RSS}{TSS}</script><p>它度量的是样本内拟合优度，不能保证对样本外观测（out of sample）也能很好地预测；其次，比较两个$R^2$，因变量或回归子必须相同；最后，$R^2$没有对回归元个数做惩罚，变量越多，$R^2$越大。</p>
+<h3 id="调整-R-2"><a href="#调整-R-2" class="headerlink" title="调整$R^2$"></a>调整$R^2$</h3><script type="math/tex; mode=display">
+\bar{R}^2=1-\frac{RSS/(n-k)}{TSS/(n-1)=1-(1-R^2)\frac{n-1}{n-k}}</script><p>同样，被比较模型的回归子必须相同</p>
+<h3 id="AIC"><a href="#AIC" class="headerlink" title="AIC"></a>AIC</h3><script type="math/tex; mode=display">
+AIC=e^{2k/n} \frac{\sum \hat{u_i^2}}{n}=e^{2k/n} \frac{RSS}{n}</script><p>$k$为包含截距项的回归元个数，$n$为观测次数，上式可以写为更简洁的形式</p>
+<script type="math/tex; mode=display">
+ln AIC== \frac{2k}{n}+ln(\frac{RSS}{n})</script><p>AIC准则相比于调整$R^2$对回归元个数施加了更严厉的惩罚，它不仅适用于样本内预测，也适用于预测回归模型在样本外的表现；它对嵌套和非嵌套模型都适用，甚至还可以决定自回归模型AR(p)中的滞后长度。</p>
+<h3 id="SIC"><a href="#SIC" class="headerlink" title="SIC"></a>SIC</h3><script type="math/tex; mode=display">
+ln SIC= \frac{k}{n} ln(n)+ln(\frac{RSS}{n})</script><p>SIC和AIC有什么不一样？那就是相对于AIC，SIC对回归元个数施加了更严厉的惩罚！</p>
+<h3 id="Mallow’s-C-p-criterion"><a href="#Mallow’s-C-p-criterion" class="headerlink" title="Mallow’s $C_p$ criterion"></a>Mallow’s $C_p$ criterion</h3><p>这个模型的用法跟正态Q检验的Q图一样，哪个模型表示的点更靠近直线$C_p=p$，哪个就更受欢迎。</p>
+<p>考虑一个含有包括截距项的k元回归模型，但我们选择了其中p个回归元作回归，得到RSS，令$RSS_p$表示使用p个回归元的残差平方和。$C_p$准则如下：</p>
+<script type="math/tex; mode=display">
+C_p=\frac{RSS_p}{\hat{\sigma}^2}-(n-2p)</script><p>其中$\hat{\sigma}^2$是真实$\sigma^2$的估计量，如果含有p个回归元的模型拟合得足够充分，那么可以证明$E(RSS_p)=(n-p)\sigma^2$，因此近似有</p>
+<script type="math/tex; mode=display">
+E(C_p)\approx  \frac{(n-p)\sigma^2}{\sigma^2}-(n-2p)\approx  p</script><h3 id="用于预测的-chi-2"><a href="#用于预测的-chi-2" class="headerlink" title="用于预测的$\chi^2$"></a>用于预测的$\chi^2$</h3><p>把数据留存一部分分析对样本外的预测表现，预测$\chi^2$检验的定义如下：</p>
+<script type="math/tex; mode=display">
+预测\chi^2=\frac{\sum_{n+1}^{n+t} \hat{u}_i^2}{\hat{\sigma}^2}</script><p>其中，$\hat{u}_i^2$表示第i期（样本外的第$n+1,n+2,…,n+t$）的预测误差，$\hat{\sigma}^2$是$\sigma$的通常OLS估计量。</p>
+<h2 id="辨识方法（discerning-approach）"><a href="#辨识方法（discerning-approach）" class="headerlink" title="辨识方法（discerning approach）"></a>辨识方法（discerning approach）</h2><h3 id="非嵌套F检验（包容F检验）"><a href="#非嵌套F检验（包容F检验）" class="headerlink" title="非嵌套F检验（包容F检验）"></a>非嵌套F检验（包容F检验）</h3><p>考虑模型F：$T_i=\lambda_1+\lambda_2 X_{2i}+\lambda_3 X_{3i}+\lambda_4 Z_{2i}+\lambda_5 Z_{2i}+u_i$</p>
+<p>显然，模型F同时包含了模型C和模型D，而这两个模型是非嵌套的。如果模型C是正确的，那么$\lambda_4=\lambda_5=0$；如果模型D是正确的，那么$\lambda_2=\lambda_3=0$。用通常的F检验就可以解决这个问题，非嵌套F检验由此得名。</p>
+<p>然而，这么简单就能实现的检验是会有与之相称的问题存在的：</p>
 <ul>
-<li>向量： NumericVector IntegerVector CharaterVector LogicalVector</li>
-<li>标量： double int String bool</li>
-<li>矩阵： NumericMatrix IntegerMatrix CharaterMatrix LogicalMatrix</li>
-<li>列表： List</li>
-<li>缺失值： <int na_integer=""> <string na_string=""> <bool na_logical=""> <double na_real=""></double></bool></string></int></li>
+<li><p>解释变量$X$和$Z$高度相关时，多重共线性可能使得一个或多个$\lambda$系数在统计上不显著，我们无法决定模型C正确还是模型D正确</p>
+</li>
+<li><p>假设我们选取模型C作为参考假设（模型），并发现它所有系数显著，而加入一个或两个$Z$变量到模型中，并通过F检验发现加入的变量对解释平方和的增补贡献不显著，因此决定选择模型C；反之取模型D作为参考假设也有同样结论，决定选择模型D，最后不能得到满意的模型。</p>
+</li>
+<li><p>人为的嵌套模型F缺乏经济学意义</p>
+</li>
 </ul>
-<p><strong>Mention</strong>:</p>
+<h3 id="戴维森-麦金农J检验"><a href="#戴维森-麦金农J检验" class="headerlink" title="戴维森-麦金农J检验"></a>戴维森-麦金农J检验</h3><p>作为非嵌套F检验的改进，考虑步骤如下：</p>
 <ul>
-<li>在c++中使用( )而不是[ ]进行子集选取</li>
-<li>使用.nrow()和.ncol()方法计算矩阵维度；使用.size()方法计算向量维度</li>
+<li><p>1 估计模型D并由此得到$Y$的估计值$\hat{Y}_i^D$</p>
+</li>
+<li><p>2 将步骤1得到的估计值作为新的回归元增补到模型C中，并估计如下模型：</p>
+</li>
 </ul>
+<script type="math/tex; mode=display">
+Y_i=\alpha_1+\alpha_2 X_{2i}+\alpha_3 X_{3i} + \alpha_4 \hat{Y}_i^D +u_i</script><ul>
+<li><p>3 用t检验对假设$\alpha_4=0$进行检验</p>
+</li>
+<li><p>4 如果假设$\alpha_4$ 不被拒绝，就可接受模型C为真模型。因为模型D不含有足以改进模型C的任何额外信息，故模型C兼容模型D</p>
+</li>
+<li><p>5 交换模型C和模型D的位置，以决定模型D是否胜过模型C。</p>
+</li>
+</ul>
+<p>当两模型均被拒绝时，任一模型都无助于对$Y$行为的解释；如两模型都被接受，则“数据还未充分足以辨别两个假设的地步”</p>
+<p>J检验的另一个问题是，使用t检验时，t统计量只是渐近地在大样本中遵从标准正态正态分布。因此在小样本中，J检验会过多地拒绝真假设。</p>
 
 
 
@@ -247,13 +285,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/08/25/[电影] 完美陌生人/" data-toggle="tooltip" data-placement="top" title="[电影] 完美陌生人">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/08/19/[Manual] python调用R之rpy2使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python调用R之rpy2使用手册">Next Post &rarr;</a>
+                            <a href="/2017/12/03/[文献阅读] Bayesian Lasso regression/" data-toggle="tooltip" data-placement="top" title="[文献阅读] Bayesian Lasso regression">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -283,7 +317,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#概念"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">概念</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#非嵌套模型的检验"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">非嵌套模型的检验</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#判别方法（discrimination-approach）"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">判别方法（discrimination approach）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#R-2"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">$R^2$</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#调整-R-2"><span class="toc-nav-number">2.1.2.</span> <span class="toc-nav-text">调整$R^2$</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#AIC"><span class="toc-nav-number">2.1.3.</span> <span class="toc-nav-text">AIC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#SIC"><span class="toc-nav-number">2.1.4.</span> <span class="toc-nav-text">SIC</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Mallow’s-C-p-criterion"><span class="toc-nav-number">2.1.5.</span> <span class="toc-nav-text">Mallow’s $C_p$ criterion</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#用于预测的-chi-2"><span class="toc-nav-number">2.1.6.</span> <span class="toc-nav-text">用于预测的$\chi^2$</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#辨识方法（discerning-approach）"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">辨识方法（discerning approach）</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#非嵌套F检验（包容F检验）"><span class="toc-nav-number">2.2.1.</span> <span class="toc-nav-text">非嵌套F检验（包容F检验）</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#戴维森-麦金农J检验"><span class="toc-nav-number">2.2.2.</span> <span class="toc-nav-text">戴维森-麦金农J检验</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
@@ -303,9 +337,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#R" title="R">R</a>
-                        
-                          <a class="tag" href="/tags/#科学计算" title="科学计算">科学计算</a>
+                          <a class="tag" href="/tags/#计量" title="计量">计量</a>
                         
                     </div>
                 </section>
@@ -365,6 +397,44 @@
     
 <!-- 控制文章是否加载公式 -->
 
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- script below is in order to number the equationNumbers 2017-11-17 -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
+</script>
+
 <!-- 控制文章是否需要密码 2017-08-07-->
 
 </article>
@@ -376,8 +446,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/08/22/[R语言] R语言中的科学计算/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/08/22/[R语言] R语言中的科学计算/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2017/12/07/[计量] 嵌套与非嵌套模型/";
+    var disqus_url = "https://liangzhenghua.github.io/2017/12/07/[计量] 嵌套与非嵌套模型/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

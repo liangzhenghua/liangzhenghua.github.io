@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [R语言] R语言中的科学计算 - 南有嘉鱼 | 南有樛木
+          [文献阅读] Bayesian Lasso regression - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/08/22/[R语言] R语言中的科学计算/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2017/12/03/[文献阅读] Bayesian Lasso regression/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/R.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,16 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#R" title="R">R</a>
-                            
-                              <a class="tag" href="/tags/#科学计算" title="科学计算">科学计算</a>
+                              <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
                             
                         </div>
-                        <h1>[R语言] R语言中的科学计算</h1>
-                        <h2 class="subheading">这是一篇关于R语言科学计算的技术文档</h2>
+                        <h1>[文献阅读] Bayesian Lasso regression</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-22
+                            2017-12-03
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -224,23 +222,24 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>如果你是第一次阅读本文，你可能会对以下资源贴感兴趣：</p>
-<p><a href="http://blog.fens.me/r-mathematics/" target="_blank" rel="external">R语言中的数学计算</a><br><a href="http://adv-r.had.co.nz/Rcpp.html" target="_blank" rel="external">Advanced R: RCPP</a><br><a href="https://cosx.org/2016/07/r-symbol-calculate" target="_blank" rel="external">R 语言做符号计算</a><br><a href="http://www.bjt.name/2013/06/open-blas-r" target="_blank" rel="external">用 OpenBLAS 加速 R 的矩阵运算</a><br><a href="http://m.blog.csdn.net/iamsuperman2/article/details/73143393" target="_blank" rel="external">RcppArmadillo简明手册</a><br><a href="http://blog.csdn.net/iamsuperman2/article/details/73251928" target="_blank" rel="external"> Rcpp相关知识整理</a></p>
-<hr>
-<p>一般我们在RStudio新建一个C++ file时就可以建立自己的函数了，常见的输入参数类型有：</p>
-<ul>
-<li>向量： NumericVector IntegerVector CharaterVector LogicalVector</li>
-<li>标量： double int String bool</li>
-<li>矩阵： NumericMatrix IntegerMatrix CharaterMatrix LogicalMatrix</li>
-<li>列表： List</li>
-<li>缺失值： <int na_integer=""> <string na_string=""> <bool na_logical=""> <double na_real=""></double></bool></string></int></li>
-</ul>
-<p><strong>Mention</strong>:</p>
-<ul>
-<li>在c++中使用( )而不是[ ]进行子集选取</li>
-<li>使用.nrow()和.ncol()方法计算矩阵维度；使用.size()方法计算向量维度</li>
-</ul>
+                <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>当使用独立的双指数分布作为回归系数的先验分布时，lasso的估计系数对应后验分布众数。这篇文章介绍了贝叶斯方法在lasso里面的拓展，包括了计算和推断等问题。重点讨论了利用后验均值作为点估计。文章显示标准lasso的预测并不一定与贝叶斯lasso的预测一致,文章还介绍了一种新的Gibbs抽样方法。</p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>自从lasso被提出之后，作为对OLS的替代方案，广泛被应用在回归问题中。它的流行在于压缩某些系数至0，使得参数估计和变量选择可以同时进行。Lasso的参数求解可以用以下式子表示：</p>
+<script type="math/tex; mode=display">\begin{equation}
+\hat{\beta}_L=argmin_{\beta} \ \ (y-X\beta)^T(y-X\beta)+\lambda ||\beta||_1
+\end{equation}</script><p>$\lambda \geq 0$ 控制了参数的压缩程度，当$\lambda=0$，(1)式就是OLS估计。当$\lambda$足够大的时候，所有系数都会被压缩至0.</p>
+<p>Tibshirani (1996) 从贝叶斯角度解释了Lasso，表示lasso的估计可以看做$\beta$的后验众数，$\hat{\beta}_L=argmax_{\beta} \ p(\beta|y,\sigma^2,\tau)$，其中$p$个系数$\beta$的先验分布取独立的双指数分布</p>
+<script type="math/tex; mode=display">\begin{equation}
+p(\beta|\tau)=(\tau/2)^p exp\{-\tau||\beta||_1\}
+\end{equation}</script><script type="math/tex; mode=display">\begin{equation}
+p(y|\beta,\sigma^2)=N(y|X\beta,\sigma^2 I_n)
+\end{equation}</script><p>当固定$\sigma^2&gt;0$和$\tau&gt;0$时，$\beta$的后验估计等价于在标准lasso中取定惩罚系数$\lambda=2\tau\sigma^2$.</p>
+<p>根据(Andrew &amp; Mallows,1974; West,1987)，双指数分布可以看做是a scale mixture of normal distributions.</p>
+<h1 id="lasso-后验分布"><a href="#lasso-后验分布" class="headerlink" title="lasso 后验分布"></a>lasso 后验分布</h1><h2 id="直接特征"><a href="#直接特征" class="headerlink" title="直接特征"></a>直接特征</h2><p>贝叶斯lasso模型可以用以下式子表示：</p>
+<script type="math/tex; mode=display">\begin{equation}
+p(y|\beta,\sigma^2,\tau)=N(y|X\beta,\sigma^2 I_n), \\  
 
+p(\beta|\tau,\sigma^2)=(\frac{\tau}{2\sigma})^p exp\{-\tau \sigma^{-1}||\beta||_1\}
+\end{equation}</script>
 
 
                 <hr>
@@ -248,12 +247,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/08/25/[电影] 完美陌生人/" data-toggle="tooltip" data-placement="top" title="[电影] 完美陌生人">&larr; Previous Post</a>
+                            <a href="/2017/12/07/[计量] 嵌套与非嵌套模型/" data-toggle="tooltip" data-placement="top" title="[计量] 嵌套与非嵌套模型">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/08/19/[Manual] python调用R之rpy2使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python调用R之rpy2使用手册">Next Post &rarr;</a>
+                            <a href="/2017/12/03/[日常] 2017年12月03日/" data-toggle="tooltip" data-placement="top" title="2017年12月03日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -283,7 +282,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="nav">none</ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#摘要"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">摘要</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#引言"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">引言</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#lasso-后验分布"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">lasso 后验分布</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#直接特征"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">直接特征</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -303,9 +302,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#R" title="R">R</a>
-                        
-                          <a class="tag" href="/tags/#科学计算" title="科学计算">科学计算</a>
+                          <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
                         
                     </div>
                 </section>
@@ -365,6 +362,44 @@
     
 <!-- 控制文章是否加载公式 -->
 
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- script below is in order to number the equationNumbers 2017-11-17 -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
+</script>
+
 <!-- 控制文章是否需要密码 2017-08-07-->
 
 </article>
@@ -376,8 +411,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/08/22/[R语言] R语言中的科学计算/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/08/22/[R语言] R语言中的科学计算/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2017/12/03/[文献阅读] Bayesian Lasso regression/";
+    var disqus_url = "https://liangzhenghua.github.io/2017/12/03/[文献阅读] Bayesian Lasso regression/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
