@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Manual] R语言wordcloud2包使用手册 - 南有嘉鱼 | 南有樛木
+          2017年12月11日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/08/19/[Manual] R语言wordcloud2包使用手册/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2017/12/11/[日常] 2017年12月11日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/python.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,16 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#R" title="R">R</a>
-                            
-                              <a class="tag" href="/tags/#wordcloud" title="wordcloud">wordcloud</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[Manual] R语言wordcloud2包使用手册</h1>
-                        <h2 class="subheading">这是一篇关于R语言词云的知识总结</h2>
+                        <h1>2017年12月11日</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-19
+                            2017-12-11
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -224,34 +222,23 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>在阅读本文之前，你可能对以下扫盲贴有兴趣：</p>
-<p><a href="https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html" target="_blank" rel="external">wordclou2官方参考文档</a><br><a href="https://cosx.org/2016/08/wordcloud2" target="_blank" rel="external">可能是目前最好的词云解决方案 wordcloud2</a><br><a href="http://www.xueqing.tv/cms/article/226" target="_blank" rel="external">wordcloud2: R语言词云终极解决方案</a>    </p>
-<hr>
-<p>Wordcloud2的使用非常简单，主要使用的函数只有两个：<code>wordlcoud2</code>和<code>letterCloud</code>，它们生成的不是静态的png等格式的图片，在Rstudio的viewer窗口动态显示。</p>
-<h1 id="wordlcoud2"><a href="#wordlcoud2" class="headerlink" title="wordlcoud2"></a>wordlcoud2</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(wordcloud2)</div><div class="line">wordcloud2(data = demoFreq)    <span class="comment">#demoFreq是数据框格式，第一列是词汇，第二列是词频</span></div><div class="line">wordcloud2(demoFreq, color = <span class="string">"random-light"</span>, backgroundColor = <span class="string">"grey"</span>)</div><div class="line">wordcloud2(demoFreq, minRotation = -pi/<span class="number">6</span>, maxRotation = -pi/<span class="number">6</span>, minSize = <span class="number">10</span>,rotateRatio = <span class="number">1</span>)    <span class="comment">#旋转词云</span></div><div class="line">figPath = system.file(<span class="string">"examples/t.png"</span>,package = <span class="string">"wordcloud2"</span>)    <span class="comment">#背景图片路径</span></div><div class="line">wordcloud2(demoFreq, figPath = figPath, size = <span class="number">1.5</span>,color = <span class="string">"skyblue"</span>)   <span class="comment">#color是词汇统一的格式</span></div></pre></td></tr></table></figure>
-<h1 id="letterCloud"><a href="#letterCloud" class="headerlink" title="letterCloud"></a>letterCloud</h1><p>这个函数使用报错，调用后没有任何显示信息，这里先挖个坑以后会来继续填。</p>
-<h2 id="Exmaple"><a href="#Exmaple" class="headerlink" title="Exmaple"></a>Exmaple</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">letterCloud(demoFreq, word = <span class="string">"R"</span>, size = <span class="number">2</span>)</div><div class="line">letterCloud(demoFreq, word = <span class="string">"WORDCLOUD2"</span>, wordSize = <span class="number">1</span>)</div></pre></td></tr></table></figure>
-<h1 id="词云图片保存"><a href="#词云图片保存" class="headerlink" title="词云图片保存"></a>词云图片保存</h1><p>用Rstudio画了词云，可以在Viewer窗口使用点击Export的方式得到图片，但是我现在需要用代码保存图片，wordcloud2包中并没有提供使用代码保存图片的函数。<a href="https://stackoverflow.com/questions/41884336/export-wordcloud2-as-html-automatically" target="_blank" rel="external">stack overflow</a>有个比较简单的办法：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span>(wordcloud2)</div><div class="line">df       &lt;- head(demoFreq, <span class="number">5</span>) <span class="comment">#只取最高频的5个词语作为测试</span></div><div class="line">my_cloud &lt;- wordcloud2(df)</div><div class="line">my_path  &lt;- htmltools::html_print(my_cloud)   <span class="comment"># saves html in temp directory</span></div><div class="line">print(my_path)  <span class="comment"># the location of the html file.</span></div></pre></td></tr></table></figure>
-<h1 id="中文词云报错"><a href="#中文词云报错" class="headerlink" title="中文词云报错"></a>中文词云报错</h1><p>如果词语是中文的，则wordcloud2运行报错，字符集编码的问题很棘手，一度想要放弃这个包了。</p>
-<blockquote>
-<p>Sys.setlocale(category = “LC_ALL”,locale = “English_United States.1252”)</p>
-</blockquote>
-<p>如果使用上面的命令暂时更改Rstudio的系统语言，则wordcloud2自带的中文demo可以运行，但从其他地方导入的UTF-8文本依然报错，并且R的系统语言中原来的中文也变为了乱码。设置文本编辑为UTF-8输入格式，设置<code>locale = &quot;chinese&quot;</code>，如果手动输入中文字符，有时候可以有时候不可以（除非locale设置为鬼佬的编码格式），自带的中文数据集<code>demoFreqC</code>也乱码报错。这个包太不健壮了，我都怀疑作者用的R版本是全英的，不需要处理中文文本。然后我去找源代码哪里错了，发现可能是htmlwidgets包的问题，好吧不能怪wordcloud。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(wordcloud2)</div><div class="line">mydata=data.frame(x=c(<span class="string">"我喜欢你"</span>,<span class="string">"man"</span>),freq=c(<span class="number">10</span>,<span class="number">9</span>))</div><div class="line">wordcloud2(mydata)</div></pre></td></tr></table></figure>
+                <p>本来打算睡觉的了，趁着泡脚的功夫，练练打字吧。</p>
+<p>上周见了姜国富真人，原来是个可爱的小胖子，听他最近在做的一个研究，问了问之前一篇论文的细节。问清楚了之后发现这个东西不重要，很多时候就是这样，结果不好或者不尽人意都是没办法改进的。从本部回来的路上，听专硕的几个女生说八卦，interesting，有个女生的故事比较让人吐玻璃渣，大概是知道男朋友没那么好但是还是要有希望的啊。另一个男生说起自己女朋友是初中同学的时候，在座各位又相信爱情了；然而她们没有听到我们分道扬镳之后的故事，小伙子女朋友去英国念书了，打算举家移民。我只能安慰说，英国移民老难了，不是念个书就可以的。</p>
+<p>是的，很多东西并不如想象中那么美好。比如，北京其实是很少下雪的，想象中的亭台楼宇大雪纷飞景象其实特别短暂，沙河的风又大又冷倒是真的。</p>
+<p>还有，前端时间我在学校里遇到一个穿着金中校服裤的男生，上去拍了拍，“同学，金中的啊”。小家伙一脸惊喜的看着我，把我当他老乡了，想不到异乡居然还能遇到校友！张口就是一句潮汕话。可惜我就只会一句羞羞的“干哇朵浪，爱迈”，也不能这样说是吧，虽然装他老乡也不是不可以，这个高中刚毕业的小伙子嫩得很呐，不过我还是很坦诚的嘛。金中这一届来央财的人比较少，6个。路上随便说了几句就散了，当时没多少时间。</p>
+<p>后来，院里开会的时候，发现这个小伙就是我们院的，开会带着本数学分析，又聊了会，这个人居然不问我拿微信，好的。不是你老乡，果然热度退减啊，小伙子你就这样错过了百科全书式的我。</p>
+<p>然后，听说了我财的升学率，本科的数据很漂亮，一半左右升学；到了硕士的升学率，1700+人只有17个人升学，多数还是在本校。这就加深了我的一个认识，这里确实不是搞学术的地方。财经类学生的目标都很明确，搞学术就不会来央财了，这里弥漫着一种大型世纪佳缘相亲平台的气氛。学生确实很优秀，而且很拼，虽然我已经发现了两个同学尿尿完之后不洗手一直记在心里。男生女生的宿舍都去逛了几遍，好想毒奶她们“只有精致的女生才配有男朋友”。有时想想，某些男生女生虽然性别不一样，可是给我的感觉都是一样的，都不是精致的利己主义者。</p>
+<p>总之，这里也是留不住人的。梁园虽好非久恋之乡。</p>
+
 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/08/22/[R语言] R语言中的科学计算/" data-toggle="tooltip" data-placement="top" title="[R语言] R语言中的科学计算">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/08/19/[Manual] python3中selenium+phantom使用手册 - 副本/" data-toggle="tooltip" data-placement="top" title="[Manual] python3中selenium+phantom使用手册">Next Post &rarr;</a>
+                            <a href="/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/" data-toggle="tooltip" data-placement="top" title="[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -276,17 +263,6 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#wordlcoud2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">wordlcoud2</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Example"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Example</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#letterCloud"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">letterCloud</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Exmaple"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Exmaple</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#词云图片保存"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">词云图片保存</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#中文词云报错"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">中文词云报错</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -301,9 +277,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#R" title="R">R</a>
-                        
-                          <a class="tag" href="/tags/#wordcloud" title="wordcloud">wordcloud</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -335,32 +309,6 @@
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
 
 <!-- 控制文章是否需要密码 2017-08-07-->
@@ -374,8 +322,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/08/19/[Manual] R语言wordcloud2包使用手册/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/08/19/[Manual] R语言wordcloud2包使用手册/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2017/12/11/[日常] 2017年12月11日/";
+    var disqus_url = "https://liangzhenghua.github.io/2017/12/11/[日常] 2017年12月11日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

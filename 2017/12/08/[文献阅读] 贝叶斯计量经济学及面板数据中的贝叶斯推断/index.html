@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Manual] R语言wordcloud2包使用手册 - 南有嘉鱼 | 南有樛木
+          [文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/08/19/[Manual] R语言wordcloud2包使用手册/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -86,16 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#R" title="R">R</a>
-                            
-                              <a class="tag" href="/tags/#wordcloud" title="wordcloud">wordcloud</a>
+                              <a class="tag" href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
                             
                         </div>
-                        <h1>[Manual] R语言wordcloud2包使用手册</h1>
-                        <h2 class="subheading">这是一篇关于R语言词云的知识总结</h2>
+                        <h1>[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断</h1>
+                        <h2 class="subheading">面板数据中的简单贝叶斯应用</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-19
+                            2017-12-08
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -224,21 +222,57 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>在阅读本文之前，你可能对以下扫盲贴有兴趣：</p>
-<p><a href="https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html" target="_blank" rel="external">wordclou2官方参考文档</a><br><a href="https://cosx.org/2016/08/wordcloud2" target="_blank" rel="external">可能是目前最好的词云解决方案 wordcloud2</a><br><a href="http://www.xueqing.tv/cms/article/226" target="_blank" rel="external">wordcloud2: R语言词云终极解决方案</a>    </p>
+                <p>李小胜，安徽财经大学统计系，写了一篇很简洁的贝叶斯计量经济学的论文。这篇论文质量不高，里面还有些小地方有纰漏。</p>
+<p>周亮，韩玉启，朱慧明写的一篇《正态线性单方程计量经济模型的Bayes统计推断》倒是被引用多次，介绍了回归分析里面最简单的贝叶斯分析。朱慧明写了很多贝叶斯的文章，感觉还不错。</p>
 <hr>
-<p>Wordcloud2的使用非常简单，主要使用的函数只有两个：<code>wordlcoud2</code>和<code>letterCloud</code>，它们生成的不是静态的png等格式的图片，在Rstudio的viewer窗口动态显示。</p>
-<h1 id="wordlcoud2"><a href="#wordlcoud2" class="headerlink" title="wordlcoud2"></a>wordlcoud2</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(wordcloud2)</div><div class="line">wordcloud2(data = demoFreq)    <span class="comment">#demoFreq是数据框格式，第一列是词汇，第二列是词频</span></div><div class="line">wordcloud2(demoFreq, color = <span class="string">"random-light"</span>, backgroundColor = <span class="string">"grey"</span>)</div><div class="line">wordcloud2(demoFreq, minRotation = -pi/<span class="number">6</span>, maxRotation = -pi/<span class="number">6</span>, minSize = <span class="number">10</span>,rotateRatio = <span class="number">1</span>)    <span class="comment">#旋转词云</span></div><div class="line">figPath = system.file(<span class="string">"examples/t.png"</span>,package = <span class="string">"wordcloud2"</span>)    <span class="comment">#背景图片路径</span></div><div class="line">wordcloud2(demoFreq, figPath = figPath, size = <span class="number">1.5</span>,color = <span class="string">"skyblue"</span>)   <span class="comment">#color是词汇统一的格式</span></div></pre></td></tr></table></figure>
-<h1 id="letterCloud"><a href="#letterCloud" class="headerlink" title="letterCloud"></a>letterCloud</h1><p>这个函数使用报错，调用后没有任何显示信息，这里先挖个坑以后会来继续填。</p>
-<h2 id="Exmaple"><a href="#Exmaple" class="headerlink" title="Exmaple"></a>Exmaple</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">letterCloud(demoFreq, word = <span class="string">"R"</span>, size = <span class="number">2</span>)</div><div class="line">letterCloud(demoFreq, word = <span class="string">"WORDCLOUD2"</span>, wordSize = <span class="number">1</span>)</div></pre></td></tr></table></figure>
-<h1 id="词云图片保存"><a href="#词云图片保存" class="headerlink" title="词云图片保存"></a>词云图片保存</h1><p>用Rstudio画了词云，可以在Viewer窗口使用点击Export的方式得到图片，但是我现在需要用代码保存图片，wordcloud2包中并没有提供使用代码保存图片的函数。<a href="https://stackoverflow.com/questions/41884336/export-wordcloud2-as-html-automatically" target="_blank" rel="external">stack overflow</a>有个比较简单的办法：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span>(wordcloud2)</div><div class="line">df       &lt;- head(demoFreq, <span class="number">5</span>) <span class="comment">#只取最高频的5个词语作为测试</span></div><div class="line">my_cloud &lt;- wordcloud2(df)</div><div class="line">my_path  &lt;- htmltools::html_print(my_cloud)   <span class="comment"># saves html in temp directory</span></div><div class="line">print(my_path)  <span class="comment"># the location of the html file.</span></div></pre></td></tr></table></figure>
-<h1 id="中文词云报错"><a href="#中文词云报错" class="headerlink" title="中文词云报错"></a>中文词云报错</h1><p>如果词语是中文的，则wordcloud2运行报错，字符集编码的问题很棘手，一度想要放弃这个包了。</p>
-<blockquote>
-<p>Sys.setlocale(category = “LC_ALL”,locale = “English_United States.1252”)</p>
-</blockquote>
-<p>如果使用上面的命令暂时更改Rstudio的系统语言，则wordcloud2自带的中文demo可以运行，但从其他地方导入的UTF-8文本依然报错，并且R的系统语言中原来的中文也变为了乱码。设置文本编辑为UTF-8输入格式，设置<code>locale = &quot;chinese&quot;</code>，如果手动输入中文字符，有时候可以有时候不可以（除非locale设置为鬼佬的编码格式），自带的中文数据集<code>demoFreqC</code>也乱码报错。这个包太不健壮了，我都怀疑作者用的R版本是全英的，不需要处理中文文本。然后我去找源代码哪里错了，发现可能是htmlwidgets包的问题，好吧不能怪wordcloud。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(wordcloud2)</div><div class="line">mydata=data.frame(x=c(<span class="string">"我喜欢你"</span>,<span class="string">"man"</span>),freq=c(<span class="number">10</span>,<span class="number">9</span>))</div><div class="line">wordcloud2(mydata)</div></pre></td></tr></table></figure>
+<p>贝叶斯技术已经大量应用在各门科学当中，而把贝叶斯理论应用到计量经济学，是上世纪60年代以来在一大批统计学家和计量经济学的共同努力下，迅速发展起来的。Zellner的《An Introduction to Bayesian Analysis in Economics》一书的出版标志着贝叶斯计量经济学的真正诞生，该书较为全面地阐述了贝叶斯计量经济学的大多数专题。</p>
+<p>面板数据在计量经济学中称为Panel Data，而在统计学中称为Longitudinal Data。</p>
+<p>将含有$k$个外生变量，n条观测的随机方程用矩阵的形式表示如下：</p>
+<script type="math/tex; mode=display">\begin{equation}
+Y=X\beta+U \\
+U \sim N(0,\sigma^2I_n)
+\end{equation}</script><p>显然，$\beta$的OLS估计为$\hat{\beta}=(X’X)^{-1}X’Y$，其协方差矩阵为</p>
+<script type="math/tex; mode=display">
+\begin{split}
+var(\hat{\beta})&=var((X'X)^{-1}X'(X\beta+U)) \\
+&=var((X'X)^{-1}X'U) \\
+&=(X'X)^{-1}X'\sigma^2I_nX(X'X)^{-1} \\
+&=\sigma^2(X'X)^{-1} \\
+\end{split}</script><h1 id="方差-sigma-2-已知时参数的后验分布"><a href="#方差-sigma-2-已知时参数的后验分布" class="headerlink" title="方差$\sigma^2$已知时参数的后验分布"></a>方差$\sigma^2$已知时参数的后验分布</h1><p>假设方差$\sigma^2=\sigma_0^2$已知，则有</p>
+<script type="math/tex; mode=display">\begin{equation}
+f(Y|X,\beta)=\prod_{i=1}^nf(y_i|x,\beta) \propto exp\{ -\frac{1}{2\sigma_0^2}(Y-X\beta)'(Y-X\beta)\}
+\end{equation}</script><p>在无$\beta$先验信息的情况下，取其先验分布密度$\pi(\beta)$为<em>模糊先验</em>，即$\pi(\beta) \propto constant$，结合(3)式可知$\beta$的后验密度为</p>
+<script type="math/tex; mode=display">\begin{equation}
+\pi(\beta|X,Y) \propto exp \{ -\frac{1}{2\sigma_0^2} (\beta-\hat{\beta})'(X'X)^(\beta-\hat{\beta})\}
+\end{equation}</script><p>要证明上式，首先注意到$(\beta-\hat{\beta})’\Sigma(\beta-\hat{\beta})=\beta’\Sigma\beta-2\hat{\beta}’\Sigma\beta+\hat{\beta}’\Sigma\hat{\beta}$，这将有助于我们从右边往左边凑出常见的一个矩阵形式。</p>
+<p>(2)式的正态核只关心对$\beta$展开（忽略其他部分）可以得到</p>
+<script type="math/tex; mode=display">
+
+exp\{(Y-X\beta)'(Y-X\beta)\ \} \propto exp\{Y'Y-2Y'X\beta+\beta'X'X\beta \}</script><p>已经有$\Sigma=X’X$，令$2\hat{\beta}’\Sigma\beta=2Y’X\beta$，可以得到$\hat{\beta}=(X’X)^{-1}X’Y$，则</p>
+<script type="math/tex; mode=display">
+
+exp\{(Y-X\beta)'(Y-X\beta)\ \} \propto exp\{(\beta-\hat{\beta})'(X'X)(\beta-\hat{\beta}) \}</script><p>因此，$\beta$的后验期望为OLS估计值$\hat{\beta}=(X’X)^{-1}X’Y$，协方差阵为$(X’X)^{-1}\sigma_0^2$.</p>
+<script type="math/tex; mode=display">\begin{equation}
+\pi(\beta|X,Y) \propto exp\{\frac{1}{2\sigma_0^2}(\beta-\hat{\beta})'(X'X)(\beta-\hat{\beta}) \} 
+\end{equation}</script><h1 id="有先验信息的参数的后验分布"><a href="#有先验信息的参数的后验分布" class="headerlink" title="有先验信息的参数的后验分布"></a>有先验信息的参数的后验分布</h1><p>若不再假定$\beta$服从模糊先验，而取共轭先验分布—正态分布，即</p>
+<script type="math/tex; mode=display">\begin{equation}
+
+\pi(\beta|X,Y) \propto exp \{-\frac{1}{2} (\beta-\mu_0)'\Sigma_0^{-1}(\beta-\mu_0)\}
+\end{equation}</script><p>其中，$\mu_0$是$\beta$的先验期望，$\Sigma_0$是$\beta$的先验协方差阵。此时，$\beta$的后验分布密度为</p>
+<script type="math/tex; mode=display">\begin{equation}
+\pi(\beta|X,Y) \propto exp \{ -\frac{1}{2}[(A^{\frac{1}{2}}\beta-A^{\frac{1}{2}}\mu_0)'(A^{\frac{1}{2}}\beta-A^{\frac{1}{2}}\mu_0)+(Y-X\beta)'(Y-X\beta)]\}
+\end{equation}</script><p>其中$A=\Sigma_0^{-1}\sigma_0^2$，令$W=\begin{bmatrix}<br>A^{\frac{1}{2}}\mu_0<br>\\ Y<br>\end{bmatrix}$，$G=\begin{bmatrix}<br>A^{\frac{1}{2}}<br>\\<br>X<br>\end{bmatrix}$，则(6)式可以化简为</p>
+<script type="math/tex; mode=display">\begin{equation}
+\pi(\beta|X,Y) \propto exp \{-\frac{1}{2\sigma_0^2}(W-G\beta)'(W-G\beta)\}
+\end{equation}</script><p>这就完全等价于式(2)的情况了，后验均值为$(G’G)’GW$，后验方差矩阵为$(G’G)^{-1}\sigma_0^2$，你可以写成更完整的形式。</p>
+<h1 id="方差-sigma-2-未知时参数的后验分布"><a href="#方差-sigma-2-未知时参数的后验分布" class="headerlink" title="方差$\sigma^2$未知时参数的后验分布"></a>方差$\sigma^2$未知时参数的后验分布</h1><p>这一块就有点复杂了。</p>
+<p>先引入$(\beta,\sigma)$的模糊先验分布，</p>
+<script type="math/tex; mode=display">
+\pi(\beta,\sigma) \propto \frac{1}{\sigma}</script><p>易得$(\beta,\sigma)$的联合后验分布密度为</p>
+<script type="math/tex; mode=display">\begin{equation}
+\pi(\beta,\sigma|X,Y) \propto \frac{1}{\sigma^{n+1}} exp \{ \frac{1}{2\sigma^2}(Y-X\beta)'(Y-X\beta)\}
+\end{equation}</script><p>对$\sigma$在$(0,\infty)$上积分，得到$\beta$的后验边缘分布密度函数为多元t分布，而对$\beta$积分，可以得到$\sigma$的后验分布密度函数为逆伽马分布。</p>
+
 
 
                 <hr>
@@ -246,12 +280,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/08/22/[R语言] R语言中的科学计算/" data-toggle="tooltip" data-placement="top" title="[R语言] R语言中的科学计算">&larr; Previous Post</a>
+                            <a href="/2017/12/11/[日常] 2017年12月11日/" data-toggle="tooltip" data-placement="top" title="2017年12月11日">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/08/19/[Manual] python3中selenium+phantom使用手册 - 副本/" data-toggle="tooltip" data-placement="top" title="[Manual] python3中selenium+phantom使用手册">Next Post &rarr;</a>
+                            <a href="/2017/12/07/[计量] 嵌套与非嵌套模型/" data-toggle="tooltip" data-placement="top" title="[计量] 嵌套与非嵌套模型">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -281,7 +315,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#wordlcoud2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">wordlcoud2</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Example"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Example</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#letterCloud"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">letterCloud</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Exmaple"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Exmaple</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#词云图片保存"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">词云图片保存</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#中文词云报错"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">中文词云报错</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#方差-sigma-2-已知时参数的后验分布"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">方差$\sigma^2$已知时参数的后验分布</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#有先验信息的参数的后验分布"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">有先验信息的参数的后验分布</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#方差-sigma-2-未知时参数的后验分布"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">方差$\sigma^2$未知时参数的后验分布</span></a></li></ol>
         
         </div>
       </aside>
@@ -301,9 +335,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#R" title="R">R</a>
-                        
-                          <a class="tag" href="/tags/#wordcloud" title="wordcloud">wordcloud</a>
+                          <a class="tag" href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
                         
                     </div>
                 </section>
@@ -363,6 +395,44 @@
     
 <!-- 控制文章是否加载公式 -->
 
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- script below is in order to number the equationNumbers 2017-11-17 -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
+</script>
+
 <!-- 控制文章是否需要密码 2017-08-07-->
 
 </article>
@@ -374,8 +444,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/08/19/[Manual] R语言wordcloud2包使用手册/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/08/19/[Manual] R语言wordcloud2包使用手册/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/";
+    var disqus_url = "https://liangzhenghua.github.io/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
