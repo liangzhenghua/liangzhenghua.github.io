@@ -141,6 +141,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -155,14 +162,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/pics/">Gallery</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/pics/">Gallery</a>
+                            <a href="/temp/[文献阅读] Bayesian adaptive Lasso quantile regression - 副本.html">[文献阅读] 自适应增强型指数追踪模型及应用</a>
                         </li>
                         
                     
@@ -233,13 +240,14 @@ p(\beta|\tau)=(\tau/2)^p exp\{-\tau||\beta||_1\}
 \end{equation}</script><script type="math/tex; mode=display">\begin{equation}
 p(y|\beta,\sigma^2)=N(y|X\beta,\sigma^2 I_n)
 \end{equation}</script><p>当固定$\sigma^2&gt;0$和$\tau&gt;0$时，$\beta$的后验估计等价于在标准lasso中取定惩罚系数$\lambda=2\tau\sigma^2$.</p>
-<p>根据(Andrew &amp; Mallows,1974; West,1987)，双指数分布可以看做是a scale mixture of normal distributions.</p>
+<p>根据(Andrew &amp; Mallows,1974; West,1987)，Laplace(双指数)分布可以看做是a scale mixture of normal distributions.</p>
 <h1 id="lasso-后验分布"><a href="#lasso-后验分布" class="headerlink" title="lasso 后验分布"></a>lasso 后验分布</h1><h2 id="直接特征"><a href="#直接特征" class="headerlink" title="直接特征"></a>直接特征</h2><p>贝叶斯lasso模型可以用以下式子表示：</p>
 <script type="math/tex; mode=display">\begin{equation}
 p(y|\beta,\sigma^2,\tau)=N(y|X\beta,\sigma^2 I_n), \\  
 
 p(\beta|\tau,\sigma^2)=(\frac{\tau}{2\sigma})^p exp\{-\tau \sigma^{-1}||\beta||_1\}
-\end{equation}</script>
+\end{equation}</script><p>$N(y|X\beta,\sigma^2 I_n)$表示$y$服从均值为$X\beta$，协方差阵为$\sigma^2 I_n$的多元正态分布。本文假定数据已经经过中心化处理，因此回归不考虑截距。</p>
+
 
 
                 <hr>

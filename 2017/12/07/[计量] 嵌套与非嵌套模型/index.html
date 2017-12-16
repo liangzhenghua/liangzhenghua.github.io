@@ -141,6 +141,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -155,14 +162,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/pics/">Gallery</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/pics/">Gallery</a>
+                            <a href="/temp/[文献阅读] Bayesian adaptive Lasso quantile regression - 副本.html">[文献阅读] 自适应增强型指数追踪模型及应用</a>
                         </li>
                         
                     
@@ -231,14 +238,14 @@
 <p>即使模型中变量一样，不同的函数形式也可能使得两个模型变成非嵌套模型，比如：</p>
 <p>$Y_i=\beta_1+\beta_2 lnZ_{2i}+\beta_3 lnZ_{3i}+w_i$</p>
 <p>模型D和模型E仍然是非嵌套模型，因为不能把其中一个模型作为另一个模型的特殊情形推导出来。</p>
-<h1 id="非嵌套模型的检验"><a href="#非嵌套模型的检验" class="headerlink" title="非嵌套模型的检验"></a>非嵌套模型的检验</h1><p>检验非嵌套假设的方法大概分为两类，给定两个过着多个模型，我们根据某些拟合优度准则选择其一（判别方法），这是我们经常用到的。然而，有一种方法可以考虑其他模型提供的增补信息，，而不是单单对各个模型做个回归，然后根据某个R方选择模型（辨识方法）。</p>
+<h1 id="非嵌套模型的检验"><a href="#非嵌套模型的检验" class="headerlink" title="非嵌套模型的检验"></a>非嵌套模型的检验</h1><p>检验非嵌套假设的方法大概分为两类，给定两个或者多个模型，我们根据某些拟合优度准则选择其一（判别方法），这是我们经常用到的。然而，有一种方法可以考虑其他模型提供的补充信息，而不是单单对各个模型做个回归，然后根据某个R方选择模型（辨识方法）。</p>
 <h2 id="判别方法（discrimination-approach）"><a href="#判别方法（discrimination-approach）" class="headerlink" title="判别方法（discrimination approach）"></a>判别方法（discrimination approach）</h2><h3 id="R-2"><a href="#R-2" class="headerlink" title="$R^2$"></a>$R^2$</h3><script type="math/tex; mode=display">R^2=\frac{ESS}{TSS}=1-\frac{RSS}{TSS}</script><p>它度量的是样本内拟合优度，不能保证对样本外观测（out of sample）也能很好地预测；其次，比较两个$R^2$，因变量或回归子必须相同；最后，$R^2$没有对回归元个数做惩罚，变量越多，$R^2$越大。</p>
 <h3 id="调整-R-2"><a href="#调整-R-2" class="headerlink" title="调整$R^2$"></a>调整$R^2$</h3><script type="math/tex; mode=display">
 \bar{R}^2=1-\frac{RSS/(n-k)}{TSS/(n-1)=1-(1-R^2)\frac{n-1}{n-k}}</script><p>同样，被比较模型的回归子必须相同</p>
 <h3 id="AIC"><a href="#AIC" class="headerlink" title="AIC"></a>AIC</h3><script type="math/tex; mode=display">
 AIC=e^{2k/n} \frac{\sum \hat{u_i^2}}{n}=e^{2k/n} \frac{RSS}{n}</script><p>$k$为包含截距项的回归元个数，$n$为观测次数，上式可以写为更简洁的形式</p>
 <script type="math/tex; mode=display">
-ln AIC== \frac{2k}{n}+ln(\frac{RSS}{n})</script><p>AIC准则相比于调整$R^2$对回归元个数施加了更严厉的惩罚，它不仅适用于样本内预测，也适用于预测回归模型在样本外的表现；它对嵌套和非嵌套模型都适用，甚至还可以决定自回归模型AR(p)中的滞后长度。</p>
+ln AIC= \frac{2k}{n}+ln(\frac{RSS}{n})</script><p>AIC准则相比于调整$R^2$对回归元个数施加了更严厉的惩罚，它不仅适用于样本内预测，也适用于预测回归模型在样本外的表现；它对嵌套和非嵌套模型都适用，甚至还可以决定自回归模型AR(p)中的滞后长度。</p>
 <h3 id="SIC"><a href="#SIC" class="headerlink" title="SIC"></a>SIC</h3><script type="math/tex; mode=display">
 ln SIC= \frac{k}{n} ln(n)+ln(\frac{RSS}{n})</script><p>SIC和AIC有什么不一样？那就是相对于AIC，SIC对回归元个数施加了更严厉的惩罚！</p>
 <h3 id="Mallow’s-C-p-criterion"><a href="#Mallow’s-C-p-criterion" class="headerlink" title="Mallow’s $C_p$ criterion"></a>Mallow’s $C_p$ criterion</h3><p>这个模型的用法跟正态Q检验的Q图一样，哪个模型表示的点更靠近直线$C_p=p$，哪个就更受欢迎。</p>

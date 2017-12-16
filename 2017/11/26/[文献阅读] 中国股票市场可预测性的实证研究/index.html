@@ -141,6 +141,13 @@
 
                         
                         <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -155,14 +162,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/pics/">Gallery</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/pics/">Gallery</a>
+                            <a href="/temp/[文献阅读] Bayesian adaptive Lasso quantile regression - 副本.html">[文献阅读] 自适应增强型指数追踪模型及应用</a>
                         </li>
                         
                     
@@ -270,6 +277,8 @@ r_{i,t}=\alpha_i(x_{t-1})+\beta_i'f_t+\epsilon_{i,t}</script><p>其中，$x_{t-1
 <p>进一步假设：</p>
 <script type="math/tex; mode=display">
 f_t=\lambda(x_{t-1})+u_t</script><p>好的，这里的画风不一样了，应该是另一个作者负责这部分的，我看不下去了。问清楚了再回来补全后面的分解过程。</p>
+<p>这里面有点滥用符号了。$\lambda(x_{t-1})$实际上是表示风险因子的收益，举个例子，取最常见最重要的因子$f_t=E(R_m−R_f)$，即市场期望收益率扣除无风险利率的部分.</p>
+<p>后面的思想就是收益率可以由几个因子解释，那么据此可以建立一个回归模型，并且得到了回归系数。然后要预测下一期的收益率，收益率的回归模型的系数有了，可是要拿到下一期的因子取值的数据才能预测下一期收益率，而这个时候因子的数据又不能够取得。因而将已有的各个宏观变量和公司财务数据的变量做个主成分降维，利用少数主成分作为解释变量建立对因子的回归模型，去预测计算因子下一期的值（期望值）。因此这里的主要工作分为了两部分，分别估计$\beta$和$\lambda(x_{t-1})$，两者再凑到一起就可以得到下一期的收益率预测值。</p>
 
 
 
@@ -278,12 +287,12 @@ f_t=\lambda(x_{t-1})+u_t</script><p>好的，这里的画风不一样了，应�
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/11/29/[计量] OLS的大样本性质/" data-toggle="tooltip" data-placement="top" title="[计量] OLS的大样本性质">&larr; Previous Post</a>
+                            <a href="/2017/11/26/[日常] 2017年11月26日/" data-toggle="tooltip" data-placement="top" title="2017年11月26日">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/" data-toggle="tooltip" data-placement="top" title="[文献阅读] Bayesian adaptive Lasso quantile regression">Next Post &rarr;</a>
+                            <a href="/2017/11/25/[日常] 2017年11月25日/" data-toggle="tooltip" data-placement="top" title="2017年11月25日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>

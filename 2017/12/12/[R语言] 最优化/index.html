@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [黑科技] 科学上网 - 南有嘉鱼 | 南有樛木
+          [R语言] 在R里面做最优化 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/09/20/[黑科技] 科学上网/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2017/12/12/[R语言] 最优化/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/python.jpg')
+            background-image: url('/img/R.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#科学上网" title="科学上网">科学上网</a>
+                              <a class="tag" href="/tags/#R" title="R">R</a>
                             
                         </div>
-                        <h1>[黑科技] 科学上网</h1>
-                        <h2 class="subheading">这是一篇关于科学上网的资源帖</h2>
+                        <h1>[R语言] 在R里面做最优化</h1>
+                        <h2 class="subheading">这是一篇关于R语言进行最优化的学习笔记</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-09-20
+                            2017-12-12
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -229,9 +229,12 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>你可能需要以下资源帖：</p>
-<p><a href="https://laod.cn/" target="_blank" rel="external">老D博客</a><br><a href="https://github.com/wangchunming/2017hosts" target="_blank" rel="external">host文件github项目</a></p>
-
+                <p>收集了几个包，有空可以逐一试试每个包的求解速度。</p>
+<p><a href="http://blog.csdn.net/skyonefly/article/details/50899661" target="_blank" rel="external">R语言非线性方程组求解dfsane,nleqslv</a><br><a href="https://ask.hellobi.com/blog/louwill12/8636" target="_blank" rel="external">R语言与优化模型（二）：非线性规划与多目标规划</a></p>
+<hr>
+<p>今天拿<a href="https://cran.r-project.org/web/packages/Rglpk/index.html" target="_blank" rel="external"><strong><em>Rglpk</em></strong></a>来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数<code>Rglpk_solve_LP</code>.</p>
+<p>拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(lpSolve)</div><div class="line"><span class="keyword">library</span>(Rglpk)</div><div class="line"></div><div class="line"><span class="comment">#------------</span></div><div class="line"><span class="comment">## Simple linear program.</span></div><div class="line"><span class="comment">## maximize: 2 x_1 + 4 x_2 + 3 x_3</span></div><div class="line"><span class="comment">## subject to: 3 x_1 + 4 x_2 + 2 x_3 &lt;= 60</span></div><div class="line"><span class="comment">## 2 x_1 + x_2 + 2 x_3 &lt;= 40</span></div><div class="line"><span class="comment">## x_1 + 3 x_2 + 2 x_3 &lt;= 80</span></div><div class="line"><span class="comment">## x_1, x_2, x_3 are non-negative real numbers</span></div><div class="line"></div><div class="line"><span class="comment">#------------</span></div><div class="line">obj &lt;- c(<span class="number">2</span>, <span class="number">4</span>, <span class="number">3</span>)</div><div class="line">mat &lt;- matrix(c(<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>), nrow = <span class="number">3</span>)</div><div class="line">dir &lt;- c(<span class="string">"&lt;="</span>, <span class="string">"&lt;="</span>, <span class="string">"&lt;="</span>)</div><div class="line">rhs &lt;- c(<span class="number">60</span>, <span class="number">40</span>, <span class="number">80</span>)</div><div class="line">max &lt;- <span class="literal">TRUE</span></div><div class="line"></div><div class="line">system.time(&#123;</div><div class="line">  <span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">10000</span>) model1=Rglpk_solve_LP(obj, mat, dir, rhs, max = max)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"></div><div class="line">system.time(&#123;</div><div class="line">  <span class="keyword">for</span>(i <span class="keyword">in</span> <span class="number">1</span>:<span class="number">10000</span>) model2=lp (<span class="string">"max"</span>, obj, mat, dir, rhs)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
 
                 <hr>
@@ -239,12 +242,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/09/24/[Bayesian] MCMC回顾/" data-toggle="tooltip" data-placement="top" title="[Bayesian] MCMC回顾">&larr; Previous Post</a>
+                            <a href="/2017/12/17/[日常] 2017年12月17日/" data-toggle="tooltip" data-placement="top" title="2017年12月17日">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/09/20/[计量] 计量经济学回顾/" data-toggle="tooltip" data-placement="top" title="[计量] 计量经济学回顾">Next Post &rarr;</a>
+                            <a href="/2017/12/11/[日常] 2017年12月11日/" data-toggle="tooltip" data-placement="top" title="2017年12月11日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -269,6 +272,17 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="nav">none</ol>
+        
+        </div>
+      </aside>
+    
+
 
             <!-- Sidebar Container -->
             <div class="
@@ -283,7 +297,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#科学上网" title="科学上网">科学上网</a>
+                          <a class="tag" href="/tags/#R" title="R">R</a>
                         
                     </div>
                 </section>
@@ -315,6 +329,32 @@
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
+    	<! -- 添加捐赠图标-->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           &uarr;<br>
+		   无以生计，卖文苟延
+        </span>
+        <br>
+      </div>
+	<div id="donate_guide" class="donate_bar center hidden" >
+		<!-- ֧支付宝打赏-->
+		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
+		<!-- 微信打赏 -->
+		<img src="/css/img/weixin.jpg" alt="微信打赏">
+    </div>
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
+</div>
+<! -- 添加捐赠图标-->
+
+    
 <!-- 控制文章是否加载公式 -->
 
 <!-- 控制文章是否需要密码 2017-08-07-->
@@ -328,8 +368,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/09/20/[黑科技] 科学上网/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/09/20/[黑科技] 科学上网/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2017/12/12/[R语言] 最优化/";
+    var disqus_url = "https://liangzhenghua.github.io/2017/12/12/[R语言] 最优化/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
