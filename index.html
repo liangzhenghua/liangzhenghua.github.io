@@ -143,14 +143,14 @@
 
                         
                         <li>
-                            <a href="/pics/">Gallery</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/pics/">Gallery</a>
                         </li>
                         
                     
@@ -279,20 +279,17 @@ Part A
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] 最优化/">
+    <a href="/2017/12/12/[R语言] SQL Server R/">
         <h2 class="post-title">
-            [R语言] 在R里面做最优化
+            [R语言] SQL Server R
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于R语言进行最优化的学习笔记
+            这是一篇关于在数据库中调用R语言的学习笔记
         </h3>
         <div class="post-content-preview">
-            收集了几个包，有空可以逐一试试每个包的求解速度。
-R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
-
-今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
-拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
-12345......
+            Microsoft 官方文档
+Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
+...
         </div>
     </a>
     
@@ -312,17 +309,20 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] SQL Server R/">
+    <a href="/2017/12/12/[R语言] 最优化/">
         <h2 class="post-title">
-            [R语言] SQL Server R
+            [R语言] 在R里面做最优化
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于在数据库中调用R语言的学习笔记
+            这是一篇关于R语言进行最优化的学习笔记
         </h3>
         <div class="post-content-preview">
-            Microsoft 官方文档
-Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
-...
+            收集了几个包，有空可以逐一试试每个包的求解速度。
+R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
+
+今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
+拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
+12345......
         </div>
     </a>
     
@@ -432,6 +432,35 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
 
 <div class="post-preview">
 
+    <a href="/2017/12/03/[文献阅读] Bayesian Lasso regression/">
+        <h2 class="post-title">
+            [文献阅读] Bayesian Lasso regression
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            摘要当使用独立的双指数分布作为回归系数的先验分布时，lasso的估计系数对应后验分布众数。这篇文章介绍了贝叶斯方法在lasso里面的拓展，包括了计算和推断等问题。重点讨论了利用后验均值作为点估计。文章显示标准lasso的预测并不一定与贝叶斯lasso的预测一致,文章还介绍了一种新的Gibbs抽样方法。
+引言自从lasso被提出之后，作为对OLS的替代方案，广泛被应用在回归问题中。它的流行在于......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-12-03
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/12/03/[日常] 2017年12月03日/">
         <h2 class="post-title">
             2017年12月03日
@@ -456,35 +485,6 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
         <div class="tags">
             
               <a href="/tags/#日常" title="日常">日常</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/03/[文献阅读] Bayesian Lasso regression/">
-        <h2 class="post-title">
-            [文献阅读] Bayesian Lasso regression
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            摘要当使用独立的双指数分布作为回归系数的先验分布时，lasso的估计系数对应后验分布众数。这篇文章介绍了贝叶斯方法在lasso里面的拓展，包括了计算和推断等问题。重点讨论了利用后验均值作为点估计。文章显示标准lasso的预测并不一定与贝叶斯lasso的预测一致,文章还介绍了一种新的Gibbs抽样方法。
-引言自从lasso被提出之后，作为对OLS的替代方案，广泛被应用在回归问题中。它的流行在于......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-12-03
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
             
         </div>
     
@@ -574,8 +574,6 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
             
         
             
-            <a href="/tags/#python" title="python" rel="6">python</a>
-            
         
             
         
@@ -583,6 +581,8 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
             <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
             
         
+            
+            <a href="/tags/#python" title="python" rel="6">python</a>
             
         
             
@@ -747,11 +747,11 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
         </li>
       
         <li>
-          <a href="/2017/12/12/[R语言] 最优化/">[R语言] 在R里面做最优化</a>
+          <a href="/2017/12/12/[R语言] SQL Server R/">[R语言] SQL Server R</a>
         </li>
       
         <li>
-          <a href="/2017/12/12/[R语言] SQL Server R/">[R语言] SQL Server R</a>
+          <a href="/2017/12/12/[R语言] 最优化/">[R语言] 在R里面做最优化</a>
         </li>
       
         <li>
