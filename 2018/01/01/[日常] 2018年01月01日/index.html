@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [计量] 多重共线性 - 南有嘉鱼 | 南有樛木
+          2018年01月01日（Revised &amp; Unsealed） - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/10/15/[计量] 多重共线性/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/01/[日常] 2018年01月01日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/economic3.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[计量] 多重共线性</h1>
-                        <h2 class="subheading">这是一篇关于多重共线性的介绍</h2>
+                        <h1>2018年01月01日（Revised &amp; Unsealed）</h1>
+                        <h2 class="subheading">新年快乐</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-10-15
+                            2018-01-01
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,29 +222,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><p><strong>完全共线性</strong>：k个变量如果满足以下条件，我们说它存在一个准确的线性关系:$\lambda_1 X_1+\lambda_2 X_2+…+\lambda_k X_k=0$，其中$\lambda_1,\lambda_2,…,\lambda_k$ 为常数，但不同时为0。</p>
-<p><strong>多重共线性</strong>：$X$变量之间彼此相关，但又不完全相关，$\lambda_1 X_1+\lambda_2 X_2+…+\lambda_k X_k+v_i=0$，其中$v_i$是随机误差项。</p>
-<h1 id="多重共线性的侦察"><a href="#多重共线性的侦察" class="headerlink" title="多重共线性的侦察"></a>多重共线性的侦察</h1><ul>
-<li>散点图。可以直观查看变量两两之间的线性相关关系</li>
-<li>高$R^2$，只有少数变量的$t$值是显著的，$F$值却显示方程整体显著</li>
-<li>回归元之间存在高度的两两相关，但低的相关系数也可能存在多重共线性</li>
-<li>辅助回归。对每一个$X_i$对其余$X$变量做回归，判决系数记为$R^2$，变量$F_i=\frac{R_i^2/(k-1)}{(1-R_i^2)/(n-(k-1))}\sim F(k-2,n-k+1)$，F值超过指定显著性水平下的临界值表明这个$X_i$和其余变量之间存在共线性，但存在共线性不代表要在回归模型中删去这个变量。</li>
-<li>本征值和病态指数。$k=\frac{\text{最大特征根}}{\text{最小特征根}}$，$CI=\sqrt{\frac{\text{最大本征值}}{\text{最小本征值}}}=\sqrt{k}$，当$k&gt;1000$时就算有严重的多重共线性。</li>
-<li>容许度与方差膨胀因子。方差膨胀因子$VIF_i=\frac{1}{1-R_j^2}$，容许度$TOL_j=1-R_j^2$，$R_j^2$是变量$X_j$对其余变量做辅助回归的判定系数，当$R_j^2&gt;0.90$，一个变量的$VIF$超过10可以认为存在高度共线性。</li>
-</ul>
-<h1 id="估计问题"><a href="#估计问题" class="headerlink" title="估计问题"></a>估计问题</h1><h2 id="完全多重共线性"><a href="#完全多重共线性" class="headerlink" title="完全多重共线性"></a>完全多重共线性</h2><p> 无法得到个别回归系数的唯一解，且其方差和标准误无穷大</p>
-<h2 id="高度多重共线性"><a href="#高度多重共线性" class="headerlink" title="高度多重共线性"></a>高度多重共线性</h2><ul>
-<li>多重共线性并没有违反经典模型的假定，OLS估计量仍然是BLUE，但其方差和协方差偏大</li>
-<li>置信区间比较宽，以致于接受虚拟假设更容易</li>
-<li>一个或多个回归系数的t比率倾向于在统计上不显著</li>
-<li>t比率不显著，但总的拟合优度$R^2$仍可能非常高</li>
-<li>新数据进入会对估计量和标准误产生巨大的影响 </li>
-</ul>
-<h1 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h1><h2 id="剔除变量与设定偏误"><a href="#剔除变量与设定偏误" class="headerlink" title="剔除变量与设定偏误"></a>剔除变量与设定偏误</h2><p> 从模型中剔除一个变量，可能导致设定偏误，多重共线性虽有碍于模型参数的准确估计，但剔除变量则对参数的真值有严重的误导而不是适当的修正（剔除变量等价于参数为0）。</p>
-<h2 id="变量替换（差分、比率变换）"><a href="#变量替换（差分、比率变换）" class="headerlink" title="变量替换（差分、比率变换）"></a>变量替换（差分、比率变换）</h2><p>如果干扰项原本序列无关，序列的数据差分之后在多数情况下将会序列相关。因此，治疗比疾病更糟糕。</p>
-<h2 id="补充新数据"><a href="#补充新数据" class="headerlink" title="补充新数据"></a>补充新数据</h2><p> 多重共线性通常是一个样本特性，有可能在关于同样变量的另一个样本中没有那么严重。随着样本量的增加，估计系数的方差将减小，从而降低标准误。</p>
-<h2 id="多项式回归"><a href="#多项式回归" class="headerlink" title="多项式回归"></a>多项式回归</h2><p> 在实际中，若果将解释变量表达为离差形式（即对均值的离差），多重共线性就可以大为降低。</p>
-<h2 id="因子分析、岭回归"><a href="#因子分析、岭回归" class="headerlink" title="因子分析、岭回归"></a>因子分析、岭回归</h2><p> 同过变量选择和降维的技术可以解决多重共线性的问题。</p>
+                <p>你好，第一次见面，请多多关照！</p>
+<p>新年的意义可能在于挥别过去一年阴沉的雾霾，拥抱崭新的未来。春节比较适合给身心放假和家人一起热闹，元旦还是适合规划自己一年的安排。</p>
+<p>而我比较贪。</p>
+<p>祝福每个人可以好好学习，劝君莫惜金缕衣，劝君惜取少年时。</p>
 
 
 
@@ -252,13 +233,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/09/[计量] 异方差性/" data-toggle="tooltip" data-placement="top" title="[计量] 异方差性">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/10/15/[计量] 分位数回归/" data-toggle="tooltip" data-placement="top" title="[计量] 分位数回归">Next Post &rarr;</a>
+                            <a href="/2017/12/12/[R语言] 最优化/" data-toggle="tooltip" data-placement="top" title="[R语言] 在R里面做最优化">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -283,17 +260,6 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#定义"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">定义</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#多重共线性的侦察"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">多重共线性的侦察</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#估计问题"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">估计问题</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#完全多重共线性"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">完全多重共线性</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#高度多重共线性"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">高度多重共线性</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#解决办法"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">解决办法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#剔除变量与设定偏误"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">剔除变量与设定偏误</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#变量替换（差分、比率变换）"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">变量替换（差分、比率变换）</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#补充新数据"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">补充新数据</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#多项式回归"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">多项式回归</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#因子分析、岭回归"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">因子分析、岭回归</span></a></li></ol></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -308,7 +274,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -340,71 +306,7 @@
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
-
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
 
@@ -417,8 +319,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/10/15/[计量] 多重共线性/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/10/15/[计量] 多重共线性/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/01/[日常] 2018年01月01日/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/01/01/[日常] 2018年01月01日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
