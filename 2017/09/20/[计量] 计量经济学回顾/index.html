@@ -141,7 +141,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/pics/">Gallery</a>
                         </li>
                         
                     
@@ -155,7 +155,7 @@
 
                         
                         <li>
-                            <a href="/pics/">Gallery</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -238,18 +238,18 @@
 <h1 id="OLS估计量的性质"><a href="#OLS估计量的性质" class="headerlink" title="OLS估计量的性质"></a>OLS估计量的性质</h1><p>高斯-马尔可夫定理是在一堆理论假设上得到的结论，而OLS估计量应用在样本数据上有一些天然的性质，他们是不需要通过假定就可以推导出来的：</p>
 <ul>
 <li>1 样本回归线穿过$Y$和$X$的样本均值点</li>
-<li>2 $\overline{\widehat{Y}}=\overline{Y}$</li>
-<li>3 残差$\widehat{u_i}$均值为0</li>
-<li>4 残差$\widehat{u_i}$和$Y_i$的预测值不相关</li>
+<li>2 $\bar{\hat{Y}}=\bar{Y}$</li>
+<li>3 残差$\hat{u_i}$均值为0</li>
+<li>4 残差$\hat{u_i}$和$Y_i$的预测值不相关</li>
 </ul>
 <h1 id="判定系数-r-2"><a href="#判定系数-r-2" class="headerlink" title="判定系数$r^2$"></a>判定系数$r^2$</h1><p>这是一个拟合优度的度量，注意到离差平方和可以分解为：</p>
 <script type="math/tex; mode=display">
 \begin{align}
-\sum y_i^2&= \sum \widehat{y_i}^2+\sum \widehat{u_i}^2+2\sum \widehat{y_i}\widehat{u_i}  \cr
-&=\sum \widehat{y_i}^2+\sum \widehat{u_i}^2 \cr
-&=\widehat{\beta_2 }^2\sum \widehat{x}^2+\sum \widehat{u_i}^2 
+\sum y_i^2&= \sum \hat{y_i}^2+\sum \hat{u_i}^2+2\sum \hat{y_i}\hat{u_i}  \cr
+&=\sum \hat{y_i}^2+\sum \hat{u_i}^2 \cr
+&=\hat{\beta_2 }^2\sum \hat{x}^2+\sum \hat{u_i}^2 
 \end{align}</script><p>定义$r^2$为：</p>
-<script type="math/tex; mode=display">r^2=\frac{\sum (\widehat{Y_i}-\overline{Y})^2}{\sum (Y_i-\overline{Y})^2}=\frac{ESS}{TSS}</script><p>从字面上讲，$r^2$测度了在$Y$的总变异种由回归模型解释的部分所占的比例或百分比。它仅仅是线性关联或者说线性相依的一个度量，不能描述非线性关系，因此即便$r^2$很小，两个变量也可能存在其它很强的复杂的非线性关系。</p>
+<script type="math/tex; mode=display">r^2=\frac{\sum (\hat{Y_i}-\bar{Y})^2}{\sum (Y_i-\bar{Y})^2}=\frac{ESS}{TSS}</script><p>从字面上讲，$r^2$测度了在$Y$的总变异种由回归模型解释的部分所占的比例或百分比。它仅仅是线性关联或者说线性相依的一个度量，不能描述非线性关系，因此即便$r^2$很小，两个变量也可能存在其它很强的复杂的非线性关系。</p>
 <h1 id="u-i-的正态假定"><a href="#u-i-的正态假定" class="headerlink" title="$u_i$的正态假定"></a>$u_i$的正态假定</h1><p>前面的高斯-马尔可夫定理用到的假设中并没有包括干扰项的正态假定，就可以得到OLS估计量具有BLUE的性质。当引入$u_i$的正态假定后，我们可以对OLS估计量进行进一步的了解，可以推导出他们的概率分布，将会使得假设检验的工作变得容易进行。</p>
 <p>假定可以简洁的叙述为：</p>
 <script type="math/tex; mode=display">u_i\sim N(0,\sigma ^2)</script><p>注意到$u_i$的正态假定实际上满足了经典线性回归模型7条假定中最关键的<strong>干扰项均值为0</strong>、<strong>同方差</strong>、<strong>自相关</strong>，这就差不多可以说OLS是一个BLUE了。OLS估计量在$u_i$的正态假定下有如下性质：</p>
@@ -258,11 +258,11 @@
 <li>有效估计量</li>
 <li>一致估计</li>
 <li>估计系数$\beta$服从正态分布，所以我们可以对估计系数进行假设检验。</li>
-<li>$\frac{(n-2)\widehat{\sigma }^2}{\sigma ^2}\sim \chi (n-2)$</li>
-<li>$(\widehat{\beta _1},\widehat{\beta_2})$的联合分布独立于$\widehat{\sigma }^2$，即从样本数据计算的样本方差和和估计系数之间独立。</li>
+<li>$\frac{(n-2)\hat{\sigma }^2}{\sigma ^2}\sim \chi (n-2)$</li>
+<li>$(\hat{\beta _1},\hat{\beta_2})$的联合分布独立于$\hat{\sigma }^2$，即从样本数据计算的样本方差和和估计系数之间独立。</li>
 <li>更重要的是，OLS估计量不单单在所有线性无偏估计量里具有最小方差，即便在非线性的无偏估计里面也具有最小方差。也就有更强的结论出现了，OLS是<strong><em>最优无偏估计量</em></strong>。</li>
 </ul>
-<p><strong>备注</strong>：除了OLS估计方法，还有极大似然估计（ML）。在正态假设下，两种估计方法对于$\beta$的估计都是相同的，然而对于$\sigma^2$的估计，两者是有差异的，ML的估计（$\sum \widehat{u_i}^2/n$）是有偏的，OLS的估计（$\sum \widehat{u_i}^2/(n-2)$）是无偏的，讲道理在这么完美的假设下，没有人可以打败OLS估计。</p>
+<p><strong>备注</strong>：除了OLS估计方法，还有极大似然估计（ML）。在正态假设下，两种估计方法对于$\beta$的估计都是相同的，然而对于$\sigma^2$的估计，两者是有差异的，ML的估计（$\sum \hat{u_i}^2/n$）是有偏的，OLS的估计（$\sum \hat{u_i}^2/(n-2)$）是无偏的，讲道理在这么完美的假设下，没有人可以打败OLS估计。</p>
 
 
 

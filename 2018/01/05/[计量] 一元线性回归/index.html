@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [计量] 邹至庄检验 - 南有嘉鱼 | 南有樛木
+          [计量] 一元线性回归 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/09/27/[计量] 邹至庄检验/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/05/[计量] 一元线性回归/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -89,11 +89,11 @@
                               <a class="tag" href="/tags/#计量" title="计量">计量</a>
                             
                         </div>
-                        <h1>[计量] 邹至庄检验</h1>
-                        <h2 class="subheading">这是一篇关于邹至庄检验的简单回顾</h2>
+                        <h1>[计量] 一元线性回归</h1>
+                        <h2 class="subheading">这是一篇关于一元线性回归的最后复习</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-09-27
+                            2018-01-05
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,35 +222,60 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>邹至庄检验用于检验回归模型的结构或参数稳定性</p>
-</blockquote>
-<p>假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。</p>
-<p>做三个回归如下：</p>
-<p>时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为$n_1-k$</p>
-<p>时期1982-1995：$Y_t=\gamma  _1+\gamma_2X_t+\mu_{2t}$，观测数为$n_2$，残差平方和为$RSS_2$，自由度为$n_2-k$</p>
-<p>时期1970-1995：$Y_t=\alpha  _1+\alpha_2X_t+\mu_t$，观测数为$n_1+n_2$，残差平方和为$RSS_3$，自由度为$n_1+n_2-k$</p>
-<p>邹至庄检验机制如下：</p>
-<p><strong>假定</strong>：</p>
-<ul>
-<li>两个子时期的误差项具有相同方差$\sigma^2$</li>
-<li>两个子时期的误差项是独立分布的</li>
-</ul>
-<p>记$RSS_3$为约束残差平方和$RSS_R$，因为这一条回归方程里面施加了约束 $\lambda_1=\gamma_1 $,  和约束$\lambda_2=\gamma_2$</p>
-<p>记$RSS_{UR}=RSS_1+RSS_2$为无约束残差平方和， $df=n_1+n_2-2k$</p>
-<p>若不存在结构变动，有约束和无约束情况下，单位自由度下的残差平方和应该没什么不同。$RSS_R$ 相比 $RSS_{UR}$ 多了 $k$个 自由度，所以可以构造：</p>
+                <h1 id="线性回归模型"><a href="#线性回归模型" class="headerlink" title="线性回归模型"></a>线性回归模型</h1><script type="math/tex; mode=display">
+y=\beta_0+\beta_1 x +\epsilon</script><h1 id="线性回归方程"><a href="#线性回归方程" class="headerlink" title="线性回归方程"></a>线性回归方程</h1><script type="math/tex; mode=display">
+E(y|x)=\beta_0+\beta_1 x</script><p>假设见<a href="https://liangzhenghua.github.io/2017/09/20/[%E8%AE%A1%E9%87%8F]%20%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E5%9B%9E%E9%A1%BE/">计量经济学回顾</a></p>
+<h1 id="最小二乘估计"><a href="#最小二乘估计" class="headerlink" title="最小二乘估计"></a>最小二乘估计</h1><p>目标函数为</p>
 <script type="math/tex; mode=display">
-F=\frac{(RSS_R-RSS_{UR})/k}{RSS_{UR}/(n_1+n_2-2k)}\sim F(k,n_1+n_2-2k)</script><p>如果F值过大，则拒绝原假设（不存在结构变动）。</p>
-<p><strong>假定的检验</strong></p>
-<p>记$\widehat{\sigma}_1^2=\frac{RSS_1}{n_1-k}$，$\widehat{\sigma}_2^2=\frac{RSS_2}{n_2-k}$<br>可以证明，若两个子总体的方差相同$\sigma_1^2=\sigma_2^2$，则</p>
+min \ Q=\sum_{i=1}^n \hat{u}_i^2=\sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x_i)^2</script><p>对各个回归系数求偏导，得到正规方程</p>
 <script type="math/tex; mode=display">
-\frac{\widehat{\sigma}_1^2/\sigma_1^2}{\widehat{\sigma}_2^2/\sigma_2^2}\sim F(n_1-k,n_2-k)</script><p>一般习惯将较大的估计方差放在分子中，这样计算的F值就不会小于1。</p>
-<p><strong><code>警告</code></strong></p>
-<ul>
-<li>同方差假定（也有方法可以修正异方差）</li>
-<li>邹至庄检验只能告诉我们两个方程是否有区别，并不会告诉我们区别来自截距还是斜率还是两者都有</li>
-<li>假定结构转折点已知</li>
-</ul>
+\left\{\begin{matrix}
+\frac{\partial Q}{\partial \beta_0}=-2 \sum_{i=1}^n (y_i-\beta_0-\beta_1 x_i)
+\\ 
+\frac{\partial Q}{\partial \beta_1}=-2 \sum_{i=1}^n (y_i-\beta_0-\beta_1 x_i)x_i
+\end{matrix}\right.</script><p>令正规方程组（各个偏导数）等于0，可以得到回归系数的OLS估计。</p>
+<script type="math/tex; mode=display">
+\hat{\beta_1}=\frac{\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n (x_i-\bar{x})^2}=\frac{l_{xy}}{l_{xx}}</script><p>其中，$l_{xy}=\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})$，$l_{xx}=\sum_{i=1}^n (x_i-\bar{x})(x_i-\bar{x})$</p>
+<script type="math/tex; mode=display">
+\hat{\beta_1}=\bar{y}-\hat{\beta_1} \bar{x}</script><p>由正规方程组形式还可以知道，估计出来的残差具有如下性质：</p>
+<script type="math/tex; mode=display">
+\left\{\begin{matrix}
+\frac{\partial Q}{\partial \beta_0} |_{\beta_0=\hat{\beta_0}}=-2 \sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x_i)=-2\sum_{i=1}^n \hat{u}_i=0
+\\ 
+\frac{\partial Q}{\partial \beta_1} |_{\beta_1=\hat{\beta_1}}=-2 \sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x_i)x_i=-2 \sum_{i=1}^n \hat{u}_i x_i=0
+\end{matrix}\right.</script><p>即残差之和为0，残差$\hat{u}$和$X$之间内积为零。</p>
+<h1 id="beta-0-beta-1-的方差"><a href="#beta-0-beta-1-的方差" class="headerlink" title="$\beta_0, \beta_1$的方差"></a>$\beta_0, \beta_1$的方差</h1><script type="math/tex; mode=display">
+\begin{split}
+var(\hat{\beta_1}) & =var(\frac{\sum_{i=1}^n (x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^n (x_i-\bar{x})^2}) \\
+& =var(\frac{\sum_{i=1}^n (x_i-\bar{x})y_i}{\sum_{i=1}^n (x_i-\bar{x})^2}) \\
+& =\frac{1}{l_{xx}^2} \sum_{i=1}^n (x_i-\bar{x})^2var(y_i) \\
+& =\frac{1}{l_{xx}^2} l_{xx} \sigma^2 \\
+& =\frac{1}{l_{xx}} \sigma^2
+
+\end{split}</script><script type="math/tex; mode=display">
+\begin{split}
+\hat{\beta_0} & =\bar{y}-\hat{\beta_1}\bar{x} \\
+&= \frac{1}{n} \sum_{i=1}^n y_i -\bar{x} \frac{l_{xy}}{l_{xx}} \\
+& = \sum_{i=1}^n \frac{1}{n}  y_i- \frac{\bar{x}}{l_{xx}} \sum_{i=1}^n (x_i-\bar{x})y_i \\
+& =\sum_{i=1}^n (\frac{1}{n}-\frac{\bar{x}(x_i-\bar{x})}{l_{xx}}) y_i
+\end{split}</script><p>所以，$var(\hat{\beta_0})=\frac{\sum_{i}^n x_i^2/n}{l_{xx}} \sigma^2$。以上结果告诉我们，收集数据的时候，应该考虑使$x$的取值尽可能分散，样本量也要尽可能的大</p>
+<h1 id="beta-0-beta-1-的协方差"><a href="#beta-0-beta-1-的协方差" class="headerlink" title="$\beta_0, \beta_1$的协方差"></a>$\beta_0, \beta_1$的协方差</h1><script type="math/tex; mode=display">
+\begin{split}
+cov(\hat{\beta_0},\hat{\beta_1})&=E[(\hat{\beta_0}-E(\hat{\beta_0}))(\hat{\beta_1}-E(\hat{\beta_1}))] \\
+& = -\bar{x} E(\hat{\beta_1}-\beta_1)^2  \\
+& = - \bar{x} var(\hat{\beta_1})
+\end{split}</script><h1 id="残差性质"><a href="#残差性质" class="headerlink" title="残差性质"></a>残差性质</h1><p>残差一样是随机变量，$e_i=\hat{u_i}=y_i-\hat{y_i}=y_i-\hat{\beta_0}-\hat{\beta_1}x_i$，其均值$E(e_i)=0$是显而易见的。</p>
+<script type="math/tex; mode=display">var(e_i)=[1-\frac{1}{n}-\frac{(x_i-\bar{x})^2}{l_{xx}}]\sigma^2=(1-h_{ii})\sigma^2</script><p>其中$h_{ii}=\frac{1}{n}+\frac{(x_i-\bar{x})^2}{l_{xx}}$ 称为杠杆值。$0&lt;h_{ii}&lt;1$，当$x_i$靠近$\bar{x}$时，$h_{ii}$的值接近于0，相应的残差方差就大；当$x_i$远离$\bar{x}$时，$h_{ii}$的值接近于1，相应的残差方差就小。这条性质可能使读者意外，实际上，远离$\bar{x}$的值必然较少，回归线比较容易“照顾”这些少数点，使得回归线接近这些点，因而远离$\bar{x}$附近的$x_i$相应的残差方差较小。</p>
+<p>在残差分析中，一般认为超过$\pm 2\sigma$或$\pm 3\sigma$的残差为异常值，考虑到普通残差的方差不等，故引入以下改进的残差。</p>
+<h2 id="标准化残差"><a href="#标准化残差" class="headerlink" title="标准化残差"></a>标准化残差</h2><script type="math/tex; mode=display">
+ZRE_i=\frac{e_i}{\hat{\sigma}}</script><h2 id="学生化残差"><a href="#学生化残差" class="headerlink" title="学生化残差"></a>学生化残差</h2><script type="math/tex; mode=display">
+SRE_i=\frac{e_i}{\hat{\sigma}\sqrt{1-h_{ii}}}</script><p>标准化残差使残差具有可比性，但没有解决方差不等的问题，学生化残差的方差相等，优于标准化残差，因为类似t统计量的构造方式，所以称之为学生化残差。</p>
+<h1 id="区间预测"><a href="#区间预测" class="headerlink" title="区间预测"></a>区间预测</h1><p>区间预测分为两种类型，有的教科书说均值预测和个值预测，何晓群的《应用回归分析》的区间预测分为因变量新值的区间预测和因变量新值的平均值的区间预测。</p>
+<h2 id="因变量新值的区间预测"><a href="#因变量新值的区间预测" class="headerlink" title="因变量新值的区间预测"></a>因变量新值的区间预测</h2><script type="math/tex; mode=display">
+var(\hat{y}_0)=[\frac{1}{n}+\frac{(x_i-\bar{x})^2}{l_{xx}}]=h_{00}\sigma^2</script><p>所以有$\hat{y}_0 \sim N(\beta_0+\beta_1 x_0,h_{00}\sigma^2)$</p>
+<h2 id="因变量新值的平均值的区间预测"><a href="#因变量新值的平均值的区间预测" class="headerlink" title="因变量新值的平均值的区间预测"></a>因变量新值的平均值的区间预测</h2><p>由于$\hat{y}_0$是先前独立观测的随机变量的线性组合，现在的新值$y_0$是与先前观测值独立的，所以$y_0$与$\hat{y}_0$相互独立。有</p>
+<script type="math/tex; mode=display">
+y_0-\hat{y}_0 \sim N(0,(1+h_{00})\sigma^2</script><p>据此可以推断$y_0$的置信区间。</p>
 
 
 
@@ -258,13 +283,9 @@ F=\frac{(RSS_R-RSS_{UR})/k}{RSS_{UR}/(n_1+n_2-2k)}\sim F(k,n_1+n_2-2k)</script><
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/09/27/[Bayesian] 充分统计量/" data-toggle="tooltip" data-placement="top" title="[Bayesian] 充分统计量">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/09/27/[金融] 行业研究资源/" data-toggle="tooltip" data-placement="top" title="[金融] 行业研究资源">Next Post &rarr;</a>
+                            <a href="/2018/01/01/[日常] 2018年01月01日/" data-toggle="tooltip" data-placement="top" title="2018年01月01日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -288,6 +309,17 @@ F=\frac{(RSS_R-RSS_{UR})/k}{RSS_{UR}/(n_1+n_2-2k)}\sim F(k,n_1+n_2-2k)</script><
 
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#线性回归模型"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">线性回归模型</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#线性回归方程"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">线性回归方程</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#最小二乘估计"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">最小二乘估计</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#beta-0-beta-1-的方差"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">$\beta_0, \beta_1$的方差</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#beta-0-beta-1-的协方差"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">$\beta_0, \beta_1$的协方差</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#残差性质"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">残差性质</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#标准化残差"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">标准化残差</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#学生化残差"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">学生化残差</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#区间预测"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">区间预测</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#因变量新值的区间预测"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">因变量新值的区间预测</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#因变量新值的平均值的区间预测"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">因变量新值的平均值的区间预测</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
 
 
             <!-- Sidebar Container -->
@@ -412,8 +444,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/09/27/[计量] 邹至庄检验/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/09/27/[计量] 邹至庄检验/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/05/[计量] 一元线性回归/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/01/05/[计量] 一元线性回归/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
