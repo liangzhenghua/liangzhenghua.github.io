@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [计量] OLS的大样本性质 - 南有嘉鱼 | 南有樛木
+          2018年01月10日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/11/29/[计量] OLS的大样本性质/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/10/[日常] 2018年01月10日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/economic3.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[计量] OLS的大样本性质</h1>
-                        <h2 class="subheading">这是一篇关于计量课程presentation的预热</h2>
+                        <h1>2018年01月10日</h1>
+                        <h2 class="subheading">新年快乐</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-11-29
+                            2018-01-10
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,58 +222,19 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>在有限样本条件下，OLS估计的一系列优良特性都是建立在严格的古典假定上。显然，在现实生活中，严格的古典假定并不一定满足。<em>大样本性质</em> 就是在残差不服从正态分布这一经典假定条件下，利用大数定律和中心极限定理对估计量渐近性质的讨论。</p>
-<h1 id="大样本OLS估计的推导和性质"><a href="#大样本OLS估计的推导和性质" class="headerlink" title="大样本OLS估计的推导和性质"></a>大样本OLS估计的推导和性质</h1><p>大样本理论的重要性在于：</p>
-<ul>
-<li>小样本理论的假设过强</li>
-<li>在小样本下，我们必须研究统计量的精确分布，但常常难以推导</li>
-<li>使用大样本理论的代价是要求样本容量较大，一般要求至少n&gt;30。而现在数据量越来越大，渐近理论就是对实际数据很好的近似。</li>
-</ul>
-<h2 id="一致估计量的证明"><a href="#一致估计量的证明" class="headerlink" title="一致估计量的证明"></a>一致估计量的证明</h2><p>我们的目标是证明大样本下，利用OLS估计的方法得到的$\beta$仍然是服从渐近正态分布。</p>
-<p>大样本性质的推导不依赖于残差项服从正态分布的假设，它仅仅假定$(x_i,\epsilon_i)$是一个相互独立的观测序列。并且有以下条件成立：</p>
-<ul>
-<li>$\lim_{n\rightarrow \infty}P( \frac{XX’}{n}=Q)$是一个正定的矩阵</li>
-</ul>
-<ul>
-<li>$\lim_{n\rightarrow \infty} P(\frac{X’\epsilon}{n}=E(x’\epsilon)=0)$</li>
-</ul>
-<p>在总体方程$y=x\beta+\epsilon$两边同乘$x’$并取期望，得到</p>
-<script type="math/tex; mode=display">
-E(x'y)=E(xx')\beta\Rightarrow \beta=[E(x'x)]^{-1}E(x'y)</script><p>根据样本距代替总体矩的思想，有：</p>
-<script type="math/tex; mode=display">
-b=[\frac{1}{n}\Sigma_{i=1}^n x_i^{'}x_i]^{-1}(\frac{1}{n}\Sigma_i^n x_i^{'}y_i)=(\frac{X'X}{n})^{-1}(\frac{X'Y}{n})=\beta+(\frac{X'X}{n})^{-1}(\frac{X'\epsilon}{n})</script><p>上式两边取极限，结合已知条件,有：</p>
-<script type="math/tex; mode=display">\begin{equation}
-\lim_{n\rightarrow \infty} b=\beta+ Q^{-1}(\frac{X'\epsilon}{n})=\beta
-\end{equation}</script><p>所以当$n \rightarrow \infty$时，b的期望等于$\beta$，至于方差需要进一步证明它渐近趋于0。</p>
-<h2 id="OLS估计的渐近正态性证明"><a href="#OLS估计的渐近正态性证明" class="headerlink" title="OLS估计的渐近正态性证明"></a>OLS估计的渐近正态性证明</h2><p>在同方差假设下，根据林德伯格-列维中心极限定理，有：</p>
-<script type="math/tex; mode=display">\begin{equation}
-\frac{1}{\sqrt{n}}X'\epsilon \overset{d}{\rightarrow} N(0,\sigma^2Q)
-\end{equation}</script><p>这是因为$var(\frac{1}{\sqrt{n}}X’\epsilon)=\frac{1}{\sqrt{n}}X’ \sigma^2 X\frac{1}{\sqrt{n}}$，而正态性由中心极限定理保证。</p>
-<p>由(1)式和(2)式知，当n趋于无穷大时，有</p>
-<script type="math/tex; mode=display">
-\sqrt{n}(b-\beta)=Q^{-1}\frac{1}{\sqrt{n}}X'\epsilon \overset{d}{\rightarrow} N(0,Q^{-1} (\sigma^2Q)Q^{-1})=N(0,\sigma^2 Q^{-1})</script><h2 id="总体方差的估计"><a href="#总体方差的估计" class="headerlink" title="总体方差的估计"></a>总体方差的估计</h2><p>在上面的推导中，假设$\sigma^2$已知，但实际中往往还需要计算样本方差$s^2$来近似总体方差。</p>
-<p>由于$\beta=(X’X)^{-1}XY$，所以残差$\epsilon=y-X\beta=y-x(X’X)^{-1}Xy$</p>
-<script type="math/tex; mode=display">
-\begin{array}{ll}
-s^2 & =\frac{1}{n-k}\epsilon'M\epsilon \\
-& =\frac{1}{n-k}[\epsilon'\epsilon-\epsilon'X(X'X)^{-1}X'\epsilon] \\
-& =\frac{n}{n-k}[\frac{\epsilon'\epsilon}{n}-(\frac{\epsilon'X}{n})(\frac{X'X}{n})^{-1}(\frac{X'\epsilon}{n})]
-\end{array}</script><p>当$n \rightarrow \infty$时，$s^2 \rightarrow \frac{\epsilon’\epsilon}{n}$，因此可以用$s^2$近似$\sigma^2$，所以有:</p>
-<script type="math/tex; mode=display">
-\lim_{n\rightarrow \infty} s^2(\frac{X'X}{n})^{-1}=\sigma^2Q^{-1}</script>
+                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=438801572&auto=1&height=66"></iframe>
+
+<p>有那么几分钟，忽然觉得自己变了另一个人，进入了一种空灵的境界，所有东西都可以抽丝剥茧信手拈来，这就是我梦寐以求的状态啊！</p>
+
 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/30/[Latex] 两个Beamer使用说明/" data-toggle="tooltip" data-placement="top" title="[Latex] 两个Beamer使用说明">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/" data-toggle="tooltip" data-placement="top" title="[文献阅读] Bayesian adaptive Lasso quantile regression">Next Post &rarr;</a>
+                            <a href="/2018/01/09/[计量] 自相关性/" data-toggle="tooltip" data-placement="top" title="[计量] 自相关性">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -312,7 +273,7 @@ s^2 & =\frac{1}{n-k}\epsilon'M\epsilon \\
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -344,71 +305,7 @@ s^2 & =\frac{1}{n-k}\epsilon'M\epsilon \\
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
-
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
 
@@ -421,8 +318,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/11/29/[计量] OLS的大样本性质/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/11/29/[计量] OLS的大样本性质/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/10/[日常] 2018年01月10日/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/01/10/[日常] 2018年01月10日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
