@@ -136,13 +136,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -151,6 +144,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -216,6 +216,34 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
+        <h2 class="post-title">
+            [R语言] 一种特殊的lasso求解
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于提高计算速度的技术文档
+        </h3>
+        <div class="post-content-preview">
+            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-16
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/16/[Manual] Rcpp使用手册2/">
         <h2 class="post-title">
             [Manual] Rcpp使用手册2
@@ -237,9 +265,9 @@ RcppArmadillo简明手册Rcpp相关知识整理RcppArmadillo官方文档Armadill
         </p>
         <div class="tags">
             
-              <a href="/tags/#Rcpp" title="Rcpp">Rcpp</a>
-            
               <a href="/tags/#R" title="R">R</a>
+            
+              <a href="/tags/#Rcpp" title="Rcpp">Rcpp</a>
             
         </div>
     
@@ -344,6 +372,40 @@ quality
 
 <div class="post-preview">
 
+    <a href="/2017/11/09/[Statistics] 点估计/">
+        <h2 class="post-title">
+            [Statistics] 点估计
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于点估计的重要提醒
+        </h3>
+        <div class="post-content-preview">
+            
+分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
+
+
+$\Theta$是$R^k$上的开矩形
+$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
+支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#统计" title="统计">统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/09/[Statistics] 多元正态分布/">
         <h2 class="post-title">
             [Statistics] 多元正态分布
@@ -409,69 +471,6 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 
 <div class="post-preview">
 
-    <a href="/2017/11/09/[Statistics] 点估计/">
-        <h2 class="post-title">
-            [Statistics] 点估计
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于点估计的重要提醒
-        </h3>
-        <div class="post-content-preview">
-            
-分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
-
-
-$\Theta$是$R^k$上的开矩形
-$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
-支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#统计" title="统计">统计</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/10/15/[计量] 多重共线性/">
-        <h2 class="post-title">
-            [计量] 多重共线性
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于多重共线性的介绍
-        </h3>
-        <div class="post-content-preview">
-            定义完全共线性：k个变量如果满足以下条件，我们说它存在一个准确的线性关系:$\lambda_1 X_1+\lambda_2 X_2+…+\lambda_k X_k=0$，其中$\lambda_1,\lambda_2,…,\lambda_k$ 为常数，但不同时为0。
-多重共线性：$X$变量之间彼此相关，但又不完全相关，$\lambda_1 X_1+\lambda_2 X_2+…+\lambda......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-10-15
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/10/15/[计量] 分位数回归/">
         <h2 class="post-title">
             [计量] 分位数回归
@@ -500,21 +499,22 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
 
 <div class="post-preview">
 
-    <a href="/2017/09/27/[金融] 金融衍生品基础/">
+    <a href="/2017/10/15/[计量] 多重共线性/">
         <h2 class="post-title">
-            [金融] 金融衍生品基础
+            [计量] 多重共线性
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于金融衍生品的概念总结
+            这是一篇关于多重共线性的介绍
         </h3>
         <div class="post-content-preview">
-            ...
+            定义完全共线性：k个变量如果满足以下条件，我们说它存在一个准确的线性关系:$\lambda_1 X_1+\lambda_2 X_2+…+\lambda_k X_k=0$，其中$\lambda_1,\lambda_2,…,\lambda_k$ 为常数，但不同时为0。
+多重共线性：$X$变量之间彼此相关，但又不完全相关，$\lambda_1 X_1+\lambda_2 X_2+…+\lambda......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-09-27
+            2017-10-15
         </p>
         <div class="tags">
             
@@ -572,17 +572,17 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
             
         
             
+        
+            
+            <a href="/tags/#R" title="R" rel="12">R</a>
+            
+        
+            
             <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
-            <a href="/tags/#R" title="R" rel="11">R</a>
-            
-        
-            
             <a href="/tags/#python" title="python" rel="6">python</a>
-            
-        
             
         
             
@@ -604,11 +604,11 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
             
         
             
+        
+            
+        
+            
             <a href="/tags/#文献阅读" title="文献阅读" rel="4">文献阅读</a>
-            
-        
-            
-        
             
         
             
@@ -741,6 +741,10 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
     <ul>
       
         <li>
+          <a href="/2018/01/14/[R语言] 投资组合/">[R语言] 投资组合的马可威茨模型</a>
+        </li>
+      
+        <li>
           <a href="/2018/01/14/[日常] 2018年01月14日/">2018年01月14日</a>
         </li>
       
@@ -749,15 +753,11 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
         </li>
       
         <li>
-          <a href="/2018/01/10/[日常] 2018年01月10日/">2018年01月10日</a>
-        </li>
-      
-        <li>
           <a href="/2018/01/10/[电影] 芳华/">[电影] 芳华</a>
         </li>
       
         <li>
-          <a href="/2018/01/09/[计量] 自相关性/">[计量] 自相关性</a>
+          <a href="/2018/01/10/[日常] 2018年01月10日/">2018年01月10日</a>
         </li>
       
     </ul>

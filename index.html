@@ -136,13 +136,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -151,6 +144,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -213,6 +213,39 @@
 
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2018/01/14/[R语言] 投资组合/">
+        <h2 class="post-title">
+            [R语言] 投资组合的马可威茨模型
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于投资组合的管中窥豹
+        </h3>
+        <div class="post-content-preview">
+            基本思想在投资里面，资产组合一定要考虑，本文从马可威茨模型开始说起。
+假设我们有$p$个股票，收益率视为随机变量$r_1,r_2,…,r_p$，那么资产组合可以记为$R=w_1 r_1+w_2 r_2+…+w_p r_p=w’r$，资产组合的均值可以记为$E(R)$，方差可以记为$var(R)$，由多元统计知识知道
+
+
+E(R)=w'E(r)
+var(R)=w'\Sigma w其中$\Sig......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-14
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -281,37 +314,6 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/10/[日常] 2018年01月10日/">
-        <h2 class="post-title">
-            2018年01月10日
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-
-有那么几分钟，忽然觉得自己变了另一个人，进入了一种空灵的境界，所有东西都可以抽丝剥茧信手拈来，这就是我梦寐以求的状态啊！
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-10
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#日常" title="日常">日常</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/10/[电影] 芳华/">
         <h2 class="post-title">
             [电影] 芳华
@@ -343,26 +345,28 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/09/[计量] 自相关性/">
+    <a href="/2018/01/10/[日常] 2018年01月10日/">
         <h2 class="post-title">
-            [计量] 自相关性
+            2018年01月10日
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于自相关性的介绍
+            
         </h3>
         <div class="post-content-preview">
-            注：回归子也可以被叫做被解释变量
-从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
+            
+
+有那么几分钟，忽然觉得自己变了另一个人，进入了一种空灵的境界，所有东西都可以抽丝剥茧信手拈来，这就是我梦寐以求的状态啊！
+...
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2018-01-09
+            2018-01-10
         </p>
         <div class="tags">
             
-              <a href="/tags/#计量" title="计量">计量</a>
+              <a href="/tags/#日常" title="日常">日常</a>
             
         </div>
     
@@ -389,6 +393,35 @@ min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
 \end{split}对$\beta$求偏导，并令导数为0，可以得到OLS估计。
 
 \frac{\p......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/09/[计量] 自相关性/">
+        <h2 class="post-title">
+            [计量] 自相关性
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于自相关性的介绍
+        </h3>
+        <div class="post-content-preview">
+            注：回归子也可以被叫做被解释变量
+从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
         </div>
     </a>
     
@@ -503,39 +536,6 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/12/12/[R语言] 最优化/">
-        <h2 class="post-title">
-            [R语言] 在R里面做最优化
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于R语言进行最优化的学习笔记
-        </h3>
-        <div class="post-content-preview">
-            收集了几个包，有空可以逐一试试每个包的求解速度。
-R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
-
-今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
-拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
-12345......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-12-12
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#R" title="R">R</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -578,17 +578,17 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
+        
+            
+            <a href="/tags/#R" title="R" rel="12">R</a>
+            
+        
+            
             <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
-            <a href="/tags/#R" title="R" rel="11">R</a>
-            
-        
-            
             <a href="/tags/#python" title="python" rel="6">python</a>
-            
-        
             
         
             
@@ -610,11 +610,11 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
+        
+            
+        
+            
             <a href="/tags/#文献阅读" title="文献阅读" rel="4">文献阅读</a>
-            
-        
-            
-        
             
         
             
@@ -747,6 +747,10 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
     <ul>
       
         <li>
+          <a href="/2018/01/14/[R语言] 投资组合/">[R语言] 投资组合的马可威茨模型</a>
+        </li>
+      
+        <li>
           <a href="/2018/01/14/[日常] 2018年01月14日/">2018年01月14日</a>
         </li>
       
@@ -755,15 +759,11 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
         </li>
       
         <li>
-          <a href="/2018/01/10/[日常] 2018年01月10日/">2018年01月10日</a>
-        </li>
-      
-        <li>
           <a href="/2018/01/10/[电影] 芳华/">[电影] 芳华</a>
         </li>
       
         <li>
-          <a href="/2018/01/09/[计量] 自相关性/">[计量] 自相关性</a>
+          <a href="/2018/01/10/[日常] 2018年01月10日/">2018年01月10日</a>
         </li>
       
     </ul>

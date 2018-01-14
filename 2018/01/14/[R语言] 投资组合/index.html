@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          2018年01月01日 - 南有嘉鱼 | 南有樛木
+          [R语言] 投资组合的马可威茨模型 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/01/[日常] 2018年01月01日/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/14/[R语言] 投资组合/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/redtulip.jpg')
+            background-image: url('/img/R.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
+                              <a class="tag" href="/tags/#R" title="R">R</a>
                             
                         </div>
-                        <h1>2018年01月01日</h1>
-                        <h2 class="subheading">新年快乐</h2>
+                        <h1>[R语言] 投资组合的马可威茨模型</h1>
+                        <h2 class="subheading">这是一篇关于投资组合的管中窥豹</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2018-01-01
+                            2018-01-14
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,10 +222,28 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>你好，第一次见面，请多多关照！</p>
-<p>新年的意义可能在于挥别过去一年阴沉的雾霾，拥抱崭新的未来。春节比较适合给身心放假和家人一起热闹，元旦还是适合规划自己一年的安排。</p>
-<p>而我比较贪。</p>
-<p>祝福每个人可以好好学习，劝君莫惜金缕衣，劝君惜取少年时。</p>
+                <h1 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h1><p>在投资里面，资产组合一定要考虑，本文从马可威茨模型开始说起。</p>
+<p>假设我们有$p$个股票，收益率视为随机变量$r_1,r_2,…,r_p$，那么资产组合可以记为$R=w_1 r_1+w_2 r_2+…+w_p r_p=w’r$，资产组合的均值可以记为$E(R)$，方差可以记为$var(R)$，由多元统计知识知道</p>
+<script type="math/tex; mode=display">
+
+E(R)=w'E(r)</script><script type="math/tex; mode=display">
+var(R)=w'\Sigma w</script><p>其中$\Sigma$是p维随机变量$r$的协方差矩阵。由于$\Sigma$是一个实对称阵，其二次型必然是大于等于0的，也就是$var(R) \geq 0$，在主对角线元素不变的条件下，非对角线元素越多0，那么协方差阵的行列式（广义方差）越小，因此我们希望给定的随机变量尽可能地不相关。所以马可威茨模型的思想就是通过线性规划求得资产组合的权重向量$w$，使之满足</p>
+<script type="math/tex; mode=display">
+\begin{split}
+min \ w'\Sigma w \\
+
+s.t. \ w'E(r) \geq \alpha
+\end{split}</script><p>从运筹学的角度看，通常所求的解$w$必然刚好用足条件$ w’E(r) \geq \alpha$，也即$\ w’E(r) = \alpha$。</p>
+<p>在实际情况中，通常使用$E(r)=\bar{r}$，即样本均值代替期望收益率；$\Sigma=\hat{\Sigma}$，即样本协方差阵代替总体协方差阵。所以优化问题又可以重新表述如下：</p>
+<script type="math/tex; mode=display">
+\begin{split}
+min \ w'\hat{\Sigma} w \\
+
+s.t. \ w'\bar{r} \geq \alpha
+\end{split}</script><p>由于$\bar{r}$和$\hat{\Sigma}$都已知了，接下来就是线性规划的求解了。</p>
+<h1 id="R语言实现"><a href="#R语言实现" class="headerlink" title="R语言实现"></a>R语言实现</h1><p>统计之都上有一个中央财经大学的学生介绍投资组合在R的应用，质量还可以。详见<a href="https://cosx.org/2013/08/use-r-to-do-portfolio-optimization" target="_blank" rel="external">使用 R 语言构造投资组合的有效前沿</a></p>
+<p>这里引入一个关于资产管理的R包<code>fPortfolio</code>，里面的函数挺丰富的，先mark一下，这个以后应该可以用得上。参考链接<a href="https://www.tuicool.com/articles/BzUria" target="_blank" rel="external">R语言玩转资产组合计算</a></p>
+<p>更深度的用法可见<a href="http://blog.csdn.net/shen19920619/article/details/59485677" target="_blank" rel="external">组合约束</a></p>
 
 
 
@@ -233,13 +251,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/01/05/[计量] 一元线性回归/" data-toggle="tooltip" data-placement="top" title="[计量] 一元线性回归">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/12/12/[R语言] SQL Server R/" data-toggle="tooltip" data-placement="top" title="[R语言] SQL Server R">Next Post &rarr;</a>
+                            <a href="/2018/01/14/[日常] 2018年01月14日/" data-toggle="tooltip" data-placement="top" title="2018年01月14日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -264,6 +278,17 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#基本思想"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">基本思想</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#R语言实现"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">R语言实现</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
 
             <!-- Sidebar Container -->
             <div class="
@@ -278,7 +303,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
+                          <a class="tag" href="/tags/#R" title="R">R</a>
                         
                     </div>
                 </section>
@@ -310,7 +335,71 @@
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
+    	<! -- 添加捐赠图标-->
+<div class ="post-donate">
+    <div id="donate_board" class="donate_bar center">
+        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
+        <span class="donate_txt">
+           &uarr;<br>
+		   无以生计，卖文苟延
+        </span>
+        <br>
+      </div>
+	<div id="donate_guide" class="donate_bar center hidden" >
+		<!-- ֧支付宝打赏-->
+		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
+		<!-- 微信打赏 -->
+		<img src="/css/img/weixin.jpg" alt="微信打赏">
+    </div>
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
+</div>
+<! -- 添加捐赠图标-->
+
+    
 <!-- 控制文章是否加载公式 -->
+
+    <!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- script below is in order to number the equationNumbers 2017-11-17 -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+
+<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
+</script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
 
@@ -323,8 +412,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/01/[日常] 2018年01月01日/";
-    var disqus_url = "https://liangzhenghua.github.io/2018/01/01/[日常] 2018年01月01日/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/14/[R语言] 投资组合/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/01/14/[R语言] 投资组合/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

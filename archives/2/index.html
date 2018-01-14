@@ -136,13 +136,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -151,6 +144,13 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -213,6 +213,39 @@
 
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2017/12/12/[R语言] 最优化/">
+        <h2 class="post-title">
+            [R语言] 在R里面做最优化
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于R语言进行最优化的学习笔记
+        </h3>
+        <div class="post-content-preview">
+            收集了几个包，有空可以逐一试试每个包的求解速度。
+R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
+
+今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
+拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
+12345......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-12-12
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -371,17 +404,19 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
+    <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
         <h2 class="post-title">
-            [文献阅读] 中国股票市场可预测性的实证研究
+            [文献阅读] Bayesian adaptive Lasso quantile regression
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这篇文章是金融学院的姜富伟读博期间发的论文，周二就要见真人了，所以我现在要做好功课。
-首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。
-Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没......
+            是的，我又来读文献了。
+找了两篇贝叶斯Lasso相关的文章，是一个大佬Rahim Alhamzawi写的，他还贡献了一个R包Brq，对应他论文所用的方法。三位作者分别是Rahim Alhamzawi， Keming Yu and Dries F Benoit， 我发誓我只打一次他们的名字。
+理论分位数回归分位数回归模型可以表示如下：
+
+y_i=\beta_0+x_i'\beta+\epsil......
         </div>
     </a>
     
@@ -401,19 +436,17 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
 
 <div class="post-preview">
 
-    <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
+    <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
         <h2 class="post-title">
-            [文献阅读] Bayesian adaptive Lasso quantile regression
+            [文献阅读] 中国股票市场可预测性的实证研究
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            是的，我又来读文献了。
-找了两篇贝叶斯Lasso相关的文章，是一个大佬Rahim Alhamzawi写的，他还贡献了一个R包Brq，对应他论文所用的方法。三位作者分别是Rahim Alhamzawi， Keming Yu and Dries F Benoit， 我发誓我只打一次他们的名字。
-理论分位数回归分位数回归模型可以表示如下：
-
-y_i=\beta_0+x_i'\beta+\epsil......
+            这篇文章是金融学院的姜富伟读博期间发的论文，周二就要见真人了，所以我现在要做好功课。
+首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。
+Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没......
         </div>
     </a>
     
@@ -494,34 +527,6 @@ PCA的数学原理SVD分解
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
-        <h2 class="post-title">
-            [R语言] 一种特殊的lasso求解
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于提高计算速度的技术文档
-        </h3>
-        <div class="post-content-preview">
-            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-16
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#R" title="R">R</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -568,17 +573,17 @@ PCA的数学原理SVD分解
             
         
             
+        
+            
+            <a href="/tags/#R" title="R" rel="12">R</a>
+            
+        
+            
             <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
-            <a href="/tags/#R" title="R" rel="11">R</a>
-            
-        
-            
             <a href="/tags/#python" title="python" rel="6">python</a>
-            
-        
             
         
             
@@ -600,11 +605,11 @@ PCA的数学原理SVD分解
             
         
             
+        
+            
+        
+            
             <a href="/tags/#文献阅读" title="文献阅读" rel="4">文献阅读</a>
-            
-        
-            
-        
             
         
             
@@ -737,6 +742,10 @@ PCA的数学原理SVD分解
     <ul>
       
         <li>
+          <a href="/2018/01/14/[R语言] 投资组合/">[R语言] 投资组合的马可威茨模型</a>
+        </li>
+      
+        <li>
           <a href="/2018/01/14/[日常] 2018年01月14日/">2018年01月14日</a>
         </li>
       
@@ -745,15 +754,11 @@ PCA的数学原理SVD分解
         </li>
       
         <li>
-          <a href="/2018/01/10/[日常] 2018年01月10日/">2018年01月10日</a>
-        </li>
-      
-        <li>
           <a href="/2018/01/10/[电影] 芳华/">[电影] 芳华</a>
         </li>
       
         <li>
-          <a href="/2018/01/09/[计量] 自相关性/">[计量] 自相关性</a>
+          <a href="/2018/01/10/[日常] 2018年01月10日/">2018年01月10日</a>
         </li>
       
     </ul>
