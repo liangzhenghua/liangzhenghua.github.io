@@ -136,6 +136,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -144,13 +151,6 @@
                         
                         <li>
                             <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -213,6 +213,35 @@
 
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2018/01/09/[计量] 自相关性/">
+        <h2 class="post-title">
+            [计量] 自相关性
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于自相关性的介绍
+        </h3>
+        <div class="post-content-preview">
+            注：回归子也可以被叫做被解释变量
+从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -283,17 +312,20 @@ min \ Q=\sum_{i=1}^n \hat{u}_i^2=\sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] SQL Server R/">
+    <a href="/2017/12/12/[R语言] 最优化/">
         <h2 class="post-title">
-            [R语言] SQL Server R
+            [R语言] 在R里面做最优化
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于在数据库中调用R语言的学习笔记
+            这是一篇关于R语言进行最优化的学习笔记
         </h3>
         <div class="post-content-preview">
-            Microsoft 官方文档
-Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
-...
+            收集了几个包，有空可以逐一试试每个包的求解速度。
+R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
+
+今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
+拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
+12345......
         </div>
     </a>
     
@@ -313,20 +345,17 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] 最优化/">
+    <a href="/2017/12/12/[R语言] SQL Server R/">
         <h2 class="post-title">
-            [R语言] 在R里面做最优化
+            [R语言] SQL Server R
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于R语言进行最优化的学习笔记
+            这是一篇关于在数据库中调用R语言的学习笔记
         </h3>
         <div class="post-content-preview">
-            收集了几个包，有空可以逐一试试每个包的求解速度。
-R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
-
-今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
-拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
-12345......
+            Microsoft 官方文档
+Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
+...
         </div>
     </a>
     
@@ -499,36 +528,6 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/26/[Statistics] PCA资源汇总/">
-        <h2 class="post-title">
-            [Statistics] 多元统计资源汇总
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于多元统计的资料汇总
-        </h3>
-        <div class="post-content-preview">
-            多元统计这个东西已经被很多人研究透了，不能重复造轮子啊，所以我就把它们集中到一起吧，讲真，它们可能比教科书还要详细。
-PCA的数学原理SVD分解
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-26
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#多元统计" title="多元统计">多元统计</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -575,13 +574,19 @@ PCA的数学原理SVD分解
             
         
             
-            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
-            
         
             
             <a href="/tags/#R" title="R" rel="12">R</a>
             
         
+            
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
             
         
             
@@ -592,12 +597,6 @@ PCA的数学原理SVD分解
         
             
         
-            
-        
-            
-        
-            
-            <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
             
         
             
@@ -615,13 +614,13 @@ PCA的数学原理SVD分解
             
         
             
-            <a href="/tags/#日常" title="日常" rel="4">日常</a>
+            <a href="/tags/#日常" title="日常" rel="5">日常</a>
+            
+        
             
         
             
             <a href="/tags/#电影" title="电影" rel="2">电影</a>
-            
-        
             
         
             
@@ -748,7 +747,7 @@ PCA的数学原理SVD分解
     <ul>
       
         <li>
-          <a href="/2018/01/20/[日常] 2018年01月20日/">2018年01月20日</a>
+          <a href="/2018/01/23/[日常] 2018年01月23日/">2018年01月23日</a>
         </li>
       
         <li>
@@ -760,11 +759,11 @@ PCA的数学原理SVD分解
         </li>
       
         <li>
-          <a href="/2018/01/14/[R语言] 投资组合/">[R语言] 投资组合的马可威茨模型</a>
+          <a href="/2018/01/20/[日常] 2018年01月20日/">2018年01月20日</a>
         </li>
       
         <li>
-          <a href="/2018/01/14/[日常] 2018年01月14日/">2018年01月14日</a>
+          <a href="/2018/01/14/[R语言] 投资组合/">[R语言] 投资组合的马可威茨模型</a>
         </li>
       
     </ul>
