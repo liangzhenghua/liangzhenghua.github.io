@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Statistics] 多元统计资源汇总 - 南有嘉鱼 | 南有樛木
+          [R语言] 分组计算 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/11/26/[Statistics] PCA资源汇总/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/26/[R语言] 分组计算/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/blackboard.jpg')
+            background-image: url('/img/R.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#多元统计" title="多元统计">多元统计</a>
+                              <a class="tag" href="/tags/#R" title="R">R</a>
                             
                         </div>
-                        <h1>[Statistics] 多元统计资源汇总</h1>
-                        <h2 class="subheading">这是一篇关于多元统计的资料汇总</h2>
+                        <h1>[R语言] 分组计算</h1>
+                        <h2 class="subheading">这是一篇关于R语言快速分组计算的学习笔记</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-11-26
+                            2018-01-26
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,8 +222,20 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>多元统计这个东西已经被很多人研究透了，不能重复造轮子啊，所以我就把它们集中到一起吧，讲真，它们可能比教科书还要详细。</p>
-<p><a href="http://blog.codinglabs.org/articles/pca-tutorial.html" target="_blank" rel="external">PCA的数学原理</a><br><a href="https://www.cnblogs.com/LeftNotEasy/archive/2011/01/19/svd-and-applications.html" target="_blank" rel="external">SVD分解</a></p>
+                <p>在大猫师兄的强烈推荐下，我研究了利用data.table包做分组计算。</p>
+<p>以往做分组计算的思路是这样子的：先按照某个变量（比如股票stock）将数据集划分（split）为一个列表，内含若干个小数据框，然后自定义一个可以处理每个小数据框的函数。最后就可以利用lapply函数对列表中每个数据框做遍历了，这样子的速度很慢，可以用parallel包做个加速。为此我还写了个模板，记录下来，以后备用。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 对含有大量数据框的列表做函数处理，每个数据框返回一个数据框</span></div><div class="line"><span class="comment">## 最后要合并所有数据框为一个数据框</span></div><div class="line"></div><div class="line"><span class="comment">### 函数名称</span></div><div class="line"></div><div class="line">FUNC=out</div><div class="line"></div><div class="line"><span class="comment">### 含有大量数据框的列表</span></div><div class="line"></div><div class="line">temp=temp</div><div class="line"></div><div class="line"><span class="comment">### 要导入各节点的函数和包，在下面添加</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">library</span>(parallel)</div><div class="line"><span class="keyword">library</span>(rlist)</div><div class="line"></div><div class="line"></div><div class="line">system.time(&#123; <span class="comment"># 用时约4分钟</span></div><div class="line">  <span class="comment"># 注册节点，一个核可以算作一个节点</span></div><div class="line">  cl=makeCluster(detectCores())</div><div class="line">  <span class="comment"># clusterExport 从某个环境调用某个对象给各个节点</span></div><div class="line">  clusterExport(cl, <span class="string">'FUNC'</span>, envir = .GlobalEnv)</div><div class="line">  <span class="comment"># 注册的每个节点相当于新开一个R session，clusterEvalQ表示在每个节点上执行相同的代码</span></div><div class="line">  <span class="comment"># 这里是在每个节点（R session）里面导入滚动回归里面必须依赖的包</span></div><div class="line">  clusterEvalQ(cl,&#123;  </div><div class="line">    <span class="comment">#setwd("I://anqi//项目//友情出演//xiang") # 数据存放路径</span></div><div class="line">    <span class="comment">#library("dplyr")</span></div><div class="line">    <span class="comment">#library("lubridate")</span></div><div class="line">    <span class="comment">#library("tidyr")</span></div><div class="line">    <span class="comment">#library("lazyeval")</span></div><div class="line">    <span class="keyword">library</span>(fPortfolio)</div><div class="line">  &#125;)</div><div class="line">  <span class="comment"># parLapply是Lapply的并行版本，parLapplyLB是负载平衡的版本，可以平衡各个节点的运行时间</span></div><div class="line">  <span class="comment"># FUNC后面可以添加函数参数</span></div><div class="line">  re=parLapplyLB(cl,temp,FUNC)</div><div class="line">  <span class="comment"># 使用时候销毁节点</span></div><div class="line">  stopCluster(cl)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">result=list.rbind(re)  <span class="comment">#  rlist里面这个rbind函数合并数据框的时候，没有把结果强制转换成矩阵，而是保留了原有的数据框格式，速度也很快</span></div></pre></td></tr></table></figure>
+<p>然而，开4核跑并行，做李翔的滚动回归时，要3分钟才可以出来结果，根据大猫师兄的说法，用data.table，都是1秒的事。在我算所有上市公司的市盈率和账面市值比BM等指标的时候，因为要把月频的财报折算为日频数据，并不是1秒钟可以解决的事情。当然可以继续优化下去，但data.table做分组计算确实是目前最快的选择。</p>
+<p>主要代码如下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## fillTdays是根据一个股票的财务数据数据框，把月频的数据对齐到交易日tdays</span></div><div class="line"></div><div class="line">fillTdays=<span class="keyword">function</span>(data,tdays,stock.include=<span class="literal">T</span>) &#123;</div><div class="line">  <span class="comment">## data列：stock mydate StockIssuing_date，类型是chr chr Date， 后面是各列财报数据，类型为num</span></div><div class="line">  <span class="comment">## tdays: chr</span></div><div class="line">  <span class="comment">## stock.include表示输入是否含有stock列</span></div><div class="line">  <span class="comment">## out类型：stock,mydate,各列</span></div><div class="line">  data=as.data.frame(data)</div><div class="line">  <span class="keyword">if</span>(class(data$StockIssuing_date)!=<span class="string">'Date'</span>) data$StockIssuing_date=as.Date(as.character(data$StockIssuing_date))</div><div class="line">  out=data.frame(matrix(<span class="literal">NaN</span>,ncol = ncol(data)-<span class="number">1</span>,nrow = length(tdays)))</div><div class="line">  <span class="keyword">if</span>(stock.include) &#123;</div><div class="line">    names(out)=names(data)[-<span class="number">3</span>]; <span class="comment"># 去掉StockIssuing</span></div><div class="line">    out$stock=data$stock[<span class="number">1</span>]</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    </div><div class="line">    names(out)=names(data)[-<span class="number">2</span>] <span class="comment"># 去掉StockIssuing,首列不是stock时，StockIssuing在第二列</span></div><div class="line">  &#125; </div><div class="line">  </div><div class="line">  <span class="keyword">if</span>(class(tdays)!=<span class="string">'Date'</span>) out$mydate=as.Date(tdays)</div><div class="line">  </div><div class="line">  targetPoint=which(!is.na(data$StockIssuing_date))</div><div class="line">  </div><div class="line">  <span class="keyword">for</span>(p <span class="keyword">in</span> targetPoint) &#123;</div><div class="line">    value=data[p,(<span class="number">3</span>+stock.include):ncol(data)]</div><div class="line">    out[out$mydate&gt;=data$StockIssuing_date[p],(<span class="number">2</span>+stock.include):ncol(out)]=value</div><div class="line">  &#125;</div><div class="line">  <span class="comment">#out[is.na(out)]=NA</span></div><div class="line">  <span class="comment"># 这里应该是NA 还是NaN ,一个是integer,一个是double类型</span></div><div class="line">  <span class="keyword">return</span>(out)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">stament=as.data.table(stament)</div><div class="line">setkey(stament,stock,mydate)</div><div class="line">test2=stament[,(fillTdays(.SD,tdays,stock.include = <span class="literal">F</span>)),by=<span class="string">'stock'</span>]</div></pre></td></tr></table></figure>
+<p>从上面最后一句可以看出来，<code>stament</code>是data.table数据类型，列的位置上<code>(fillTdays(.SD,tdays,stock.include = F))</code>是最关键的用法，fillTdays是自定义的函数，返回的是一个数据框，.SD是stament里除去stock列的剩余数据（因为by=stock作为了分组变量），你可以将.SD理解为某一stock对应的数据框，不含stock列。</p>
+<p>重要提示来了，在写函数时，要注意输入参数data是从.SD传递过来的，因此它也data.table格式，这个时候我们要转换成data.frame格式才可以在函数内部随心所欲地做自己喜欢做的事，返回值的类型也应该是data.frame类型，但这个并不影响最终的结果类型（依然是data.table）。</p>
+<p>另一个重要提示是，如果函数返回的是一列数而非一个多列的数据框，那么应该这样写：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test2=stament[,.(mydate,fillTdays(.SD,tdays,stock.include = <span class="literal">F</span>)),by=<span class="string">'stock'</span>]</div></pre></td></tr></table></figure>
+<p>这是因为<code>.( )</code>表示数据框列表，<code>.(mydate,fillTdays(.SD,tdays,stock.include = F))</code>恰好就是一个数据框列表，内含两列，而上面的<code>stament[,(fillTdays(.SD,tdays,stock.include = F)),by=&#39;stock&#39;]</code>没有使用<code>.( )</code>是因为函数的返回值就已经是数据框的类型了。</p>
+<p>目前data.table还有一个超快的用法就是排序，这跟用R原生的order比较时就可以感受出来了。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setkey(stament,stock,mydate)</div></pre></td></tr></table></figure>
+<p>这条语句，不仅把我的财务数据先按stock排序，再按日期mydate排序，最重要的是设置了主键，这在merge里面充分震撼了我。1900万的两个数据merge只需要几秒。果然data.table很值得研究各种有意思的玩法。</p>
 
 
 
@@ -231,13 +243,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/" data-toggle="tooltip" data-placement="top" title="[文献阅读] Bayesian adaptive Lasso quantile regression">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/18/[R语言] 利用R合成卡农和最炫民族风/" data-toggle="tooltip" data-placement="top" title="[R语言] 利用R合成卡农和最炫民族风">Next Post &rarr;</a>
+                            <a href="/2018/01/23/[日常] 2018年01月23日/" data-toggle="tooltip" data-placement="top" title="2018年01月23日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -276,7 +284,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#多元统计" title="多元统计">多元统计</a>
+                          <a class="tag" href="/tags/#R" title="R">R</a>
                         
                     </div>
                 </section>
@@ -336,44 +344,6 @@
     
 <!-- 控制文章是否加载公式 -->
 
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
-
 <!-- 控制文章是否需要密码 2017-08-07-->
 
 </article>
@@ -385,8 +355,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/11/26/[Statistics] PCA资源汇总/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/11/26/[Statistics] PCA资源汇总/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/26/[R语言] 分组计算/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/01/26/[R语言] 分组计算/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
