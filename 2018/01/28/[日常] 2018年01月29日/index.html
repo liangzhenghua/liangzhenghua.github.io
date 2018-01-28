@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断 - 南有嘉鱼 | 南有樛木
+          2018年01月28日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/28/[日常] 2018年01月29日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/python.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断</h1>
-                        <h2 class="subheading">面板数据中的简单贝叶斯应用</h2>
+                        <h1>2018年01月28日</h1>
+                        <h2 class="subheading">暨大北京校友会年会结束啦</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-12-08
+                            2018-01-28
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,56 +222,23 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>李小胜，安徽财经大学统计系，写了一篇很简洁的贝叶斯计量经济学的论文。这篇论文质量不高，里面还有些小地方有纰漏。</p>
-<p>周亮，韩玉启，朱慧明写的一篇《正态线性单方程计量经济模型的Bayes统计推断》倒是被引用多次，介绍了回归分析里面最简单的贝叶斯分析。朱慧明写了很多贝叶斯的文章，感觉还不错。</p>
-<hr>
-<p>贝叶斯技术已经大量应用在各门科学当中，而把贝叶斯理论应用到计量经济学，是上世纪60年代以来在一大批统计学家和计量经济学的共同努力下，迅速发展起来的。Zellner的《An Introduction to Bayesian Analysis in Economics》一书的出版标志着贝叶斯计量经济学的真正诞生，该书较为全面地阐述了贝叶斯计量经济学的大多数专题。</p>
-<p>面板数据在计量经济学中称为Panel Data，而在统计学中称为Longitudinal Data。</p>
-<p>将含有$k$个外生变量，n条观测的随机方程用矩阵的形式表示如下：</p>
-<script type="math/tex; mode=display">\begin{equation}
-Y=X\beta+U \\
-U \sim N(0,\sigma^2I_n)
-\end{equation}</script><p>显然，$\beta$的OLS估计为$\hat{\beta}=(X’X)^{-1}X’Y$，其协方差矩阵为</p>
-<script type="math/tex; mode=display">
-\begin{split}
-var(\hat{\beta})&=var((X'X)^{-1}X'(X\beta+U)) \\
-&=var((X'X)^{-1}X'U) \\
-&=(X'X)^{-1}X'\sigma^2I_nX(X'X)^{-1} \\
-&=\sigma^2(X'X)^{-1} \\
-\end{split}</script><h1 id="方差-sigma-2-已知时参数的后验分布"><a href="#方差-sigma-2-已知时参数的后验分布" class="headerlink" title="方差$\sigma^2$已知时参数的后验分布"></a>方差$\sigma^2$已知时参数的后验分布</h1><p>假设方差$\sigma^2=\sigma_0^2$已知，则有</p>
-<script type="math/tex; mode=display">\begin{equation}
-f(Y|X,\beta)=\prod_{i=1}^nf(y_i|x,\beta) \propto exp\{ -\frac{1}{2\sigma_0^2}(Y-X\beta)'(Y-X\beta)\}
-\end{equation}</script><p>在无$\beta$先验信息的情况下，取其先验分布密度$\pi(\beta)$为<em>模糊先验</em>，即$\pi(\beta) \propto constant$，结合(3)式可知$\beta$的后验密度为</p>
-<script type="math/tex; mode=display">\begin{equation}
-\pi(\beta|X,Y) \propto exp \{ -\frac{1}{2\sigma_0^2} (\beta-\hat{\beta})'(X'X)^(\beta-\hat{\beta})\}
-\end{equation}</script><p>要证明上式，首先注意到$(\beta-\hat{\beta})’\Sigma(\beta-\hat{\beta})=\beta’\Sigma\beta-2\hat{\beta}’\Sigma\beta+\hat{\beta}’\Sigma\hat{\beta}$，这将有助于我们从右边往左边凑出常见的一个矩阵形式。</p>
-<p>(2)式的正态核只关心对$\beta$展开（忽略其他部分）可以得到</p>
-<script type="math/tex; mode=display">
-
-exp\{(Y-X\beta)'(Y-X\beta)\ \} \propto exp\{Y'Y-2Y'X\beta+\beta'X'X\beta \}</script><p>已经有$\Sigma=X’X$，令$2\hat{\beta}’\Sigma\beta=2Y’X\beta$，可以得到$\hat{\beta}=(X’X)^{-1}X’Y$，则</p>
-<script type="math/tex; mode=display">
-
-exp\{(Y-X\beta)'(Y-X\beta)\ \} \propto exp\{(\beta-\hat{\beta})'(X'X)(\beta-\hat{\beta}) \}</script><p>因此，$\beta$的后验期望为OLS估计值$\hat{\beta}=(X’X)^{-1}X’Y$，协方差阵为$(X’X)^{-1}\sigma_0^2$.</p>
-<script type="math/tex; mode=display">\begin{equation}
-\pi(\beta|X,Y) \propto exp\{\frac{1}{2\sigma_0^2}(\beta-\hat{\beta})'(X'X)(\beta-\hat{\beta}) \} 
-\end{equation}</script><h1 id="有先验信息的参数的后验分布"><a href="#有先验信息的参数的后验分布" class="headerlink" title="有先验信息的参数的后验分布"></a>有先验信息的参数的后验分布</h1><p>若不再假定$\beta$服从模糊先验，而取共轭先验分布—正态分布，即</p>
-<script type="math/tex; mode=display">\begin{equation}
-
-\pi(\beta|X,Y) \propto exp \{-\frac{1}{2} (\beta-\mu_0)'\Sigma_0^{-1}(\beta-\mu_0)\}
-\end{equation}</script><p>其中，$\mu_0$是$\beta$的先验期望，$\Sigma_0$是$\beta$的先验协方差阵。此时，$\beta$的后验分布密度为</p>
-<script type="math/tex; mode=display">\begin{equation}
-\pi(\beta|X,Y) \propto exp \{ -\frac{1}{2}[(A^{\frac{1}{2}}\beta-A^{\frac{1}{2}}\mu_0)'(A^{\frac{1}{2}}\beta-A^{\frac{1}{2}}\mu_0)+(Y-X\beta)'(Y-X\beta)]\}
-\end{equation}</script><p>其中$A=\Sigma_0^{-1}\sigma_0^2$，令$W=\begin{bmatrix}<br>A^{\frac{1}{2}}\mu_0<br>\\ Y<br>\end{bmatrix}$，$G=\begin{bmatrix}<br>A^{\frac{1}{2}}<br>\\<br>X<br>\end{bmatrix}$，则(6)式可以化简为</p>
-<script type="math/tex; mode=display">\begin{equation}
-\pi(\beta|X,Y) \propto exp \{-\frac{1}{2\sigma_0^2}(W-G\beta)'(W-G\beta)\}
-\end{equation}</script><p>这就完全等价于式(2)的情况了，后验均值为$(G’G)’GW$，后验方差矩阵为$(G’G)^{-1}\sigma_0^2$，你可以写成更完整的形式。</p>
-<h1 id="方差-sigma-2-未知时参数的后验分布"><a href="#方差-sigma-2-未知时参数的后验分布" class="headerlink" title="方差$\sigma^2$未知时参数的后验分布"></a>方差$\sigma^2$未知时参数的后验分布</h1><p>这一块就有点复杂了。</p>
-<p>先引入$(\beta,\sigma)$的模糊先验分布，</p>
-<script type="math/tex; mode=display">
-\pi(\beta,\sigma) \propto \frac{1}{\sigma}</script><p>易得$(\beta,\sigma)$的联合后验分布密度为</p>
-<script type="math/tex; mode=display">\begin{equation}
-\pi(\beta,\sigma|X,Y) \propto \frac{1}{\sigma^{n+1}} exp \{ \frac{1}{2\sigma^2}(Y-X\beta)'(Y-X\beta)\}
-\end{equation}</script><p>对$\sigma$在$(0,\infty)$上积分，得到$\beta$的后验边缘分布密度函数为多元t分布，而对$\beta$积分，可以得到$\sigma$的后验分布密度函数为逆伽马分布。</p>
+                <p>今天出去参加暨南大学北京校友会啦。</p>
+<p>周六出去帮忙打杂了一天，系气球布置会场系到发狂，我觉得以后什么聚会都应该一切从简。为了做一件小事，大家还是很花时间的呀，一群人从人大食堂的“抓住机遇（鸡鱼）”吃到清华食堂的羊蝎子火锅，吃的都是教职工大餐，雅旭师姐开车带着我们从五道口商场的橘子买到名创优品的公仔，买的都是大手笔，一个人抱着10个公仔走的感觉特别舒服，就是那种混吃混喝的感觉。</p>
+<p>校友会的各位师兄师姐都是老资历，听他们讲以前的故事还是很有年代感的，尤其是带京味的故事。校友会是一个神奇的组织，到底是怎么样的人才会这么一起抱在一起形成一个小团体呢？很多人毕业之后其实也不会和校友会有交集，都是各顾前程。那些厉害的人也不会来参加这种活动吧，对加入一个陌生的群体敬而远之，觉得参加这种聚会无聊无趣也没什么用。像我们在央财的几个就是因为抱团凑在一起有个伴，蹭吃蹭喝也是其乐融融。顺便了解了暨大的毕业生在北京的生活，看看别人的人生轨迹，有时候也是一种启发呀。都是普普通通的人，从同一个大学毕业，杰出的校友肯定没有那些好学校多。我记得以前有很多同学觉得暨大很垃圾，确实很垃圾，但这种想法不对，不够正能量。这样的人以后应该会出轨，因为他会嫌弃自己的老婆年老色衰很垃圾。</p>
+<p>记得有些人在复习周的时候忙着复习，没有去参加系里给她颁发的奖状，陈嘉盛带着我们几个去做鼓掌的观众，我们复习比较随意嘛，没有别人的复习时间珍贵。这个事不能判死一个人，特别是每个人的想法不一样，只要自己混的够好就行了，混得好大家都会过来找你献殷勤、关照你。今天有个经院经济系的校友（感觉北京这边很多经管类和新闻类的校友）分享他工作成长中的感悟，他是给企业做战略咨询的，出于保密原因，他只说了一点，要先学会做人。</p>
+<p>嗯对，我觉得人还是应该热爱自己身边的一切的，爱家乡，爱集体，爱母校，爱祖国，看起来都是很虚的东西，远不如考个证，刷份实习充实简历来的实在。其实很多人心里的焦虑应该是来自内心缺少寄托，没有信仰吧，一心只想着得到最好的，拿最高的绩点，刷最好的实习，进最好的公司，拿更高的工资。对，这些做法都对，但如果你对身边的人漠不关心，对你曾经生活学习过的地方不闻不问，我觉得会欠缺点什么，看到的范围还是太小了。我劝你入个党，升华内心。</p>
+<p>远离广东，校友会还是能够帮我迅速地融入到这里的生活的，还可以趁机观察一下有没有大佬可以带飞，又或者看看有没有律师和医生朋友，新传毕业的小姐姐们真好看。嘿，等在央财毕业了我又可以热情满满地去套磁新校友了。校友其实就是一种资源嘛，顺着别人投石问路是一件很省力的事情呢，想让我一心只读圣贤书，不存在的。</p>
+<p>想想自己同级的同学，很多也都是很普通地就开始参加工作了，没有很好的学历，可能做PPT也很烂，做事情也不够精致，想法也很混沌，最重要的是也不会很拼，生活比较比较随性。这就是最普通，绝大多数人的生活状态。你的生活是生活，他们的生活也是生活。</p>
+<p>优秀其实跟演戏一样也可以演出来的，假装久了慢慢也就会变真的了，虽然现在很功利，但快乐确实是有部分是真的。</p>
+<p>跟橙子他们排了个很长的节目，中间唱那个光阴的故事真的是尬，最后一环是唱校歌，我觉得这个校歌的歌词真·不会忘系列。橙子有点像董小姐，活跃又认真，吃晚饭跟她去买稻香村，去到一个地方发现关门了，这边商铺关门比较早嘛，本来她都准备放弃了，最后还是在西直门的凯德MALL买到了她要送人的特产。我赌一百块她跟她男朋友会分手，不需要等到第五年。</p>
+<p><img src="http://orobrju86.bkt.clouddn.com/personal/%E6%A9%99%E5%AD%90.jpg?imageMogr2/auto-orient" alt="橙子"></p>
+<p>哦对，有个湛江的师姐，在华创证券做资产证券化，吐槽领导各种不是。我们吃饭的时候，吃完菜心就跟大伙说，我们南方人吃完最后一道菜了，因为菜心都是最后一道菜嘛，可惜这边不是这么个习惯。小姐姐居然要和我合照，我没想明白这个问题，有心计的女生都会把自己往后靠显脸小。师姐也是够厉害，本硕都在暨大，实习来北京，然后就进华创了，就不回广东找工作了？我推测她应该是在这边实习比较长的一段时间，然后那个阶段拿到offer觉得不再折腾回广东租房子实习了，就这样留在了北京。她其实也很想回广东，几个年长几岁的人都说，北京没有广州生活舒服，一个甚至说后悔了。都这样，后悔了，那也就只能这样了，求安稳不想变。</p>
+<p>谢谢大川提供的胶卷。这就我们在北平普通的一天。</p>
+<p><img src="http://orobrju86.bkt.clouddn.com/personal/%E4%BA%8E%E9%A3%9E.jpg?imageMogr2/auto-orient" alt="于飞"></p>
+<p>【备注】在引用图片时，发现苹果手机拍出来的照片有点问题，图片的 EXIF 里标记了旋转 Rotate 90 CW， 直接打开图片 chrome 会自动调整过来。但在hexo里面引用会把图片旋转。目前找到最好的办法是利用七牛云存储的解决办法，在外链后面添加<code>?imageMogr2/auto-orient</code>参数。</p>
+<p>问题解决办法参见<a href="https://segmentfault.com/q/1010000009427045?_ea=1925266" target="_blank" rel="external">html显示图片时旋转了90度，为什么？</a></p>
+<p>直接引用图片的外链的效果是这样的：</p>
+<p><img src="http://orobrju86.bkt.clouddn.com/personal/%E6%A9%99%E5%AD%90.jpg" alt="橙子"></p>
 
 
 
@@ -279,13 +246,9 @@ exp\{(Y-X\beta)'(Y-X\beta)\ \} \propto exp\{(\beta-\hat{\beta})'(X'X)(\beta-\hat
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/12/12/[R语言] SQL Server R/" data-toggle="tooltip" data-placement="top" title="[R语言] SQL Server R">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/12/07/[计量] 嵌套与非嵌套模型/" data-toggle="tooltip" data-placement="top" title="[计量] 嵌套与非嵌套模型">Next Post &rarr;</a>
+                            <a href="/2018/01/26/[R语言] 分组计算/" data-toggle="tooltip" data-placement="top" title="[R语言] 分组计算">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -310,17 +273,6 @@ exp\{(Y-X\beta)'(Y-X\beta)\ \} \propto exp\{(\beta-\hat{\beta})'(X'X)(\beta-\hat
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#方差-sigma-2-已知时参数的后验分布"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">方差$\sigma^2$已知时参数的后验分布</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#有先验信息的参数的后验分布"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">有先验信息的参数的后验分布</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#方差-sigma-2-未知时参数的后验分布"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">方差$\sigma^2$未知时参数的后验分布</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -335,7 +287,7 @@ exp\{(Y-X\beta)'(Y-X\beta)\ \} \propto exp\{(\beta-\hat{\beta})'(X'X)(\beta-\hat
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -367,71 +319,7 @@ exp\{(Y-X\beta)'(Y-X\beta)\ \} \propto exp\{(\beta-\hat{\beta})'(X'X)(\beta-\hat
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
-
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
 
@@ -444,8 +332,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/28/[日常] 2018年01月29日/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/01/28/[日常] 2018年01月29日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
