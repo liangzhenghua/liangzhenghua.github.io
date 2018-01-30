@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [R语言] 分组计算 - 南有嘉鱼 | 南有樛木
+          [电影] 无问西东 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/26/[R语言] 分组计算/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/31/[电影] 无问西东/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/R.jpg')
+            background-image: url('/img/movie.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#R" title="R">R</a>
+                              <a class="tag" href="/tags/#电影" title="电影">电影</a>
                             
                         </div>
-                        <h1>[R语言] 分组计算</h1>
-                        <h2 class="subheading">这是一篇关于R语言快速分组计算的学习笔记</h2>
+                        <h1>[电影] 无问西东</h1>
+                        <h2 class="subheading">东边怎么走？</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2018-01-26
+                            2018-01-31
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,20 +222,16 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>在大猫师兄的强烈推荐下，我研究了利用data.table包做分组计算。</p>
-<p>以往做分组计算的思路是这样子的：先按照某个变量（比如股票stock）将数据集划分（split）为一个列表，内含若干个小数据框，然后自定义一个可以处理每个小数据框的函数。最后就可以利用lapply函数对列表中每个数据框做遍历了，这样子的速度很慢，可以用parallel包做个加速。为此我还写了个模板，记录下来，以后备用。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 对含有大量数据框的列表做函数处理，每个数据框返回一个数据框</span></div><div class="line"><span class="comment">## 最后要合并所有数据框为一个数据框</span></div><div class="line"></div><div class="line"><span class="comment">### 函数名称</span></div><div class="line"></div><div class="line">FUNC=out</div><div class="line"></div><div class="line"><span class="comment">### 含有大量数据框的列表</span></div><div class="line"></div><div class="line">temp=temp</div><div class="line"></div><div class="line"><span class="comment">### 要导入各节点的函数和包，在下面添加</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">library</span>(parallel)</div><div class="line"><span class="keyword">library</span>(rlist)</div><div class="line"></div><div class="line"></div><div class="line">system.time(&#123; <span class="comment"># 用时约4分钟</span></div><div class="line">  <span class="comment"># 注册节点，一个核可以算作一个节点</span></div><div class="line">  cl=makeCluster(detectCores())</div><div class="line">  <span class="comment"># clusterExport 从某个环境调用某个对象给各个节点</span></div><div class="line">  clusterExport(cl, <span class="string">'FUNC'</span>, envir = .GlobalEnv)</div><div class="line">  <span class="comment"># 注册的每个节点相当于新开一个R session，clusterEvalQ表示在每个节点上执行相同的代码</span></div><div class="line">  <span class="comment"># 这里是在每个节点（R session）里面导入滚动回归里面必须依赖的包</span></div><div class="line">  clusterEvalQ(cl,&#123;  </div><div class="line">    <span class="comment">#setwd("I://anqi//项目//友情出演//xiang") # 数据存放路径</span></div><div class="line">    <span class="comment">#library("dplyr")</span></div><div class="line">    <span class="comment">#library("lubridate")</span></div><div class="line">    <span class="comment">#library("tidyr")</span></div><div class="line">    <span class="comment">#library("lazyeval")</span></div><div class="line">    <span class="keyword">library</span>(fPortfolio)</div><div class="line">  &#125;)</div><div class="line">  <span class="comment"># parLapply是Lapply的并行版本，parLapplyLB是负载平衡的版本，可以平衡各个节点的运行时间</span></div><div class="line">  <span class="comment"># FUNC后面可以添加函数参数</span></div><div class="line">  re=parLapplyLB(cl,temp,FUNC)</div><div class="line">  <span class="comment"># 使用时候销毁节点</span></div><div class="line">  stopCluster(cl)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">result=list.rbind(re)  <span class="comment">#  rlist里面这个rbind函数合并数据框的时候，没有把结果强制转换成矩阵，而是保留了原有的数据框格式，速度也很快</span></div></pre></td></tr></table></figure>
-<p>然而，开4核跑并行，做李翔的滚动回归时，要3分钟才可以出来结果，根据大猫师兄的说法，用data.table，都是1秒的事。在我算所有上市公司的市盈率和账面市值比BM等指标的时候，因为要把月频的财报折算为日频数据，并不是1秒钟可以解决的事情。当然可以继续优化下去，但data.table做分组计算确实是目前最快的选择。</p>
-<p>主要代码如下：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## fillTdays是根据一个股票的财务数据数据框，把月频的数据对齐到交易日tdays</span></div><div class="line"></div><div class="line">fillTdays=<span class="keyword">function</span>(data,tdays,stock.include=<span class="literal">T</span>) &#123;</div><div class="line">  <span class="comment">## data列：stock mydate StockIssuing_date，类型是chr chr Date， 后面是各列财报数据，类型为num</span></div><div class="line">  <span class="comment">## tdays: chr</span></div><div class="line">  <span class="comment">## stock.include表示输入是否含有stock列</span></div><div class="line">  <span class="comment">## out类型：stock,mydate,各列</span></div><div class="line">  data=as.data.frame(data)</div><div class="line">  <span class="keyword">if</span>(class(data$StockIssuing_date)!=<span class="string">'Date'</span>) data$StockIssuing_date=as.Date(as.character(data$StockIssuing_date))</div><div class="line">  out=data.frame(matrix(<span class="literal">NaN</span>,ncol = ncol(data)-<span class="number">1</span>,nrow = length(tdays)))</div><div class="line">  <span class="keyword">if</span>(stock.include) &#123;</div><div class="line">    names(out)=names(data)[-<span class="number">3</span>]; <span class="comment"># 去掉StockIssuing</span></div><div class="line">    out$stock=data$stock[<span class="number">1</span>]</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    </div><div class="line">    names(out)=names(data)[-<span class="number">2</span>] <span class="comment"># 去掉StockIssuing,首列不是stock时，StockIssuing在第二列</span></div><div class="line">  &#125; </div><div class="line">  </div><div class="line">  <span class="keyword">if</span>(class(tdays)!=<span class="string">'Date'</span>) out$mydate=as.Date(tdays)</div><div class="line">  </div><div class="line">  targetPoint=which(!is.na(data$StockIssuing_date))</div><div class="line">  </div><div class="line">  <span class="keyword">for</span>(p <span class="keyword">in</span> targetPoint) &#123;</div><div class="line">    value=data[p,(<span class="number">3</span>+stock.include):ncol(data)]</div><div class="line">    out[out$mydate&gt;=data$StockIssuing_date[p],(<span class="number">2</span>+stock.include):ncol(out)]=value</div><div class="line">  &#125;</div><div class="line">  <span class="comment">#out[is.na(out)]=NA</span></div><div class="line">  <span class="comment"># 这里应该是NA 还是NaN ,一个是integer,一个是double类型</span></div><div class="line">  <span class="keyword">return</span>(out)</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">stament=as.data.table(stament)</div><div class="line">setkey(stament,stock,mydate)</div><div class="line">test2=stament[,(fillTdays(.SD,tdays,stock.include = <span class="literal">F</span>)),by=<span class="string">'stock'</span>]</div></pre></td></tr></table></figure>
-<p>从上面最后一句可以看出来，<code>stament</code>是data.table数据类型，列的位置上<code>(fillTdays(.SD,tdays,stock.include = F))</code>是最关键的用法，fillTdays是自定义的函数，返回的是一个数据框，.SD是stament里除去stock列的剩余数据（因为by=stock作为了分组变量），你可以将.SD理解为某一stock对应的数据框，不含stock列。</p>
-<p>重要提示来了，在写函数时，要注意输入参数data是从.SD传递过来的，因此它也data.table格式，这个时候我们要转换成data.frame格式才可以在函数内部随心所欲地做自己喜欢做的事，返回值的类型也应该是data.frame类型，但这个并不影响最终的结果类型（依然是data.table）。</p>
-<p>另一个重要提示是，如果函数返回的是一列数而非一个多列的数据框，那么应该这样写：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">test2=stament[,.(mydate,fillTdays(.SD,tdays,stock.include = <span class="literal">F</span>)),by=<span class="string">'stock'</span>]</div></pre></td></tr></table></figure>
-<p>这是因为<code>.( )</code>表示数据框列表，<code>.(mydate,fillTdays(.SD,tdays,stock.include = F))</code>恰好就是一个数据框列表，内含两列，而上面的<code>stament[,(fillTdays(.SD,tdays,stock.include = F)),by=&#39;stock&#39;]</code>没有使用<code>.( )</code>是因为函数的返回值就已经是数据框的类型了。</p>
-<p>目前data.table还有一个超快的用法就是排序，这跟用R原生的order比较时就可以感受出来了。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setkey(stament,stock,mydate)</div></pre></td></tr></table></figure>
-<p>这条语句，不仅把我的财务数据先按stock排序，再按日期mydate排序，最重要的是设置了主键，这在merge里面充分震撼了我。1900万的两个数据merge只需要几秒。果然data.table很值得研究各种有意思的玩法。</p>
+                <p>首先分享视频链接：</p>
+<iframe width="860" height="524" src="http://cn2.okokyun.com/share/qQmsckAIETQD93Tv#" frameborder="0" allowfullscreen="true"></iframe>
+
+<p>正如很多影评说的，不是清华的学生看了也有很多感触，同样也是在讲青春故事，比其他的青春校园的风月故事更加有营养。</p>
+<p>跟一个人谈过国内的电影内容，我们不缺好的导演，好的演员，受限于很多审查上的限制，总是拍不出能作为文化输出的作品，像战狼2我觉得故事一般般，场景也一般般，只是搭上了大家的爱国情绪高涨的时机。但有很重要的一点，观众其实也不知道自己喜欢的是什么，但是能判断某一部电影的好坏。从这一点出发，其实你喂给观众什么，他就会有什么样的口味。像快手和今日头条的这些内容提供方，它们做的东西就是推荐你喜欢看的东西，让它们的受众群体的口味变得稳定，一个看摩托炫技的农村中学生，不太可能关心国际时事，长期接触没有营养的内容是很可怕的一件事情。</p>
+<p>观后感：古井无波</p>
+<p>高晓松说得对，清华的学生应该是国之重器，应该有更高的操守，无问西东。清华出来的哪个不是天之骄子，十万挑一的那种。hey，其实别给别人戴高帽，这样别人会活的很累的。</p>
+<p>身处北京有个特点，被清北带着，心态也会跟着上去，而不是在广东偏安一隅。小破财的学生是不是也应该经世济民呢？反正我不是清华的，我还是要问一下东边怎么走的。张震身处的社会环境已经很浮躁了，想要追求真实是一件很困难的事情。我的真实就是，交了CFA的钱，基本上就是确定了以后的方向了，金融是个大染缸，一身白白净净进去太危险了。</p>
+<p>我也想无问西东，可是周围的人整天算计来算计去什么都可以算计，我想，多点算计自己的得失，总要比无问西东过得好吧。以前不是这样子的，可能是出于自我保护吧。李安琪的评论我也没有去回复，是回“震惊！上一次出现在评论区是什么时候”、还是回“你喜欢那你来北京好了”，诸如此类都觉得不满意那就不理她好了。我们之间，好像除了我喜欢她就没有其他东西剩下了，觉得她就像一个玻璃球一样需要小心翼翼。都这么久了早就什么都无所谓了，已经佛系地禁欲了。每天打开网页都会花个几秒钟点进去她的blog看看有没有更新，看到她最近一次ps的翻白眼觉得她又搞事情了，对面应该很幸福了，我是没有机会收到她的信的。</p>
+<p>快乐总是短暂的，我要开始预习CFA了，无问西东谁信谁傻。可是以后我拿什么来教育我的娃？</p>
 
 
 
@@ -243,13 +239,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/01/28/[日常] 2018年01月29日/" data-toggle="tooltip" data-placement="top" title="2018年01月28日">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2018/01/23/[日常] 2018年01月23日/" data-toggle="tooltip" data-placement="top" title="2018年01月23日">Next Post &rarr;</a>
+                            <a href="/2018/01/31/[SQL] bulk insert/" data-toggle="tooltip" data-placement="top" title="[SQL] bulk insert">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -288,7 +280,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#R" title="R">R</a>
+                          <a class="tag" href="/tags/#电影" title="电影">电影</a>
                         
                     </div>
                 </section>
@@ -359,8 +351,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/26/[R语言] 分组计算/";
-    var disqus_url = "https://liangzhenghua.github.io/2018/01/26/[R语言] 分组计算/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/31/[电影] 无问西东/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/01/31/[电影] 无问西东/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
