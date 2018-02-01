@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [计量] 邹至庄检验 - 南有嘉鱼 | 南有樛木
+          [R语言] GARCH过一遍 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/09/27/[计量] 邹至庄检验/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/31/[R语言] GARCH及其实现/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/economic3.jpg')
+            background-image: url('/img/R.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                              <a class="tag" href="/tags/#R" title="R">R</a>
                             
                         </div>
-                        <h1>[计量] 邹至庄检验</h1>
-                        <h2 class="subheading">这是一篇关于邹至庄检验的简单回顾</h2>
+                        <h1>[R语言] GARCH过一遍</h1>
+                        <h2 class="subheading">这是一篇关于波动率建模的开篇</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-09-27
+                            2018-01-31
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,35 +222,51 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <blockquote>
-<p>邹至庄检验用于检验回归模型的结构或参数稳定性</p>
-</blockquote>
-<p>假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。</p>
-<p>做三个回归如下：</p>
-<p>时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为$n_1-k$</p>
-<p>时期1982-1995：$Y_t=\gamma  _1+\gamma_2X_t+\mu_{2t}$，观测数为$n_2$，残差平方和为$RSS_2$，自由度为$n_2-k$</p>
-<p>时期1970-1995：$Y_t=\alpha  _1+\alpha_2X_t+\mu_t$，观测数为$n_1+n_2$，残差平方和为$RSS_3$，自由度为$n_1+n_2-k$</p>
-<p>邹至庄检验机制如下：</p>
-<p><strong>假定</strong>：</p>
+                <p>金融时间序列有几个普遍现象：</p>
 <ul>
-<li>两个子时期的误差项具有相同方差$\sigma^2$</li>
-<li>两个子时期的误差项是独立分布的</li>
+<li><p>一组时间序列本身可能只有非常微弱的相关性，而它的函数（平方项、绝对值）呈现很强的相关性</p>
+</li>
+<li><p>资产收益率序列的条件方差会随着时间改变，呈现条件异方差的特征</p>
+</li>
+<li><p>波动集聚（volatility clustering）现象，资产收益率序列的波动会有持续的现象，大波动跟着大波动，小波动跟着小波动</p>
+</li>
+<li><p>资产收益率序列并不服从正态分布，其极端值较多，具有厚尾（heavy tail）现象</p>
+</li>
 </ul>
-<p>记$RSS_3$为约束残差平方和$RSS_R$，因为这一条回归方程里面施加了约束 $\lambda_1=\gamma_1 $,  和约束$\lambda_2=\gamma_2$</p>
-<p>记$RSS_{UR}=RSS_1+RSS_2$为无约束残差平方和， $df=n_1+n_2-2k$</p>
-<p>若不存在结构变动，有约束和无约束情况下，单位自由度下的残差平方和应该没什么不同。$RSS_R$ 相比 $RSS_{UR}$ 多了 $k$个 自由度，所以可以构造：</p>
+<p>ARCH和GARCH模型就是用来对收益率序列的波动建模预测的，首先我们要弄清楚怎么样衡量波动率。</p>
+<h1 id="ARCH"><a href="#ARCH" class="headerlink" title="ARCH"></a>ARCH</h1><p>一般先假设收益率序列$\{y_t\}$满足某个方程式，比如AR(p)、MA(q)、ARMA(p,q)，这里用简单的AR(1)说明ARCH模型。</p>
 <script type="math/tex; mode=display">
-F=\frac{(RSS_R-RSS_{UR})/k}{RSS_{UR}/(n_1+n_2-2k)}\sim F(k,n_1+n_2-2k)</script><p>如果F值过大，则拒绝原假设（不存在结构变动）。</p>
-<p><strong>假定的检验</strong></p>
-<p>记$\widehat{\sigma}_1^2=\frac{RSS_1}{n_1-k}$，$\widehat{\sigma}_2^2=\frac{RSS_2}{n_2-k}$<br>可以证明，若两个子总体的方差相同$\sigma_1^2=\sigma_2^2$，则</p>
+y_t=a_0+a_1 y_{t-1}+\epsilon_t</script><p>那么$y_{t+1}$的条件方差为：</p>
 <script type="math/tex; mode=display">
-\frac{\widehat{\sigma}_1^2/\sigma_1^2}{\widehat{\sigma}_2^2/\sigma_2^2}\sim F(n_1-k,n_2-k)</script><p>一般习惯将较大的估计方差放在分子中，这样计算的F值就不会小于1。</p>
-<p><strong><code>警告</code></strong></p>
-<ul>
-<li>同方差假定（也有方法可以修正异方差）</li>
-<li>邹至庄检验只能告诉我们两个方程是否有区别，并不会告诉我们区别来自截距还是斜率还是两者都有</li>
-<li>假定结构转折点已知</li>
-</ul>
+var(y_{t+1}|y_t)=E_t[(y_{t+1}-E(y_{t+1}))^2]=E_t(\epsilon_{t+1})^2</script><p>这启发我们，要预测收益率$y_{t+1}$的方差（波动率）的问题，转化为预测$E_t(\epsilon_{t+1})^2$的问题。</p>
+<p>一个简单的解决办法将残差估计值的平方建模为AR(q)模型：</p>
+<script type="math/tex; mode=display">
+\epsilon_t^2=\alpha_0 + \alpha_1 \epsilon_{t-1}^2+\alpha_2 \epsilon_{t-2}^2+...+\alpha_q \epsilon_{t-1}^2 + v_t</script><p>其中$v_t$是白噪音过程，而$\epsilon_t$可以来自一个自回归、ARMA、或标准常见的回归模型，所以ARCH有很多用途。</p>
+<p>实际上将干扰项$v_t$表示为乘法干扰项更容易处理，这就是我们所说的ARCH(1)模型：</p>
+<script type="math/tex; mode=display">
+\epsilon_t=v_t \sqrt{\alpha_0+\alpha_1 \epsilon_{t-1}^2}</script><p>其中$v_t$为白噪音过程，$v_t \sim IID(0,1)$，$v_t$和$\epsilon_{t-1}$相互独立。这样设定的优点在于收益率序列的自回归模型里面，$\epsilon_t$仍然是白噪声过程（均值为0，方差恒定，所有自协方差为0），但ARCH(1)的影响全部体现在了条件方差上，这样我们能够利用最近几期的信息去预测下一期的收益率的波动率（方差）。</p>
+<p><strong>验证$\epsilon_t$为白噪声过程：</strong></p>
+<p>(1) 由$v_t$和$\epsilon_{t-1}$相互独立及$E(v_t)=0$，得</p>
+<script type="math/tex; mode=display">
+E(\epsilon_t)=E(v_t)E(\alpha_0+\alpha_1 \epsilon_{t-1}^2)^{1/2}=0</script><p>(2) 由无条件方差$E(\epsilon_t^2)=E(\epsilon_{t-1}^2)$，得</p>
+<script type="math/tex; mode=display">
+E(\epsilon_t^2)=E(v_t^2)E(\alpha_0+\alpha_1 \epsilon_{t-1}^2)</script><p>整理得$\epsilon_t$的（恒定）方差为</p>
+<script type="math/tex; mode=display">
+E(\epsilon_t^2)=\frac{\alpha_0}{1-\alpha_1}</script><p>(3) 由$v_t$属于白噪声，所以自协方差满足</p>
+<script type="math/tex; mode=display">
+E(v_t v_{t-s})=E(\epsilon_t)E(\epsilon_{t-s})E(\sqrt{\alpha_0+\alpha_1 \epsilon_{t-1}^2} \sqrt{\alpha_0+\alpha_1 \epsilon_{t-s-1}^2}=0</script><p>至此知道了$\epsilon_t$保留白噪声的优良性质，下面可以验证代表$y_t$的条件方差$\epsilon_t^2$可以用自回归模型来预测：</p>
+<script type="math/tex; mode=display">
+E(\epsilon_t^2)=E(v_t^2)E(\alpha_0+\alpha_1 \epsilon_{t-1}^2)=\alpha_0+\alpha_1 \epsilon_{t-1}^2</script><p>记住，ARCH模型是完全单纯的统计模型，他们只是捕捉到金融序列的特征，而不能用来解释金融序列为何有这些特征。</p>
+<p>ARCH(q)模型的估计过程：</p>
+<p>（1）设定阶数$p$，为确定ARCH(q)模型中的阶数，在检验得知时间序列$\{\epsilon_t\}$确实存在显著的ARCH效应后，我们可以用$\epsilon_t^2$的偏自相关函数（PACF）来确定$p$</p>
+<p>（2）确定模型阶数$p$后，常常假设干扰项$v_t$服从某一分布（标准正态分布、标准化的t分布、广义误差分布）,然后使用极大似然法估计。</p>
+<p>（3）在参数估计后，需要检验模型设定。最常见的检验依赖于以下事实：一个正确设定的ARCH模型，标准化残差</p>
+<script type="math/tex; mode=display">\hat{v}_t=\frac{\hat{\epsilon}_t}{\sqrt{\alpha_0 +\alpha_1 \hat{\epsilon}_{t-1}^2}}</script><p>是独立同分布的随机过程，因此$\hat{v_t}$和$\hat{v}_t^2$的Ljung-Box统计量可以分别用来检验均值方程和波动率方程的正确性。</p>
+<h1 id="GARCH"><a href="#GARCH" class="headerlink" title="GARCH"></a>GARCH</h1><p>Bollerslev(1996)扩展了Engle的原始模型，引入了允许条件方差转化为ARMA过程的方法。现在假设误差过程为：</p>
+<script type="math/tex; mode=display">
+\epsilon_t=v_t\sqrt{h_t}</script><script type="math/tex; mode=display">
+h_t=\alpha_0+\sum_{i=1}^q \alpha_i \epsilon_{t-i}^2 + \sum_{i=1}^p \beta_i h_{t-i}</script><p>这个模型就是GARCH(p,q)，p个自回归项，q个误差项，实际意义上认为收益率序列每个时间点的波动率是最近p个波动率和q个残差平方的的线性组合。GARCH的优点显而易见，一个高阶的ARCH模型可能有一个更为简洁和更易识别和估算的GARCH表达式，因为估计参数更加少了。</p>
+<p>ARCH和GARCH模型的不足之处是类似的，两种模型认为波动是对称的，因为是对$\epsilon_t^2$建模；其次是参数需要满足的约束非常复杂；最后是拟合波动率的做法有投机取巧的嫌疑，要进一步理解波动率的动态还需要其他理论。</p>
 
 
 
@@ -258,13 +274,9 @@ F=\frac{(RSS_R-RSS_{UR})/k}{RSS_{UR}/(n_1+n_2-2k)}\sim F(k,n_1+n_2-2k)</script><
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/09/27/[金融] 行业研究资源/" data-toggle="tooltip" data-placement="top" title="[金融] 行业研究资源">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/09/26/[Manual] python3之pandas使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python3之pandas使用手册">Next Post &rarr;</a>
+                            <a href="/2018/01/31/[SQL] bulk insert/" data-toggle="tooltip" data-placement="top" title="[SQL] bulk insert">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -289,6 +301,17 @@ F=\frac{(RSS_R-RSS_{UR})/k}{RSS_{UR}/(n_1+n_2-2k)}\sim F(k,n_1+n_2-2k)</script><
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ARCH"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ARCH</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#GARCH"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">GARCH</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
 
             <!-- Sidebar Container -->
             <div class="
@@ -303,7 +326,7 @@ F=\frac{(RSS_R-RSS_{UR})/k}{RSS_{UR}/(n_1+n_2-2k)}\sim F(k,n_1+n_2-2k)</script><
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                          <a class="tag" href="/tags/#R" title="R">R</a>
                         
                     </div>
                 </section>
@@ -412,8 +435,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/09/27/[计量] 邹至庄检验/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/09/27/[计量] 邹至庄检验/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/31/[R语言] GARCH及其实现/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/01/31/[R语言] GARCH及其实现/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

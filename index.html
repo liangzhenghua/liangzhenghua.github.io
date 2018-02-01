@@ -129,14 +129,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/Gallery/">Gallery</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/Gallery/">Gallery</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -216,19 +216,23 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/31/[电影] 无问西东/">
+    <a href="/2018/01/31/[R语言] GARCH及其实现/">
         <h2 class="post-title">
-            [电影] 无问西东
+            [R语言] GARCH过一遍
         </h2>
         <h3 class="post-subtitle">
-            东边怎么走？
+            这是一篇关于波动率建模的开篇
         </h3>
         <div class="post-content-preview">
-            首先分享视频链接：
+            金融时间序列有几个普遍现象：
 
+一组时间序列本身可能只有非常微弱的相关性，而它的函数（平方项、绝对值）呈现很强的相关性
 
-正如很多影评说的，不是清华的学生看了也有很多感触，同样也是在讲青春故事，比其他的青春校园的风月故事更加有营养。
-跟一个人谈过国内的电影内容，我们不缺好的导演，好的演员，受限于很多审查上的限制，总是拍不出能作为文化输出的作品，像战狼2我觉得故事一般般，场景也一般般，只是搭上了大家的爱国情绪高涨的时机。但有很重要的一点，观众其实也不知道自己喜欢的是什么，但是能判断某一部电......
+资产收益率序列的条件方差会随着时间改变，呈现条件异方差的特征
+
+波动集聚（volatility clustering）现象，资产收益率序列的波动会有持续的现象，大波动跟着大波动，小波动跟着小波动
+
+资产收益率序列并不服从正态分布，其极端值较多，具有厚尾（heavy tai......
         </div>
     </a>
     
@@ -238,7 +242,7 @@
         </p>
         <div class="tags">
             
-              <a href="/tags/#电影" title="电影">电影</a>
+              <a href="/tags/#R" title="R">R</a>
             
         </div>
     
@@ -273,6 +277,38 @@ step2:检查csv数据类型，因为在尝试过程......
         <div class="tags">
             
               <a href="/tags/#SQL" title="SQL">SQL</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/31/[电影] 无问西东/">
+        <h2 class="post-title">
+            [电影] 无问西东
+        </h2>
+        <h3 class="post-subtitle">
+            东边怎么走？
+        </h3>
+        <div class="post-content-preview">
+            首先分享视频链接：
+
+
+正如很多影评说的，不是清华的学生看了也有很多感触，同样也是在讲青春故事，比其他的青春校园的风月故事更加有营养。
+跟一个人谈过国内的电影内容，我们不缺好的导演，好的演员，受限于很多审查上的限制，总是拍不出能作为文化输出的作品，像战狼2我觉得故事一般般，场景也一般般，只是搭上了大家的爱国情绪高涨的时机。但有很重要的一点，观众其实也不知道自己喜欢的是什么，但是能判断某一部电......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-31
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#电影" title="电影">电影</a>
             
         </div>
     
@@ -490,39 +526,6 @@ step2:检查csv数据类型，因为在尝试过程......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/01/14/[R语言] 投资组合/">
-        <h2 class="post-title">
-            [R语言] 投资组合的马可威茨模型
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于投资组合的管中窥豹
-        </h3>
-        <div class="post-content-preview">
-            基本思想在投资里面，资产组合一定要考虑，本文从马可威茨模型开始说起。
-假设我们有$p$个股票，收益率视为随机变量$r_1,r_2,…,r_p$，那么资产组合可以记为$R=w_1 r_1+w_2 r_2+…+w_p r_p=w’r$，资产组合的均值可以记为$E(R)$，方差可以记为$var(R)$，由多元统计知识知道
-
-
-E(R)=w'E(r)
-var(R)=w'\Sigma w其中$\Sig......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-14
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#R" title="R">R</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -565,13 +568,7 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
-        
-            
-            <a href="/tags/#R" title="R" rel="13">R</a>
-            
-        
-            
-            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
+            <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
             
         
             
@@ -581,9 +578,23 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
+            
         
             
-            <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
+            <a href="/tags/#R" title="R" rel="14">R</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -596,12 +607,6 @@ var(R)=w'\Sigma w其中$\Sig......
         
             
             <a href="/tags/#文献阅读" title="文献阅读" rel="4">文献阅读</a>
-            
-        
-            
-        
-            
-        
             
         
             
@@ -622,8 +627,6 @@ var(R)=w'\Sigma w其中$\Sig......
         
             
             <a href="/tags/#金融" title="金融" rel="2">金融</a>
-            
-        
             
         
             
@@ -740,11 +743,15 @@ var(R)=w'\Sigma w其中$\Sig......
     <ul>
       
         <li>
-          <a href="/2018/01/31/[电影] 无问西东/">[电影] 无问西东</a>
+          <a href="/2018/01/31/[R语言] GARCH及其实现/">[R语言] GARCH过一遍</a>
         </li>
       
         <li>
           <a href="/2018/01/31/[SQL] bulk insert/">[SQL] bulk insert</a>
+        </li>
+      
+        <li>
+          <a href="/2018/01/31/[电影] 无问西东/">[电影] 无问西东</a>
         </li>
       
         <li>
@@ -753,10 +760,6 @@ var(R)=w'\Sigma w其中$\Sig......
       
         <li>
           <a href="/2018/01/26/[R语言] 分组计算/">[R语言] 分组计算</a>
-        </li>
-      
-        <li>
-          <a href="/2018/01/23/[日常] 2018年01月23日/">2018年01月23日</a>
         </li>
       
     </ul>
