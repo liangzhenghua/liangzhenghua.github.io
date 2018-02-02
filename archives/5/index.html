@@ -129,6 +129,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/Gallery/">Gallery</a>
                         </li>
                         
@@ -137,13 +144,6 @@
                         
                         <li>
                             <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -216,15 +216,48 @@
 
 <div class="post-preview">
 
-    <a href="/2017/09/27/[金融] 金融衍生品基础/">
+    <a href="/2017/10/15/[计量] 分位数回归/">
         <h2 class="post-title">
-            [金融] 金融衍生品基础
+            [计量] 分位数回归
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于金融衍生品的概念总结
+            这是一篇关于分位数回归的介绍
         </h3>
         <div class="post-content-preview">
-            ...
+            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-10-15
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/09/27/[计量] 邹至庄检验/">
+        <h2 class="post-title">
+            [计量] 邹至庄检验
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于邹至庄检验的简单回顾
+        </h3>
+        <div class="post-content-preview">
+            
+邹至庄检验用于检验回归模型的结构或参数稳定性
+
+假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。
+做三个回归如下：
+时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为......
         </div>
     </a>
     
@@ -273,20 +306,15 @@
 
 <div class="post-preview">
 
-    <a href="/2017/09/27/[计量] 邹至庄检验/">
+    <a href="/2017/09/27/[金融] 金融衍生品基础/">
         <h2 class="post-title">
-            [计量] 邹至庄检验
+            [金融] 金融衍生品基础
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于邹至庄检验的简单回顾
+            这是一篇关于金融衍生品的概念总结
         </h3>
         <div class="post-content-preview">
-            
-邹至庄检验用于检验回归模型的结构或参数稳定性
-
-假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。
-做三个回归如下：
-时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为......
+            ...
         </div>
     </a>
     
@@ -297,6 +325,39 @@
         <div class="tags">
             
               <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/09/27/[Bayesian] 充分统计量/">
+        <h2 class="post-title">
+            [Bayesian] 充分统计量
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于充分统计量的回顾
+        </h3>
+        <div class="post-content-preview">
+            
+充分统计量：设$\mathbf{x}=(x_1,x_2,…,x_n)$是来自分布$F(x|\theta)$的一个样本，$T=T(X)$是统计量，假如在给定$T(X)=t$的条件下，$\mathbf{x}$的条件分布与$\theta$无关的话，则称该统计量为充分统计量。
+
+
+
+因子分解定理：充分统计量的充要条件是存在一个函数$g(t,\theta)$和一个样本函数$h(x)$，使得对任一样本......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-09-27
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
             
         </div>
     
@@ -464,70 +525,6 @@ p(\......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/09/13/[数据] 经济数据常用链接/">
-        <h2 class="post-title">
-            [数据] 经济数据常用链接
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于经济数据的资源帖
-        </h3>
-        <div class="post-content-preview">
-            中国经济与社会发展统计数据库广东省统计年鉴广东省产业发展数据库国研网统计数据库国泰安数据库中国知网大数据研究平台
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-09-13
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#数据" title="数据">数据</a>
-            
-              <a href="/tags/#经济学" title="经济学">经济学</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/04/[Manual] python3参考手册之模块、包和分发/">
-        <h2 class="post-title">
-            [Manual] python3参考手册之模块、包和分发
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇python3基础教程
-        </h3>
-        <div class="post-content-preview">
-            import语句任何python源文件（.py文件）都可以以模块的形式加载，import加载模块的时候做了三件事：
-
-创建新的命名空间，用作对应模块中对象的容器，对象包括函数和类等
-在新建的命名空间中执行模块中的代码，如果代码中除了定义的变量、函数和类还有其他输出，则可以在加载的时候看到执行的结果
-使用模块名称作为前缀引用命名空间中的对象
-无论import使用多少次，同一个模块仅加载和执行一......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-09-04
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#python" title="python">python</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -574,7 +571,11 @@ p(\......
             
         
             
-            <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
+            
+        
+            
+            <a href="/tags/#R" title="R" rel="15">R</a>
             
         
             
@@ -584,15 +585,9 @@ p(\......
             
         
             
-            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
-            
         
             
-            <a href="/tags/#R" title="R" rel="14">R</a>
-            
-        
-            
-        
+            <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
             
         
             
@@ -616,17 +611,21 @@ p(\......
             
         
             
-            <a href="/tags/#日常" title="日常" rel="6">日常</a>
-            
         
             
-            <a href="/tags/#电影" title="电影" rel="3">电影</a>
+            <a href="/tags/#日常" title="日常" rel="7">日常</a>
             
         
             
         
             
             <a href="/tags/#计量" title="计量" rel="11">计量</a>
+            
+        
+            
+            <a href="/tags/#电影" title="电影" rel="3">电影</a>
+            
+        
             
         
             
@@ -749,7 +748,11 @@ p(\......
     <ul>
       
         <li>
-          <a href="/2018/01/31/[R语言] GARCH及其实现/">[R语言] GARCH过一遍</a>
+          <a href="/2018/02/02/[日常] 2018年02月02日/">2018年01月28日</a>
+        </li>
+      
+        <li>
+          <a href="/2018/02/02/[Manual] R语言quantstrat包使用手册/">[Manual] R语言quantstrat包使用手册</a>
         </li>
       
         <li>
@@ -757,15 +760,11 @@ p(\......
         </li>
       
         <li>
+          <a href="/2018/01/31/[R语言] GARCH及其实现/">[R语言] GARCH过一遍</a>
+        </li>
+      
+        <li>
           <a href="/2018/01/31/[电影] 无问西东/">[电影] 无问西东</a>
-        </li>
-      
-        <li>
-          <a href="/2018/01/28/[日常] 2018年01月29日/">2018年01月28日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/01/26/[R语言] 分组计算/">[R语言] 分组计算</a>
         </li>
       
     </ul>

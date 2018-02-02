@@ -129,6 +129,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/Gallery/">Gallery</a>
                         </li>
                         
@@ -137,13 +144,6 @@
                         
                         <li>
                             <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -216,33 +216,58 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/31/[R语言] GARCH及其实现/">
+    <a href="/2018/02/02/[日常] 2018年02月02日/">
         <h2 class="post-title">
-            [R语言] GARCH过一遍
+            2018年01月28日
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于波动率建模的开篇
+            【转自邓一硕】R是一种生活，统计是一种态度(讲稿)
         </h3>
         <div class="post-content-preview">
-            金融时间序列有几个普遍现象：
-
-一组时间序列本身可能只有非常微弱的相关性，而它的函数（平方项、绝对值）呈现很强的相关性
-
-资产收益率序列的条件方差会随着时间改变，呈现条件异方差的特征
-
-波动集聚（volatility clustering）现象，资产收益率序列的波动会有持续的现象，大波动跟着大波动，小波动跟着小波动
-
-资产收益率序列并不服从正态分布，其极端值较多，具有厚尾（heavy tai......
+            邓一硕是我们小破财，我们院的一位师兄。之前下载了他在R语言会议上的PPT看了看，我擦，写的太简单了吧。微博上也是发的很频繁很琐碎的东西，根本抓不到重点好吧。
+对，是的，此处是欲扬先抑。
+邓一硕，统计之都理事会理事、COS沙龙联合发起人。毕业于中央财经大学统计与数学学院，曾任职于世界500强首钢集团，有丰富的金融及财务运作经验，长期专注于金融财务建模和量化投资交易领域，并先后翻译《R语言核心技......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2018-01-31
+            2018-02-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#日常" title="日常">日常</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/02/02/[Manual] R语言quantstrat包使用手册/">
+        <h2 class="post-title">
+            [Manual] R语言quantstrat包使用手册
+        </h2>
+        <h3 class="post-subtitle">
+            绕题太远了
+        </h3>
+        <div class="post-content-preview">
+            在阅读本文之前，你可能对以下扫盲贴有兴趣：
+强烈推荐《Backtesting Strategies with R》如何搭建量化投资研究系统之三（工具篇quantstrat）Quantitative Trading Strategy Using Quantstrat Package in R: A Step by Step GuideR Forge package 地址A Hammer Tra......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-02-02
         </p>
         <div class="tags">
             
               <a href="/tags/#R" title="R">R</a>
+            
+              <a href="/tags/#quant" title="quant">quant</a>
             
         </div>
     
@@ -277,6 +302,42 @@ step2:检查csv数据类型，因为在尝试过程......
         <div class="tags">
             
               <a href="/tags/#SQL" title="SQL">SQL</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/31/[R语言] GARCH及其实现/">
+        <h2 class="post-title">
+            [R语言] GARCH过一遍
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于波动率建模的开篇
+        </h3>
+        <div class="post-content-preview">
+            金融时间序列有几个普遍现象：
+
+一组时间序列本身可能只有非常微弱的相关性，而它的函数（平方项、绝对值）呈现很强的相关性
+
+资产收益率序列的条件方差会随着时间改变，呈现条件异方差的特征
+
+波动集聚（volatility clustering）现象，资产收益率序列的波动会有持续的现象，大波动跟着大波动，小波动跟着小波动
+
+资产收益率序列并不服从正态分布，其极端值较多，具有厚尾（heavy tai......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-31
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
             
         </div>
     
@@ -407,68 +468,6 @@ step2:检查csv数据类型，因为在尝试过程......
 
 <div class="post-preview">
 
-    <a href="/2018/01/20/[金融] 再谈Black-Litterman模型/">
-        <h2 class="post-title">
-            [金融] 再谈Black-Litterman模型
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于投资组合优化的跟踪观察
-        </h3>
-        <div class="post-content-preview">
-            既然已经过了一遍马可威茨的均值方差模型，那么就可以继续接着再谈一遍Black-Litterman模型了。
-前面说到利用历史数据去估计期望收益率向量$E(R)$和协方差阵$\hat{\Sigma}$。这种利用历史数据对金融资产做估计是备受诟病的，因为没有用到当前的信息；并且随着资产个数的增加，协方差阵的维度也增加，估计的参数越来越多，由此估计的协方差阵是不稳健的，进一步地，由此计算的投资组合效......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#金融" title="金融">金融</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/20/[金融] 股票的高beta异象/">
-        <h2 class="post-title">
-            [金融] 股票的高beta异象
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于金融市场的跟踪观察
-        </h3>
-        <div class="post-content-preview">
-            
-报告来自微信文章《股票市场的“高beta异象”——High beta is low alpha | 专题报告 招银资管研究》
-
-
-报告的重要内容是指出了，中国的A股市场确实存在“高beta异象”——高beta的股票会带来低alpha，高beta与低beta组别的超额收益（alpha）显著不同，无论是单个市场因子，或者三因子模型。
-计算方法我们使用2005年以来，上市超过两年的股票数据，截止......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#金融" title="金融">金融</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/20/[日常] 2018年01月20日/">
         <h2 class="post-title">
             2018年01月20日
@@ -499,26 +498,26 @@ step2:检查csv数据类型，因为在尝试过程......
 
 <div class="post-preview">
 
-    <a href="/2018/01/14/[日常] 2018年01月14日/">
+    <a href="/2018/01/20/[金融] 再谈Black-Litterman模型/">
         <h2 class="post-title">
-            2018年01月14日
+            [金融] 再谈Black-Litterman模型
         </h2>
         <h3 class="post-subtitle">
-            现在我比自己头像还黑
+            这是一篇关于投资组合优化的跟踪观察
         </h3>
         <div class="post-content-preview">
-            心疼我的烤鸭，心疼我的烤鸭，气死老子了，老子不过深圳河了。
-今天出去浪了一天，完全没有复习，明明还有两篇半的论文要弄还要闲庭信步。去永旺那边的商场挺大的，没想到不容易出去一次，居然吃的是汉堡王，吃完有洋葱味那种，更没想到山东舍友一个人吃了两个套餐；果然符合我对山东汉子的所有想象。前几天遇到隔壁班长，我问他趵突泉还有很多人去参观吗，他掏出手机的照片，原来趵突泉从以前的30厘米，到15厘米，再到......
+            既然已经过了一遍马可威茨的均值方差模型，那么就可以继续接着再谈一遍Black-Litterman模型了。
+前面说到利用历史数据去估计期望收益率向量$E(R)$和协方差阵$\hat{\Sigma}$。这种利用历史数据对金融资产做估计是备受诟病的，因为没有用到当前的信息；并且随着资产个数的增加，协方差阵的维度也增加，估计的参数越来越多，由此估计的协方差阵是不稳健的，进一步地，由此计算的投资组合效......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2018-01-14
+            2018-01-20
         </p>
         <div class="tags">
             
-              <a href="/tags/#日常" title="日常">日常</a>
+              <a href="/tags/#金融" title="金融">金融</a>
             
         </div>
     
@@ -568,7 +567,11 @@ step2:检查csv数据类型，因为在尝试过程......
             
         
             
-            <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
+            
+        
+            
+            <a href="/tags/#R" title="R" rel="15">R</a>
             
         
             
@@ -578,15 +581,9 @@ step2:检查csv数据类型，因为在尝试过程......
             
         
             
-            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
-            
         
             
-            <a href="/tags/#R" title="R" rel="14">R</a>
-            
-        
-            
-        
+            <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
             
         
             
@@ -610,17 +607,21 @@ step2:检查csv数据类型，因为在尝试过程......
             
         
             
-            <a href="/tags/#日常" title="日常" rel="6">日常</a>
-            
         
             
-            <a href="/tags/#电影" title="电影" rel="3">电影</a>
+            <a href="/tags/#日常" title="日常" rel="7">日常</a>
             
         
             
         
             
             <a href="/tags/#计量" title="计量" rel="11">计量</a>
+            
+        
+            
+            <a href="/tags/#电影" title="电影" rel="3">电影</a>
+            
+        
             
         
             
@@ -743,7 +744,11 @@ step2:检查csv数据类型，因为在尝试过程......
     <ul>
       
         <li>
-          <a href="/2018/01/31/[R语言] GARCH及其实现/">[R语言] GARCH过一遍</a>
+          <a href="/2018/02/02/[日常] 2018年02月02日/">2018年01月28日</a>
+        </li>
+      
+        <li>
+          <a href="/2018/02/02/[Manual] R语言quantstrat包使用手册/">[Manual] R语言quantstrat包使用手册</a>
         </li>
       
         <li>
@@ -751,15 +756,11 @@ step2:检查csv数据类型，因为在尝试过程......
         </li>
       
         <li>
+          <a href="/2018/01/31/[R语言] GARCH及其实现/">[R语言] GARCH过一遍</a>
+        </li>
+      
+        <li>
           <a href="/2018/01/31/[电影] 无问西东/">[电影] 无问西东</a>
-        </li>
-      
-        <li>
-          <a href="/2018/01/28/[日常] 2018年01月29日/">2018年01月28日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/01/26/[R语言] 分组计算/">[R语言] 分组计算</a>
         </li>
       
     </ul>
