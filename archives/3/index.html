@@ -136,7 +136,7 @@
 
                         
                         <li>
-                            <a href="/Gallery/">Gallery</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -150,7 +150,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/Gallery/">Gallery</a>
                         </li>
                         
                     
@@ -216,27 +216,64 @@
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] SQL Server R/">
+    <a href="/2018/01/05/[计量] 一元线性回归/">
         <h2 class="post-title">
-            [R语言] SQL Server R
+            [计量] 一元线性回归
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于在数据库中调用R语言的学习笔记
+            这是一篇关于一元线性回归的最后复习
         </h3>
         <div class="post-content-preview">
-            Microsoft 官方文档
-Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
+            线性回归模型
+y=\beta_0+\beta_1 x +\epsilon线性回归方程
+E(y|x)=\beta_0+\beta_1 x假设见计量经济学回顾
+最小二乘估计目标函数为
+
+min \ Q=\sum_{i=1}^n \hat{u}_i^2=\sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x_i)^2对各个回归系数求偏导，得到正规方程
+
+\l......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-05
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/01/[日常] 2018年01月01日/">
+        <h2 class="post-title">
+            2018年01月01日
+        </h2>
+        <h3 class="post-subtitle">
+            新年快乐
+        </h3>
+        <div class="post-content-preview">
+            你好，第一次见面，请多多关照！
+新年的意义可能在于挥别过去一年阴沉的雾霾，拥抱崭新的未来。春节比较适合给身心放假和家人一起热闹，元旦还是适合规划自己一年的安排。
+而我比较贪。
+祝福每个人可以好好学习，劝君莫惜金缕衣，劝君惜取少年时。
 ...
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-12-12
+            2018-01-01
         </p>
         <div class="tags">
             
-              <a href="/tags/#R" title="R">R</a>
+              <a href="/tags/#日常" title="日常">日常</a>
             
         </div>
     
@@ -260,6 +297,36 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
 今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
 拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
 12345......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-12-12
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/12/[R语言] SQL Server R/">
+        <h2 class="post-title">
+            [R语言] SQL Server R
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于在数据库中调用R语言的学习笔记
+        </h3>
+        <div class="post-content-preview">
+            Microsoft 官方文档
+Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
+...
         </div>
     </a>
     
@@ -464,66 +531,6 @@ y_i=\beta_0+x_i'\beta+\epsil......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/26/[Statistics] PCA资源汇总/">
-        <h2 class="post-title">
-            [Statistics] 多元统计资源汇总
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于多元统计的资料汇总
-        </h3>
-        <div class="post-content-preview">
-            多元统计这个东西已经被很多人研究透了，不能重复造轮子啊，所以我就把它们集中到一起吧，讲真，它们可能比教科书还要详细。
-PCA的数学原理SVD分解
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-26
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#多元统计" title="多元统计">多元统计</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
-        <h2 class="post-title">
-            [文献阅读] 中国股票市场可预测性的实证研究
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这篇文章是金融学院的姜富伟读博期间发的论文，周二就要见真人了，所以我现在要做好功课。
-首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。
-Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-26
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -578,9 +585,9 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
             
         
             
-            <a href="/tags/#python" title="python" rel="6">python</a>
-            
         
+            
+            <a href="/tags/#python" title="python" rel="6">python</a>
             
         
             
@@ -610,21 +617,21 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
             
         
             
-        
-            
-            <a href="/tags/#日常" title="日常" rel="7">日常</a>
+            <a href="/tags/#日常" title="日常" rel="9">日常</a>
             
         
             
         
             
-            <a href="/tags/#计量" title="计量" rel="11">计量</a>
+        
             
         
             
             <a href="/tags/#电影" title="电影" rel="3">电影</a>
             
         
+            
+            <a href="/tags/#计量" title="计量" rel="11">计量</a>
             
         
             
@@ -747,7 +754,15 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
     <ul>
       
         <li>
-          <a href="/2018/02/02/[日常] 2018年02月02日/">2018年01月28日</a>
+          <a href="/2018/02/22/[日常] 2018年02月22日/">2018年02月22日</a>
+        </li>
+      
+        <li>
+          <a href="/2018/02/16/[日常] 2018年02月16日/">2018年02月16日</a>
+        </li>
+      
+        <li>
+          <a href="/2018/02/02/[日常] 2018年02月02日/">2018年02月02日</a>
         </li>
       
         <li>
@@ -756,14 +771,6 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
       
         <li>
           <a href="/2018/01/31/[SQL] bulk insert/">[SQL] bulk insert</a>
-        </li>
-      
-        <li>
-          <a href="/2018/01/31/[R语言] GARCH及其实现/">[R语言] GARCH过一遍</a>
-        </li>
-      
-        <li>
-          <a href="/2018/01/31/[电影] 无问西东/">[电影] 无问西东</a>
         </li>
       
     </ul>
