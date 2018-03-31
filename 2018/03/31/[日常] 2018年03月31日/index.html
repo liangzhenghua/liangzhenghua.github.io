@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [计量] 自相关性 - 南有嘉鱼 | 南有樛木
+          2018年03月31日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/09/[计量] 自相关性/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/03/31/[日常] 2018年03月31日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/economic3.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[计量] 自相关性</h1>
-                        <h2 class="subheading">这是一篇关于自相关性的介绍</h2>
+                        <h1>2018年03月31日</h1>
+                        <h2 class="subheading">玉渊潭的一天</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2018-01-09
+                            2018-03-31
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -222,57 +222,16 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>注：回归子也可以被叫做被解释变量</p>
-<p>从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用Newey-West标准误一起解决掉。</p>
-<h1 id="德宾-沃森d检验"><a href="#德宾-沃森d检验" class="headerlink" title="德宾-沃森d检验"></a>德宾-沃森d检验</h1><p><strong><em>德宾沃森d统计量</em></strong>定义如下：</p>
-<script type="math/tex; mode=display">
-d=\frac{\sum_{t=2}^n (\hat{u}_t-\hat{u}_{t-1})^2}{\sum_{t=2}^n \hat{u}_t^2 }</script><p>检验的基本假定：</p>
-<ul>
-<li>回归必须含有截距项</li>
-<li>解释变量$X$是非随机的</li>
-<li>干扰项$u_t$是一阶自回归过程产生的</li>
-<li>干扰项$u_t$服从正态分布</li>
-<li>回归模型不含有回归子的滞后值</li>
-<li>没有数据缺失</li>
-</ul>
-<p>由一阶自回归相关系数的定义：</p>
-<script type="math/tex; mode=display">
-\hat{\rho}=\frac{\sum \hat{u}_t \hat{u}_{t-1}}{\sum \hat{u}_t^2}</script><p>立马有$d \approx 2(1-\hat{\rho}) $</p>
-<p>在一阶自回归模型中，可以证明，回归系数$rho$和相关系数非常接近，因此采用符号$rho$。</p>
-<p>为什么德宾-沃森d检验只适用于一阶自相关？这是因为回归模型包含回归子的滞后值时，d值通常为2左右，从而表明这种模型不存在一阶自相关。德宾曾经提出所谓的<strong>h检验</strong>来检验序列的高阶自相关，但从统计学意义上看，这一检验不如BG检验。</p>
-<h1 id="BG检（布罗施-戈弗雷）检验"><a href="#BG检（布罗施-戈弗雷）检验" class="headerlink" title="BG检（布罗施-戈弗雷）检验"></a>BG检（布罗施-戈弗雷）检验</h1><p>这种检验允许：</p>
-<ul>
-<li>非随机回归元，如回归子的滞后值</li>
-<li>高阶自相关自回归模式</li>
-<li>白噪音误差项的简单或高阶移动平均生成误差项$u_t$</li>
-</ul>
-<p>以双变量回归模型来说明检验步骤如下：</p>
-<p>令$Y_t=\beta_1 +\beta_2 X_t + u_t$</p>
-<p>假定误差项$u_t$服从如下$p$阶自回归AR(p)模式：</p>
-<script type="math/tex; mode=display">
-u_t=\rho_1 u_{t-1} +\rho_2 u_{t-2} + ... +\rho_p u_{t-p} +\epsilon_t</script><p>则要检验的原假设为：$H_0: \ \rho_1=\rho_2=…=\rho_p=0$</p>
-<p><code>Step1</code> 利用OLS估计得到残差$\hat{u}_t$</p>
-<p><code>Step2</code> 将$\hat{u}_t$对所有解释变量和第一步所估计的残差滞后值$\hat{u}_{t-1}$，$\hat{u}_{t-2}$，…，$\hat{u}_{t-p}$做回归，并从这个辅助回归得到$R^2$</p>
-<script type="math/tex; mode=display">
-\hat{u}_t=\alpha_1+\alpha_2 X_t + \rho_1 \hat{u}_{t-1}+\rho_2 \hat{u}_{t-2}+...+\rho_p \hat{u}_{t-p} + \epsilon_t</script><p><code>Step3</code> 若样本容量足够大，</p>
-<script type="math/tex; mode=display">
-(n-p)R^2 \sim \chi_p^2</script><p>若在选定显著性水平下$(n-p)R^2$超过临界值，我们就拒绝$\chi$临界值。</p>
-<p>BG检验（也可叫LM检验）的一个缺陷在于，滞后长度p不能先验设定，可以用赤池准则和更有功效的施瓦茨准则来筛选滞后长度。且存在低阶自相关时高阶BG检验不总是拒绝原假设。</p>
-<h1 id="补救措施"><a href="#补救措施" class="headerlink" title="补救措施"></a>补救措施</h1><h2 id="广义最小二乘"><a href="#广义最小二乘" class="headerlink" title="广义最小二乘"></a>广义最小二乘</h2><h3 id="rho-已知"><a href="#rho-已知" class="headerlink" title="$\rho$已知"></a>$\rho$已知</h3><p>利用广义差分方程，变换数据。</p>
-<script type="math/tex; mode=display">
-Y_t-\rho Y_{t-1} = \beta_1(1-\rho) + \beta_2 (X_t-\rho X_{t-2}) +\epsilon_t</script><p>$\epsilon_t=u_t-\rho u_{t-1}$满足全部OLS假定，故能够得到BLUE估计量</p>
-<h3 id="rho-未知"><a href="#rho-未知" class="headerlink" title="$\rho$未知"></a>$\rho$未知</h3><ul>
-<li><p>一次差分法 如果（一阶）自相关系数很高，接近于1，那么可以尝试一次差分法。</p>
-</li>
-<li><p>基于德宾-沃森估计的$\rho$</p>
-</li>
-<li><p>基于残差估计的$\rho$</p>
-</li>
-<li><p>基于迭代的$\rho$</p>
-</li>
-</ul>
-<p>注意，作广义差分后的回归元的估计系数跟原模型的估计系数一样，但截距项要除以$1-\hat{\rho}$才能还原到原模型的截距。</p>
-<h2 id="Newey-West-修正标准误（HAC）"><a href="#Newey-West-修正标准误（HAC）" class="headerlink" title="Newey-West 修正标准误（HAC）"></a>Newey-West 修正标准误（HAC）</h2><p>在大样本下可以用Newey-West 修正标准误。但在小样本下，这种修正的估计量的性质还没有得到很好的证明，还不如用OLS。</p>
+                <p>跟着我说愚人节快乐！</p>
+<p>因为把机票退掉的缘故，今天跟某雪去了玉渊潭看樱花，去国贸吃了八斗鸡，开心极了。坐地铁回昌平的时候听她说复试过了，就更显得那杯燕京啤酒更加地珍贵了，这么看未来两年的文娱生活就交给她打理了，整个人很像我那个大几天的表姐了。前两天和某文一不小心就聊到凌晨3点多，这么认真聊天的可能也没谁了吧。</p>
+<p>没想到毕业之后还能有这么转折，一扫之前的阴霾。</p>
+<p>除了不敢跟别人说我在一个初创私募实习一个月拿5k工资，关于自己boss的事情也是守口如瓶，这个可以跟我聊一整天的巨蟹座boss还给我在市里租房子，无形之中我的起点似乎比别人高了一点，尽管如此，我开始投机取巧得过且过了。</p>
+<p>现在的生活态度和工作态度都烂到爆了。</p>
+<p>HBH偶尔正经起来，“生意人 拿得起放得下”。同寝4年，知道大家都是那种控制欲很强的人，像橙子以为那样脾气很好对什么都无所谓，大概还是认识浅薄。</p>
+<p>每个人就像天上的星星，当我靠近每一颗去观察，我以为抓住了它们的中心，却仍然无法知道自己的位置和哪一颗更近。</p>
+<blockquote>
+<p>对了，今晚回来的时候还遇到我院一个教授，就坐我旁边一起到西二旗，做复杂网络的大牛手里拿着一袋烤鱼就和我唠嗑了。据说在北京一板砖掉下来，处长能砸倒一大片，看着朴素的professor·张，我信了。</p>
+</blockquote>
 
 
 
@@ -280,13 +239,9 @@ Y_t-\rho Y_{t-1} = \beta_1(1-\rho) + \beta_2 (X_t-\rho X_{t-2}) +\epsilon_t</scr
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/01/09/[计量] 多元线性回归/" data-toggle="tooltip" data-placement="top" title="[计量] 多元线性回归">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2018/01/05/[计量] 一元线性回归/" data-toggle="tooltip" data-placement="top" title="[计量] 一元线性回归">Next Post &rarr;</a>
+                            <a href="/2018/03/15/[文献阅读] MeanVarianceTrackingError/" data-toggle="tooltip" data-placement="top" title="[文献阅读] A Mean/Variance Analysis of Tracking Error">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -311,17 +266,6 @@ Y_t-\rho Y_{t-1} = \beta_1(1-\rho) + \beta_2 (X_t-\rho X_{t-2}) +\epsilon_t</scr
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#德宾-沃森d检验"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">德宾-沃森d检验</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#BG检（布罗施-戈弗雷）检验"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">BG检（布罗施-戈弗雷）检验</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#补救措施"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">补救措施</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#广义最小二乘"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">广义最小二乘</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rho-已知"><span class="toc-nav-number">3.1.1.</span> <span class="toc-nav-text">$\rho$已知</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rho-未知"><span class="toc-nav-number">3.1.2.</span> <span class="toc-nav-text">$\rho$未知</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Newey-West-修正标准误（HAC）"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">Newey-West 修正标准误（HAC）</span></a></li></ol></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -336,7 +280,7 @@ Y_t-\rho Y_{t-1} = \beta_1(1-\rho) + \beta_2 (X_t-\rho X_{t-2}) +\epsilon_t</scr
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -368,73 +312,19 @@ Y_t-\rho Y_{t-1} = \beta_1(1-\rho) + \beta_2 (X_t-\rho X_{t-2}) +\epsilon_t</scr
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
 
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
-
 <!-- 控制文章是否需要密码 2017-08-07-->
+
+<script>
+var password = '愚人节快乐！';
+	(function(){
+			if (prompt('传送门需要原力才能开启，may the force be with you！','') !== password){
+				alert('不好意思！你可能用的是假原力');
+				history.back();
+			}
+	})();
+</script>
 
 </article>
 
@@ -445,8 +335,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/09/[计量] 自相关性/";
-    var disqus_url = "https://liangzhenghua.github.io/2018/01/09/[计量] 自相关性/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/03/31/[日常] 2018年03月31日/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/03/31/[日常] 2018年03月31日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

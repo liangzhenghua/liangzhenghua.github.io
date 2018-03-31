@@ -141,13 +141,6 @@
 
                         
                         <li>
-                            <a href="/Gallery/">Gallery</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -155,14 +148,21 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/Gallery/">Gallery</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -321,6 +321,16 @@
 <!-- 控制文章是否加载公式 -->
 
 <!-- 控制文章是否需要密码 2017-08-07-->
+
+<script>
+var password = 'leeonkei';
+	(function(){
+			if (prompt('传送门需要原力才能开启，may the force be with you！','') !== password){
+				alert('不好意思！你可能用的是假原力');
+				history.back();
+			}
+	})();
+</script>
 
 </article>
 
