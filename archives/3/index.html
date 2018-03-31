@@ -129,20 +129,6 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/Gallery/">Gallery</a>
                         </li>
                         
@@ -150,7 +136,21 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -216,17 +216,17 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/10/[日常] 2018年01月10日/">
+    <a href="/2018/01/10/[电影] 芳华/">
         <h2 class="post-title">
-            2018年01月10日
+            [电影] 芳华
         </h2>
         <h3 class="post-subtitle">
-            
+            心血来潮又翻了别家的视频网站后台
         </h3>
         <div class="post-content-preview">
-            
+            先mark了再说，我也有一颗红卫兵的心啊。
 
-有那么几分钟，忽然觉得自己变了另一个人，进入了一种空灵的境界，所有东西都可以抽丝剥茧信手拈来，这就是我梦寐以求的状态啊！
+
 ...
         </div>
     </a>
@@ -237,7 +237,7 @@
         </p>
         <div class="tags">
             
-              <a href="/tags/#日常" title="日常">日常</a>
+              <a href="/tags/#电影" title="电影">电影</a>
             
         </div>
     
@@ -379,17 +379,20 @@ min \ Q=\sum_{i=1}^n \hat{u}_i^2=\sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] SQL Server R/">
+    <a href="/2017/12/12/[R语言] 最优化/">
         <h2 class="post-title">
-            [R语言] SQL Server R
+            [R语言] 在R里面做最优化
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于在数据库中调用R语言的学习笔记
+            这是一篇关于R语言进行最优化的学习笔记
         </h3>
         <div class="post-content-preview">
-            Microsoft 官方文档
-Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
-...
+            收集了几个包，有空可以逐一试试每个包的求解速度。
+R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
+
+今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
+拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
+12345......
         </div>
     </a>
     
@@ -409,20 +412,17 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] 最优化/">
+    <a href="/2017/12/12/[R语言] SQL Server R/">
         <h2 class="post-title">
-            [R语言] 在R里面做最优化
+            [R语言] SQL Server R
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于R语言进行最优化的学习笔记
+            这是一篇关于在数据库中调用R语言的学习笔记
         </h3>
         <div class="post-content-preview">
-            收集了几个包，有空可以逐一试试每个包的求解速度。
-R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
-
-今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
-拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
-12345......
+            Microsoft 官方文档
+Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
+...
         </div>
     </a>
     
@@ -570,15 +570,9 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
     <div class="tags">
         
             
-        
-            
             <a href="/tags/#贝叶斯统计" title="贝叶斯统计" rel="4">贝叶斯统计</a>
             
         
-            
-        
-            
-            <a href="/tags/#R" title="R" rel="15">R</a>
             
         
             
@@ -586,9 +580,15 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
-            <a href="/tags/#python" title="python" rel="6">python</a>
+            <a href="/tags/#R" title="R" rel="15">R</a>
             
         
+            
+        
+            
+        
+            
+            <a href="/tags/#python" title="python" rel="6">python</a>
             
         
             
@@ -614,9 +614,9 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
-            <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
-            
         
+            
+            <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
             
         
             
@@ -634,11 +634,11 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
-        
-            
-        
-            
             <a href="/tags/#金融" title="金融" rel="2">金融</a>
+            
+        
+            
+        
             
         
             
@@ -757,11 +757,11 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
         </li>
       
         <li>
-          <a href="/2018/03/15/[文献阅读] MeanVarianceTrackingError/">[文献阅读] A Mean/Variance Analysis of Tracking Error</a>
+          <a href="/2018/03/15/[日常] 2018年03月15日/">2018年03月15日</a>
         </li>
       
         <li>
-          <a href="/2018/03/15/[日常] 2018年03月15日/">2018年03月15日</a>
+          <a href="/2018/03/15/[文献阅读] MeanVarianceTrackingError/">[文献阅读] A Mean/Variance Analysis of Tracking Error</a>
         </li>
       
         <li>
