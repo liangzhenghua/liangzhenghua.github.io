@@ -136,14 +136,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -213,6 +213,36 @@
 
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2018/01/26/[R语言] 分组计算/">
+        <h2 class="post-title">
+            [R语言] 分组计算
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于R语言快速分组计算的学习笔记
+        </h3>
+        <div class="post-content-preview">
+            在大猫师兄的强烈推荐下，我研究了利用data.table包做分组计算。
+以往做分组计算的思路是这样子的：先按照某个变量（比如股票stock）将数据集划分（split）为一个列表，内含若干个小数据框，然后自定义一个可以处理每个小数据框的函数。最后就可以利用lapply函数对列表中每个数据框做遍历了，这样子的速度很慢，可以用parallel包做个加速。为此我还写了个模板，记录下来，以后备用。
+1......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -435,37 +465,6 @@ var(R)=w'\Sigma w其中$\Sig......
 
 <div class="post-preview">
 
-    <a href="/2018/01/10/[日常] 2018年01月10日/">
-        <h2 class="post-title">
-            2018年01月10日
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-
-有那么几分钟，忽然觉得自己变了另一个人，进入了一种空灵的境界，所有东西都可以抽丝剥茧信手拈来，这就是我梦寐以求的状态啊！
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-10
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#日常" title="日常">日常</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/10/[电影] 芳华/">
         <h2 class="post-title">
             [电影] 芳华
@@ -497,26 +496,28 @@ var(R)=w'\Sigma w其中$\Sig......
 
 <div class="post-preview">
 
-    <a href="/2018/01/09/[计量] 自相关性/">
+    <a href="/2018/01/10/[日常] 2018年01月10日/">
         <h2 class="post-title">
-            [计量] 自相关性
+            2018年01月10日
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于自相关性的介绍
+            
         </h3>
         <div class="post-content-preview">
-            注：回归子也可以被叫做被解释变量
-从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
+            
+
+有那么几分钟，忽然觉得自己变了另一个人，进入了一种空灵的境界，所有东西都可以抽丝剥茧信手拈来，这就是我梦寐以求的状态啊！
+...
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2018-01-09
+            2018-01-10
         </p>
         <div class="tags">
             
-              <a href="/tags/#计量" title="计量">计量</a>
+              <a href="/tags/#日常" title="日常">日常</a>
             
         </div>
     
@@ -564,9 +565,9 @@ var(R)=w'\Sigma w其中$\Sig......
     <div class="tags">
         
             
-            <a href="/tags/#贝叶斯统计" title="贝叶斯统计" rel="4">贝叶斯统计</a>
-            
         
+            
+            <a href="/tags/#贝叶斯统计" title="贝叶斯统计" rel="4">贝叶斯统计</a>
             
         
             
@@ -580,15 +581,15 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
-            <a href="/tags/#python" title="python" rel="6">python</a>
-            
-        
-            
         
             
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
+            
+        
+            
+            <a href="/tags/#python" title="python" rel="6">python</a>
             
         
             
@@ -614,7 +615,7 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
-            <a href="/tags/#日常" title="日常" rel="9">日常</a>
+            <a href="/tags/#日常" title="日常" rel="10">日常</a>
             
         
             
@@ -747,6 +748,10 @@ var(R)=w'\Sigma w其中$\Sig......
     <ul>
       
         <li>
+          <a href="/2018/03/31/[日常] 2018年03月31日/">2018年03月31日</a>
+        </li>
+      
+        <li>
           <a href="/2018/03/15/[文献阅读] MeanVarianceTrackingError/">[文献阅读] A Mean/Variance Analysis of Tracking Error</a>
         </li>
       
@@ -756,10 +761,6 @@ var(R)=w'\Sigma w其中$\Sig......
       
         <li>
           <a href="/2018/02/16/[日常] 2018年02月16日/">2018年02月16日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/02/02/[日常] 2018年02月02日/">2018年02月02日</a>
         </li>
       
         <li>
