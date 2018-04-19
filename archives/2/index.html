@@ -129,13 +129,6 @@
 
                         
                         <li>
-                            <a href="/Gallery/">Gallery</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -150,8 +143,18 @@
 
                         
                         <li>
+                            <a href="/Gallery/">Gallery</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/about/">About</a>
                         </li>
+                        
+                    
+
                         
                     
 
@@ -305,6 +308,36 @@
 
 <div class="post-preview">
 
+    <a href="/2018/01/20/[日常] 2018年01月20日/">
+        <h2 class="post-title">
+            2018年01月20日
+        </h2>
+        <h3 class="post-subtitle">
+            再不记录一下就要溜走了
+        </h3>
+        <div class="post-content-preview">
+            考高微那天早早起来复习，不小心着凉了，考试的时候爆炸了，提早交卷走人，结束一个学期的学习。
+考试实在太水了，除了剃胡子的频率越来越密集，一个学期下来也没有知识的增长，python没机会用又忘了。
+好的东西没学到，倒是沾了一身的戾气。今晚去地下超市，遇到专硕大数据班一个小伙子，一个学期了我也不认识他叫什么，他倒是每次很热情笑着跟我打招呼。你看，这就是跟我没什么交集又没有什么特别之处的人的一个缩......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-20
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#日常" title="日常">日常</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/20/[金融] 再谈Black-Litterman模型/">
         <h2 class="post-title">
             [金融] 再谈Black-Litterman模型
@@ -367,27 +400,30 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/20/[日常] 2018年01月20日/">
+    <a href="/2018/01/14/[R语言] 投资组合/">
         <h2 class="post-title">
-            2018年01月20日
+            [R语言] 投资组合的马可威茨模型
         </h2>
         <h3 class="post-subtitle">
-            再不记录一下就要溜走了
+            这是一篇关于投资组合的管中窥豹
         </h3>
         <div class="post-content-preview">
-            考高微那天早早起来复习，不小心着凉了，考试的时候爆炸了，提早交卷走人，结束一个学期的学习。
-考试实在太水了，除了剃胡子的频率越来越密集，一个学期下来也没有知识的增长，python没机会用又忘了。
-好的东西没学到，倒是沾了一身的戾气。今晚去地下超市，遇到专硕大数据班一个小伙子，一个学期了我也不认识他叫什么，他倒是每次很热情笑着跟我打招呼。你看，这就是跟我没什么交集又没有什么特别之处的人的一个缩......
+            基本思想在投资里面，资产组合一定要考虑，本文从马可威茨模型开始说起。
+假设我们有$p$个股票，收益率视为随机变量$r_1,r_2,…,r_p$，那么资产组合可以记为$R=w_1 r_1+w_2 r_2+…+w_p r_p=w’r$，资产组合的均值可以记为$E(R)$，方差可以记为$var(R)$，由多元统计知识知道
+
+
+E(R)=w'E(r)
+var(R)=w'\Sigma w其中$\Sig......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2018-01-20
+            2018-01-14
         </p>
         <div class="tags">
             
-              <a href="/tags/#日常" title="日常">日常</a>
+              <a href="/tags/#R" title="R">R</a>
             
         </div>
     
@@ -417,39 +453,6 @@
         <div class="tags">
             
               <a href="/tags/#日常" title="日常">日常</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/14/[R语言] 投资组合/">
-        <h2 class="post-title">
-            [R语言] 投资组合的马可威茨模型
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于投资组合的管中窥豹
-        </h3>
-        <div class="post-content-preview">
-            基本思想在投资里面，资产组合一定要考虑，本文从马可威茨模型开始说起。
-假设我们有$p$个股票，收益率视为随机变量$r_1,r_2,…,r_p$，那么资产组合可以记为$R=w_1 r_1+w_2 r_2+…+w_p r_p=w’r$，资产组合的均值可以记为$E(R)$，方差可以记为$var(R)$，由多元统计知识知道
-
-
-E(R)=w'E(r)
-var(R)=w'\Sigma w其中$\Sig......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-14
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#R" title="R">R</a>
             
         </div>
     
@@ -568,27 +571,25 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
-            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
-            
         
             
             <a href="/tags/#R" title="R" rel="15">R</a>
             
         
             
-        
-            
-        
-            
-            <a href="/tags/#爬虫" title="爬虫" rel="3">爬虫</a>
-            
-        
-            
-            <a href="/tags/#python" title="python" rel="6">python</a>
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
         
+            
+            <a href="/tags/#python" title="python" rel="7">python</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#爬虫" title="爬虫" rel="4">爬虫</a>
             
         
             
@@ -614,11 +615,15 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
+        
+            
             <a href="/tags/#日常" title="日常" rel="11">日常</a>
             
         
             
             <a href="/tags/#电影" title="电影" rel="3">电影</a>
+            
+        
             
         
             
@@ -628,11 +633,9 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
-        
-            
-        
-            
             <a href="/tags/#金融" title="金融" rel="2">金融</a>
+            
+        
             
         
             

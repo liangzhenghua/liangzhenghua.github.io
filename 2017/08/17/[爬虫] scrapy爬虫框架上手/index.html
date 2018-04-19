@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Statistics] 多元统计资源汇总 - 南有嘉鱼 | 南有樛木
+          [爬虫] scrapy爬虫框架上手 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/11/26/[Statistics] PCA资源汇总/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2017/08/17/[爬虫] scrapy爬虫框架上手/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/blackboard.jpg')
+            background-image: url('/img/python.jpg')
             /*post*/
         
     }
@@ -86,14 +86,16 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#多元统计" title="多元统计">多元统计</a>
+                              <a class="tag" href="/tags/#python" title="python">python</a>
+                            
+                              <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
                             
                         </div>
-                        <h1>[Statistics] 多元统计资源汇总</h1>
-                        <h2 class="subheading">这是一篇关于多元统计的资料汇总</h2>
+                        <h1>[爬虫] scrapy爬虫框架上手</h1>
+                        <h2 class="subheading">这是一篇抛弃selenium的练手项目</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-11-26
+                            2017-08-17
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -225,8 +227,12 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>多元统计这个东西已经被很多人研究透了，不能重复造轮子啊，所以我就把它们集中到一起吧，讲真，它们可能比教科书还要详细。</p>
-<p><a href="http://blog.codinglabs.org/articles/pca-tutorial.html" target="_blank" rel="external">PCA的数学原理</a><br><a href="https://www.cnblogs.com/LeftNotEasy/archive/2011/01/19/svd-and-applications.html" target="_blank" rel="external">SVD分解</a></p>
+                <p>如果你是第一次阅读本文，你可能会对以下扫盲贴感兴趣：<br><a href="http://scrapy-chs.readthedocs.io/zh_CN/0.24/intro/tutorial.html" target="_blank" rel="external">scrapy官方文档</a><br>崔庆才|静觅的《<a href="https://cuiqingcai.com/3472.html" target="_blank" rel="external">小白进阶之Scrapy第一篇</a>》<br><a href="http://www.cnblogs.com/jinxiao-pu/p/6713333.html" target="_blank" rel="external">scrapy爬取知名技术文章网站(1)</a><br><a href="https://blog.csdn.net/c406495762/article/details/72858983" target="_blank" rel="external">Python3网络爬虫(十二)：初识Scrapy之再续火影情缘</a></p>
+<p>你可以还会关心以下的链接：<br><a href="https://zhuanlan.zhihu.com/p/30241753" target="_blank" rel="external">Python网络爬虫（一）- 入门基础</a><br><a href="https://blog.csdn.net/aaronjny/article/details/73603727" target="_blank" rel="external">使用scrapy爬取妹子图（一）</a><br><a href="https://www.cnblogs.com/wanghzh/p/5824181.html" target="_blank" rel="external">教你分分钟学会用python爬虫框架Scrapy爬取心目中的女神</a></p>
+<p>还有我们常用网站也有壮士已经研究过了：<br><a href="https://zhuanlan.zhihu.com/p/27938007" target="_blank" rel="external">资源整理 | 32个Python爬虫项目让你一次吃到撑！</a></p>
+<hr>
+<p>现在很多关于网络爬虫的教程了，旧时王谢堂前燕，如今飞入寻常百姓家。换个角度看，一代比一代的要求更高，以前零几年的时候，会一点python就已经是传说中的人物了，而今只要大学毕业就会接触过python，连爬虫这个东西都已经不算黑科技了。</p>
+<h2 id="一个开始"><a href="#一个开始" class="headerlink" title="一个开始"></a>一个开始</h2><p>1.引擎：hello, spider，你要处理哪一下网站？<br>2.spider：老大要我处理xx.com<br>3.引擎：你把第一个需要处理的URL给我吧。<br>4.spider：给你，这是第一个url xxooxx.com<br>5.引擎：hello,调度器，我这有个request 请求你帮我排列里下。<br>6.调度器：好的，正在帮你处理，请稍。<br>7.引擎：Hi，调度器，把你处理好的request 请求给我下。<br>8.调度器：给你，这是我处理好的request<br>9.引擎：Hi，下载器材，你按照老大给的“下载中间件”的模板，下载这个request请求的数据。<br>10.下载器：好的！在下载中……，好了，给你这是下载好的东西。<br>11.引擎：Hi，spider，这是下载好的东西。<br>12.spider：好的，我按照老大给的模板整理好，出个“Item”表。<br>13.spider：hello, 引擎，我这有新任务。。。。。。。。。。。。。。</p>
 
 
 
@@ -235,12 +241,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/" data-toggle="tooltip" data-placement="top" title="[文献阅读] 中国股票市场可预测性的实证研究">&larr; Previous Post</a>
+                            <a href="/2017/08/17/[爬虫] python3分析《战狼2》豆瓣影评/" data-toggle="tooltip" data-placement="top" title="[爬虫] python3分析《战狼2》豆瓣影评">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/11/18/[R语言] 利用R合成卡农和最炫民族风/" data-toggle="tooltip" data-placement="top" title="[R语言] 利用R合成卡农和最炫民族风">Next Post &rarr;</a>
+                            <a href="/2017/08/14/[爬虫] 审查元素技巧/" data-toggle="tooltip" data-placement="top" title="[爬虫] 审查元素技巧">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -265,6 +271,17 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#一个开始"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">一个开始</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
 
             <!-- Sidebar Container -->
             <div class="
@@ -279,7 +296,9 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#多元统计" title="多元统计">多元统计</a>
+                          <a class="tag" href="/tags/#python" title="python">python</a>
+                        
+                          <a class="tag" href="/tags/#爬虫" title="爬虫">爬虫</a>
                         
                     </div>
                 </section>
@@ -337,44 +356,6 @@
     
 <!-- 控制文章是否加载公式 -->
 
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
-
 <!-- 控制文章是否需要密码 2017-08-07-->
 
 </article>
@@ -386,8 +367,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/11/26/[Statistics] PCA资源汇总/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/11/26/[Statistics] PCA资源汇总/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2017/08/17/[爬虫] scrapy爬虫框架上手/";
+    var disqus_url = "https://liangzhenghua.github.io/2017/08/17/[爬虫] scrapy爬虫框架上手/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
