@@ -140,17 +140,6 @@
                     
 
                         
-                        <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
                     
 
                         
@@ -167,6 +156,17 @@
                         
                     
 
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
                         
                     
 
@@ -225,7 +225,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>在大猫师兄的强烈推荐下，我研究了利用data.table包做分组计算。</p>
+                <p>或许在这之前你想使用并行计算：<a href="https://blog.csdn.net/a358463121/article/details/51695054" target="_blank" rel="external">R语言并行化基础与提高</a></p>
+<p>在大猫师兄的强烈推荐下，我研究了利用data.table包做分组计算。</p>
 <p>以往做分组计算的思路是这样子的：先按照某个变量（比如股票stock）将数据集划分（split）为一个列表，内含若干个小数据框，然后自定义一个可以处理每个小数据框的函数。最后就可以利用lapply函数对列表中每个数据框做遍历了，这样子的速度很慢，可以用parallel包做个加速。为此我还写了个模板，记录下来，以后备用。</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## 对含有大量数据框的列表做函数处理，每个数据框返回一个数据框</span></div><div class="line"><span class="comment">## 最后要合并所有数据框为一个数据框</span></div><div class="line"></div><div class="line"><span class="comment">### 函数名称</span></div><div class="line"></div><div class="line">FUNC=out</div><div class="line"></div><div class="line"><span class="comment">### 含有大量数据框的列表</span></div><div class="line"></div><div class="line">temp=temp</div><div class="line"></div><div class="line"><span class="comment">### 要导入各节点的函数和包，在下面添加</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">library</span>(parallel)</div><div class="line"><span class="keyword">library</span>(rlist)</div><div class="line"></div><div class="line"></div><div class="line">system.time(&#123; <span class="comment"># 用时约4分钟</span></div><div class="line">  <span class="comment"># 注册节点，一个核可以算作一个节点</span></div><div class="line">  cl=makeCluster(detectCores())</div><div class="line">  <span class="comment"># clusterExport 从某个环境调用某个对象给各个节点</span></div><div class="line">  clusterExport(cl, <span class="string">'FUNC'</span>, envir = .GlobalEnv)</div><div class="line">  <span class="comment"># 注册的每个节点相当于新开一个R session，clusterEvalQ表示在每个节点上执行相同的代码</span></div><div class="line">  <span class="comment"># 这里是在每个节点（R session）里面导入滚动回归里面必须依赖的包</span></div><div class="line">  clusterEvalQ(cl,&#123;  </div><div class="line">    <span class="comment">#setwd("I://anqi//项目//友情出演//xiang") # 数据存放路径</span></div><div class="line">    <span class="comment">#library("dplyr")</span></div><div class="line">    <span class="comment">#library("lubridate")</span></div><div class="line">    <span class="comment">#library("tidyr")</span></div><div class="line">    <span class="comment">#library("lazyeval")</span></div><div class="line">    <span class="keyword">library</span>(fPortfolio)</div><div class="line">  &#125;)</div><div class="line">  <span class="comment"># parLapply是Lapply的并行版本，parLapplyLB是负载平衡的版本，可以平衡各个节点的运行时间</span></div><div class="line">  <span class="comment"># FUNC后面可以添加函数参数</span></div><div class="line">  re=parLapplyLB(cl,temp,FUNC)</div><div class="line">  <span class="comment"># 使用时候销毁节点</span></div><div class="line">  stopCluster(cl)</div><div class="line">&#125;)</div><div class="line"></div><div class="line">result=list.rbind(re)  <span class="comment">#  rlist里面这个rbind函数合并数据框的时候，没有把结果强制转换成矩阵，而是保留了原有的数据框格式，速度也很快</span></div></pre></td></tr></table></figure>
 <p>然而，开4核跑并行，做李翔的滚动回归时，要3分钟才可以出来结果，根据大猫师兄的说法，用data.table，都是1秒的事。在我算所有上市公司的市盈率和账面市值比BM等指标的时候，因为要把月频的财报折算为日频数据，并不是1秒钟可以解决的事情。当然可以继续优化下去，但data.table做分组计算确实是目前最快的选择。</p>
