@@ -132,14 +132,14 @@
 
                         
                         <li>
-                            <a href="/Gallery/">Gallery</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/Gallery/">Gallery</a>
                         </li>
                         
                     
@@ -153,7 +153,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -216,6 +216,34 @@
 
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
+        <h2 class="post-title">
+            [R语言] 一种特殊的lasso求解
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于提高计算速度的技术文档
+        </h3>
+        <div class="post-content-preview">
+            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-16
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -347,40 +375,6 @@ quality
 
 <div class="post-preview">
 
-    <a href="/2017/11/09/[Statistics] 点估计/">
-        <h2 class="post-title">
-            [Statistics] 点估计
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于点估计的重要提醒
-        </h3>
-        <div class="post-content-preview">
-            
-分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
-
-
-$\Theta$是$R^k$上的开矩形
-$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
-支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#统计" title="统计">统计</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/11/09/[Statistics] 多元正态分布/">
         <h2 class="post-title">
             [Statistics] 多元正态分布
@@ -446,6 +440,40 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 
 <div class="post-preview">
 
+    <a href="/2017/11/09/[Statistics] 点估计/">
+        <h2 class="post-title">
+            [Statistics] 点估计
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于点估计的重要提醒
+        </h3>
+        <div class="post-content-preview">
+            
+分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
+
+
+$\Theta$是$R^k$上的开矩形
+$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
+支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#统计" title="统计">统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/10/15/[计量] 多重共线性/">
         <h2 class="post-title">
             [计量] 多重共线性
@@ -501,39 +529,6 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/09/27/[计量] 邹至庄检验/">
-        <h2 class="post-title">
-            [计量] 邹至庄检验
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于邹至庄检验的简单回顾
-        </h3>
-        <div class="post-content-preview">
-            
-邹至庄检验用于检验回归模型的结构或参数稳定性
-
-假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。
-做三个回归如下：
-时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-09-27
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -578,11 +573,17 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
             
         
             
+        
+            
             <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
             <a href="/tags/#R" title="R" rel="16">R</a>
+            
+        
+            
+            <a href="/tags/#python" title="python" rel="8">python</a>
             
         
             
@@ -595,12 +596,6 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="4">爬虫</a>
-            
-        
-            
-            <a href="/tags/#python" title="python" rel="8">python</a>
-            
-        
             
         
             
@@ -628,9 +623,9 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
             
         
             
-        
+            <a href="/tags/#电影" title="电影" rel="4">电影</a>
             
-            <a href="/tags/#电影" title="电影" rel="3">电影</a>
+        
             
         
             
@@ -640,9 +635,9 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
             
         
             
-            <a href="/tags/#金融" title="金融" rel="2">金融</a>
-            
         
+            
+            <a href="/tags/#金融" title="金融" rel="2">金融</a>
             
         
             
@@ -757,6 +752,10 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
     <ul>
       
         <li>
+          <a href="/2018/04/30/[电影] 后来的我们/">[电影] 后来的我们</a>
+        </li>
+      
+        <li>
           <a href="/2018/04/25/[R语言] reticulate包/">[R语言] reticulate包</a>
         </li>
       
@@ -770,10 +769,6 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
       
         <li>
           <a href="/2018/04/09/[日常] 2018年04月09日/">2018年04月09日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/03/31/[日常] 2018年03月31日/">2018年03月31日</a>
         </li>
       
     </ul>
