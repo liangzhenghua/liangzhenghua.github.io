@@ -132,13 +132,6 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/Gallery/">Gallery</a>
                         </li>
                         
@@ -146,7 +139,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -154,6 +147,13 @@
                         
                         <li>
                             <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -219,17 +219,20 @@
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] SQL Server R/">
+    <a href="/2017/12/12/[R语言] 最优化/">
         <h2 class="post-title">
-            [R语言] SQL Server R
+            [R语言] 在R里面做最优化
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于在数据库中调用R语言的学习笔记
+            这是一篇关于R语言进行最优化的学习笔记
         </h3>
         <div class="post-content-preview">
-            Microsoft 官方文档
-Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
-...
+            收集了几个包，有空可以逐一试试每个包的求解速度。
+R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
+
+今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
+拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
+12345......
         </div>
     </a>
     
@@ -404,19 +407,17 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
 
 <div class="post-preview">
 
-    <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
+    <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
         <h2 class="post-title">
-            [文献阅读] Bayesian adaptive Lasso quantile regression
+            [文献阅读] 中国股票市场可预测性的实证研究
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            是的，我又来读文献了。
-找了两篇贝叶斯Lasso相关的文章，是一个大佬Rahim Alhamzawi写的，他还贡献了一个R包Brq，对应他论文所用的方法。三位作者分别是Rahim Alhamzawi， Keming Yu and Dries F Benoit， 我发誓我只打一次他们的名字。
-理论分位数回归分位数回归模型可以表示如下：
-
-y_i=\beta_0+x_i'\beta+\epsil......
+            这篇文章是金融学院的姜富伟读博期间发的论文，周二就要见真人了，所以我现在要做好功课。
+首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。
+Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没......
         </div>
     </a>
     
@@ -466,17 +467,19 @@ PCA的数学原理SVD分解
 
 <div class="post-preview">
 
-    <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
+    <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
         <h2 class="post-title">
-            [文献阅读] 中国股票市场可预测性的实证研究
+            [文献阅读] Bayesian adaptive Lasso quantile regression
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            这篇文章是金融学院的姜富伟读博期间发的论文，周二就要见真人了，所以我现在要做好功课。
-首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。
-Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没......
+            是的，我又来读文献了。
+找了两篇贝叶斯Lasso相关的文章，是一个大佬Rahim Alhamzawi写的，他还贡献了一个R包Brq，对应他论文所用的方法。三位作者分别是Rahim Alhamzawi， Keming Yu and Dries F Benoit， 我发誓我只打一次他们的名字。
+理论分位数回归分位数回归模型可以表示如下：
+
+y_i=\beta_0+x_i'\beta+\epsil......
         </div>
     </a>
     
@@ -573,19 +576,13 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
             
         
             
-            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
-            
-        
-            
             <a href="/tags/#R" title="R" rel="16">R</a>
             
         
             
-            <a href="/tags/#python" title="python" rel="8">python</a>
-            
         
             
-        
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
@@ -594,6 +591,12 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="4">爬虫</a>
+            
+        
+            
+            <a href="/tags/#python" title="python" rel="8">python</a>
+            
+        
             
         
             
@@ -621,9 +624,9 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
             
         
             
-            <a href="/tags/#电影" title="电影" rel="4">电影</a>
-            
         
+            
+            <a href="/tags/#电影" title="电影" rel="4">电影</a>
             
         
             
@@ -633,9 +636,9 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
             
         
             
-        
-            
             <a href="/tags/#金融" title="金融" rel="2">金融</a>
+            
+        
             
         
             
