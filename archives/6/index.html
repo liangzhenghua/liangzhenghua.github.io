@@ -132,13 +132,6 @@
 
                         
                         <li>
-                            <a href="/Gallery/">Gallery</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/archive/">Archives</a>
                         </li>
                         
@@ -146,7 +139,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/Gallery/">Gallery</a>
                         </li>
                         
                     
@@ -154,6 +147,13 @@
                         
                         <li>
                             <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -216,6 +216,37 @@
 
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2017/11/11/[R语言] RStudio美化/">
+        <h2 class="post-title">
+            [R语言] RStudio美化
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于RStudio美化的小技巧
+        </h3>
+        <div class="post-content-preview">
+            help page 输出文档美化这个美化文档的最初想法来自Raining_wcc，后来在他的CSS上大刀阔斧地又调出了符合本人审美的CSS，一个特点就是字体比较大。
+将下列文件保存为R.css文件，替换到Rstudio安装文件夹下的RStudio\resources\R.css。123456789101112131415161718192021222324252627282930313233......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-11
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+              <a href="/tags/#RStudio" title="RStudio">RStudio</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -318,6 +349,34 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 
 <div class="post-preview">
 
+    <a href="/2017/10/15/[计量] 分位数回归/">
+        <h2 class="post-title">
+            [计量] 分位数回归
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于分位数回归的介绍
+        </h3>
+        <div class="post-content-preview">
+            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-10-15
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/10/15/[计量] 多重共线性/">
         <h2 class="post-title">
             [计量] 多重共线性
@@ -347,21 +406,26 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 
 <div class="post-preview">
 
-    <a href="/2017/10/15/[计量] 分位数回归/">
+    <a href="/2017/09/27/[计量] 邹至庄检验/">
         <h2 class="post-title">
-            [计量] 分位数回归
+            [计量] 邹至庄检验
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于分位数回归的介绍
+            这是一篇关于邹至庄检验的简单回顾
         </h3>
         <div class="post-content-preview">
-            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
+            
+邹至庄检验用于检验回归模型的结构或参数稳定性
+
+假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。
+做三个回归如下：
+时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-10-15
+            2017-09-27
         </p>
         <div class="tags">
             
@@ -437,39 +501,6 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 
 <div class="post-preview">
 
-    <a href="/2017/09/27/[计量] 邹至庄检验/">
-        <h2 class="post-title">
-            [计量] 邹至庄检验
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于邹至庄检验的简单回顾
-        </h3>
-        <div class="post-content-preview">
-            
-邹至庄检验用于检验回归模型的结构或参数稳定性
-
-假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。
-做三个回归如下：
-时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-09-27
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/09/27/[金融] 金融衍生品基础/">
         <h2 class="post-title">
             [金融] 金融衍生品基础
@@ -489,37 +520,6 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
         <div class="tags">
             
               <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/26/[Manual] python3之pandas使用手册/">
-        <h2 class="post-title">
-            [Manual] python3之pandas使用手册
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇python3数据分析的基础性文档
-        </h3>
-        <div class="post-content-preview">
-            在阅读本文之前，你可能对以下资源贴有兴趣：
-pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentation
-
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-09-26
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#python" title="python">python</a>
             
         </div>
     
@@ -585,19 +585,23 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
             
         
             
-            <a href="/tags/#python" title="python" rel="8">python</a>
-            
-        
-            
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="4">爬虫</a>
             
         
             
+            <a href="/tags/#python" title="python" rel="8">python</a>
+            
+        
+            
         
             
             <a href="/tags/#RStudio" title="RStudio" rel="2">RStudio</a>
+            
+        
+            
+        
             
         
             
@@ -615,17 +619,11 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
             
         
             
-        
-            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
             
         
             
-            <a href="/tags/#日常" title="日常" rel="14">日常</a>
-            
-        
-            
-        
+            <a href="/tags/#日常" title="日常" rel="15">日常</a>
             
         
             
@@ -633,13 +631,15 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
             
         
             
+        
+            
             <a href="/tags/#计量" title="计量" rel="11">计量</a>
             
         
             
-            <a href="/tags/#金融" title="金融" rel="2">金融</a>
-            
         
+            
+            <a href="/tags/#金融" title="金融" rel="2">金融</a>
             
         
             
@@ -756,6 +756,10 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
     <ul>
       
         <li>
+          <a href="/2018/05/31/[日常] 2018年05月31日/">2018年05月31日</a>
+        </li>
+      
+        <li>
           <a href="/2018/05/25/[日常] 2018年05月25日/">2018年05月25日</a>
         </li>
       
@@ -764,15 +768,11 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
         </li>
       
         <li>
-          <a href="/2018/05/21/[日常] 2018年05月21日/">2018年05月21日</a>
-        </li>
-      
-        <li>
           <a href="/2018/05/21/[数据] GDELT项目介绍/">[数据] GDELT项目介绍</a>
         </li>
       
         <li>
-          <a href="/2018/05/01/[R语言] RStudio美化2/">[R语言] RStudio美化2</a>
+          <a href="/2018/05/21/[日常] 2018年05月21日/">2018年05月21日</a>
         </li>
       
     </ul>

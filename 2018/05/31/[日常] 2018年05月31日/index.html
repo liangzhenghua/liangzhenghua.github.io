@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [计量] 计量经济学回顾 - 南有嘉鱼 | 南有樛木
+          2018年05月31日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/09/20/[计量] 计量经济学回顾/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/05/31/[日常] 2018年05月31日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/economic3.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[计量] 计量经济学回顾</h1>
-                        <h2 class="subheading">这是一篇关于计量经济学的回顾</h2>
+                        <h1>2018年05月31日</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-09-20
+                            2018-05-31
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -225,47 +225,12 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="高斯-马尔可夫定理"><a href="#高斯-马尔可夫定理" class="headerlink" title="高斯-马尔可夫定理"></a>高斯-马尔可夫定理</h1><blockquote>
-<p>在给定经典线性回归模型的假定下，最小二乘估计量在所有线性无偏估计量中具有最小方差（有效估计量），它们是最优线性无偏估计量（BLUE）。</p>
-</blockquote>
-<p><em>注意比较的范围是线性无偏估计量</em>。经典线性回归模型的假定有七个：</p>
-<ul>
-<li>1 . 线性回归模型。<em>对变量不一定是线性，对参数而言线性</em></li>
-<li>2 . $X$是固定的或者独立于误差项。$cov(X_i,u_i)=0$</li>
-<li>3 . 对于给定的$X$值，干扰项的$u_i$均值为0。<em>这意味着模型不存在设定误差或者说设定偏误，并且$X_i$和$u_i$不相关</em>。</li>
-<li>4 . 同方差性。</li>
-<li>5 . 干扰项之间无自相关。</li>
-<li>6 . 观测次数大于待估计参数个数。</li>
-<li>7 . $X$取值没有异常。有足够的变异，又不能有异常值。</li>
-</ul>
-<h1 id="OLS估计量的性质"><a href="#OLS估计量的性质" class="headerlink" title="OLS估计量的性质"></a>OLS估计量的性质</h1><p>高斯-马尔可夫定理是在一堆理论假设上得到的结论，而OLS估计量应用在样本数据上有一些天然的性质，他们是不需要通过假定就可以推导出来的：</p>
-<ul>
-<li>1 样本回归线穿过$Y$和$X$的样本均值点</li>
-<li>2 $\bar{\hat{Y}}=\bar{Y}$</li>
-<li>3 残差$\hat{u_i}$均值为0</li>
-<li>4 残差$\hat{u_i}$和$Y_i$的预测值不相关</li>
-</ul>
-<h1 id="判定系数-r-2"><a href="#判定系数-r-2" class="headerlink" title="判定系数$r^2$"></a>判定系数$r^2$</h1><p>这是一个拟合优度的度量，注意到离差平方和可以分解为：</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\sum y_i^2&= \sum \hat{y_i}^2+\sum \hat{u_i}^2+2\sum \hat{y_i}\hat{u_i}  \cr
-&=\sum \hat{y_i}^2+\sum \hat{u_i}^2 \cr
-&=\hat{\beta_2 }^2\sum \hat{x}^2+\sum \hat{u_i}^2 
-\end{align}</script><p>定义$r^2$为：</p>
-<script type="math/tex; mode=display">r^2=\frac{\sum (\hat{Y_i}-\bar{Y})^2}{\sum (Y_i-\bar{Y})^2}=\frac{ESS}{TSS}</script><p>从字面上讲，$r^2$测度了在$Y$的总变异种由回归模型解释的部分所占的比例或百分比。它仅仅是线性关联或者说线性相依的一个度量，不能描述非线性关系，因此即便$r^2$很小，两个变量也可能存在其它很强的复杂的非线性关系。</p>
-<h1 id="u-i-的正态假定"><a href="#u-i-的正态假定" class="headerlink" title="$u_i$的正态假定"></a>$u_i$的正态假定</h1><p>前面的高斯-马尔可夫定理用到的假设中并没有包括干扰项的正态假定，就可以得到OLS估计量具有BLUE的性质。当引入$u_i$的正态假定后，我们可以对OLS估计量进行进一步的了解，可以推导出他们的概率分布，将会使得假设检验的工作变得容易进行。</p>
-<p>假定可以简洁的叙述为：</p>
-<script type="math/tex; mode=display">u_i\sim N(0,\sigma ^2)</script><p>注意到$u_i$的正态假定实际上满足了经典线性回归模型7条假定中最关键的<strong>干扰项均值为0</strong>、<strong>同方差</strong>、<strong>自相关</strong>，这就差不多可以说OLS是一个BLUE了。OLS估计量在$u_i$的正态假定下有如下性质：</p>
-<ul>
-<li>无偏性</li>
-<li>有效估计量</li>
-<li>一致估计</li>
-<li>估计系数$\beta$服从正态分布，所以我们可以对估计系数进行假设检验。</li>
-<li>$\frac{(n-2)\hat{\sigma }^2}{\sigma ^2}\sim \chi (n-2)$</li>
-<li>$(\hat{\beta _1},\hat{\beta_2})$的联合分布独立于$\hat{\sigma }^2$，即从样本数据计算的样本方差和和估计系数之间独立。</li>
-<li>更重要的是，OLS估计量不单单在所有线性无偏估计量里具有最小方差，即便在非线性的无偏估计里面也具有最小方差。也就有更强的结论出现了，OLS是<strong><em>最优无偏估计量</em></strong>。</li>
-</ul>
-<p><strong>备注</strong>：除了OLS估计方法，还有极大似然估计（ML）。在正态假设下，两种估计方法对于$\beta$的估计都是相同的，然而对于$\sigma^2$的估计，两者是有差异的，ML的估计（$\sum \hat{u_i}^2/n$）是有偏的，OLS的估计（$\sum \hat{u_i}^2/(n-2)$）是无偏的，讲道理在这么完美的假设下，没有人可以打败OLS估计。</p>
+                <p>虽然给专硕一个同学打了辅助，蹭了学姐的光，可是自己只是花了一个晚上贡献了几个表格，花了一个下午做了PPT上去讲，虽然水水的可是还是全校第三啊哈哈哈哈。大家都说我们很随意，老师说我们做的不像是一个案例。你看做的这个东西其实还是很垃圾的，一年了也没啥变化。只不过现在离统计越来越远了，更喜欢用一个美好的故事包装，而不是用公式去证明自己驾驭统计的能力，因为你知道你要说服别人的时候，都不应该出现术语。</p>
+<p>总结一下做PPT展示原则，尽量避免公式，避免堆砌文字，控制一分钟对应一页PPT。今天看到一个同学的PPT几乎是全是白纸黑字却觉得效果很好，大概是字体和布局控制得很好，可惜没有时间仔细琢磨这么神一样的PPT风格。</p>
+<p>学姐今晚请我们去蜀湘苑吃晚饭，真喜欢川菜，更甚于香菜。</p>
+<p><a href="http://orobrju86.bkt.clouddn.com/%E5%9F%BA%E4%BA%8E%E5%90%8E%E9%AA%8C%E8%B6%85%E9%A2%9D%E6%94%B6%E7%9B%8A%E7%9A%84%E5%A2%9E%E5%BC%BA%E5%9E%8B%E6%8C%87%E6%95%B0%E8%BF%BD%E8%B8%AA%E7%AD%96%E7%95%A5ppt.pdf" target="_blank" rel="external">基于后验超额收益的增强型指数追踪策略PPT</a></p>
+<p><img src="http://orobrju86.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180601000925.jpg" alt=""></p>
+<p>五月再见。六月你好。</p>
 
 
 
@@ -273,13 +238,9 @@
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/09/24/[Bayesian] MCMC回顾/" data-toggle="tooltip" data-placement="top" title="[Bayesian] MCMC回顾">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/09/19/[Manual] python3爬取朋友圈数据/" data-toggle="tooltip" data-placement="top" title="[Manual] python3爬取朋友圈数据">Next Post &rarr;</a>
+                            <a href="/2018/05/25/[日常] 2018年05月25日/" data-toggle="tooltip" data-placement="top" title="2018年05月25日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -304,17 +265,6 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#高斯-马尔可夫定理"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">高斯-马尔可夫定理</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#OLS估计量的性质"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">OLS估计量的性质</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#判定系数-r-2"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">判定系数$r^2$</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#u-i-的正态假定"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">$u_i$的正态假定</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -329,7 +279,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -359,71 +309,7 @@
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
-
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
 
@@ -436,8 +322,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/09/20/[计量] 计量经济学回顾/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/09/20/[计量] 计量经济学回顾/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/05/31/[日常] 2018年05月31日/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/05/31/[日常] 2018年05月31日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
