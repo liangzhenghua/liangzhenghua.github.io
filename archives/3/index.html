@@ -132,7 +132,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -146,7 +146,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -216,6 +216,40 @@
 
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2018/01/31/[SQL] bulk insert/">
+        <h2 class="post-title">
+            [SQL] bulk insert
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于导入csv数据到数据库的介绍
+        </h3>
+        <div class="post-content-preview">
+            Bulk Insert详细用法参见Bulk Insert命令详细。
+我的数据是从R写入CSV文件的，需要再从CSV文件导入到数据库里面。为什么需要这么麻烦呢，直接从R写入数据库不行吗，数据量大的时候还真不行，利用bulk insert适用于数据量特别大的情形。
+解决步骤：
+
+step1:设计数据表的列名和类型，数据表名称，主键，NULL约束等
+
+step2:检查csv数据类型，因为在尝试过程......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-31
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#SQL" title="SQL">SQL</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -308,6 +342,36 @@
 
 <div class="post-preview">
 
+    <a href="/2018/01/20/[日常] 2018年01月20日/">
+        <h2 class="post-title">
+            2018年01月20日
+        </h2>
+        <h3 class="post-subtitle">
+            再不记录一下就要溜走了
+        </h3>
+        <div class="post-content-preview">
+            考高微那天早早起来复习，不小心着凉了，考试的时候爆炸了，提早交卷走人，结束一个学期的学习。
+考试实在太水了，除了剃胡子的频率越来越密集，一个学期下来也没有知识的增长，python没机会用又忘了。
+好的东西没学到，倒是沾了一身的戾气。今晚去地下超市，遇到专硕大数据班一个小伙子，一个学期了我也不认识他叫什么，他倒是每次很热情笑着跟我打招呼。你看，这就是跟我没什么交集又没有什么特别之处的人的一个缩......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-20
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#日常" title="日常">日常</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/20/[金融] 再谈Black-Litterman模型/">
         <h2 class="post-title">
             [金融] 再谈Black-Litterman模型
@@ -361,36 +425,6 @@
         <div class="tags">
             
               <a href="/tags/#金融" title="金融">金融</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/20/[日常] 2018年01月20日/">
-        <h2 class="post-title">
-            2018年01月20日
-        </h2>
-        <h3 class="post-subtitle">
-            再不记录一下就要溜走了
-        </h3>
-        <div class="post-content-preview">
-            考高微那天早早起来复习，不小心着凉了，考试的时候爆炸了，提早交卷走人，结束一个学期的学习。
-考试实在太水了，除了剃胡子的频率越来越密集，一个学期下来也没有知识的增长，python没机会用又忘了。
-好的东西没学到，倒是沾了一身的戾气。今晚去地下超市，遇到专硕大数据班一个小伙子，一个学期了我也不认识他叫什么，他倒是每次很热情笑着跟我打招呼。你看，这就是跟我没什么交集又没有什么特别之处的人的一个缩......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#日常" title="日常">日常</a>
             
         </div>
     
@@ -496,37 +530,6 @@ var(R)=w'\Sigma w其中$\Sig......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/01/10/[电影] 芳华/">
-        <h2 class="post-title">
-            [电影] 芳华
-        </h2>
-        <h3 class="post-subtitle">
-            心血来潮又翻了别家的视频网站后台
-        </h3>
-        <div class="post-content-preview">
-            先mark了再说，我也有一颗红卫兵的心啊。
-
-
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-10
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#电影" title="电影">电影</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -573,13 +576,13 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
-            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
-            
         
             
             <a href="/tags/#R" title="R" rel="18">R</a>
             
         
+            
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
@@ -592,8 +595,6 @@ var(R)=w'\Sigma w其中$\Sig......
         
             
             <a href="/tags/#python" title="python" rel="8">python</a>
-            
-        
             
         
             
@@ -619,17 +620,19 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
+        
+            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
             
         
             
-            <a href="/tags/#日常" title="日常" rel="15">日常</a>
+            <a href="/tags/#日常" title="日常" rel="16">日常</a>
+            
+        
             
         
             
             <a href="/tags/#电影" title="电影" rel="4">电影</a>
-            
-        
             
         
             
@@ -756,6 +759,10 @@ var(R)=w'\Sigma w其中$\Sig......
     <ul>
       
         <li>
+          <a href="/2018/06/11/[日常] 2018年06月11日/">2018年06月31日</a>
+        </li>
+      
+        <li>
           <a href="/2018/05/31/[日常] 2018年05月31日/">2018年05月31日</a>
         </li>
       
@@ -769,10 +776,6 @@ var(R)=w'\Sigma w其中$\Sig......
       
         <li>
           <a href="/2018/05/21/[数据] GDELT项目介绍/">[数据] GDELT项目介绍</a>
-        </li>
-      
-        <li>
-          <a href="/2018/05/21/[日常] 2018年05月21日/">2018年05月21日</a>
         </li>
       
     </ul>
