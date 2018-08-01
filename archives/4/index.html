@@ -132,7 +132,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -219,28 +219,29 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/10/[电影] 芳华/">
+    <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
         <h2 class="post-title">
-            [电影] 芳华
+            [文献阅读] Bayesian adaptive Lasso quantile regression
         </h2>
         <h3 class="post-subtitle">
-            心血来潮又翻了别家的视频网站后台
+            
         </h3>
         <div class="post-content-preview">
-            先mark了再说，我也有一颗红卫兵的心啊。
+            是的，我又来读文献了。
+找了两篇贝叶斯Lasso相关的文章，是一个大佬Rahim Alhamzawi写的，他还贡献了一个R包Brq，对应他论文所用的方法。三位作者分别是Rahim Alhamzawi， Keming Yu and Dries F Benoit， 我发誓我只打一次他们的名字。
+理论分位数回归分位数回归模型可以表示如下：
 
-
-...
+y_i=\beta_0+x_i'\beta+\epsil......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2018-01-10
+            2017-11-26
         </p>
         <div class="tags">
             
-              <a href="/tags/#电影" title="电影">电影</a>
+              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
             
         </div>
     
@@ -250,186 +251,26 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/10/[日常] 2018年01月10日/">
+    <a href="/2017/11/18/[R语言] 利用R合成卡农和最炫民族风/">
         <h2 class="post-title">
-            2018年01月10日
+            [R语言] 利用R合成卡农和最炫民族风
         </h2>
         <h3 class="post-subtitle">
-            
+            这是一次严肃的电子音乐实验
         </h3>
         <div class="post-content-preview">
-            
-
-有那么几分钟，忽然觉得自己变了另一个人，进入了一种空灵的境界，所有东西都可以抽丝剥茧信手拈来，这就是我梦寐以求的状态啊！
-...
+            程序代码参考网上的MATLAB代码，由于流传已久，找不到原作者，仅引出两篇相对整洁的资源帖
+另外，可以上github搜matlab的钢琴gui程序。
+我想在R里面自动播放音乐，那么在等运行结果的时候就可以听到提示音
+然而调出来的是MediaPlayer，我不是很想看到一个新的窗口出现
+我想隐式在后台自动响起
+还有，R调用MediaPlayer的时候会一直等待MediaPlayer进程的结束才......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2018-01-10
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#日常" title="日常">日常</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/09/[计量] 自相关性/">
-        <h2 class="post-title">
-            [计量] 自相关性
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于自相关性的介绍
-        </h3>
-        <div class="post-content-preview">
-            注：回归子也可以被叫做被解释变量
-从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/09/[计量] 多元线性回归/">
-        <h2 class="post-title">
-            [计量] 多元线性回归
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于多元线性回归的最后复习
-        </h3>
-        <div class="post-content-preview">
-            对于目标函数
-
-\begin{split}
-min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
-&=Y'Y-Y'X\beta-\beta ' X'Y+\beta ' X'X \beta \\
-& =Y'Y-2Y'X\beta+\beta ' X'X \beta
-\end{split}对$\beta$求偏导，并令导数为0，可以得到OLS估计。
-
-\frac{\p......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/05/[计量] 一元线性回归/">
-        <h2 class="post-title">
-            [计量] 一元线性回归
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于一元线性回归的最后复习
-        </h3>
-        <div class="post-content-preview">
-            线性回归模型
-y=\beta_0+\beta_1 x +\epsilon线性回归方程
-E(y|x)=\beta_0+\beta_1 x假设见计量经济学回顾
-最小二乘估计目标函数为
-
-min \ Q=\sum_{i=1}^n \hat{u}_i^2=\sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x_i)^2对各个回归系数求偏导，得到正规方程
-
-\l......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-05
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/01/[日常] 2018年01月01日/">
-        <h2 class="post-title">
-            2018年01月01日
-        </h2>
-        <h3 class="post-subtitle">
-            新年快乐
-        </h3>
-        <div class="post-content-preview">
-            你好，第一次见面，请多多关照！
-新年的意义可能在于挥别过去一年阴沉的雾霾，拥抱崭新的未来。春节比较适合给身心放假和家人一起热闹，元旦还是适合规划自己一年的安排。
-而我比较贪。
-祝福每个人可以好好学习，劝君莫惜金缕衣，劝君惜取少年时。
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-01
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#日常" title="日常">日常</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/12/[R语言] SQL Server R/">
-        <h2 class="post-title">
-            [R语言] SQL Server R
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于在数据库中调用R语言的学习笔记
-        </h3>
-        <div class="post-content-preview">
-            Microsoft 官方文档
-Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-12-12
+            2017-11-18
         </p>
         <div class="tags">
             
@@ -443,26 +284,54 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] 最优化/">
+    <a href="/2017/11/16/[Manual] Rcpp使用手册2/">
         <h2 class="post-title">
-            [R语言] 在R里面做最优化
+            [Manual] Rcpp使用手册2
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于R语言进行最优化的学习笔记
+            这是一篇关于RcppArmadillo的基础性技术文档
         </h3>
         <div class="post-content-preview">
-            收集了几个包，有空可以逐一试试每个包的求解速度。
-R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
+            如果你是第一次阅读这篇文章，以下资源贴可能是你感兴趣的：
+RcppArmadillo简明手册Rcpp相关知识整理RcppArmadillo官方文档Armadillo C++ linear algebra library 学习笔记（4）——矩阵的运算Armadillo矩阵库的使用（二）之API接口
 
-今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
-拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
-12345......
+.cpp文件的储存位置当我们在Rstudio中新建C++文件时，它会直接新建一个文档，方便我们......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-12-12
+            2017-11-16
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Rcpp" title="Rcpp">Rcpp</a>
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
+        <h2 class="post-title">
+            [R语言] 一种特殊的lasso求解
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于提高计算速度的技术文档
+        </h3>
+        <div class="post-content-preview">
+            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-16
         </p>
         <div class="tags">
             
@@ -476,28 +345,26 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
 
 <div class="post-preview">
 
-    <a href="/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/">
+    <a href="/2017/11/15/[R语言] apply函数/">
         <h2 class="post-title">
-            [文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断
+            [R语言] apply函数
         </h2>
         <h3 class="post-subtitle">
-            面板数据中的简单贝叶斯应用
+            这是一篇关于R语言科学计算的技术文档
         </h3>
         <div class="post-content-preview">
-            李小胜，安徽财经大学统计系，写了一篇很简洁的贝叶斯计量经济学的论文。这篇论文质量不高，里面还有些小地方有纰漏。
-周亮，韩玉启，朱慧明写的一篇《正态线性单方程计量经济模型的Bayes统计推断》倒是被引用多次，介绍了回归分析里面最简单的贝叶斯分析。朱慧明写了很多贝叶斯的文章，感觉还不错。
-
-贝叶斯技术已经大量应用在各门科学当中，而把贝叶斯理论应用到计量经济学，是上世纪60年代以来在一大批统计学家......
+            最近在使用apply函数，想要往函数FUN里面输入多个参数再调用apply，下面是实验的结果：
+apply1234567ryan=function(x,y,msg) &#123;  return(paste0(x,y,msg))&#125;ryan(5,6,"-hello")apply(matrix(1:6,ncol = 1), 1, ryan,y=1:8,msg=c("-GOOD MORI......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-12-08
+            2017-11-15
         </p>
         <div class="tags">
             
-              <a href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
+              <a href="/tags/#R" title="R">R</a>
             
         </div>
     
@@ -507,23 +374,158 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
 
 <div class="post-preview">
 
-    <a href="/2017/12/07/[计量] 嵌套与非嵌套模型/">
+    <a href="/2017/11/12/[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model/">
         <h2 class="post-title">
-            [计量] 嵌套与非嵌套模型
+            [文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于模型设定和诊断检验的梳理
+            
         </h3>
         <div class="post-content-preview">
-            概念在进行设定检验时，区分嵌套(nested)和非嵌套模型(non-nested models)有助于我们继续下面的讨论。
-模型A：$Y_i=\beta_1+\beta_2 X_{2i}+\beta_3 X_{3i}+\beta_4 X_{4i}+\beta_5 X_{5i}+u_i$模型B：$Y_i=\beta_1+\beta_2 X_{2i}+\beta_3 X_{3i}+u_i$
-我们......
+            对Black Litterman模型一无所知的可以参考这篇文档
+文章作者是Ginanjar Dewandaru、Rumi Masih、Obiyathulla Ismath Bacha和A. Mansur. M. Masih，多风格轮动策略采用了3种风格：
+
+momentum
+value
+quality
+
+看了一会发现出现很多Islamic相关的宗教词汇，我还以为这篇文章是要宣扬伊斯兰教义。查......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-12-07
+            2017-11-12
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/11/[R语言] RStudio美化/">
+        <h2 class="post-title">
+            [R语言] RStudio美化
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于RStudio美化的小技巧
+        </h3>
+        <div class="post-content-preview">
+            help page 输出文档美化这个美化文档的最初想法来自Raining_wcc，后来在他的CSS上大刀阔斧地又调出了符合本人审美的CSS，一个特点就是字体比较大。
+将下列文件保存为R.css文件，替换到Rstudio安装文件夹下的RStudio\resources\R.css。123456789101112131415161718192021222324252627282930313233......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-11
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+              <a href="/tags/#RStudio" title="RStudio">RStudio</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/09/[Statistics] 多元正态分布/">
+        <h2 class="post-title">
+            [Statistics] 多元正态分布
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于多元正态分布的重要提醒
+        </h3>
+        <div class="post-content-preview">
+            一元正态分布f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\{-\frac{(x-\mu)^2}{2\sigma^2}\},-\infty...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#多元统计统计" title="多元统计统计">多元统计统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/09/[Statistics] 点估计/">
+        <h2 class="post-title">
+            [Statistics] 点估计
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于点估计的重要提醒
+        </h3>
+        <div class="post-content-preview">
+            
+分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
+
+
+$\Theta$是$R^k$上的开矩形
+$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
+支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#统计" title="统计">统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/09/[计量] 异方差性/">
+        <h2 class="post-title">
+            [计量] 异方差性
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于异方差性的介绍
+        </h3>
+        <div class="post-content-preview">
+            定义
+同方差意为方差具有相同的分布，或者说相同的方差。
+
+$E(u_i^2)=\sigma^2,i=1,2,…,n$
+不管变量$X_i$取什么值，$Y_i$的条件方差都保持不变。
+
+异方差表明$Y_i$的方差不再保持不变，会随着$X_i$的变化而变化,符号上记为：
+
+$E(u_i^2)=\sigma_i^2,i=1,2,…,n$
+OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-09
         </p>
         <div class="tags">
             
@@ -579,17 +581,11 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
-        
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
             <a href="/tags/#R" title="R" rel="18">R</a>
-            
-        
-            
-            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
-            
-        
             
         
             
@@ -600,6 +596,14 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
         
             
             <a href="/tags/#python" title="python" rel="8">python</a>
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -625,19 +629,15 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
-        
-            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
-            
-        
-            
-            <a href="/tags/#日常" title="日常" rel="16">日常</a>
             
         
             
         
             
             <a href="/tags/#电影" title="电影" rel="4">电影</a>
+            
+        
             
         
             
@@ -764,15 +764,7 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
     <ul>
       
         <li>
-          <a href="/2018/06/11/[日常] 2018年06月11日/">2018年06月31日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/05/31/[日常] 2018年05月31日/">2018年05月31日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/05/25/[日常] 2018年05月25日/">2018年05月25日</a>
+          <a href="/2018/08/01/[日常] 2018年08月01日/">2018年08月01日</a>
         </li>
       
         <li>
@@ -781,6 +773,14 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
       
         <li>
           <a href="/2018/05/21/[数据] GDELT项目介绍/">[数据] GDELT项目介绍</a>
+        </li>
+      
+        <li>
+          <a href="/2018/05/01/[R语言] RStudio美化2/">[R语言] RStudio美化2</a>
+        </li>
+      
+        <li>
+          <a href="/2018/04/30/[电影] 后来的我们/">[电影] 后来的我们</a>
         </li>
       
     </ul>

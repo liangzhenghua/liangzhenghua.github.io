@@ -132,7 +132,7 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -219,87 +219,22 @@
 
 <div class="post-preview">
 
-    <a href="/2017/12/03/[文献阅读] Bayesian Lasso regression/">
+    <a href="/2017/10/15/[计量] 多重共线性/">
         <h2 class="post-title">
-            [文献阅读] Bayesian Lasso regression
+            [计量] 多重共线性
         </h2>
         <h3 class="post-subtitle">
-            
+            这是一篇关于多重共线性的介绍
         </h3>
         <div class="post-content-preview">
-            摘要当使用独立的双指数分布作为回归系数的先验分布时，lasso的估计系数对应后验分布众数。这篇文章介绍了贝叶斯方法在lasso里面的拓展，包括了计算和推断等问题。重点讨论了利用后验均值作为点估计。文章显示标准lasso的预测并不一定与贝叶斯lasso的预测一致,文章还介绍了一种新的Gibbs抽样方法。
-引言自从lasso被提出之后，作为对OLS的替代方案，广泛被应用在回归问题中。它的流行在于......
+            定义完全共线性：k个变量如果满足以下条件，我们说它存在一个准确的线性关系:$\lambda_1 X_1+\lambda_2 X_2+…+\lambda_k X_k=0$，其中$\lambda_1,\lambda_2,…,\lambda_k$ 为常数，但不同时为0。
+多重共线性：$X$变量之间彼此相关，但又不完全相关，$\lambda_1 X_1+\lambda_2 X_2+…+\lambda......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-12-03
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/30/[Latex] 两个Beamer使用说明/">
-        <h2 class="post-title">
-            [Latex] 两个Beamer使用说明
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于自己用的beamer总结
-        </h3>
-        <div class="post-content-preview">
-             用Beamer制作幻灯片（卷一 基本架构篇） 用Beamer制作幻灯片（卷二 色彩篇）使用 Beamer 制作学术讲稿Beamer 使用笔记
-要维护自己常用的Latex模板挺费时间去调教的，我挑选了两个看起来还不错的Beamer，一个中文一个英文，以后做展示瞬间就提升逼格MAX。
-华中师范大学幻灯片模板
-拜罗伊特大学beamer主题模板
-华中师范大学幻灯片模板它使用xelatex编译，还需......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-30
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Latex" title="Latex">Latex</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/29/[计量] OLS的大样本性质/">
-        <h2 class="post-title">
-            [计量] OLS的大样本性质
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于计量课程presentation的预热
-        </h3>
-        <div class="post-content-preview">
-            在有限样本条件下，OLS估计的一系列优良特性都是建立在严格的古典假定上。显然，在现实生活中，严格的古典假定并不一定满足。大样本性质 就是在残差不服从正态分布这一经典假定条件下，利用大数定律和中心极限定理对估计量渐近性质的讨论。
-大样本OLS估计的推导和性质大样本理论的重要性在于：
-
-小样本理论的假设过强
-在小样本下，我们必须研究统计量的精确分布，但常常难以推导
-使用大样本理论的代价是要求样本......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-29
+            2017-10-15
         </p>
         <div class="tags">
             
@@ -313,27 +248,54 @@
 
 <div class="post-preview">
 
-    <a href="/2017/11/26/[Statistics] PCA资源汇总/">
+    <a href="/2017/10/15/[计量] 分位数回归/">
         <h2 class="post-title">
-            [Statistics] 多元统计资源汇总
+            [计量] 分位数回归
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于多元统计的资料汇总
+            这是一篇关于分位数回归的介绍
         </h3>
         <div class="post-content-preview">
-            多元统计这个东西已经被很多人研究透了，不能重复造轮子啊，所以我就把它们集中到一起吧，讲真，它们可能比教科书还要详细。
-PCA的数学原理SVD分解
+            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-10-15
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/09/27/[金融] 行业研究资源/">
+        <h2 class="post-title">
+            [金融] 行业研究资源
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于行研的入门教程
+        </h3>
+        <div class="post-content-preview">
+            行业研究的方法分享知乎—在哪里能找到各行业的分析研究报告？
 ...
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-11-26
+            2017-09-27
         </p>
         <div class="tags">
             
-              <a href="/tags/#多元统计" title="多元统计">多元统计</a>
+              <a href="/tags/#行研" title="行研">行研</a>
             
         </div>
     
@@ -343,29 +305,30 @@ PCA的数学原理SVD分解
 
 <div class="post-preview">
 
-    <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
+    <a href="/2017/09/27/[计量] 邹至庄检验/">
         <h2 class="post-title">
-            [文献阅读] Bayesian adaptive Lasso quantile regression
+            [计量] 邹至庄检验
         </h2>
         <h3 class="post-subtitle">
-            
+            这是一篇关于邹至庄检验的简单回顾
         </h3>
         <div class="post-content-preview">
-            是的，我又来读文献了。
-找了两篇贝叶斯Lasso相关的文章，是一个大佬Rahim Alhamzawi写的，他还贡献了一个R包Brq，对应他论文所用的方法。三位作者分别是Rahim Alhamzawi， Keming Yu and Dries F Benoit， 我发誓我只打一次他们的名字。
-理论分位数回归分位数回归模型可以表示如下：
+            
+邹至庄检验用于检验回归模型的结构或参数稳定性
 
-y_i=\beta_0+x_i'\beta+\epsil......
+假设我们收集的数据是1970-1995年，将样本分为1970-1981年和1982-1995年两个时期，目的是研究这两个时期是否存在变动，回归参数是否发生了改变。
+做三个回归如下：
+时期1970-1981：$Y_t=\lambda _1+\lambda_2 X_t+\mu_{1t} $，观测数为$n_1$，残差平方和为$RSS_1$，自由度为......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-11-26
+            2017-09-27
         </p>
         <div class="tags">
             
-              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
+              <a href="/tags/#计量" title="计量">计量</a>
             
         </div>
     
@@ -375,27 +338,25 @@ y_i=\beta_0+x_i'\beta+\epsil......
 
 <div class="post-preview">
 
-    <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
+    <a href="/2017/09/27/[金融] 金融衍生品基础/">
         <h2 class="post-title">
-            [文献阅读] 中国股票市场可预测性的实证研究
+            [金融] 金融衍生品基础
         </h2>
         <h3 class="post-subtitle">
-            
+            这是一篇关于金融衍生品的概念总结
         </h3>
         <div class="post-content-preview">
-            这篇文章是金融学院的姜富伟读博期间发的论文，周二就要见真人了，所以我现在要做好功课。
-首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。
-Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没......
+            ...
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-11-26
+            2017-09-27
         </p>
         <div class="tags">
             
-              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
+              <a href="/tags/#计量" title="计量">计量</a>
             
         </div>
     
@@ -405,30 +366,30 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
 
 <div class="post-preview">
 
-    <a href="/2017/11/18/[R语言] 利用R合成卡农和最炫民族风/">
+    <a href="/2017/09/27/[Bayesian] 充分统计量/">
         <h2 class="post-title">
-            [R语言] 利用R合成卡农和最炫民族风
+            [Bayesian] 充分统计量
         </h2>
         <h3 class="post-subtitle">
-            这是一次严肃的电子音乐实验
+            这是一篇关于充分统计量的回顾
         </h3>
         <div class="post-content-preview">
-            程序代码参考网上的MATLAB代码，由于流传已久，找不到原作者，仅引出两篇相对整洁的资源帖
-另外，可以上github搜matlab的钢琴gui程序。
-我想在R里面自动播放音乐，那么在等运行结果的时候就可以听到提示音
-然而调出来的是MediaPlayer，我不是很想看到一个新的窗口出现
-我想隐式在后台自动响起
-还有，R调用MediaPlayer的时候会一直等待MediaPlayer进程的结束才......
+            
+充分统计量：设$\mathbf{x}=(x_1,x_2,…,x_n)$是来自分布$F(x|\theta)$的一个样本，$T=T(X)$是统计量，假如在给定$T(X)=t$的条件下，$\mathbf{x}$的条件分布与$\theta$无关的话，则称该统计量为充分统计量。
+
+
+
+因子分解定理：充分统计量的充要条件是存在一个函数$g(t,\theta)$和一个样本函数$h(x)$，使得对任一样本......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-11-18
+            2017-09-27
         </p>
         <div class="tags">
             
-              <a href="/tags/#R" title="R">R</a>
+              <a href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
             
         </div>
     
@@ -438,25 +399,28 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
 
 <div class="post-preview">
 
-    <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
+    <a href="/2017/09/26/[Manual] python3之pandas使用手册/">
         <h2 class="post-title">
-            [R语言] 一种特殊的lasso求解
+            [Manual] python3之pandas使用手册
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于提高计算速度的技术文档
+            这是一篇python3数据分析的基础性文档
         </h3>
         <div class="post-content-preview">
-            最近开始忙的要死，一大堆东西堆在一起但又不想做的感觉。今晚研究了Rcpp发现又有新的收获，Rcpp用来做一些简单的循环和判断还可以，涉及矩阵运算时难道还要逐行逐列相乘相加吗？想想都要放弃了，直到我遇上了RcppArmadillo包。它是C++里面专门做科学运算的，用法类似Matlab。有了这个包，我终于找到了一个更有效更容易提高计算速度的办法，在尊贵的阿苏斯上的测试对比发现，Rcpp:Mat......
+            在阅读本文之前，你可能对以下资源贴有兴趣：
+pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentation
+
+...
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-11-16
+            2017-09-26
         </p>
         <div class="tags">
             
-              <a href="/tags/#R" title="R">R</a>
+              <a href="/tags/#python" title="python">python</a>
             
         </div>
     
@@ -466,30 +430,26 @@ Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性
 
 <div class="post-preview">
 
-    <a href="/2017/11/16/[Manual] Rcpp使用手册2/">
+    <a href="/2017/09/24/[Bayesian] MCMC回顾/">
         <h2 class="post-title">
-            [Manual] Rcpp使用手册2
+            [Bayesian] MCMC回顾
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于RcppArmadillo的基础性技术文档
+            这是一篇关于MCMC算法的回顾
         </h3>
         <div class="post-content-preview">
-            如果你是第一次阅读这篇文章，以下资源贴可能是你感兴趣的：
-RcppArmadillo简明手册Rcpp相关知识整理RcppArmadillo官方文档Armadillo C++ linear algebra library 学习笔记（4）——矩阵的运算Armadillo矩阵库的使用（二）之API接口
-
-.cpp文件的储存位置当我们在Rstudio中新建C++文件时，它会直接新建一个文档，方便我们......
+            阅读本文之前，你可能对以下资源帖感兴趣：
+MCMC中的Metropolis–Hastings算法与吉布斯采样 蒙特卡洛采样之拒绝采样（Reject Sampling）LDA-math-MCMC 和 Gibbs SamplingMCMC 案例学习R语言与Markov Chain Monte Carlo(MCMC)方法学习笔记(1)R语言与Markov Chain Monte Carlo(MCM......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-11-16
+            2017-09-24
         </p>
         <div class="tags">
             
-              <a href="/tags/#R" title="R">R</a>
-            
-              <a href="/tags/#Rcpp" title="Rcpp">Rcpp</a>
+              <a href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
             
         </div>
     
@@ -499,26 +459,62 @@ RcppArmadillo简明手册Rcpp相关知识整理RcppArmadillo官方文档Armadill
 
 <div class="post-preview">
 
-    <a href="/2017/11/15/[R语言] apply函数/">
+    <a href="/2017/09/20/[计量] 计量经济学回顾/">
         <h2 class="post-title">
-            [R语言] apply函数
+            [计量] 计量经济学回顾
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于R语言科学计算的技术文档
+            这是一篇关于计量经济学的回顾
         </h3>
         <div class="post-content-preview">
-            最近在使用apply函数，想要往函数FUN里面输入多个参数再调用apply，下面是实验的结果：
-apply1234567ryan=function(x,y,msg) &#123;  return(paste0(x,y,msg))&#125;ryan(5,6,"-hello")apply(matrix(1:6,ncol = 1), 1, ryan,y=1:8,msg=c("-GOOD MORI......
+            高斯-马尔可夫定理
+在给定经典线性回归模型的假定下，最小二乘估计量在所有线性无偏估计量中具有最小方差（有效估计量），它们是最优线性无偏估计量（BLUE）。
+
+注意比较的范围是线性无偏估计量。经典线性回归模型的假定有七个：
+
+1 . 线性回归模型。对变量不一定是线性，对参数而言线性
+2 . $X$是固定的或者独立于误差项。$cov(X_i,u_i)=0$
+3 . 对于给定的$X$值，干扰项的$......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-11-15
+            2017-09-20
         </p>
         <div class="tags">
             
-              <a href="/tags/#R" title="R">R</a>
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/09/19/[Manual] python3爬取朋友圈数据/">
+        <h2 class="post-title">
+            [Manual] python3爬取朋友圈数据
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇python3爬取朋友圈的文章
+        </h3>
+        <div class="post-content-preview">
+            在阅读本文之前，你可能对以下资源贴有兴趣：
+wxpy文档我用Python爬了我的朋友圈itchat文档python实现微信接口(itchat)微信 python 接口 — itchat 文档速查
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-09-19
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#python" title="python">python</a>
             
         </div>
     
@@ -570,17 +566,11 @@ apply1234567ryan=function(x,y,msg) &#123;  return(paste0(x,y,msg))&#125;ryan(5,6
             
         
             
-        
+            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
             <a href="/tags/#R" title="R" rel="18">R</a>
-            
-        
-            
-            <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
-            
-        
             
         
             
@@ -591,6 +581,14 @@ apply1234567ryan=function(x,y,msg) &#123;  return(paste0(x,y,msg))&#125;ryan(5,6
         
             
             <a href="/tags/#python" title="python" rel="8">python</a>
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -616,19 +614,15 @@ apply1234567ryan=function(x,y,msg) &#123;  return(paste0(x,y,msg))&#125;ryan(5,6
             
         
             
-        
-            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
-            
-        
-            
-            <a href="/tags/#日常" title="日常" rel="16">日常</a>
             
         
             
         
             
             <a href="/tags/#电影" title="电影" rel="4">电影</a>
+            
+        
             
         
             
@@ -755,15 +749,7 @@ apply1234567ryan=function(x,y,msg) &#123;  return(paste0(x,y,msg))&#125;ryan(5,6
     <ul>
       
         <li>
-          <a href="/2018/06/11/[日常] 2018年06月11日/">2018年06月31日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/05/31/[日常] 2018年05月31日/">2018年05月31日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/05/25/[日常] 2018年05月25日/">2018年05月25日</a>
+          <a href="/2018/08/01/[日常] 2018年08月01日/">2018年08月01日</a>
         </li>
       
         <li>
@@ -772,6 +758,14 @@ apply1234567ryan=function(x,y,msg) &#123;  return(paste0(x,y,msg))&#125;ryan(5,6
       
         <li>
           <a href="/2018/05/21/[数据] GDELT项目介绍/">[数据] GDELT项目介绍</a>
+        </li>
+      
+        <li>
+          <a href="/2018/05/01/[R语言] RStudio美化2/">[R语言] RStudio美化2</a>
+        </li>
+      
+        <li>
+          <a href="/2018/04/30/[电影] 后来的我们/">[电影] 后来的我们</a>
         </li>
       
     </ul>
