@@ -132,13 +132,6 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/Gallery/">Gallery</a>
                         </li>
                         
@@ -146,7 +139,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -154,6 +147,13 @@
                         
                         <li>
                             <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -285,6 +285,42 @@ step2:检查csv数据类型，因为在尝试过程......
 
 <div class="post-preview">
 
+    <a href="/2018/01/31/[R语言] GARCH及其实现/">
+        <h2 class="post-title">
+            [R语言] GARCH过一遍
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于波动率建模的开篇
+        </h3>
+        <div class="post-content-preview">
+            金融时间序列有几个普遍现象：
+
+一组时间序列本身可能只有非常微弱的相关性，而它的函数（平方项、绝对值）呈现很强的相关性
+
+资产收益率序列的条件方差会随着时间改变，呈现条件异方差的特征
+
+波动集聚（volatility clustering）现象，资产收益率序列的波动会有持续的现象，大波动跟着大波动，小波动跟着小波动
+
+资产收益率序列并不服从正态分布，其极端值较多，具有厚尾（heavy tai......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-31
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/26/[R语言] 分组计算/">
         <h2 class="post-title">
             [R语言] 分组计算
@@ -315,20 +351,16 @@ step2:检查csv数据类型，因为在尝试过程......
 
 <div class="post-preview">
 
-    <a href="/2018/01/20/[金融] 股票的高beta异象/">
+    <a href="/2018/01/20/[金融] 再谈Black-Litterman模型/">
         <h2 class="post-title">
-            [金融] 股票的高beta异象
+            [金融] 再谈Black-Litterman模型
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于金融市场的跟踪观察
+            这是一篇关于投资组合优化的跟踪观察
         </h3>
         <div class="post-content-preview">
-            
-报告来自微信文章《股票市场的“高beta异象”——High beta is low alpha | 专题报告 招银资管研究》
-
-
-报告的重要内容是指出了，中国的A股市场确实存在“高beta异象”——高beta的股票会带来低alpha，高beta与低beta组别的超额收益（alpha）显著不同，无论是单个市场因子，或者三因子模型。
-计算方法我们使用2005年以来，上市超过两年的股票数据，截止......
+            既然已经过了一遍马可威茨的均值方差模型，那么就可以继续接着再谈一遍Black-Litterman模型了。
+前面说到利用历史数据去估计期望收益率向量$E(R)$和协方差阵$\hat{\Sigma}$。这种利用历史数据对金融资产做估计是备受诟病的，因为没有用到当前的信息；并且随着资产个数的增加，协方差阵的维度也增加，估计的参数越来越多，由此估计的协方差阵是不稳健的，进一步地，由此计算的投资组合效......
         </div>
     </a>
     
@@ -348,16 +380,20 @@ step2:检查csv数据类型，因为在尝试过程......
 
 <div class="post-preview">
 
-    <a href="/2018/01/20/[金融] 再谈Black-Litterman模型/">
+    <a href="/2018/01/20/[金融] 股票的高beta异象/">
         <h2 class="post-title">
-            [金融] 再谈Black-Litterman模型
+            [金融] 股票的高beta异象
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于投资组合优化的跟踪观察
+            这是一篇关于金融市场的跟踪观察
         </h3>
         <div class="post-content-preview">
-            既然已经过了一遍马可威茨的均值方差模型，那么就可以继续接着再谈一遍Black-Litterman模型了。
-前面说到利用历史数据去估计期望收益率向量$E(R)$和协方差阵$\hat{\Sigma}$。这种利用历史数据对金融资产做估计是备受诟病的，因为没有用到当前的信息；并且随着资产个数的增加，协方差阵的维度也增加，估计的参数越来越多，由此估计的协方差阵是不稳健的，进一步地，由此计算的投资组合效......
+            
+报告来自微信文章《股票市场的“高beta异象”——High beta is low alpha | 专题报告 招银资管研究》
+
+
+报告的重要内容是指出了，中国的A股市场确实存在“高beta异象”——高beta的股票会带来低alpha，高beta与低beta组别的超额收益（alpha）显著不同，无论是单个市场因子，或者三因子模型。
+计算方法我们使用2005年以来，上市超过两年的股票数据，截止......
         </div>
     </a>
     
@@ -511,35 +547,6 @@ min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/01/09/[计量] 自相关性/">
-        <h2 class="post-title">
-            [计量] 自相关性
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于自相关性的介绍
-        </h3>
-        <div class="post-content-preview">
-            注：回归子也可以被叫做被解释变量
-从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -584,6 +591,8 @@ min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
             
         
             
+        
+            
             <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
@@ -594,8 +603,6 @@ min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
             
         
             
-            <a href="/tags/#爬虫" title="爬虫" rel="4">爬虫</a>
-            
         
             
             <a href="/tags/#python" title="python" rel="8">python</a>
@@ -604,15 +611,11 @@ min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
             
         
             
-        
-            
-        
+            <a href="/tags/#爬虫" title="爬虫" rel="4">爬虫</a>
             
         
             
             <a href="/tags/#RStudio" title="RStudio" rel="2">RStudio</a>
-            
-        
             
         
             
@@ -632,9 +635,15 @@ min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
             
         
             
+        
+            
+        
+            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
             
         
+            
+            <a href="/tags/#日常" title="日常" rel="2">日常</a>
             
         
             
@@ -767,6 +776,10 @@ min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
     <ul>
       
         <li>
+          <a href="/2018/08/14/[日常] 2018年08月14日/">2018年08月14日</a>
+        </li>
+      
+        <li>
           <a href="/2018/08/01/[日常] 2018年08月01日/">2018年08月01日</a>
         </li>
       
@@ -780,10 +793,6 @@ min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
       
         <li>
           <a href="/2018/05/01/[R语言] RStudio美化2/">[R语言] RStudio美化2</a>
-        </li>
-      
-        <li>
-          <a href="/2018/04/30/[电影] 后来的我们/">[电影] 后来的我们</a>
         </li>
       
     </ul>
