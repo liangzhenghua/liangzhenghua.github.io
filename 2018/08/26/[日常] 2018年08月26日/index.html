@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [R语言] GARCH过一遍 - 南有嘉鱼 | 南有樛木
+          2018年08月26日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/31/[R语言] GARCH及其实现/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/08/26/[日常] 2018年08月26日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/R.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#R" title="R">R</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[R语言] GARCH过一遍</h1>
-                        <h2 class="subheading">这是一篇关于波动率建模的开篇</h2>
+                        <h1>2018年08月26日</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2018-01-31
+                            2018-08-26
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -225,51 +225,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>金融时间序列有几个普遍现象：</p>
-<ul>
-<li><p>一组时间序列本身可能只有非常微弱的相关性，而它的函数（平方项、绝对值）呈现很强的相关性</p>
-</li>
-<li><p>资产收益率序列的条件方差会随着时间改变，呈现条件异方差的特征</p>
-</li>
-<li><p>波动集聚（volatility clustering）现象，资产收益率序列的波动会有持续的现象，大波动跟着大波动，小波动跟着小波动</p>
-</li>
-<li><p>资产收益率序列并不服从正态分布，其极端值较多，具有厚尾（heavy tail）现象</p>
-</li>
-</ul>
-<p>ARCH和GARCH模型就是用来对收益率序列的波动建模预测的，首先我们要弄清楚怎么样衡量波动率。</p>
-<h1 id="ARCH"><a href="#ARCH" class="headerlink" title="ARCH"></a>ARCH</h1><p>一般先假设收益率序列$\{y_t\}$满足某个方程式，比如AR(p)、MA(q)、ARMA(p,q)，这里用简单的AR(1)说明ARCH模型。</p>
-<script type="math/tex; mode=display">
-y_t=a_0+a_1 y_{t-1}+\epsilon_t</script><p>那么$y_{t+1}$的条件方差为：</p>
-<script type="math/tex; mode=display">
-var(y_{t+1}|y_t)=E_t[(y_{t+1}-E(y_{t+1}))^2]=E_t(\epsilon_{t+1})^2</script><p>这启发我们，要预测收益率$y_{t+1}$的方差（波动率）的问题，转化为预测$E_t(\epsilon_{t+1})^2$的问题。</p>
-<p>一个简单的解决办法将残差估计值的平方建模为AR(q)模型：</p>
-<script type="math/tex; mode=display">
-\epsilon_t^2=\alpha_0 + \alpha_1 \epsilon_{t-1}^2+\alpha_2 \epsilon_{t-2}^2+...+\alpha_q \epsilon_{t-1}^2 + v_t</script><p>其中$v_t$是白噪音过程，而$\epsilon_t$可以来自一个自回归、ARMA、或标准常见的回归模型，所以ARCH有很多用途。</p>
-<p>实际上将干扰项$v_t$表示为乘法干扰项更容易处理，这就是我们所说的ARCH(1)模型：</p>
-<script type="math/tex; mode=display">
-\epsilon_t=v_t \sqrt{\alpha_0+\alpha_1 \epsilon_{t-1}^2}</script><p>其中$v_t$为白噪音过程，$v_t \sim IID(0,1)$，$v_t$和$\epsilon_{t-1}$相互独立。这样设定的优点在于收益率序列的自回归模型里面，$\epsilon_t$仍然是白噪声过程（均值为0，方差恒定，所有自协方差为0），但ARCH(1)的影响全部体现在了条件方差上，这样我们能够利用最近几期的信息去预测下一期的收益率的波动率（方差）。</p>
-<p><strong>验证$\epsilon_t$为白噪声过程：</strong></p>
-<p>(1) 由$v_t$和$\epsilon_{t-1}$相互独立及$E(v_t)=0$，得</p>
-<script type="math/tex; mode=display">
-E(\epsilon_t)=E(v_t)E(\alpha_0+\alpha_1 \epsilon_{t-1}^2)^{1/2}=0</script><p>(2) 由无条件方差$E(\epsilon_t^2)=E(\epsilon_{t-1}^2)$，得</p>
-<script type="math/tex; mode=display">
-E(\epsilon_t^2)=E(v_t^2)E(\alpha_0+\alpha_1 \epsilon_{t-1}^2)</script><p>整理得$\epsilon_t$的（恒定）方差为</p>
-<script type="math/tex; mode=display">
-E(\epsilon_t^2)=\frac{\alpha_0}{1-\alpha_1}</script><p>(3) 由$v_t$属于白噪声，所以自协方差满足</p>
-<script type="math/tex; mode=display">
-E(v_t v_{t-s})=E(\epsilon_t)E(\epsilon_{t-s})E(\sqrt{\alpha_0+\alpha_1 \epsilon_{t-1}^2} \sqrt{\alpha_0+\alpha_1 \epsilon_{t-s-1}^2}=0</script><p>至此知道了$\epsilon_t$保留白噪声的优良性质，下面可以验证代表$y_t$的条件方差$\epsilon_t^2$可以用自回归模型来预测：</p>
-<script type="math/tex; mode=display">
-E(\epsilon_t^2)=E(v_t^2)E(\alpha_0+\alpha_1 \epsilon_{t-1}^2)=\alpha_0+\alpha_1 \epsilon_{t-1}^2</script><p>记住，ARCH模型是完全单纯的统计模型，他们只是捕捉到金融序列的特征，而不能用来解释金融序列为何有这些特征。</p>
-<p>ARCH(q)模型的估计过程：</p>
-<p>（1）设定阶数$p$，为确定ARCH(q)模型中的阶数，在检验得知时间序列$\{\epsilon_t\}$确实存在显著的ARCH效应后，我们可以用$\epsilon_t^2$的偏自相关函数（PACF）来确定$p$</p>
-<p>（2）确定模型阶数$p$后，常常假设干扰项$v_t$服从某一分布（标准正态分布、标准化的t分布、广义误差分布）,然后使用极大似然法估计。</p>
-<p>（3）在参数估计后，需要检验模型设定。最常见的检验依赖于以下事实：一个正确设定的ARCH模型，标准化残差</p>
-<script type="math/tex; mode=display">\hat{v}_t=\frac{\hat{\epsilon}_t}{\sqrt{\alpha_0 +\alpha_1 \hat{\epsilon}_{t-1}^2}}</script><p>是独立同分布的随机过程，因此$\hat{v_t}$和$\hat{v}_t^2$的Ljung-Box统计量可以分别用来检验均值方程和波动率方程的正确性。</p>
-<h1 id="GARCH"><a href="#GARCH" class="headerlink" title="GARCH"></a>GARCH</h1><p>Bollerslev(1996)扩展了Engle的原始模型，引入了允许条件方差转化为ARMA过程的方法。现在假设误差过程为：</p>
-<script type="math/tex; mode=display">
-\epsilon_t=v_t\sqrt{h_t}</script><script type="math/tex; mode=display">
-h_t=\alpha_0+\sum_{i=1}^q \alpha_i \epsilon_{t-i}^2 + \sum_{i=1}^p \beta_i h_{t-i}</script><p>这个模型就是GARCH(p,q)，p个自回归项，q个误差项，实际意义上认为收益率序列每个时间点的波动率是最近p个波动率和q个残差平方的的线性组合。GARCH的优点显而易见，一个高阶的ARCH模型可能有一个更为简洁和更易识别和估算的GARCH表达式，因为估计参数更加少了。</p>
-<p>ARCH和GARCH模型的不足之处是类似的，两种模型认为波动是对称的，因为是对$\epsilon_t^2$建模；其次是参数需要满足的约束非常复杂；最后是拟合波动率的做法有投机取巧的嫌疑，要进一步理解波动率的动态还需要其他理论。</p>
+                <p>总是说逢8的年份不太吉利。</p>
+<p>在帝都的人儿总喜欢对国家大事指点一番，最近时局不太歌舞升平哇，共产主义是不存在经济危机这一说法的，可是目前这时局好像要打脸呐。现在的经济问题就是高昂的房价挤出了投资和消费，所有人（包括上市公司，投资性房地产规模有1万亿）都把钱把钱投入房地产，所有人都不相信房价会跌，90年开始，历史经验告诉了所有人政府限制房价上涨的决心都是洒洒水而已，地方政府的花的钱（特别是最近爆雷的城投债）主要还是靠拍卖土地给房地产商，如今偿付已经开始力不从心了，地方债违约意味着地方政府有破产的可能。另一方面，所有城镇居民心甘情愿承受房地产商的高房价，房子不仅是刚需，而且可以是最好的投资产品，至少在过去20年，真没有什么理财产品比房子的收益率还要高的。居民有了房价会一直上涨下去的一致预期，实体经济的企业家也掺和进来了，毕竟做生意最后还是看收益回报的，做什么实业都不如投资房地产，所以实业也没人去搞了，全民一起炒房。炒房总得跟银行打交道贷款啊，银行特别喜欢住房抵押贷款，因为房子价值高，大家都预期房价涨，没人会放弃断贷，违约风险太低了，违约之后还能收回房子多好的事，贷款给实业企业家不仅做尽职调查费时费力，而且实业经营一年比一年难，能不能还得起是个大问题。所以银行不愿意贷款给企业（特别是民营企业），喜欢放贷给居民家庭，企业融资越发艰难，经营也越惨淡，越有动机拿着公司的钱去投资房地产，这就是一个死循环。2017年A股中所有行业的净利润加起来都不及银行、非银金融和房地产三个板块，试问哪个行业的上市公司不想伸一脚进入来钱快的金融和房地产？所以印出的钞票（比如4万亿和15年政策牛市的推手）没有如当政者所愿促进消费，促进投资，钱发到大家手里就直接投入到房市里面去了，讲道理这批钱应该先流入比如汽车行业这些实体经济的设备更新或者是员工培训的开销，增加员工的工资应该让他们消费更多的比如洗发水什么的生活资料，这样可以盘活所有的行业，一下就把经济活力给激发出来。最后拿到钱的人却没有提高自己的消费，而是给了房子的首付，签下贷款合同给自己加杠杆，日子过得越发拧巴了所以消费降级就出来了。所以钱就在银行账面走了一圈，最终换了个房产的名目继续留在了账面上。居民加杠杆的后果就是，钱不够用了活的又憋屈，大家都没钱了贷款违约的案例越来越多，P2P爆雷只是钱荒的一个缩影，有钱还得起谁不想还呢。现在民营企业难以为继了，卖身国资委成了最好选择，四言以蔽之，国进民退。有观点认为，我们在开历史倒车，我们快要回到大清年代了。</p>
+<p>我觉得经济危机也有它的存在的道理，经济的问题就是做蛋糕和分蛋糕的问题，经济危机可以重新洗牌，让社会财富重新分配。游戏崩盘了游戏就能重来，它就像蜕皮的过程，危机过去才会有新的希望，特别是对年轻人来说，第一代或者第二代人可以不用背负巨额债务，还有各种工作岗位选择，有后来人为他们养老。一个社会的财富秩序久了，难免是那些拥有资本的（比如在北京有十几套的房子的房东）在尸位素餐，这些人本身对社会没有什么特别大的贡献，只是早生了几年因为时运而起势。</p>
+<p>当然，我是年轻人所以我才骂骂咧咧几句，我要是人到中年，我也同意收高房租，榨干年轻人的血。</p>
 
 
 
@@ -278,12 +237,12 @@ h_t=\alpha_0+\sum_{i=1}^q \alpha_i \epsilon_{t-i}^2 + \sum_{i=1}^p \beta_i h_{t-
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2018/02/02/[Manual] R语言quantstrat包使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] R语言quantstrat包使用手册">&larr; Previous Post</a>
+                            <a href="/2018/08/26/[日常] 2018年08月26日 - 副本/" data-toggle="tooltip" data-placement="top" title="2018年08月26日">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2018/01/31/[SQL] bulk insert/" data-toggle="tooltip" data-placement="top" title="[SQL] bulk insert">Next Post &rarr;</a>
+                            <a href="/2018/08/14/[日常] 2018年08月14日/" data-toggle="tooltip" data-placement="top" title="2018年08月14日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -308,17 +267,6 @@ h_t=\alpha_0+\sum_{i=1}^q \alpha_i \epsilon_{t-i}^2 + \sum_{i=1}^p \beta_i h_{t-
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#ARCH"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">ARCH</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#GARCH"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">GARCH</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -333,7 +281,7 @@ h_t=\alpha_0+\sum_{i=1}^q \alpha_i \epsilon_{t-i}^2 + \sum_{i=1}^p \beta_i h_{t-
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#R" title="R">R</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -363,71 +311,7 @@ h_t=\alpha_0+\sum_{i=1}^q \alpha_i \epsilon_{t-i}^2 + \sum_{i=1}^p \beta_i h_{t-
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
-
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
 
@@ -440,8 +324,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/31/[R语言] GARCH及其实现/";
-    var disqus_url = "https://liangzhenghua.github.io/2018/01/31/[R语言] GARCH及其实现/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/08/26/[日常] 2018年08月26日/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/08/26/[日常] 2018年08月26日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

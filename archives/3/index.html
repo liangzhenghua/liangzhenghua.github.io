@@ -132,6 +132,13 @@
 
                         
                         <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
                             <a href="/Gallery/">Gallery</a>
                         </li>
                         
@@ -140,13 +147,6 @@
                         
                         <li>
                             <a href="/archive/">Archives</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -219,6 +219,73 @@
 
 <div class="post-preview">
 
+    <a href="/2018/01/10/[电影] 芳华/">
+        <h2 class="post-title">
+            [电影] 芳华
+        </h2>
+        <h3 class="post-subtitle">
+            心血来潮又翻了别家的视频网站后台
+        </h3>
+        <div class="post-content-preview">
+            先mark了再说，我也有一颗红卫兵的心啊。
+
+
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-10
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#电影" title="电影">电影</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/09/[计量] 多元线性回归/">
+        <h2 class="post-title">
+            [计量] 多元线性回归
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于多元线性回归的最后复习
+        </h3>
+        <div class="post-content-preview">
+            对于目标函数
+
+\begin{split}
+min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
+&=Y'Y-Y'X\beta-\beta ' X'Y+\beta ' X'X \beta \\
+& =Y'Y-2Y'X\beta+\beta ' X'X \beta
+\end{split}对$\beta$求偏导，并令导数为0，可以得到OLS估计。
+
+\frac{\p......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/09/[计量] 自相关性/">
         <h2 class="post-title">
             [计量] 自相关性
@@ -283,17 +350,20 @@ min \ Q=\sum_{i=1}^n \hat{u}_i^2=\sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] SQL Server R/">
+    <a href="/2017/12/12/[R语言] 最优化/">
         <h2 class="post-title">
-            [R语言] SQL Server R
+            [R语言] 在R里面做最优化
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于在数据库中调用R语言的学习笔记
+            这是一篇关于R语言进行最优化的学习笔记
         </h3>
         <div class="post-content-preview">
-            Microsoft 官方文档
-Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
-...
+            收集了几个包，有空可以逐一试试每个包的求解速度。
+R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
+
+今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
+拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
+12345......
         </div>
     </a>
     
@@ -313,20 +383,17 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] 最优化/">
+    <a href="/2017/12/12/[R语言] SQL Server R/">
         <h2 class="post-title">
-            [R语言] 在R里面做最优化
+            [R语言] SQL Server R
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于R语言进行最优化的学习笔记
+            这是一篇关于在数据库中调用R语言的学习笔记
         </h3>
         <div class="post-content-preview">
-            收集了几个包，有空可以逐一试试每个包的求解速度。
-R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
-
-今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
-拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
-12345......
+            Microsoft 官方文档
+Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
+...
         </div>
     </a>
     
@@ -466,69 +533,6 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/29/[计量] OLS的大样本性质/">
-        <h2 class="post-title">
-            [计量] OLS的大样本性质
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于计量课程presentation的预热
-        </h3>
-        <div class="post-content-preview">
-            在有限样本条件下，OLS估计的一系列优良特性都是建立在严格的古典假定上。显然，在现实生活中，严格的古典假定并不一定满足。大样本性质 就是在残差不服从正态分布这一经典假定条件下，利用大数定律和中心极限定理对估计量渐近性质的讨论。
-大样本OLS估计的推导和性质大样本理论的重要性在于：
-
-小样本理论的假设过强
-在小样本下，我们必须研究统计量的精确分布，但常常难以推导
-使用大样本理论的代价是要求样本......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-29
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/11/26/[Statistics] PCA资源汇总/">
-        <h2 class="post-title">
-            [Statistics] 多元统计资源汇总
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于多元统计的资料汇总
-        </h3>
-        <div class="post-content-preview">
-            多元统计这个东西已经被很多人研究透了，不能重复造轮子啊，所以我就把它们集中到一起吧，讲真，它们可能比教科书还要详细。
-PCA的数学原理SVD分解
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-26
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#多元统计" title="多元统计">多元统计</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -609,6 +613,10 @@ PCA的数学原理SVD分解
             
         
             
+        
+            
+        
+            
             <a href="/tags/#数据" title="数据" rel="2">数据</a>
             
         
@@ -617,15 +625,11 @@ PCA的数学原理SVD分解
             
         
             
-        
-            
-        
-            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
             
         
             
-            <a href="/tags/#日常" title="日常" rel="2">日常</a>
+            <a href="/tags/#日常" title="日常" rel="4">日常</a>
             
         
             
@@ -758,6 +762,14 @@ PCA的数学原理SVD分解
     <ul>
       
         <li>
+          <a href="/2018/08/26/[日常] 2018年08月26日 - 副本/">2018年08月26日</a>
+        </li>
+      
+        <li>
+          <a href="/2018/08/26/[日常] 2018年08月26日/">2018年08月26日</a>
+        </li>
+      
+        <li>
           <a href="/2018/08/14/[日常] 2018年08月14日/">2018年08月14日</a>
         </li>
       
@@ -767,14 +779,6 @@ PCA的数学原理SVD分解
       
         <li>
           <a href="/2018/05/23/[R语言]系统文件管理/">[R语言] 系统文件管理</a>
-        </li>
-      
-        <li>
-          <a href="/2018/05/21/[数据] GDELT项目介绍/">[数据] GDELT项目介绍</a>
-        </li>
-      
-        <li>
-          <a href="/2018/05/01/[R语言] RStudio美化2/">[R语言] RStudio美化2</a>
         </li>
       
     </ul>
