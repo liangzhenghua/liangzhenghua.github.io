@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [Manual] R语言wordcloud2包使用手册 - 南有嘉鱼 | 南有樛木
+          [R语言] data.table-fread函数 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/08/19/[Manual] R语言wordcloud2包使用手册/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/08/27/[R语言]data.table-fread函数/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/python.jpg')
+            background-image: url('/img/R.jpg')
             /*post*/
         
     }
@@ -88,14 +88,12 @@
                             
                               <a class="tag" href="/tags/#R" title="R">R</a>
                             
-                              <a class="tag" href="/tags/#wordcloud" title="wordcloud">wordcloud</a>
-                            
                         </div>
-                        <h1>[Manual] R语言wordcloud2包使用手册</h1>
-                        <h2 class="subheading">这是一篇关于R语言词云的知识总结</h2>
+                        <h1>[R语言] data.table-fread函数</h1>
+                        <h2 class="subheading">data.table是最快的包，苏炳添是最快的副教授</h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-08-19
+                            2018-08-27
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -227,34 +225,25 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>在阅读本文之前，你可能对以下扫盲贴有兴趣：</p>
-<p><a href="https://cran.r-project.org/web/packages/wordcloud2/vignettes/wordcloud.html" target="_blank" rel="external">wordclou2官方参考文档</a><br><a href="https://cosx.org/2016/08/wordcloud2" target="_blank" rel="external">可能是目前最好的词云解决方案 wordcloud2</a><br><a href="http://www.xueqing.tv/cms/article/226" target="_blank" rel="external">wordcloud2: R语言词云终极解决方案</a>    </p>
-<hr>
-<p>Wordcloud2的使用非常简单，主要使用的函数只有两个：<code>wordlcoud2</code>和<code>letterCloud</code>，它们生成的不是静态的png等格式的图片，在Rstudio的viewer窗口动态显示。</p>
-<h1 id="wordlcoud2"><a href="#wordlcoud2" class="headerlink" title="wordlcoud2"></a>wordlcoud2</h1><h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(wordcloud2)</div><div class="line">wordcloud2(data = demoFreq)    <span class="comment">#demoFreq是数据框格式，第一列是词汇，第二列是词频</span></div><div class="line">wordcloud2(demoFreq, color = <span class="string">"random-light"</span>, backgroundColor = <span class="string">"grey"</span>)</div><div class="line">wordcloud2(demoFreq, minRotation = -pi/<span class="number">6</span>, maxRotation = -pi/<span class="number">6</span>, minSize = <span class="number">10</span>,rotateRatio = <span class="number">1</span>)    <span class="comment">#旋转词云</span></div><div class="line">figPath = system.file(<span class="string">"examples/t.png"</span>,package = <span class="string">"wordcloud2"</span>)    <span class="comment">#背景图片路径</span></div><div class="line">wordcloud2(demoFreq, figPath = figPath, size = <span class="number">1.5</span>,color = <span class="string">"skyblue"</span>)   <span class="comment">#color是词汇统一的格式</span></div></pre></td></tr></table></figure>
-<h1 id="letterCloud"><a href="#letterCloud" class="headerlink" title="letterCloud"></a>letterCloud</h1><p>这个函数使用报错，调用后没有任何显示信息，这里先挖个坑以后会来继续填。</p>
-<h2 id="Exmaple"><a href="#Exmaple" class="headerlink" title="Exmaple"></a>Exmaple</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">letterCloud(demoFreq, word = <span class="string">"R"</span>, size = <span class="number">2</span>)</div><div class="line">letterCloud(demoFreq, word = <span class="string">"WORDCLOUD2"</span>, wordSize = <span class="number">1</span>)</div></pre></td></tr></table></figure>
-<h1 id="词云图片保存"><a href="#词云图片保存" class="headerlink" title="词云图片保存"></a>词云图片保存</h1><p>用Rstudio画了词云，可以在Viewer窗口使用点击Export的方式得到图片，但是我现在需要用代码保存图片，wordcloud2包中并没有提供使用代码保存图片的函数。<a href="https://stackoverflow.com/questions/41884336/export-wordcloud2-as-html-automatically" target="_blank" rel="external">stack overflow</a>有个比较简单的办法：</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span>(wordcloud2)</div><div class="line">df       &lt;- head(demoFreq, <span class="number">5</span>) <span class="comment">#只取最高频的5个词语作为测试</span></div><div class="line">my_cloud &lt;- wordcloud2(df)</div><div class="line">my_path  &lt;- htmltools::html_print(my_cloud)   <span class="comment"># saves html in temp directory</span></div><div class="line">print(my_path)  <span class="comment"># the location of the html file.</span></div></pre></td></tr></table></figure>
-<h1 id="中文词云报错"><a href="#中文词云报错" class="headerlink" title="中文词云报错"></a>中文词云报错</h1><p>如果词语是中文的，则wordcloud2运行报错，字符集编码的问题很棘手，一度想要放弃这个包了。</p>
-<blockquote>
-<p>Sys.setlocale(category = “LC_ALL”,locale = “English_United States.1252”)</p>
-</blockquote>
-<p>如果使用上面的命令暂时更改Rstudio的系统语言，则wordcloud2自带的中文demo可以运行，但从其他地方导入的UTF-8文本依然报错，并且R的系统语言中原来的中文也变为了乱码。设置文本编辑为UTF-8输入格式，设置<code>locale = &quot;chinese&quot;</code>，如果手动输入中文字符，有时候可以有时候不可以（除非locale设置为鬼佬的编码格式），自带的中文数据集<code>demoFreqC</code>也乱码报错。这个包太不健壮了，我都怀疑作者用的R版本是全英的，不需要处理中文文本。然后我去找源代码哪里错了，发现可能是htmlwidgets包的问题，好吧不能怪wordcloud。</p>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">library</span>(wordcloud2)</div><div class="line">mydata=data.frame(x=c(<span class="string">"我喜欢你"</span>,<span class="string">"man"</span>),freq=c(<span class="number">10</span>,<span class="number">9</span>))</div><div class="line">wordcloud2(mydata)</div></pre></td></tr></table></figure>
+                <p>data.table里面的fread函数和fwrite函数是我用过最好的I/O函数，f（fast）简明扼要地说明了data.table的读写速度一骑绝尘。</p>
+<p>除了快，它还安全。普通的read.csv函数，读入全局空间之后，字符变量常常被转换为因子型数据（factor），这种数据类型特别容易出错，本意是想着节省内存空间，实际上对于小量数据来说反而增加了负担，打印出的一小部分因子数据也会自带冗余的levels信息。最麻烦的还是在于数据索引比较时（比如merge,is.identical）时，一列是因子型，一列是字符型，你无法预知会发生什么幺蛾子。最稳妥的方式就是只使用字符型一个数据类型，这个习惯也容易迁移到其他语言当中去。如果你使用fread函数的话，就没有这个问题，甚至参数什么的都帮你自动取了，你不需要明确指出要不要表头，分隔符是什么，它会在读取的过程中逐步地判断数据类型应该取什么，自己调整。</p>
+<p>但是这个函数有个bug，目前用的最新1.11.4版本也没有解决这个问题，stack overflow相关帖见 <a href="https://stackoverflow.com/questions/51994193/fread-issue-with-integer64" target="_blank" rel="external">fread issue with integer64</a>，很不幸，目前没有人给出解决办法，这个问题也上传到github上面了，详见<a href="https://github.com/Rdatatable/data.table/issues/2607" target="_blank" rel="external">fread(integer64 = “double”) not working for some data</a></p>
+<p>在座各位都是学过VB的人，应该知道VB是动态语言，R是静态语言，静态语言中赋值给变量的时候不用事先声明，使用的时候才确定变量类型，这样写代码的时候很爽，可是少了数据类型严格的定义，除了每次计算前都要判断数据类型造成速度慢之外，存储空间也大，数据类型之间的转换更加是一件危险的事情，比如原来应该是double的数据类型，你使用了int，那么2^31以上的数字你就要当心你的变量装不下了。为了充分发挥R的浪费内存的特性，我想把所有的数值型变量的数据类型级别开到最大，写了这么一段函数：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment"># 合并某文件夹下所有具有相同数据格式的3536个CSV文件为一个数据框</span></div><div class="line">MergeCsv=<span class="keyword">function</span>(filepath) &#123;</div><div class="line">  myfile=dir(pattern = <span class="string">"*.CSV"</span>,path = filepath,full.names =<span class="literal">T</span>)</div><div class="line">  a&lt;-invisible(lapply(myfile,FUN=fread,sep=<span class="string">','</span>,na.strings = <span class="string">''</span>,header = <span class="literal">T</span>,integer64=<span class="string">"double"</span>))</div><div class="line">  <span class="comment"># rbindlist是datatable里面用于合并列表中具有相同数据结构数据框的函数</span></div><div class="line">  <span class="comment"># fill和use.names保持一致，按相同变量名合并列，缺失值用NA表示</span></div><div class="line">  temp=rbindlist(a)</div><div class="line">  <span class="keyword">return</span>(temp)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个函数寥寥几行，却散发着本人一身老油条的气息。拿去稍加修改就可以读取一个文件夹下所有具有相同数据格式csv文件，并且合并到一个数据框里面。读数据都可以使用lapply，我深深地被自己震撼到了。然而<code>integer64=&quot;double&quot;</code>这个参数却没有起到作用，让我的数据出现很多异常。让我十分的郁闷，我的数据是要导入到sql server里面的，sql server里面更改数据的工作量很大，并且是高危工作。还好我找到了一个补救办法：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">MergeCsv=<span class="keyword">function</span>(filepath) &#123;</div><div class="line">  myfile=dir(pattern = <span class="string">"*.CSV"</span>,path = filepath,full.names =<span class="literal">T</span>)</div><div class="line">  a&lt;-invisible(lapply(myfile,FUN=fread,sep=<span class="string">','</span>,na.strings = <span class="string">''</span>,header = <span class="literal">T</span>,colClasses=list(double=<span class="number">4</span>:<span class="number">24</span>)))</div><div class="line">  <span class="comment"># rbindlist是datatable里面用于合并列表中具有相同数据结构数据框的函数</span></div><div class="line">  <span class="comment"># fill和use.names保持一致，按相同变量名合并列，缺失值用NA表示</span></div><div class="line">  temp=rbindlist(a)</div><div class="line">  <span class="keyword">return</span>(temp)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用colClasses参数强制定义某一类型下的所有列变量，只是这个参数的设置就稍微工作量大了一点，这一想法来自<a href="https://stackoverflow.com/questions/48838222/data-tablefread-an-integer64-type-manually-override-colclass-for-only-one-c" target="_blank" rel="external">stack overflow</a>。会不会出现其他问题呢，再观望一下吧。建议还没修复这个bug的时候，使用这个函数的时候library(bit64)一下，否则可能出现读入超过2^32的整数会变成无穷小量情况，这就是另一个谜了。</p>
+<p>hahaha，我在上面的帖子还看到任坤大佬，出镜率贼高，厦大毕业的硕士，在上海某私募（上海明汯投资）做量化，写过几个R包比如Rlist，我没用过感觉不太好用，可能是他处理数据的时候经常使用list做数据的载体吧。</p>
+
 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/08/19/[Manual] python调用R之rpy2使用手册/" data-toggle="tooltip" data-placement="top" title="[Manual] python调用R之rpy2使用手册">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/08/17/[爬虫] python3分析《战狼2》豆瓣影评/" data-toggle="tooltip" data-placement="top" title="[爬虫] python3分析《战狼2》豆瓣影评">Next Post &rarr;</a>
+                            <a href="/2018/08/26/[日常] 2018年08月26日/" data-toggle="tooltip" data-placement="top" title="2018年08月26日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -284,7 +273,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#wordlcoud2"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">wordlcoud2</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Example"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Example</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#letterCloud"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">letterCloud</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#Exmaple"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">Exmaple</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#词云图片保存"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">词云图片保存</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#中文词云报错"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">中文词云报错</span></a></li></ol>
+          <ol class="nav">none</ol>
         
         </div>
       </aside>
@@ -305,8 +294,6 @@
                     <div class="tags">
                        
                           <a class="tag" href="/tags/#R" title="R">R</a>
-                        
-                          <a class="tag" href="/tags/#wordcloud" title="wordcloud">wordcloud</a>
                         
                     </div>
                 </section>
@@ -375,8 +362,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/08/19/[Manual] R语言wordcloud2包使用手册/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/08/19/[Manual] R语言wordcloud2包使用手册/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/08/27/[R语言]data.table-fread函数/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/08/27/[R语言]data.table-fread函数/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

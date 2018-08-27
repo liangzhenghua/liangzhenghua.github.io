@@ -132,14 +132,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/Gallery/">Gallery</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/Gallery/">Gallery</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -219,6 +219,42 @@
 
 <div class="post-preview">
 
+    <a href="/2018/01/11/[黑科技] 科学上网/">
+        <h2 class="post-title">
+            [黑科技] 科学上网
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于科学上网的资源帖
+        </h3>
+        <div class="post-content-preview">
+            2018-01-11更新
+在大数据班码神舍友的介绍下，找到了这个翻墙软件，目前能用。其实我是很满足于墙内的世界的。
+下载链接
+中文文档
+
+你可能需要以下资源帖：
+老D博客host文件github项目
+
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-11
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#科学上网" title="科学上网">科学上网</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/01/10/[电影] 芳华/">
         <h2 class="post-title">
             [电影] 芳华
@@ -250,23 +286,16 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/09/[计量] 多元线性回归/">
+    <a href="/2018/01/09/[计量] 自相关性/">
         <h2 class="post-title">
-            [计量] 多元线性回归
+            [计量] 自相关性
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于多元线性回归的最后复习
+            这是一篇关于自相关性的介绍
         </h3>
         <div class="post-content-preview">
-            对于目标函数
-
-\begin{split}
-min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
-&=Y'Y-Y'X\beta-\beta ' X'Y+\beta ' X'X \beta \\
-& =Y'Y-2Y'X\beta+\beta ' X'X \beta
-\end{split}对$\beta$求偏导，并令导数为0，可以得到OLS估计。
-
-\frac{\p......
+            注：回归子也可以被叫做被解释变量
+从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
         </div>
     </a>
     
@@ -286,16 +315,23 @@ min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
 
 <div class="post-preview">
 
-    <a href="/2018/01/09/[计量] 自相关性/">
+    <a href="/2018/01/09/[计量] 多元线性回归/">
         <h2 class="post-title">
-            [计量] 自相关性
+            [计量] 多元线性回归
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于自相关性的介绍
+            这是一篇关于多元线性回归的最后复习
         </h3>
         <div class="post-content-preview">
-            注：回归子也可以被叫做被解释变量
-从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
+            对于目标函数
+
+\begin{split}
+min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
+&=Y'Y-Y'X\beta-\beta ' X'Y+\beta ' X'X \beta \\
+& =Y'Y-2Y'X\beta+\beta ' X'X \beta
+\end{split}对$\beta$求偏导，并令导数为0，可以得到OLS估计。
+
+\frac{\p......
         </div>
     </a>
     
@@ -501,38 +537,6 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/11/30/[Latex] 两个Beamer使用说明/">
-        <h2 class="post-title">
-            [Latex] 两个Beamer使用说明
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于自己用的beamer总结
-        </h3>
-        <div class="post-content-preview">
-             用Beamer制作幻灯片（卷一 基本架构篇） 用Beamer制作幻灯片（卷二 色彩篇）使用 Beamer 制作学术讲稿Beamer 使用笔记
-要维护自己常用的Latex模板挺费时间去调教的，我挑选了两个看起来还不错的Beamer，一个中文一个英文，以后做展示瞬间就提升逼格MAX。
-华中师范大学幻灯片模板
-拜罗伊特大学beamer主题模板
-华中师范大学幻灯片模板它使用xelatex编译，还需......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-11-30
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Latex" title="Latex">Latex</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -583,7 +587,7 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
             
         
             
-            <a href="/tags/#R" title="R" rel="18">R</a>
+            <a href="/tags/#R" title="R" rel="19">R</a>
             
         
             
@@ -597,13 +601,13 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
             
         
             
+        
+            
             <a href="/tags/#爬虫" title="爬虫" rel="4">爬虫</a>
             
         
             
             <a href="/tags/#RStudio" title="RStudio" rel="2">RStudio</a>
-            
-        
             
         
             
@@ -633,9 +637,9 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
             
         
             
-            <a href="/tags/#电影" title="电影" rel="4">电影</a>
-            
         
+            
+            <a href="/tags/#电影" title="电影" rel="4">电影</a>
             
         
             
@@ -762,11 +766,15 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
     <ul>
       
         <li>
-          <a href="/2018/08/26/[日常] 2018年08月26日 - 副本/">2018年08月26日</a>
+          <a href="/2018/08/27/[R语言]data.table-fread函数/">[R语言] data.table-fread函数</a>
         </li>
       
         <li>
           <a href="/2018/08/26/[日常] 2018年08月26日/">2018年08月26日</a>
+        </li>
+      
+        <li>
+          <a href="/2018/08/26/[日常] 2018年08月26日 - 副本/">2018年08月26日</a>
         </li>
       
         <li>
@@ -775,10 +783,6 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
       
         <li>
           <a href="/2018/08/01/[日常] 2018年08月01日/">2018年08月01日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/05/23/[R语言]系统文件管理/">[R语言] 系统文件管理</a>
         </li>
       
     </ul>
