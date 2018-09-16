@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -216,6 +216,68 @@
 
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2018/01/20/[金融] 再谈Black-Litterman模型/">
+        <h2 class="post-title">
+            [金融] 再谈Black-Litterman模型
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于投资组合优化的跟踪观察
+        </h3>
+        <div class="post-content-preview">
+            既然已经过了一遍马可威茨的均值方差模型，那么就可以继续接着再谈一遍Black-Litterman模型了。
+前面说到利用历史数据去估计期望收益率向量$E(R)$和协方差阵$\hat{\Sigma}$。这种利用历史数据对金融资产做估计是备受诟病的，因为没有用到当前的信息；并且随着资产个数的增加，协方差阵的维度也增加，估计的参数越来越多，由此估计的协方差阵是不稳健的，进一步地，由此计算的投资组合效......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-20
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#金融" title="金融">金融</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/01/14/[R语言] 投资组合/">
+        <h2 class="post-title">
+            [R语言] 投资组合的马可威茨模型
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于投资组合的管中窥豹
+        </h3>
+        <div class="post-content-preview">
+            基本思想在投资里面，资产组合一定要考虑，本文从马可威茨模型开始说起。
+假设我们有$p$个股票，收益率视为随机变量$r_1,r_2,…,r_p$，那么资产组合可以记为$R=w_1 r_1+w_2 r_2+…+w_p r_p=w’r$，资产组合的均值可以记为$E(R)$，方差可以记为$var(R)$，由多元统计知识知道
+
+
+E(R)=w'E(r)
+var(R)=w'\Sigma w其中$\Sig......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-01-14
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -286,16 +348,23 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/09/[计量] 自相关性/">
+    <a href="/2018/01/09/[计量] 多元线性回归/">
         <h2 class="post-title">
-            [计量] 自相关性
+            [计量] 多元线性回归
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于自相关性的介绍
+            这是一篇关于多元线性回归的最后复习
         </h3>
         <div class="post-content-preview">
-            注：回归子也可以被叫做被解释变量
-从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
+            对于目标函数
+
+\begin{split}
+min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
+&=Y'Y-Y'X\beta-\beta ' X'Y+\beta ' X'X \beta \\
+& =Y'Y-2Y'X\beta+\beta ' X'X \beta
+\end{split}对$\beta$求偏导，并令导数为0，可以得到OLS估计。
+
+\frac{\p......
         </div>
     </a>
     
@@ -315,23 +384,16 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/09/[计量] 多元线性回归/">
+    <a href="/2018/01/09/[计量] 自相关性/">
         <h2 class="post-title">
-            [计量] 多元线性回归
+            [计量] 自相关性
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于多元线性回归的最后复习
+            这是一篇关于自相关性的介绍
         </h3>
         <div class="post-content-preview">
-            对于目标函数
-
-\begin{split}
-min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
-&=Y'Y-Y'X\beta-\beta ' X'Y+\beta ' X'X \beta \\
-& =Y'Y-2Y'X\beta+\beta ' X'X \beta
-\end{split}对$\beta$求偏导，并令导数为0，可以得到OLS估计。
-
-\frac{\p......
+            注：回归子也可以被叫做被解释变量
+从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
         </div>
     </a>
     
@@ -386,20 +448,17 @@ min \ Q=\sum_{i=1}^n \hat{u}_i^2=\sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] 最优化/">
+    <a href="/2017/12/12/[R语言] SQL Server R/">
         <h2 class="post-title">
-            [R语言] 在R里面做最优化
+            [R语言] SQL Server R
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于R语言进行最优化的学习笔记
+            这是一篇关于在数据库中调用R语言的学习笔记
         </h3>
         <div class="post-content-preview">
-            收集了几个包，有空可以逐一试试每个包的求解速度。
-R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
-
-今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
-拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
-12345......
+            Microsoft 官方文档
+Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
+...
         </div>
     </a>
     
@@ -419,17 +478,20 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
 
 <div class="post-preview">
 
-    <a href="/2017/12/12/[R语言] SQL Server R/">
+    <a href="/2017/12/12/[R语言] 最优化/">
         <h2 class="post-title">
-            [R语言] SQL Server R
+            [R语言] 在R里面做最优化
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于在数据库中调用R语言的学习笔记
+            这是一篇关于R语言进行最优化的学习笔记
         </h3>
         <div class="post-content-preview">
-            Microsoft 官方文档
-Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
-...
+            收集了几个包，有空可以逐一试试每个包的求解速度。
+R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：非线性规划与多目标规划
+
+今天拿Rglpk来练手.这个包有只有两个函数，一个函数负责读入整理好的的目标数据，系数矩阵，约束符号等数据；实际上求解的的就是一个函数Rglpk_solve_LP.
+拿lpSolve和Rglpk做测试，求解的问题再代码里面可以看见。
+12345......
         </div>
     </a>
     
@@ -471,65 +533,6 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
         <div class="tags">
             
               <a href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/07/[计量] 嵌套与非嵌套模型/">
-        <h2 class="post-title">
-            [计量] 嵌套与非嵌套模型
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于模型设定和诊断检验的梳理
-        </h3>
-        <div class="post-content-preview">
-            概念在进行设定检验时，区分嵌套(nested)和非嵌套模型(non-nested models)有助于我们继续下面的讨论。
-模型A：$Y_i=\beta_1+\beta_2 X_{2i}+\beta_3 X_{3i}+\beta_4 X_{4i}+\beta_5 X_{5i}+u_i$模型B：$Y_i=\beta_1+\beta_2 X_{2i}+\beta_3 X_{3i}+u_i$
-我们......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-12-07
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/03/[文献阅读] Bayesian Lasso regression/">
-        <h2 class="post-title">
-            [文献阅读] Bayesian Lasso regression
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            摘要当使用独立的双指数分布作为回归系数的先验分布时，lasso的估计系数对应后验分布众数。这篇文章介绍了贝叶斯方法在lasso里面的拓展，包括了计算和推断等问题。重点讨论了利用后验均值作为点估计。文章显示标准lasso的预测并不一定与贝叶斯lasso的预测一致,文章还介绍了一种新的Gibbs抽样方法。
-引言自从lasso被提出之后，作为对OLS的替代方案，广泛被应用在回归问题中。它的流行在于......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-12-03
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
             
         </div>
     
@@ -595,21 +598,19 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
             
         
             
-            <a href="/tags/#python" title="python" rel="8">python</a>
-            
-        
-            
-        
-            
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="4">爬虫</a>
             
         
             
-            <a href="/tags/#RStudio" title="RStudio" rel="2">RStudio</a>
+            <a href="/tags/#python" title="python" rel="8">python</a>
             
         
+            
+        
+            
+            <a href="/tags/#RStudio" title="RStudio" rel="2">RStudio</a>
             
         
             
@@ -629,13 +630,13 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
             
         
             
+        
+            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
             
         
             
-            <a href="/tags/#日常" title="日常" rel="4">日常</a>
-            
-        
+            <a href="/tags/#日常" title="日常" rel="6">日常</a>
             
         
             
@@ -643,13 +644,15 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
             
         
             
+        
+            
             <a href="/tags/#计量" title="计量" rel="11">计量</a>
             
         
             
-        
-            
             <a href="/tags/#金融" title="金融" rel="2">金融</a>
+            
+        
             
         
             
@@ -766,11 +769,15 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
     <ul>
       
         <li>
-          <a href="/2018/08/27/[R语言]data.table-fread函数/">[R语言] data.table-fread函数</a>
+          <a href="/2018/09/16/[日常] 2018年09月16日/">2018年09月16日</a>
         </li>
       
         <li>
-          <a href="/2018/08/26/[日常] 2018年08月26日/">2018年08月26日</a>
+          <a href="/2018/09/03/[日常] 2018年09月03日/">2018年09月03日</a>
+        </li>
+      
+        <li>
+          <a href="/2018/08/27/[R语言]data.table-fread函数/">[R语言] data.table-fread函数</a>
         </li>
       
         <li>
@@ -778,11 +785,7 @@ Prerequisites首先要在SQL server中启用这几个模块，设置好环境，
         </li>
       
         <li>
-          <a href="/2018/08/14/[日常] 2018年08月14日/">2018年08月14日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/08/01/[日常] 2018年08月01日/">2018年08月01日</a>
+          <a href="/2018/08/26/[日常] 2018年08月26日/">2018年08月26日</a>
         </li>
       
     </ul>

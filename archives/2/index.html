@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -219,6 +219,75 @@
 
 <div class="post-preview">
 
+    <a href="/2018/04/30/[电影] 后来的我们/">
+        <h2 class="post-title">
+            [电影] 后来的我们
+        </h2>
+        <h3 class="post-subtitle">
+            我也想上九天揽月，下五洋捉鳖
+        </h3>
+        <div class="post-content-preview">
+            
+刘若英、周冬雨、井柏然、田馥甄、陈奕迅都是我喜欢的哇，他们串成了我对《后来的我们》的印象。
+在国贸那里的天桥上看着车水马龙，莫名就想起周冬雨的身子伸出出租车喊着北京那一幕。我想所有关于北京的故事都是真实的，京城之大可以包纳每个人的梦。它是如此的公平，无论是挤在门头沟、回龙观，还是挤在望京、西二旗地铁站附近十几平米空间，抑或怀柔和房山、西城和东城长安街后的人们，都是北京的一部分，感受着整个国......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-04-30
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#电影" title="电影">电影</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2018/04/25/[R语言] reticulate包/">
+        <h2 class="post-title">
+            [R语言] reticulate包
+        </h2>
+        <h3 class="post-subtitle">
+            在Rstudio里调用优雅地调用python
+        </h3>
+        <div class="post-content-preview">
+            emm，在R里面调用python古已有之，一直会有这样的那样的问题，只能执行简单的语句，很难调用大型的、复杂的python项目，一点也不优雅。而今天这个包，reticulate包，就优雅多了，比如
+
+代码补全
+
+逐行运行python语句（这个很重要）
+
+简便地在R里面查看python变量（对于debug很有帮助）
+
+
+如果你是第一次阅读本文，你可能会对以下扫盲贴感兴趣：reticulate:......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2018-04-25
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+              <a href="/tags/#python" title="python">python</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/04/17/[爬虫] scrapy爬虫框架上手/">
         <h2 class="post-title">
             [爬虫] scrapy爬虫框架上手
@@ -239,9 +308,9 @@
         </p>
         <div class="tags">
             
-              <a href="/tags/#python" title="python">python</a>
-            
               <a href="/tags/#爬虫" title="爬虫">爬虫</a>
+            
+              <a href="/tags/#python" title="python">python</a>
             
         </div>
     
@@ -312,23 +381,21 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/31/[R语言] GARCH及其实现/">
+    <a href="/2018/01/31/[SQL] bulk insert/">
         <h2 class="post-title">
-            [R语言] GARCH过一遍
+            [SQL] bulk insert
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于波动率建模的开篇
+            这是一篇关于导入csv数据到数据库的介绍
         </h3>
         <div class="post-content-preview">
-            金融时间序列有几个普遍现象：
+            Bulk Insert详细用法参见Bulk Insert命令详细。
+我的数据是从R写入CSV文件的，需要再从CSV文件导入到数据库里面。为什么需要这么麻烦呢，直接从R写入数据库不行吗，数据量大的时候还真不行，利用bulk insert适用于数据量特别大的情形。
+解决步骤：
 
-一组时间序列本身可能只有非常微弱的相关性，而它的函数（平方项、绝对值）呈现很强的相关性
+step1:设计数据表的列名和类型，数据表名称，主键，NULL约束等
 
-资产收益率序列的条件方差会随着时间改变，呈现条件异方差的特征
-
-波动集聚（volatility clustering）现象，资产收益率序列的波动会有持续的现象，大波动跟着大波动，小波动跟着小波动
-
-资产收益率序列并不服从正态分布，其极端值较多，具有厚尾（heavy tai......
+step2:检查csv数据类型，因为在尝试过程......
         </div>
     </a>
     
@@ -338,7 +405,7 @@
         </p>
         <div class="tags">
             
-              <a href="/tags/#R" title="R">R</a>
+              <a href="/tags/#SQL" title="SQL">SQL</a>
             
         </div>
     
@@ -380,21 +447,23 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/31/[SQL] bulk insert/">
+    <a href="/2018/01/31/[R语言] GARCH及其实现/">
         <h2 class="post-title">
-            [SQL] bulk insert
+            [R语言] GARCH过一遍
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于导入csv数据到数据库的介绍
+            这是一篇关于波动率建模的开篇
         </h3>
         <div class="post-content-preview">
-            Bulk Insert详细用法参见Bulk Insert命令详细。
-我的数据是从R写入CSV文件的，需要再从CSV文件导入到数据库里面。为什么需要这么麻烦呢，直接从R写入数据库不行吗，数据量大的时候还真不行，利用bulk insert适用于数据量特别大的情形。
-解决步骤：
+            金融时间序列有几个普遍现象：
 
-step1:设计数据表的列名和类型，数据表名称，主键，NULL约束等
+一组时间序列本身可能只有非常微弱的相关性，而它的函数（平方项、绝对值）呈现很强的相关性
 
-step2:检查csv数据类型，因为在尝试过程......
+资产收益率序列的条件方差会随着时间改变，呈现条件异方差的特征
+
+波动集聚（volatility clustering）现象，资产收益率序列的波动会有持续的现象，大波动跟着大波动，小波动跟着小波动
+
+资产收益率序列并不服从正态分布，其极端值较多，具有厚尾（heavy tai......
         </div>
     </a>
     
@@ -404,7 +473,7 @@ step2:检查csv数据类型，因为在尝试过程......
         </p>
         <div class="tags">
             
-              <a href="/tags/#SQL" title="SQL">SQL</a>
+              <a href="/tags/#R" title="R">R</a>
             
         </div>
     
@@ -475,68 +544,6 @@ step2:检查csv数据类型，因为在尝试过程......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2018/01/20/[金融] 再谈Black-Litterman模型/">
-        <h2 class="post-title">
-            [金融] 再谈Black-Litterman模型
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于投资组合优化的跟踪观察
-        </h3>
-        <div class="post-content-preview">
-            既然已经过了一遍马可威茨的均值方差模型，那么就可以继续接着再谈一遍Black-Litterman模型了。
-前面说到利用历史数据去估计期望收益率向量$E(R)$和协方差阵$\hat{\Sigma}$。这种利用历史数据对金融资产做估计是备受诟病的，因为没有用到当前的信息；并且随着资产个数的增加，协方差阵的维度也增加，估计的参数越来越多，由此估计的协方差阵是不稳健的，进一步地，由此计算的投资组合效......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#金融" title="金融">金融</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/14/[R语言] 投资组合/">
-        <h2 class="post-title">
-            [R语言] 投资组合的马可威茨模型
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于投资组合的管中窥豹
-        </h3>
-        <div class="post-content-preview">
-            基本思想在投资里面，资产组合一定要考虑，本文从马可威茨模型开始说起。
-假设我们有$p$个股票，收益率视为随机变量$r_1,r_2,…,r_p$，那么资产组合可以记为$R=w_1 r_1+w_2 r_2+…+w_p r_p=w’r$，资产组合的均值可以记为$E(R)$，方差可以记为$var(R)$，由多元统计知识知道
-
-
-E(R)=w'E(r)
-var(R)=w'\Sigma w其中$\Sig......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-14
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#R" title="R">R</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -595,21 +602,19 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
-            <a href="/tags/#python" title="python" rel="8">python</a>
-            
-        
-            
-        
-            
         
             
             <a href="/tags/#爬虫" title="爬虫" rel="4">爬虫</a>
             
         
             
-            <a href="/tags/#RStudio" title="RStudio" rel="2">RStudio</a>
+            <a href="/tags/#python" title="python" rel="8">python</a>
             
         
+            
+        
+            
+            <a href="/tags/#RStudio" title="RStudio" rel="2">RStudio</a>
             
         
             
@@ -629,13 +634,13 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
+        
+            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
             
         
             
-            <a href="/tags/#日常" title="日常" rel="4">日常</a>
-            
-        
+            <a href="/tags/#日常" title="日常" rel="6">日常</a>
             
         
             
@@ -643,13 +648,15 @@ var(R)=w'\Sigma w其中$\Sig......
             
         
             
+        
+            
             <a href="/tags/#计量" title="计量" rel="11">计量</a>
             
         
             
-        
-            
             <a href="/tags/#金融" title="金融" rel="2">金融</a>
+            
+        
             
         
             
@@ -766,11 +773,15 @@ var(R)=w'\Sigma w其中$\Sig......
     <ul>
       
         <li>
-          <a href="/2018/08/27/[R语言]data.table-fread函数/">[R语言] data.table-fread函数</a>
+          <a href="/2018/09/16/[日常] 2018年09月16日/">2018年09月16日</a>
         </li>
       
         <li>
-          <a href="/2018/08/26/[日常] 2018年08月26日/">2018年08月26日</a>
+          <a href="/2018/09/03/[日常] 2018年09月03日/">2018年09月03日</a>
+        </li>
+      
+        <li>
+          <a href="/2018/08/27/[R语言]data.table-fread函数/">[R语言] data.table-fread函数</a>
         </li>
       
         <li>
@@ -778,11 +789,7 @@ var(R)=w'\Sigma w其中$\Sig......
         </li>
       
         <li>
-          <a href="/2018/08/14/[日常] 2018年08月14日/">2018年08月14日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/08/01/[日常] 2018年08月01日/">2018年08月01日</a>
+          <a href="/2018/08/26/[日常] 2018年08月26日/">2018年08月26日</a>
         </li>
       
     </ul>
