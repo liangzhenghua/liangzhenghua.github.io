@@ -132,13 +132,6 @@
 
                         
                         <li>
-                            <a href="/Gallery/">Gallery</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -146,7 +139,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/Gallery/">Gallery</a>
                         </li>
                         
                     
@@ -154,6 +147,13 @@
                         
                         <li>
                             <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -208,11 +208,11 @@
                 
                     <a href="#贝叶斯统计" title="贝叶斯统计" rel="4">贝叶斯统计</a>
                 
-                    <a href="#Latex" title="Latex" rel="1">Latex</a>
-                
                     <a href="#Rcpp" title="Rcpp" rel="2">Rcpp</a>
                 
                     <a href="#R" title="R" rel="19">R</a>
+                
+                    <a href="#Latex" title="Latex" rel="1">Latex</a>
                 
                     <a href="#quant" title="quant" rel="1">quant</a>
                 
@@ -230,35 +230,33 @@
                 
                     <a href="#科学计算" title="科学计算" rel="1">科学计算</a>
                 
-                    <a href="#多元统计" title="多元统计" rel="1">多元统计</a>
+                    <a href="#SQL" title="SQL" rel="1">SQL</a>
                 
                     <a href="#多元统计统计" title="多元统计统计" rel="1">多元统计统计</a>
                 
-                    <a href="#SQL" title="SQL" rel="1">SQL</a>
+                    <a href="#多元统计" title="多元统计" rel="1">多元统计</a>
+                
+                    <a href="#统计" title="统计" rel="1">统计</a>
                 
                     <a href="#数据" title="数据" rel="2">数据</a>
                 
                     <a href="#经济学" title="经济学" rel="2">经济学</a>
                 
-                    <a href="#统计" title="统计" rel="1">统计</a>
-                
                     <a href="#文献阅读" title="文献阅读" rel="5">文献阅读</a>
-                
-                    <a href="#日常" title="日常" rel="6">日常</a>
-                
-                    <a href="#电影" title="电影" rel="4">电影</a>
                 
                     <a href="#审查元素" title="审查元素" rel="1">审查元素</a>
                 
-                    <a href="#计量" title="计量" rel="11">计量</a>
+                    <a href="#电影" title="电影" rel="4">电影</a>
                 
-                    <a href="#金融" title="金融" rel="2">金融</a>
+                    <a href="#计量" title="计量" rel="11">计量</a>
                 
                     <a href="#本科毕业论文" title="本科毕业论文" rel="1">本科毕业论文</a>
                 
-                    <a href="#科学上网" title="科学上网" rel="1">科学上网</a>
+                    <a href="#金融" title="金融" rel="2">金融</a>
                 
                     <a href="#行研" title="行研" rel="1">行研</a>
+                
+                    <a href="#科学上网" title="科学上网" rel="1">科学上网</a>
                 
                     <a href="#Hexo" title="Hexo" rel="1">Hexo</a>
                 
@@ -273,6 +271,25 @@
                 <span class="fa fa-tag listing-seperator" id="贝叶斯统计">
                     <span class="tag-text">贝叶斯统计</span>
                 </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/09/24/[Bayesian] MCMC回顾/">
+                        <h2 class="post-title">
+                            [Bayesian] MCMC回顾
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                这是一篇关于MCMC算法的回顾
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
                 
                   <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -317,25 +334,6 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/09/24/[Bayesian] MCMC回顾/">
-                        <h2 class="post-title">
-                            [Bayesian] MCMC回顾
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                这是一篇关于MCMC算法的回顾
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
                      <a href="/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/">
                         <h2 class="post-title">
                             [文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断
@@ -343,32 +341,6 @@
                         
                             <h3 class="post-subtitle">
                                 面板数据中的简单贝叶斯应用
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="Latex">
-                    <span class="tag-text">Latex</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/30/[Latex] 两个Beamer使用说明/">
-                        <h2 class="post-title">
-                            [Latex] 两个Beamer使用说明
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                这是一篇关于自己用的beamer总结
                             </h3>
                         
                     </a>
@@ -388,13 +360,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/08/30/[Manual] Rcpp使用手册/">
+                     <a href="/2017/11/16/[Manual] Rcpp使用手册2/">
                         <h2 class="post-title">
-                            [Manual] Rcpp使用手册
+                            [Manual] Rcpp使用手册2
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇关于Rcpp的基础性技术文档
+                                这是一篇关于RcppArmadillo的基础性技术文档
                             </h3>
                         
                     </a>
@@ -407,13 +379,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/16/[Manual] Rcpp使用手册2/">
+                     <a href="/2017/08/30/[Manual] Rcpp使用手册/">
                         <h2 class="post-title">
-                            [Manual] Rcpp使用手册2
+                            [Manual] Rcpp使用手册
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇关于RcppArmadillo的基础性技术文档
+                                这是一篇关于Rcpp的基础性技术文档
                             </h3>
                         
                     </a>
@@ -433,13 +405,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/08/30/[Manual] Rcpp使用手册/">
+                     <a href="/2017/11/16/[Manual] Rcpp使用手册2/">
                         <h2 class="post-title">
-                            [Manual] Rcpp使用手册
+                            [Manual] Rcpp使用手册2
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇关于Rcpp的基础性技术文档
+                                这是一篇关于RcppArmadillo的基础性技术文档
                             </h3>
                         
                     </a>
@@ -452,13 +424,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/16/[Manual] Rcpp使用手册2/">
+                     <a href="/2017/08/30/[Manual] Rcpp使用手册/">
                         <h2 class="post-title">
-                            [Manual] Rcpp使用手册2
+                            [Manual] Rcpp使用手册
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇关于RcppArmadillo的基础性技术文档
+                                这是一篇关于Rcpp的基础性技术文档
                             </h3>
                         
                     </a>
@@ -528,9 +500,28 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2018/05/01/[R语言] RStudio美化2/">
+                     <a href="/2018/01/31/[R语言] GARCH及其实现/">
                         <h2 class="post-title">
-                            [R语言] RStudio美化2
+                            [R语言] GARCH过一遍
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                这是一篇关于波动率建模的开篇
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/11/[R语言] RStudio美化/">
+                        <h2 class="post-title">
+                            [R语言] RStudio美化
                         </h2>
                         
                             <h3 class="post-subtitle">
@@ -547,9 +538,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/11/[R语言] RStudio美化/">
+                     <a href="/2018/05/01/[R语言] RStudio美化2/">
                         <h2 class="post-title">
-                            [R语言] RStudio美化
+                            [R语言] RStudio美化2
                         </h2>
                         
                             <h3 class="post-subtitle">
@@ -585,25 +576,6 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2018/01/31/[R语言] GARCH及其实现/">
-                        <h2 class="post-title">
-                            [R语言] GARCH过一遍
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                这是一篇关于波动率建模的开篇
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
                      <a href="/2017/12/12/[R语言] SQL Server R/">
                         <h2 class="post-title">
                             [R语言] SQL Server R
@@ -611,25 +583,6 @@
                         
                             <h3 class="post-subtitle">
                                 这是一篇关于在数据库中调用R语言的学习笔记
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/04/25/[R语言] reticulate包/">
-                        <h2 class="post-title">
-                            [R语言] reticulate包
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                在Rstudio里调用优雅地调用python
                             </h3>
                         
                     </a>
@@ -661,6 +614,25 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
+                     <a href="/2018/04/25/[R语言] reticulate包/">
+                        <h2 class="post-title">
+                            [R语言] reticulate包
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                在Rstudio里调用优雅地调用python
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
                      <a href="/2017/11/16/[R语言] 一种特殊的lasso求解/">
                         <h2 class="post-title">
                             [R语言] 一种特殊的lasso求解
@@ -668,6 +640,25 @@
                         
                             <h3 class="post-subtitle">
                                 这是一篇关于提高计算速度的技术文档
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/18/[R语言] 利用R合成卡农和最炫民族风/">
+                        <h2 class="post-title">
+                            [R语言] 利用R合成卡农和最炫民族风
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                这是一次严肃的电子音乐实验
                             </h3>
                         
                     </a>
@@ -718,13 +709,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/18/[R语言] 利用R合成卡农和最炫民族风/">
+                     <a href="/2017/12/12/[R语言] 最优化/">
                         <h2 class="post-title">
-                            [R语言] 利用R合成卡农和最炫民族风
+                            [R语言] 在R里面做最优化
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一次严肃的电子音乐实验
+                                这是一篇关于R语言进行最优化的学习笔记
                             </h3>
                         
                     </a>
@@ -756,25 +747,6 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/12/12/[R语言] 最优化/">
-                        <h2 class="post-title">
-                            [R语言] 在R里面做最优化
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                这是一篇关于R语言进行最优化的学习笔记
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
                      <a href="/2018/05/23/[R语言]系统文件管理/">
                         <h2 class="post-title">
                             [R语言] 系统文件管理
@@ -782,6 +754,32 @@
                         
                             <h3 class="post-subtitle">
                                 这是一篇关于系统管理黑科技的汇总
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="Latex">
+                    <span class="tag-text">Latex</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/30/[Latex] 两个Beamer使用说明/">
+                        <h2 class="post-title">
+                            [Latex] 两个Beamer使用说明
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                这是一篇关于自己用的beamer总结
                             </h3>
                         
                     </a>
@@ -981,13 +979,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/09/04/[Manual] python3参考手册之模块、包和分发/">
+                     <a href="/2017/09/26/[Manual] python3之pandas使用手册/">
                         <h2 class="post-title">
-                            [Manual] python3参考手册之模块、包和分发
+                            [Manual] python3之pandas使用手册
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇python3基础教程
+                                这是一篇python3数据分析的基础性文档
                             </h3>
                         
                     </a>
@@ -1000,13 +998,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/09/26/[Manual] python3之pandas使用手册/">
+                     <a href="/2017/09/04/[Manual] python3参考手册之模块、包和分发/">
                         <h2 class="post-title">
-                            [Manual] python3之pandas使用手册
+                            [Manual] python3参考手册之模块、包和分发
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇python3数据分析的基础性文档
+                                这是一篇python3基础教程
                             </h3>
                         
                     </a>
@@ -1147,9 +1145,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2018/05/01/[R语言] RStudio美化2/">
+                     <a href="/2017/11/11/[R语言] RStudio美化/">
                         <h2 class="post-title">
-                            [R语言] RStudio美化2
+                            [R语言] RStudio美化
                         </h2>
                         
                             <h3 class="post-subtitle">
@@ -1166,9 +1164,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/11/[R语言] RStudio美化/">
+                     <a href="/2018/05/01/[R语言] RStudio美化2/">
                         <h2 class="post-title">
-                            [R语言] RStudio美化
+                            [R语言] RStudio美化2
                         </h2>
                         
                             <h3 class="post-subtitle">
@@ -1209,8 +1207,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="多元统计">
-                    <span class="tag-text">多元统计</span>
+                <span class="fa fa-tag listing-seperator" id="SQL">
+                    <span class="tag-text">SQL</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -1218,13 +1216,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/26/[Statistics] PCA资源汇总/">
+                     <a href="/2018/01/31/[SQL] bulk insert/">
                         <h2 class="post-title">
-                            [Statistics] 多元统计资源汇总
+                            [SQL] bulk insert
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇关于多元统计的资料汇总
+                                这是一篇关于导入csv数据到数据库的介绍
                             </h3>
                         
                     </a>
@@ -1261,8 +1259,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="SQL">
-                    <span class="tag-text">SQL</span>
+                <span class="fa fa-tag listing-seperator" id="多元统计">
+                    <span class="tag-text">多元统计</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -1270,13 +1268,39 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2018/01/31/[SQL] bulk insert/">
+                     <a href="/2017/11/26/[Statistics] PCA资源汇总/">
                         <h2 class="post-title">
-                            [SQL] bulk insert
+                            [Statistics] 多元统计资源汇总
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇关于导入csv数据到数据库的介绍
+                                这是一篇关于多元统计的资料汇总
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="统计">
+                    <span class="tag-text">统计</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/11/09/[Statistics] 点估计/">
+                        <h2 class="post-title">
+                            [Statistics] 点估计
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                这是一篇关于点估计的重要提醒
                             </h3>
                         
                     </a>
@@ -1377,32 +1401,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="统计">
-                    <span class="tag-text">统计</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/11/09/[Statistics] 点估计/">
-                        <h2 class="post-title">
-                            [Statistics] 点估计
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                这是一篇关于点估计的重要提醒
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="文献阅读">
                     <span class="tag-text">文献阅读</span>
                 </span>
@@ -1442,9 +1440,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/12/[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model/">
+                     <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
                         <h2 class="post-title">
-                            [文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model
+                            [文献阅读] Bayesian adaptive Lasso quantile regression
                         </h2>
                         
                     </a>
@@ -1457,9 +1455,9 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/">
+                     <a href="/2017/11/12/[文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model/">
                         <h2 class="post-title">
-                            [文献阅读] Bayesian adaptive Lasso quantile regression
+                            [文献阅读] Multi-style rotation strategies using augmented Black Litterman factor model
                         </h2>
                         
                     </a>
@@ -1485,8 +1483,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="日常">
-                    <span class="tag-text">日常</span>
+                <span class="fa fa-tag listing-seperator" id="审查元素">
+                    <span class="tag-text">审查元素</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -1494,85 +1492,14 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2018/08/14/[日常] 2018年08月14日/">
+                     <a href="/2017/08/14/[爬虫] 审查元素技巧/">
                         <h2 class="post-title">
-                            2018年08月14日
+                            [爬虫] 审查元素技巧
                         </h2>
                         
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/08/26/[日常] 2018年08月26日/">
-                        <h2 class="post-title">
-                            2018年08月26日
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/08/26/[日常] 2018年08月26日 - 副本/">
-                        <h2 class="post-title">
-                            2018年08月26日
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/09/03/[日常] 2018年09月03日/">
-                        <h2 class="post-title">
-                            2018年09月03日
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/08/01/[日常] 2018年08月01日/">
-                        <h2 class="post-title">
-                            2018年08月01日
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/09/16/[日常] 2018年09月16日/">
-                        <h2 class="post-title">
-                            2018年09月16日
-                        </h2>
+                            <h3 class="post-subtitle">
+                                这是一篇关于爬虫的基础知识
+                            </h3>
                         
                     </a>
                     <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -1665,32 +1592,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="审查元素">
-                    <span class="tag-text">审查元素</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/08/14/[爬虫] 审查元素技巧/">
-                        <h2 class="post-title">
-                            [爬虫] 审查元素技巧
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                这是一篇关于爬虫的基础知识
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="计量">
                     <span class="tag-text">计量</span>
                 </span>
@@ -1719,13 +1620,32 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2018/01/09/[计量] 多元线性回归/">
+                     <a href="/2018/01/05/[计量] 一元线性回归/">
                         <h2 class="post-title">
-                            [计量] 多元线性回归
+                            [计量] 一元线性回归
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇关于多元线性回归的最后复习
+                                这是一篇关于一元线性回归的最后复习
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/12/07/[计量] 嵌套与非嵌套模型/">
+                        <h2 class="post-title">
+                            [计量] 嵌套与非嵌套模型
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                这是一篇关于模型设定和诊断检验的梳理
                             </h3>
                         
                     </a>
@@ -1757,13 +1677,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2018/01/05/[计量] 一元线性回归/">
+                     <a href="/2018/01/09/[计量] 多元线性回归/">
                         <h2 class="post-title">
-                            [计量] 一元线性回归
+                            [计量] 多元线性回归
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                这是一篇关于一元线性回归的最后复习
+                                这是一篇关于多元线性回归的最后复习
                             </h3>
                         
                     </a>
@@ -1802,25 +1722,6 @@
                         
                             <h3 class="post-subtitle">
                                 这是一篇关于异方差性的介绍
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/12/07/[计量] 嵌套与非嵌套模型/">
-                        <h2 class="post-title">
-                            [计量] 嵌套与非嵌套模型
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                这是一篇关于模型设定和诊断检验的梳理
                             </h3>
                         
                     </a>
@@ -1907,6 +1808,32 @@
             </div>
             
             <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="本科毕业论文">
+                    <span class="tag-text">本科毕业论文</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2017/08/08/[论文] 本科毕业论文/">
+                        <h2 class="post-title">
+                            本科毕业论文
+                        </h2>
+                        
+                            <h3 class="post-subtitle">
+                                纪念一下
+                            </h3>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="金融">
                     <span class="tag-text">金融</span>
                 </span>
@@ -1952,8 +1879,8 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="本科毕业论文">
-                    <span class="tag-text">本科毕业论文</span>
+                <span class="fa fa-tag listing-seperator" id="行研">
+                    <span class="tag-text">行研</span>
                 </span>
                 
                   <!-- <li class="listing-item">
@@ -1961,13 +1888,13 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
                  <div class="post-preview">
-                     <a href="/2017/08/08/[论文] 本科毕业论文/">
+                     <a href="/2017/09/27/[金融] 行业研究资源/">
                         <h2 class="post-title">
-                            本科毕业论文
+                            [金融] 行业研究资源
                         </h2>
                         
                             <h3 class="post-subtitle">
-                                纪念一下
+                                这是一篇关于行研的入门教程
                             </h3>
                         
                     </a>
@@ -1994,32 +1921,6 @@
                         
                             <h3 class="post-subtitle">
                                 这是一篇关于科学上网的资源帖
-                            </h3>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="行研">
-                    <span class="tag-text">行研</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2017/09/27/[金融] 行业研究资源/">
-                        <h2 class="post-title">
-                            [金融] 行业研究资源
-                        </h2>
-                        
-                            <h3 class="post-subtitle">
-                                这是一篇关于行研的入门教程
                             </h3>
                         
                     </a>

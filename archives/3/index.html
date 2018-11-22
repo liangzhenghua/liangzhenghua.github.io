@@ -132,13 +132,6 @@
 
                         
                         <li>
-                            <a href="/Gallery/">Gallery</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
                             <a href="/about/">About</a>
                         </li>
                         
@@ -146,7 +139,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/Gallery/">Gallery</a>
                         </li>
                         
                     
@@ -154,6 +147,13 @@
                         
                         <li>
                             <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -219,200 +219,6 @@
 
 <div class="post-preview">
 
-    <a href="/2018/01/20/[金融] 再谈Black-Litterman模型/">
-        <h2 class="post-title">
-            [金融] 再谈Black-Litterman模型
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于投资组合优化的跟踪观察
-        </h3>
-        <div class="post-content-preview">
-            既然已经过了一遍马可威茨的均值方差模型，那么就可以继续接着再谈一遍Black-Litterman模型了。
-前面说到利用历史数据去估计期望收益率向量$E(R)$和协方差阵$\hat{\Sigma}$。这种利用历史数据对金融资产做估计是备受诟病的，因为没有用到当前的信息；并且随着资产个数的增加，协方差阵的维度也增加，估计的参数越来越多，由此估计的协方差阵是不稳健的，进一步地，由此计算的投资组合效......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-20
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#金融" title="金融">金融</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/14/[R语言] 投资组合/">
-        <h2 class="post-title">
-            [R语言] 投资组合的马可威茨模型
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于投资组合的管中窥豹
-        </h3>
-        <div class="post-content-preview">
-            基本思想在投资里面，资产组合一定要考虑，本文从马可威茨模型开始说起。
-假设我们有$p$个股票，收益率视为随机变量$r_1,r_2,…,r_p$，那么资产组合可以记为$R=w_1 r_1+w_2 r_2+…+w_p r_p=w’r$，资产组合的均值可以记为$E(R)$，方差可以记为$var(R)$，由多元统计知识知道
-
-
-E(R)=w'E(r)
-var(R)=w'\Sigma w其中$\Sig......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-14
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#R" title="R">R</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/11/[黑科技] 科学上网/">
-        <h2 class="post-title">
-            [黑科技] 科学上网
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于科学上网的资源帖
-        </h3>
-        <div class="post-content-preview">
-            2018-01-11更新
-在大数据班码神舍友的介绍下，找到了这个翻墙软件，目前能用。其实我是很满足于墙内的世界的。
-下载链接
-中文文档
-
-你可能需要以下资源帖：
-老D博客host文件github项目
-
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-11
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#科学上网" title="科学上网">科学上网</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/10/[电影] 芳华/">
-        <h2 class="post-title">
-            [电影] 芳华
-        </h2>
-        <h3 class="post-subtitle">
-            心血来潮又翻了别家的视频网站后台
-        </h3>
-        <div class="post-content-preview">
-            先mark了再说，我也有一颗红卫兵的心啊。
-
-
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-10
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#电影" title="电影">电影</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/09/[计量] 多元线性回归/">
-        <h2 class="post-title">
-            [计量] 多元线性回归
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于多元线性回归的最后复习
-        </h3>
-        <div class="post-content-preview">
-            对于目标函数
-
-\begin{split}
-min \ Q & =\sum_{i=1}^n ||Y-X\beta||^2 \\
-&=Y'Y-Y'X\beta-\beta ' X'Y+\beta ' X'X \beta \\
-& =Y'Y-2Y'X\beta+\beta ' X'X \beta
-\end{split}对$\beta$求偏导，并令导数为0，可以得到OLS估计。
-
-\frac{\p......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/01/09/[计量] 自相关性/">
-        <h2 class="post-title">
-            [计量] 自相关性
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于自相关性的介绍
-        </h3>
-        <div class="post-content-preview">
-            注：回归子也可以被叫做被解释变量
-从误差项的协方差矩阵来看，异方差和自相关其实不能算是两件事。满足经典线性回归假设条件的误差项，其协方差矩阵是一个单位阵乘以$\sigma^2$，如果以矩阵形式考虑广义最小二乘法问题会直观很多，对数据$X$和$Y$左乘协方差矩阵的1/2次幂（尚有疑点），可以使得变换后的数据满足OLS估计的条件。异方差和自相关条件下，OLS估计仍然是无偏和一致的，通常可以利用N......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2018-01-09
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2018/01/05/[计量] 一元线性回归/">
         <h2 class="post-title">
             [计量] 一元线性回归
@@ -439,36 +245,6 @@ min \ Q=\sum_{i=1}^n \hat{u}_i^2=\sum_{i=1}^n (y_i-\hat{\beta_0}-\hat{\beta_1} x
         <div class="tags">
             
               <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/12/12/[R语言] SQL Server R/">
-        <h2 class="post-title">
-            [R语言] SQL Server R
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于在数据库中调用R语言的学习笔记
-        </h3>
-        <div class="post-content-preview">
-            Microsoft 官方文档
-Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-12-12
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#R" title="R">R</a>
             
         </div>
     
@@ -511,6 +287,36 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
 
 <div class="post-preview">
 
+    <a href="/2017/12/12/[R语言] SQL Server R/">
+        <h2 class="post-title">
+            [R语言] SQL Server R
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于在数据库中调用R语言的学习笔记
+        </h3>
+        <div class="post-content-preview">
+            Microsoft 官方文档
+Prerequisites首先要在SQL server中启用这几个模块，设置好环境，才可以在sql代码中嵌入R代码。
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-12-12
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/12/08/[文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断/">
         <h2 class="post-title">
             [文献阅读] 贝叶斯计量经济学及面板数据中的贝叶斯推断
@@ -533,6 +339,190 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
         <div class="tags">
             
               <a href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/07/[计量] 嵌套与非嵌套模型/">
+        <h2 class="post-title">
+            [计量] 嵌套与非嵌套模型
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于模型设定和诊断检验的梳理
+        </h3>
+        <div class="post-content-preview">
+            概念在进行设定检验时，区分嵌套(nested)和非嵌套模型(non-nested models)有助于我们继续下面的讨论。
+模型A：$Y_i=\beta_1+\beta_2 X_{2i}+\beta_3 X_{3i}+\beta_4 X_{4i}+\beta_5 X_{5i}+u_i$模型B：$Y_i=\beta_1+\beta_2 X_{2i}+\beta_3 X_{3i}+u_i$
+我们......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-12-07
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/12/03/[文献阅读] Bayesian Lasso regression/">
+        <h2 class="post-title">
+            [文献阅读] Bayesian Lasso regression
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            摘要当使用独立的双指数分布作为回归系数的先验分布时，lasso的估计系数对应后验分布众数。这篇文章介绍了贝叶斯方法在lasso里面的拓展，包括了计算和推断等问题。重点讨论了利用后验均值作为点估计。文章显示标准lasso的预测并不一定与贝叶斯lasso的预测一致,文章还介绍了一种新的Gibbs抽样方法。
+引言自从lasso被提出之后，作为对OLS的替代方案，广泛被应用在回归问题中。它的流行在于......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-12-03
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/30/[Latex] 两个Beamer使用说明/">
+        <h2 class="post-title">
+            [Latex] 两个Beamer使用说明
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于自己用的beamer总结
+        </h3>
+        <div class="post-content-preview">
+             用Beamer制作幻灯片（卷一 基本架构篇） 用Beamer制作幻灯片（卷二 色彩篇）使用 Beamer 制作学术讲稿Beamer 使用笔记
+要维护自己常用的Latex模板挺费时间去调教的，我挑选了两个看起来还不错的Beamer，一个中文一个英文，以后做展示瞬间就提升逼格MAX。
+华中师范大学幻灯片模板
+拜罗伊特大学beamer主题模板
+华中师范大学幻灯片模板它使用xelatex编译，还需......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-30
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Latex" title="Latex">Latex</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/29/[计量] OLS的大样本性质/">
+        <h2 class="post-title">
+            [计量] OLS的大样本性质
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于计量课程presentation的预热
+        </h3>
+        <div class="post-content-preview">
+            在有限样本条件下，OLS估计的一系列优良特性都是建立在严格的古典假定上。显然，在现实生活中，严格的古典假定并不一定满足。大样本性质 就是在残差不服从正态分布这一经典假定条件下，利用大数定律和中心极限定理对估计量渐近性质的讨论。
+大样本OLS估计的推导和性质大样本理论的重要性在于：
+
+小样本理论的假设过强
+在小样本下，我们必须研究统计量的精确分布，但常常难以推导
+使用大样本理论的代价是要求样本......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-29
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#计量" title="计量">计量</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/26/[Statistics] PCA资源汇总/">
+        <h2 class="post-title">
+            [Statistics] 多元统计资源汇总
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于多元统计的资料汇总
+        </h3>
+        <div class="post-content-preview">
+            多元统计这个东西已经被很多人研究透了，不能重复造轮子啊，所以我就把它们集中到一起吧，讲真，它们可能比教科书还要详细。
+PCA的数学原理SVD分解
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#多元统计" title="多元统计">多元统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
+        <h2 class="post-title">
+            [文献阅读] 中国股票市场可预测性的实证研究
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            这篇文章是金融学院的姜富伟读博期间发的论文，周二就要见真人了，所以我现在要做好功课。
+首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。
+Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-26
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
             
         </div>
     
@@ -584,13 +574,13 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
-        
-            
             <a href="/tags/#Rcpp" title="Rcpp" rel="2">Rcpp</a>
             
         
             
             <a href="/tags/#R" title="R" rel="19">R</a>
+            
+        
             
         
             
@@ -622,6 +612,8 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
+        
+            
             <a href="/tags/#数据" title="数据" rel="2">数据</a>
             
         
@@ -630,13 +622,9 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
-        
-            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
             
         
-            
-            <a href="/tags/#日常" title="日常" rel="6">日常</a>
             
         
             
@@ -644,15 +632,13 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
             
         
             
-        
-            
             <a href="/tags/#计量" title="计量" rel="11">计量</a>
             
         
             
-            <a href="/tags/#金融" title="金融" rel="2">金融</a>
-            
         
+            
+            <a href="/tags/#金融" title="金融" rel="2">金融</a>
             
         
             
@@ -769,23 +755,23 @@ R语言非线性方程组求解dfsane,nleqslvR语言与优化模型（二）：�
     <ul>
       
         <li>
-          <a href="/2018/09/16/[日常] 2018年09月16日/">2018年09月16日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/09/03/[日常] 2018年09月03日/">2018年09月03日</a>
-        </li>
-      
-        <li>
           <a href="/2018/08/27/[R语言]data.table-fread函数/">[R语言] data.table-fread函数</a>
         </li>
       
         <li>
-          <a href="/2018/08/26/[日常] 2018年08月26日 - 副本/">2018年08月26日</a>
+          <a href="/2018/05/23/[R语言]系统文件管理/">[R语言] 系统文件管理</a>
         </li>
       
         <li>
-          <a href="/2018/08/26/[日常] 2018年08月26日/">2018年08月26日</a>
+          <a href="/2018/05/21/[数据] GDELT项目介绍/">[数据] GDELT项目介绍</a>
+        </li>
+      
+        <li>
+          <a href="/2018/05/01/[R语言] RStudio美化2/">[R语言] RStudio美化2</a>
+        </li>
+      
+        <li>
+          <a href="/2018/04/30/[电影] 后来的我们/">[电影] 后来的我们</a>
         </li>
       
     </ul>
