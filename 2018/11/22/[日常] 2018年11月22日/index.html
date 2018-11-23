@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [金融] 再谈Black-Litterman模型 - 南有嘉鱼 | 南有樛木
+          2018年11月22日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2018/01/20/[金融] 再谈Black-Litterman模型/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/11/22/[日常] 2018年11月22日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/python.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#金融" title="金融">金融</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[金融] 再谈Black-Litterman模型</h1>
-                        <h2 class="subheading">这是一篇关于投资组合优化的跟踪观察</h2>
+                        <h1>2018年11月22日</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2018-01-20
+                            2018-11-22
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -225,48 +225,72 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>既然已经过了一遍马可威茨的均值方差模型，那么就可以继续接着再谈一遍Black-Litterman模型了。</p>
-<p>前面说到利用历史数据去估计期望收益率向量$E(R)$和协方差阵$\hat{\Sigma}$。这种利用历史数据对金融资产做估计是备受诟病的，因为没有用到当前的信息；并且随着资产个数的增加，协方差阵的维度也增加，估计的参数越来越多，由此估计的协方差阵是不稳健的，进一步地，由此计算的投资组合效果往往不好。</p>
-<p>1992年，在高盛（Golden Sachs）工作的 Fischer 和 Robert Litterman 对全球债券投资组合研究时发现，当对德国债券预期收益率做0.1%的修正后，该类资产的投资比例竟然由原来的10%提高至55%。这个发现得出了马可威茨模型的另一个重大缺陷，资产组合的最优权重对输入参数过于敏感。</p>
-<p>Black-Litterman模型的核心思想是，将投资者对大类资产的观点（主观观点）与市场均衡收益（先验预期收益率，用样本均值估计），从而形成新的预期收益率（后验预期收益率）。</p>
-<p>详细模型可以参见-<a href="https://liangzhenghua.github.io/2017/11/12/[%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB]%20Multi-style%20rotation%20strategies%20using%20augmented%20Black%20Litterman%20factor%20model/">《Multi-style rotation strategies using augmented Black Litterman factor model》</a>。</p>
-<p>至于什么是观点矩阵，之前我一直把它当成了投资者对一个投资组合的收益率看法，这样理解也不能说是错的，但是我找到了更贴切的理解。</p>
-<p>比如现在市场上有4种资产A，B，C，D，投资者根据自己的经验和分析，形成以下判断：</p>
-<ul>
-<li><p>资产A的收益率为15%，信心水平为80%</p>
-</li>
-<li><p>资产B比资产D的收益高5%，信心水平为75</p>
-</li>
-<li><p>资产B和C比资产A高6%，信心水平为90%</p>
-</li>
-</ul>
-<p>据此，可以写出反映投资人主观观点的矩阵</p>
-<script type="math/tex; mode=display">
-P=\begin{bmatrix}
-1 & 0 & 0 & 0\\ 
-0 & 1 &-1  &0 \\ 
- -1& \frac{1}{2} & \frac{1}{2} & 0
-\end{bmatrix}</script><p>看法的收益向量因此可以写为</p>
-<script type="math/tex; mode=display">
-q=(15\%,5\%,6\%)'</script><p>信心水平向量可以写为</p>
-<script type="math/tex; mode=display">
-CL=(80\%,75\%,90\%)'</script><p>信心水平向量也属于随机变量，它的协方差矩阵即为$\Omega $。</p>
-<h1 id="R语言实现"><a href="#R语言实现" class="headerlink" title="R语言实现"></a>R语言实现</h1><p>这里使用<code>BLCOP</code>包，详见<a href="https://cran.r-project.org/web/packages/BLCOP/BLCOP.pdf" target="_blank" rel="external">官方文档</a>，步骤如下：</p>
-<ul>
-<li>使用历史数据估计收益率的协方差阵</li>
-<li>确定先验预期收益率，也可以理解为市场预期的收益率向量</li>
-<li>融合投资者的个人观点，即确定$P,Q,\Omega$，在BLCOP包中，可以使用BLview()函数构造观点</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BLViews(P, q, confidences, assetNames)</div></pre></td></tr></table></figure>
-<ul>
-<li>修正后验收益</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">posteriorEst(views, mu, tau = <span class="number">0.5</span>, sigma, kappa = <span class="number">0</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li>投资组合优化</li>
-</ul>
-<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">optimalPortfolios.fPort(result, spec = <span class="literal">NULL</span>, constraints = <span class="string">"LongOnly"</span>, </div><div class="line">                        optimizer = <span class="string">"minriskPortfolio"</span>, inputData = <span class="literal">NULL</span>, </div><div class="line">                        numSimulations = BLCOPOptions(<span class="string">"numSimulations"</span>))</div></pre></td></tr></table></figure>
-<p>其中，result是BLResult对象，constraints可以确定是否有卖空机制，optimizer表示有效资产组合的类型，optimizer = “minriskPortfolio”表示全局最小方差投资组合。</p>
+                <p>还有什么等待还有什么悲哀</p>
+<p>这故事中的人不太精彩</p>
+<p>夏去了又回来而人却已不在</p>
+<p>它重复着我汹涌的忍耐</p>
+<p>今年兰花又开开了它也会败</p>
+<p>我想要一个人活得精彩</p>
+<p>有些人总会来</p>
+<p>有些人在我心中在徘徊</p>
+<p>我拿了总会还你拿了就逃开</p>
+<p>在失去中我慢慢的变呆</p>
+<p>是不同步的未来</p>
+<p>却把书包中的日记更改</p>
+<p>把虚伪的尘埃也全部都掩盖</p>
+<p>把每次心痛都当成活该</p>
+<p>把心慢慢的释怀</p>
+<p>我相信总有一天你会明白</p>
+<p>我给你的爱</p>
+<p>我给你的爱</p>
+<p>给你的爱</p>
+<p>给你的爱</p>
+<p>疼不疼痛不痛</p>
+<p>这样一直被动</p>
+<p>幻想中我的梦</p>
+<p>总会过分要命的囧</p>
+<p>在过去每个时候我都会想象的念头</p>
+<p>别怕就算我是你的</p>
+<p>小小狗也总会被打痛</p>
+<p>意念中想不痛</p>
+<p>却总是被一次掏空</p>
+<p>在去年夏天跟你说了</p>
+<p>一个小小要求</p>
+<p>答应了不放手</p>
+<p>而如今也再不回头</p>
+<p>还有什么等待还有什么悲哀</p>
+<p>这故事中的人不太精彩</p>
+<p>夏去了又回来</p>
+<p>而人却已不在</p>
+<p>它重复着我汹涌的忍耐</p>
+<p>我拿了总会还</p>
+<p>你拿了就逃开</p>
+<p>在失去中我慢慢的变呆</p>
+<p>是不同步的未来</p>
+<p>却把书包中的日记更改</p>
+<p>把虚伪的尘埃</p>
+<p>也全部都掩盖</p>
+<p>把每次心痛都当成活该</p>
+<p>把心慢慢的释怀</p>
+<p>我相信总有一天你会明白</p>
+<p>我拿了总会还</p>
+<p>你拿了就逃开</p>
+<p>在失去中我慢慢的变呆</p>
+<p>是不同步的未来</p>
+<p>却把书包中的日记更改</p>
+<p>把虚伪的尘埃</p>
+<p>也全部都掩盖</p>
+<p>把每次心痛都当成活该</p>
+<p>把心慢慢的释怀</p>
+<p>我相信总有一天你会明白</p>
+<p>我给你的爱</p>
+<p>啦</p>
+<hr>
+<p>今天又是十五了呢，风大，气清。天气变冷之后，大家都冷酷起来了呢。</p>
+<p>昨晚又饿又热，半夜爬起来到外面的贩卖机买了一包苏打饼，泡了一碗泡面，磨磨唧唧到两点多都没睡。</p>
+<p>现在我有两台服务器了，如果把feng.li的也算上，那生活真的很殷实了。</p>
+<p>人呢，真的奇怪，所以我谢谢横T早三吉。</p>
+<p>我做过很多错事，为此我付出的代价都是应得的。</p>
 
 
 
@@ -274,13 +298,9 @@ CL=(80\%,75\%,90\%)'</script><p>信心水平向量也属于随机变量，它的
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2018/01/20/[金融] 股票的高beta异象/" data-toggle="tooltip" data-placement="top" title="[金融] 股票的高beta异象">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2018/01/14/[R语言] 投资组合/" data-toggle="tooltip" data-placement="top" title="[R语言] 投资组合的马可威茨模型">Next Post &rarr;</a>
+                            <a href="/2018/08/27/[R语言]data.table-fread函数/" data-toggle="tooltip" data-placement="top" title="[R语言] data.table-fread函数">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -305,17 +325,6 @@ CL=(80\%,75\%,90\%)'</script><p>信心水平向量也属于随机变量，它的
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#R语言实现"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">R语言实现</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -330,7 +339,7 @@ CL=(80\%,75\%,90\%)'</script><p>信心水平向量也属于随机变量，它的
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#金融" title="金融">金融</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -360,71 +369,7 @@ CL=(80\%,75\%,90\%)'</script><p>信心水平向量也属于随机变量，它的
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
-
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
 
@@ -437,8 +382,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2018/01/20/[金融] 再谈Black-Litterman模型/";
-    var disqus_url = "https://liangzhenghua.github.io/2018/01/20/[金融] 再谈Black-Litterman模型/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/11/22/[日常] 2018年11月22日/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/11/22/[日常] 2018年11月22日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
