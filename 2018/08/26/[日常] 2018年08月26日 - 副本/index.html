@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [计量] 分位数回归 - 南有嘉鱼 | 南有樛木
+          2018年08月26日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/10/15/[计量] 分位数回归/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/08/26/[日常] 2018年08月26日 - 副本/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/economic3.jpg')
+            background-image: url('/img/redtulip.jpg')
             /*post*/
         
     }
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[计量] 分位数回归</h1>
-                        <h2 class="subheading">这是一篇关于分位数回归的介绍</h2>
+                        <h1>2018年08月26日</h1>
+                        <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-10-15
+                            2018-08-26
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -225,36 +225,10 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的情况下，分布的均值等于分布的中位数。</p>
-<p>但我们关心$\textbf{x}$对整个条件分布$y|\textbf{x}$的影响，而$E(y|\textbf{x})$只是刻画条件分布$y|\textbf{x}$集中趋势的一个指标而已。如果$y|\textbf{x}$不是对称分布，则$E(y|\textbf{x})$很难反映条件分布的全貌。</p>
-<p>如果能够估计一组系数向量$\beta$，使得$\widehat{y}=\textbf{x}\beta’$得到的$\widehat{y}$是$y$的某个分位数（比如0.5分位数），就能更全面地认识条件分布$y|\textbf{x}$。一般线性回归模型实际上分析的是研究对象的平均水平受到其他因素影响的程度大小，如果考虑将$y$分为三种水平（而不是只有一种平均水平），那么一种能够刻画不同水平研究对象的统计方法就应运而生了，这就是分位数回归[邓露，郑展；2009]。邓露还给出了分位数的简单解释，如果将被解释变量$y$表示为一系列解释变量$X$的线性表达式（又称为拟合值），并使得该表达式满足小于或等于$y$的分位数$q_\tau$的概率是$\tau$，就称为<strong><em>分位数回归</em></strong>。邓露总结分位数回归的优势如下：</p>
-<ul>
-<li>分位数能够更加全面地描述对象的全貌，而不仅仅是均值分析。它可以描述一些因素如何影响研究对象的中位数、1/4分位数、3/4分位数等，这些不同分位数代表了处于不同水平的研究对象。</li>
-<li>在<em>尖峰厚尾</em>的金融数据中，分位数回归能够提供更为详尽的信息。因为不同分位数下的参数估计量往往不同，这就代表同样的影响因素对处在不同水平的研究对象作用大小不同。</li>
-<li>分位数回归的条件弱很多，特别是数据中含有离群点时，中位数回归的优势更加明显。</li>
-</ul>
-<p>回归分析的基本思想就是设法通过使构建的方程和样本之间的距离最短来描述因变量的条件分布收到自变量影响的过程。在数据服从“尖峰厚尾”、极端值或者存在异方差等情况时，都会导致OLS失效。（苏瑜，万宇艳；2009）</p>
-<p>Koenker和Bassett（1978）提出“分位数回归”（Quantile Regression，QR）使用残差绝对值的加权平均（比如$\sum |e_i|$）作为最小化的目标函数，不易受极端值影响，较为稳健。</p>
-<h1 id="总体分位数"><a href="#总体分位数" class="headerlink" title="总体分位数"></a>总体分位数</h1><p>假设$Y$为连续性随机变量，累积分布函数为$F_y(·)$，$Y$的<em>总体$q$分位数</em>记为$y_q$，满足：</p>
-<script type="math/tex; mode=display">q=p(Y\leq y_q) =F_y(y_q)</script><p>更准确的定义应该是$y_q=inf\{y:F(y)\geq q\} ,0&lt;q&lt;1$，第一种定义在很自然很理想的情况下成立，当分布函数稍微复杂之后就不再适用。</p>
-<h1 id="样本分位数"><a href="#样本分位数" class="headerlink" title="样本分位数"></a>样本分位数</h1><p>将样本数据$\{y_1,y_2,…,y_n\}$按从小到大的顺序排列为$\{y_{(1)},y_{(2)},…,y_{(n)}\}$，$\widehat{y}_q$等于第$[nq]$个最小观测值，$[nq]$表示大于或等于$nq$而离$nq$最近的正整数。</p>
-<h1 id="分位数回归的估计方法"><a href="#分位数回归的估计方法" class="headerlink" title="分位数回归的估计方法"></a>分位数回归的估计方法</h1><p><strong>命题</strong>  可以将样本$q$分位数回归的系数估计问题视为以下最小化残差绝对值的加权平均问题的最优解：</p>
-<script type="math/tex; mode=display">min \ q\sum _{i:y_i\geq \mu}^n |y_i-\mu|+(1-q)\sum _{i:y_i< \mu}^n|y_i-\mu|\Rightarrow \mu=\widehat{y}_q</script><p>如果$q=1/4$，则满足$y_i&lt;\mu$的观测值得到3/4的权重，而满足$y_i\geq\mu$的观测值只得到1/4的权重。总之，无论q分位数在中位数的哪边，哪边的观测值权重就要更大一点，这就保证在优化的过程中会更多考虑该边的残差，使得估计结果$y$刚好处于q分位数位置上。</p>
-<p><strong>定义</strong>  函数$\rho _q(\cdot )$为</p>
-<script type="math/tex; mode=display">
-\rho _q(y_i-\mu )=\left\{\begin{matrix}
-q|y_i-\mu|,if\ y_i\geq \mu\\
-(1-q)|y_i-\mu|,if\ y_i< \mu
-
-\end{matrix}\right.</script><p>这个函数叫打钩函数（check function），形状如图：<br><img src="https://wkretype.bdimg.com/retype/zoom/6eddbf0cde80d4d8d15a4f9e?pn=17&amp;o=jpg_6&amp;md5sum=176d63798e3d7bdc6ee48000e5846629&amp;sign=9b62847f48&amp;png=722425-733988&amp;jpg=1822972-1847377" alt="百度文库《第26章分位数回归》"></p>
-<h1 id="分位数回归的估计方法-1"><a href="#分位数回归的估计方法-1" class="headerlink" title="分位数回归的估计方法"></a>分位数回归的估计方法</h1><p>假设条件分布$y|\textbf{x}$的总体q分位数$y_q(x)$是$x$的线性函数：</p>
-<script type="math/tex; mode=display">y_q(x_i)= \textbf{x}'\beta_q</script><p>其中，$\beta_q$称为<strong>q分位数回归系数</strong>，其估计量由一下最小化问题来定义：</p>
-<script type="math/tex; mode=display">min \ \sum _{i=1}^n \rho_p(y_i-\textbf{x}'\beta_q)</script><h1 id="估计系数的分布"><a href="#估计系数的分布" class="headerlink" title="估计系数的分布"></a>估计系数的分布</h1><p>样本分位数回归系数$\widehat{\beta_q}$是总体回归系数$\beta_q$的一致估计量，且服从正态分布：</p>
-<script type="math/tex; mode=display">
-\sqrt{n}(\beta_q-\widehat{\beta_q})\overset{d}{\rightarrow}N(0,Avar(\widehat{\beta_q}))</script><p>其中渐近方差$Avar(\widehat{\beta_q})=A^{-1}BA^{-1}$（夹心估计量）</p>
-<h1 id="拟合优度"><a href="#拟合优度" class="headerlink" title="拟合优度"></a>拟合优度</h1><p>对于样本q分位数回归方程，可使用准$R^2$度量其拟合优度，其定义为：</p>
-<script type="math/tex; mode=display">
-1-\frac{q\sum _{i:y_i\geq x'\widehat{\beta}_q}^n |y_i-x'\widehat{\beta}_q|+(1-q)\sum _{i:y_i\leq x'\widehat{\beta}_q}^n|y_i-x'\widehat{\beta}_q|}{q\sum _{i:y_i\geq \widehat{y}_q}^n |y_i-\widehat{y}_q|+(1-q)\sum _{i:y_i\leq \widehat{y}_q}^n|y_i-\widehat{y}_q|}</script><p>其中$\widehat{y}_q$为样本q分位数。</p>
+                <p><img src="http://orobrju86.bkt.clouddn.com/2018/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180826234504.png" alt=""></p>
+<p>一个素来素往的人，只是交谈一番，就让我莫名心安，我相信ta不是一个夸下海口的人。使命二字，可以用任务又或者差事代替，而使命总会显得更庄重一些，如果说不辱使命，那就很像我的风格了。</p>
+<p>我想好了，广东以后肯定是要回去的，什么时候以什么方式就不是我能左右的了，我喜欢广东人的天马行空又不失幽默的想法，还有对生活的乐观豁达。巍峨的崇山和绵绵的江水之间，我还喜欢水多一点，那种感受就像把手插进水流里和把手插进沙土里的比较。</p>
+<p>可是我又喜欢豪爽的北方人，吃饭不用给钱，这样的抉择真是世纪难题呀。</p>
 
 
 
@@ -263,12 +237,12 @@ q|y_i-\mu|,if\ y_i\geq \mu\\
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2017/10/15/[计量] 多重共线性/" data-toggle="tooltip" data-placement="top" title="[计量] 多重共线性">&larr; Previous Post</a>
+                            <a href="/2018/08/27/[R语言]data.table-fread函数/" data-toggle="tooltip" data-placement="top" title="[R语言] data.table-fread函数">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2017/09/27/[金融] 金融衍生品基础/" data-toggle="tooltip" data-placement="top" title="[金融] 金融衍生品基础">Next Post &rarr;</a>
+                            <a href="/2018/05/23/[R语言]系统文件管理/" data-toggle="tooltip" data-placement="top" title="[R语言] 系统文件管理">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -293,17 +267,6 @@ q|y_i-\mu|,if\ y_i\geq \mu\\
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#Introduction"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Introduction</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#总体分位数"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">总体分位数</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#样本分位数"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">样本分位数</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#分位数回归的估计方法"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">分位数回归的估计方法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#分位数回归的估计方法-1"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">分位数回归的估计方法</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#估计系数的分布"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">估计系数的分布</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#拟合优度"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">拟合优度</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -318,7 +281,7 @@ q|y_i-\mu|,if\ y_i\geq \mu\\
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#计量" title="计量">计量</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -348,71 +311,7 @@ q|y_i-\mu|,if\ y_i\geq \mu\\
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
-
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
 
@@ -425,8 +324,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/10/15/[计量] 分位数回归/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/10/15/[计量] 分位数回归/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/08/26/[日常] 2018年08月26日 - 副本/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/08/26/[日常] 2018年08月26日 - 副本/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
