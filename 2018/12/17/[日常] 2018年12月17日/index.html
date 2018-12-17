@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          [文献阅读] 中国股票市场可预测性的实证研究 - 南有嘉鱼 | 南有樛木
+          2018年12月17日 - 南有嘉鱼 | 南有樛木
         
     </title>
 
-    <link rel="canonical" href="https://liangzhenghua.github.io/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/">
+    <link rel="canonical" href="https://liangzhenghua.github.io/2018/12/17/[日常] 2018年12月17日/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -86,14 +86,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
+                              <a class="tag" href="/tags/#日常" title="日常">日常</a>
                             
                         </div>
-                        <h1>[文献阅读] 中国股票市场可预测性的实证研究</h1>
+                        <h1>2018年12月17日</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leung ZhengHua on
-                            2017-11-26
+                            2018-12-17
                         </span>
 						<!-- 测试阅读量 -->
 						<br></br>
@@ -225,56 +225,16 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>这篇文章是金融学院的<a href="http://fuweijiang.weebly.com/" target="_blank" rel="external">姜富伟</a>读博期间发的论文，周二就要见真人了，所以我现在要做好功课。</p>
-<p>首先，嗯，我来算一下他的年龄，1983年生，2014年新加坡管理大学毕业，嗯，31岁拿到了博士学位。</p>
-<p>Campbell(2000)指出，学术界对股票收益有显著的样本内可预测性已基本达成共识。然而，股票收益的样本外可预测性至今还有争议，比如，Welch and Goyal(2008)发现许多流行的预测变量并没有在样本外预测中优于历史平均收益这一简单预测。但Campbell and Thompson(2008)指出，通过基于金融理论的参数约束，股票收益在样本外也是可预测的。</p>
-<p>意思就是说，用你的数据建立你的模型，再代入你的数据，效果很棒；然而用样本外的数据检验你的模型时，不好意思，我还不如用前几天股票收益率的均值去估计明天的收益率。</p>
-<h1 id="样本内可预测性检验"><a href="#样本内可预测性检验" class="headerlink" title="样本内可预测性检验"></a>样本内可预测性检验</h1><p>姜富伟为了检验各个变量对中国股票收益的可预测性，使用单变量预测性回归分析模型（实际上就是一元回归）：</p>
-<script type="math/tex; mode=display">\begin{equation}
-r_{i,t}=a_i+b_{i,t}x_{j,t-1}+e_{j,t}
-\end{equation}</script><p>其中，$r_{i,t}$是投资组合$i$的收益与无风险利率之差（超额收益率的意思），$x_{j,t}$是潜在预测变量（对某资产$i$我们有一系列的变量$j=1,2,3,…,n$去做回归），$e_{j,t}$是误差项。</p>
-<p>接下来姜富伟用公式（1）中$b_{i,j}$的t统计量判断该变量对收益率$r_{i,t}$是否具有显著预测能力，一元回归我们学统计的都学到烂了。可能是样本数据量偏少，他用bootstrap方法进行统计推断以避免假设检验中的小样本水平扭曲问题（Size Distortion）,这个术语倒是第一次听说。</p>
-<p>因此在样本内的可预测检验问题就转换成对各个一元回归模型的t检验，但在使用一元回归模型之前我们还得生成我们感兴趣的投资组合的$r_{i,t}$和潜在预测变量$X_j$，姜富伟是这么处理得到各投资组合的$r_{i,t}$：</p>
-<ul>
-<li>利用正常的A股公司（没有包括ST或者PT这些表现异常的公司）构造1996年7月-2009年6月的市值加权投资组合，这意味着这个投资组合的每日收益率就是把所有正常A股的每日收益率按市值加权汇总得到的收益率。</li>
-<li>每年6月底，按中国证监会行业分类同样以市值加权的方式构造13个行业（比如农林牧渔业）投资组合</li>
-<li>每年6月底，按股票市值规模大小排序，等分10个相同数量股票的规模投资组合，同样以市值加权的方式组合</li>
-<li>每年6月底，按股票面值市值比大小排序，等分10个相同数量股票的面值市值比投资组合，同样以市值加权的方式组合；但6月底一般还不能拿到中报的公司账面价值，文章采用上一财年末的账面价值</li>
-<li>每年6月底，按股权集中度大小排序，等分10个相同数量的股权集中度投资组合，股权集中度用上一财年末的最大股东持股比例表示（应该是这样）</li>
-</ul>
-<p>此外，姜富伟参考了Welch and Goyal（2008）选取了12个经济变量作为中国股票超额收益的潜在预测变量。</p>
-<ul>
-<li>股利支付率（D/E）</li>
-<li>股利价格比（D/P）</li>
-<li>股息率（D/Y）</li>
-<li>盈余价格比（E/P）</li>
-<li>面值市值比（B/M）</li>
-<li>股票方差（SVR）</li>
-<li>通货膨胀（INF）</li>
-<li>净权益增加（NTIS）</li>
-<li>换手率（TO）</li>
-<li>$M_0$增长率（$M_0G$）</li>
-<li>$M_1$增长率变动量（$M_1G$），为什么用增长率变动量，这个奇怪的二次差分要问问他</li>
-<li>$M_2$增长率（$M_2G$）</li>
-</ul>
-<p>至此我们得到了一份整洁的数据可以代入一元回归模型，得到回归的估计结果。实际上姜富伟用$R^2$表示各方程的可预测性，在这个基础上汇总得到每个行业的平均$R^2$，每个变量的平均$R^2$，汇总得到每个变量对多少个行业有解释能力（有多少条方程是显著的）。文章结果指出，在行业投资组合中，MAN（制造业）、FIN（金融保险业）、PRT（房地差业）行业最容易预测，平均$R^2$大于2%。</p>
-<h1 id="样本外可预测性检验"><a href="#样本外可预测性检验" class="headerlink" title="样本外可预测性检验"></a>样本外可预测性检验</h1><p>相对于样本内预测，样本外预测对于现实世界投资者的史诗投资决策更具有意义。但针对美国市场的实证研究发现，股票收益的样本外可预测性弱且不稳定（Welch and Goyal,2008）。Ludvigson and Ng(2009)等发现主成分预测方法可以在样本外显著预测美国股票和债券市场。</p>
-<h2 id="计量方法"><a href="#计量方法" class="headerlink" title="计量方法"></a>计量方法</h2><p>姜富伟采用扩展估计法（Expanding Estimation）来估计样本外股票超额收益。实际上就是一种滚动估计方法，每次往训练集加入新拿到的数据，更新模型的参数，预测下一期的值，等到下一期的数据能够拿到了，再重复这个过程，我们就这样得到一系列的预测值。</p>
-<p>然而为了和单变量预测性回归模型作对比，他还用了主成分预测方法将所有变量降维至2个变量，再滚动估计收益率序列。在中国股票市场没有可预测性的原假设下，可以用带漂移项的随机游走模型刻画中国股票市场超额收益。因此（为什么）可以选择历史平均收益作为样本外预测基准：$\bar{r}_{i,t+1}=\frac{1}{t}\Sigma_{s=1}^tr_{i,t}$（Welch and Goyal,2008）。如果潜在预测变量包含的信息能预测中国股票市场超额收益，那么使用该变量的单变量预测性回归模型和主成分预测模型应该比历史平均收益有更好的样本外预测能力，因为后者忽略了有用的预测信息。</p>
-<p>Campbell and Thompson(2008)使用了以下统计量来检验$\hat{r}_{i,t+1}$的样本外预测表现：</p>
-<script type="math/tex; mode=display">\begin{equation}
-R_{OS}^2=1-\frac{\sum_{k=1}^{n_2} (r_{i,n_1+k}-\hat{r}_{i,n_1+k})^2}{\sum_{k=1}^{n_2} (r_{i,n_1+k}-\bar{r}_{i,n_1+k})^2}
-\end{equation}</script><p>$n_2$表示样本外推的期数，当$R_{os}^2&gt;0$时，按照均方预测误差（MSPE）标准，$\hat{r}_{i,n_1+k}$预测优于$\bar{r}_{i,n_1+k}$预测。</p>
-<p>在计算得到每个投资组合对每个变量的$R_{OS}^2$之后，我们可以仿照前面按行业平均，按变量平均的方式重新分析一遍。结果表明，换手率（TO）具有很强的预测能力，这是很容易理解的（我还没理解出来），Miller(1997)指出，当存在卖空约束时，投资者的异质信念会导致股票高估。由于中国股票市场发展时间短、不允许卖空和市场主体主要由缺乏投资经验的非理性个人投资者构成，这些因素使得Miller(1997)的理论在中国股票市场尤其适用。</p>
-<h1 id="条件CAPM模型与样本外可预测性分解"><a href="#条件CAPM模型与样本外可预测性分解" class="headerlink" title="条件CAPM模型与样本外可预测性分解"></a>条件CAPM模型与样本外可预测性分解</h1><p>文章使用条件CAPM模型把公式（2）的$R_{OS}^2$分解为属于条件资产定价模型解释的$R_{OS}^2$和有alpha解释的$R_{OS,\alpha}^2$两部分。</p>
-<p>假设投资组合i的<em>超额收益</em>服从如下模型：</p>
-<script type="math/tex; mode=display">
-r_{i,t}=\alpha_i(x_{t-1})+\beta_i'f_t+\epsilon_{i,t}</script><p>其中，$x_{t-1}$是J维滞后预测变量，$f_t$是K维基于投资组合的系统性风险因子，$\beta_i$是K维投资组合beta系数，$\epsilon_{i,t}$是扰动项。</p>
-<p>进一步假设：</p>
-<script type="math/tex; mode=display">
-f_t=\lambda(x_{t-1})+u_t</script><p>好的，这里的画风不一样了，应该是另一个作者负责这部分的，我看不下去了。问清楚了再回来补全后面的分解过程。</p>
-<p>这里面有点滥用符号了。$\lambda(x_{t-1})$实际上是表示风险因子的收益，举个例子，取最常见最重要的因子$f_t=E(R_m−R_f)$，即市场期望收益率扣除无风险利率的部分.</p>
-<p>后面的思想就是收益率可以由几个因子解释，那么据此可以建立一个回归模型，并且得到了回归系数。然后要预测下一期的收益率，收益率的回归模型的系数有了，可是要拿到下一期的因子取值的数据才能预测下一期收益率，而这个时候因子的数据又不能够取得。因而将已有的各个宏观变量和公司财务数据的变量做个主成分降维，利用少数主成分作为解释变量建立对因子的回归模型，去预测计算因子下一期的值（期望值）。因此这里的主要工作分为了两部分，分别估计$\beta$和$\lambda(x_{t-1})$，两者再凑到一起就可以得到下一期的收益率预测值。</p>
+                <p>横T早三吉今天回泉州了，突然说起自怡微言，不得不慨叹发现世界真的好小啊，自怡微言又说起了四十四次日落的话题。最近想的问题突然都有了答案，慢慢地又恢复了一点信心。</p>
+<p>对了，横T早三吉其实是卓洁的拆字，卓洁是我一个很好的朋友，她就像我在香港的一个延伸，让我离香港如此之近，当然还包括我的“朋友们”。可能因为都是大家庭下长大的缘故，在很多重要问题的看法上我们是一致的。</p>
+<p>年关将至，卓洁也完成了当初我交给她的使命，不再需要以代号示人了，给她打98分吧，剩下52分留给我自己去完成。</p>
+<p>这两天听到橙子多年以前的一首《Let her go》，想到以后见到橙子也不知道是什么时候了，心里突然有了失去的感觉，橙子也是我一个很好的朋友。当时送她去机场的时候，她的三四个行李箱垒的比人还高，或许她的梦本来就比别人要高一点吧。</p>
+<p>到了胡子越来越盖不住的年龄，越来越明白谁才是朋友，谁不是。</p>
+<video controls autoplay name="media">
+<source src="http://tx.stream.kg.qq.com/shkge-btfs/d881089e7ebf5c77719860ea841e7968605e3782?ftnrkey=78d86b32cedc9a2fecc0a89c66d8385d11f5eb5c935c6dc3a319c63147135deac78781e04ee3db8d9428c2271cbe9c79dfa6e8a6c86925e4d762e44710a23b61&amp;vkey=98F431603AB7CCC26136D4C89F8DFC190136249D27AADA3123F739365FAFDAA94C0E3EC3DC762FD20C73BCA055CA30E7CEC9020EB8D286C536BE5AA4D24C51A04F98A3CD1093EEF09AC1843464CF6931E1F7D28F59D372A4&amp;fname=1021_8fea21ede19347b0547e47ef83f99afc74818aae.0.m4a&amp;fromtag=1506&amp;sdtfrom=v1506" type="audio/mp4">
+</video>
+
+<p>真的听哭了，Only hate the road when u missing home</p>
 
 
 
@@ -282,13 +242,9 @@ f_t=\lambda(x_{t-1})+u_t</script><p>好的，这里的画风不一样了，应�
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2017/11/26/[Statistics] PCA资源汇总/" data-toggle="tooltip" data-placement="top" title="[Statistics] 多元统计资源汇总">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2017/11/26/[文献阅读] Bayesian adaptive Lasso quantile regression/" data-toggle="tooltip" data-placement="top" title="[文献阅读] Bayesian adaptive Lasso quantile regression">Next Post &rarr;</a>
+                            <a href="/2018/12/01/[日常] 2018年12月01日/" data-toggle="tooltip" data-placement="top" title="2018年12月01日">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -313,17 +269,6 @@ f_t=\lambda(x_{t-1})+u_t</script><p>好的，这里的画风不一样了，应�
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
-        
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#样本内可预测性检验"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">样本内可预测性检验</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#样本外可预测性检验"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">样本外可预测性检验</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#计量方法"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">计量方法</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#条件CAPM模型与样本外可预测性分解"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">条件CAPM模型与样本外可预测性分解</span></a></li></ol>
-        
-        </div>
-      </aside>
-    
-
 
             <!-- Sidebar Container -->
             <div class="
@@ -338,7 +283,7 @@ f_t=\lambda(x_{t-1})+u_t</script><p>好的，这里的画风不一样了，应�
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#文献阅读" title="文献阅读">文献阅读</a>
+                          <a class="tag" href="/tags/#日常" title="日常">日常</a>
                         
                     </div>
                 </section>
@@ -368,71 +313,7 @@ f_t=\lambda(x_{t-1})+u_t</script><p>好的，这里的画风不一样了，应�
     </div>
 <!-- 控制文章是否需要捐赠 -->
     
-    	<! -- 添加捐赠图标-->
-<div class ="post-donate">
-    <div id="donate_board" class="donate_bar center">
-        <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏"></a>
-        <span class="donate_txt">
-           &uarr;<br>
-		   无以生计，卖文苟延
-        </span>
-        <br>
-      </div>
-	<div id="donate_guide" class="donate_bar center hidden" >
-		<!-- ֧支付宝打赏-->
-		<img src="/css/img/zhifubao.jpg" alt="֧支付宝打赏">
-		<!-- 微信打赏 -->
-		<img src="/css/img/weixin.jpg" alt="微信打赏">
-    </div>
-	<script type="text/javascript">
-		document.getElementById('btn_donate').onclick = function(){
-			$('#donate_board').addClass('hidden');
-			$('#donate_guide').removeClass('hidden');
-		}
-	</script>
-</div>
-<! -- 添加捐赠图标-->
-
-    
 <!-- 控制文章是否加载公式 -->
-
-    <!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- script below is in order to number the equationNumbers 2017-11-17 -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
-
-<!-- original link: https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML -->
-<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_SVG.js">
-</script>
 
 <!-- 控制文章是否需要密码 2017-08-07-->
 
@@ -445,8 +326,8 @@ MathJax.Hub.Config({
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "liangzhenghua";
-    var disqus_identifier = "https://liangzhenghua.github.io/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/";
-    var disqus_url = "https://liangzhenghua.github.io/2017/11/26/[文献阅读] 中国股票市场可预测性的实证研究/";
+    var disqus_identifier = "https://liangzhenghua.github.io/2018/12/17/[日常] 2018年12月17日/";
+    var disqus_url = "https://liangzhenghua.github.io/2018/12/17/[日常] 2018年12月17日/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

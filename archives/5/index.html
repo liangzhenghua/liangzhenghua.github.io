@@ -219,6 +219,71 @@
 
 <div class="post-preview">
 
+    <a href="/2017/11/11/[R语言] RStudio美化/">
+        <h2 class="post-title">
+            [R语言] RStudio美化
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于RStudio美化的小技巧
+        </h3>
+        <div class="post-content-preview">
+            help page 输出文档美化这个美化文档的最初想法来自Raining_wcc，后来在他的CSS上大刀阔斧地又调出了符合本人审美的CSS，一个特点就是字体比较大。
+将下列文件保存为R.css文件，替换到Rstudio安装文件夹下的RStudio\resources\R.css。123456789101112131415161718192021222324252627282930313233......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-11
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#R" title="R">R</a>
+            
+              <a href="/tags/#RStudio" title="RStudio">RStudio</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/11/09/[Statistics] 点估计/">
+        <h2 class="post-title">
+            [Statistics] 点估计
+        </h2>
+        <h3 class="post-subtitle">
+            这是一篇关于点估计的重要提醒
+        </h3>
+        <div class="post-content-preview">
+            
+分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
+
+
+$\Theta$是$R^k$上的开矩形
+$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
+支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leung ZhengHua on
+            2017-11-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#统计" title="统计">统计</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2017/11/09/[Statistics] 多元正态分布/">
         <h2 class="post-title">
             [Statistics] 多元正态分布
@@ -284,31 +349,25 @@ OLS估计记双变量模型为：$Y_i=\beta_1+\beta......
 
 <div class="post-preview">
 
-    <a href="/2017/11/09/[Statistics] 点估计/">
+    <a href="/2017/10/15/[计量] 分位数回归/">
         <h2 class="post-title">
-            [Statistics] 点估计
+            [计量] 分位数回归
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于点估计的重要提醒
+            这是一篇关于分位数回归的介绍
         </h3>
         <div class="post-content-preview">
-            
-分布族$p_{\theta}(x),\theta\in \Theta $称为Cramer-Rao正则族。如果
-
-
-$\Theta$是$R^k$上的开矩形
-$\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Theta$都存在
-支撑$A=\{x:p_{\theta}(x)&gt;0\}$与$\theta$......
+            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-11-09
+            2017-10-15
         </p>
         <div class="tags">
             
-              <a href="/tags/#统计" title="统计">统计</a>
+              <a href="/tags/#计量" title="计量">计量</a>
             
         </div>
     
@@ -347,25 +406,30 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
 
 <div class="post-preview">
 
-    <a href="/2017/10/15/[计量] 分位数回归/">
+    <a href="/2017/09/27/[Bayesian] 充分统计量/">
         <h2 class="post-title">
-            [计量] 分位数回归
+            [Bayesian] 充分统计量
         </h2>
         <h3 class="post-subtitle">
-            这是一篇关于分位数回归的介绍
+            这是一篇关于充分统计量的回顾
         </h3>
         <div class="post-content-preview">
-            Introduction一般的回归模型着重考察$\textbf{x}$对$y$的条件期望$E(y|\textbf{x})$的影响，实际上是均值回归。因为在误差项服从正态性假设下，给定$\textbf{x}$和系数$\beta$，$y$服从一定的概率分布（正态分布），均值为$E(y|\textbf{x})$。我们利用OLS估计的$\beta$系数，只能计算得到$y$分布的期望均值，在分布对称的......
+            
+充分统计量：设$\mathbf{x}=(x_1,x_2,…,x_n)$是来自分布$F(x|\theta)$的一个样本，$T=T(X)$是统计量，假如在给定$T(X)=t$的条件下，$\mathbf{x}$的条件分布与$\theta$无关的话，则称该统计量为充分统计量。
+
+
+
+因子分解定理：充分统计量的充要条件是存在一个函数$g(t,\theta)$和一个样本函数$h(x)$，使得对任一样本......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leung ZhengHua on
-            2017-10-15
+            2017-09-27
         </p>
         <div class="tags">
             
-              <a href="/tags/#计量" title="计量">计量</a>
+              <a href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
             
         </div>
     
@@ -432,39 +496,6 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
 
 <div class="post-preview">
 
-    <a href="/2017/09/27/[Bayesian] 充分统计量/">
-        <h2 class="post-title">
-            [Bayesian] 充分统计量
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇关于充分统计量的回顾
-        </h3>
-        <div class="post-content-preview">
-            
-充分统计量：设$\mathbf{x}=(x_1,x_2,…,x_n)$是来自分布$F(x|\theta)$的一个样本，$T=T(X)$是统计量，假如在给定$T(X)=t$的条件下，$\mathbf{x}$的条件分布与$\theta$无关的话，则称该统计量为充分统计量。
-
-
-
-因子分解定理：充分统计量的充要条件是存在一个函数$g(t,\theta)$和一个样本函数$h(x)$，使得对任一样本......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-09-27
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#贝叶斯统计" title="贝叶斯统计">贝叶斯统计</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
     <a href="/2017/09/27/[计量] 邹至庄检验/">
         <h2 class="post-title">
             [计量] 邹至庄检验
@@ -489,37 +520,6 @@ $\partial ln p_{\theta}(x)/\partial \theta_i,i=1,2,…,k$对所有$\theta\in \Th
         <div class="tags">
             
               <a href="/tags/#计量" title="计量">计量</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/09/26/[Manual] python3之pandas使用手册/">
-        <h2 class="post-title">
-            [Manual] python3之pandas使用手册
-        </h2>
-        <h3 class="post-subtitle">
-            这是一篇python3数据分析的基础性文档
-        </h3>
-        <div class="post-content-preview">
-            在阅读本文之前，你可能对以下资源贴有兴趣：
-pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentation
-
-...
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leung ZhengHua on
-            2017-09-26
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#python" title="python">python</a>
             
         </div>
     
@@ -595,11 +595,7 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
             
         
             
-        
-            
             <a href="/tags/#RStudio" title="RStudio" rel="2">RStudio</a>
-            
-        
             
         
             
@@ -619,11 +615,15 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
             
         
             
+        
+            
             <a href="/tags/#文献阅读" title="文献阅读" rel="5">文献阅读</a>
             
         
             
-            <a href="/tags/#日常" title="日常" rel="3">日常</a>
+        
+            
+            <a href="/tags/#日常" title="日常" rel="4">日常</a>
             
         
             
@@ -639,9 +639,9 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
             
         
             
-            <a href="/tags/#金融" title="金融" rel="2">金融</a>
-            
         
+            
+            <a href="/tags/#金融" title="金融" rel="2">金融</a>
             
         
             
@@ -756,6 +756,10 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
     <ul>
       
         <li>
+          <a href="/2018/12/17/[日常] 2018年12月17日/">2018年12月17日</a>
+        </li>
+      
+        <li>
           <a href="/2018/12/01/[日常] 2018年12月01日/">2018年12月01日</a>
         </li>
       
@@ -769,10 +773,6 @@ pandas官方文档十分钟搞定pandasPython For Data Analysis’s documentatio
       
         <li>
           <a href="/2018/08/26/[日常] 2018年08月26日 - 副本/">2018年08月26日</a>
-        </li>
-      
-        <li>
-          <a href="/2018/05/23/[R语言]系统文件管理/">[R语言] 系统文件管理</a>
         </li>
       
     </ul>
